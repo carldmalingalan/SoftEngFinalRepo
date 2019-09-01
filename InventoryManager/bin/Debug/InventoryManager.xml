@@ -1,0 +1,381 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+InventoryManager
+</name>
+</assembly>
+<members>
+<member name="T:InventoryManager.JandADataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet.tblLoginsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet.tblLoginsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet.tblLoginsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSetTableAdapters.tblLoginsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(InventoryManager.JandADataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(InventoryManager.JandADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(InventoryManager.JandADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSetTableAdapters.TableAdapterManager.UpdateAll(InventoryManager.JandADataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet1.tblLoginsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet1.tblLoginsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet1.tblLoginsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet1TableAdapters.tblLoginsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet1TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(InventoryManager.JandADataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(InventoryManager.JandADataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(InventoryManager.JandADataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet1TableAdapters.TableAdapterManager.UpdateAll(InventoryManager.JandADataSet1)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet2">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet2.tblInventoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet2.tblInventoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet2.tblInventoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet2TableAdapters.tblInventoryTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet2TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet2TableAdapters.TableAdapterManager.UpdateUpdatedRows(InventoryManager.JandADataSet2,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet2TableAdapters.TableAdapterManager.UpdateInsertedRows(InventoryManager.JandADataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet2TableAdapters.TableAdapterManager.UpdateDeletedRows(InventoryManager.JandADataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet2TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet2TableAdapters.TableAdapterManager.UpdateAll(InventoryManager.JandADataSet2)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet2TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet2TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet3">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet3.tblInventoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet3.tblInventoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet3.tblInventoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet3TableAdapters.tblInventoryTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet3TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet3TableAdapters.TableAdapterManager.UpdateUpdatedRows(InventoryManager.JandADataSet3,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet3TableAdapters.TableAdapterManager.UpdateInsertedRows(InventoryManager.JandADataSet3,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet3TableAdapters.TableAdapterManager.UpdateDeletedRows(InventoryManager.JandADataSet3,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet3TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet3TableAdapters.TableAdapterManager.UpdateAll(InventoryManager.JandADataSet3)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet3TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet3TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:InventoryManager.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.accountsIcon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.add_1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.add_2_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.dashboardIcon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.employees">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.image_not_available_male">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.inventory_1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.J_A_LOGO_SALON">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.logout_1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.New_Project_1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.New_Project_1_1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.New_Project_2_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.New_Project_3_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.New_Project_4_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.New_Project_5_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.New_Project_6_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.settings">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.speedometer">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.transactionsIcon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+</members>
+</doc>
