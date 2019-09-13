@@ -6,6 +6,71 @@ InventoryManager
 </name>
 </assembly>
 <members>
+<member name="T:InventoryManager.EmpName">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventoryManager.EmpName.vw_EmployeesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventoryManager.EmpName.vw_EmployeesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventoryManager.EmpName.vw_EmployeesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventoryManager.EmpNameTableAdapters.vw_EmployeesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:InventoryManager.EmpNameTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:InventoryManager.EmpNameTableAdapters.TableAdapterManager.UpdateUpdatedRows(InventoryManager.EmpName,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.EmpNameTableAdapters.TableAdapterManager.UpdateInsertedRows(InventoryManager.EmpName,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.EmpNameTableAdapters.TableAdapterManager.UpdateDeletedRows(InventoryManager.EmpName,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:InventoryManager.EmpNameTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:InventoryManager.EmpNameTableAdapters.TableAdapterManager.UpdateAll(InventoryManager.EmpName)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:InventoryManager.EmpNameTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:InventoryManager.EmpNameTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:InventoryManager.JandADataSet">
 <summary>
 Represents a strongly typed in-memory cache of data.
@@ -266,6 +331,136 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member>
+<member name="T:InventoryManager.JandADataSet4">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet4.tblServicesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet4.tblServicesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet4.tblServicesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet4TableAdapters.tblServicesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet4TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet4TableAdapters.TableAdapterManager.UpdateUpdatedRows(InventoryManager.JandADataSet4,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet4TableAdapters.TableAdapterManager.UpdateInsertedRows(InventoryManager.JandADataSet4,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet4TableAdapters.TableAdapterManager.UpdateDeletedRows(InventoryManager.JandADataSet4,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet4TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet4TableAdapters.TableAdapterManager.UpdateAll(InventoryManager.JandADataSet4)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet4TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet4TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet5">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet5.vw_ServicesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet5.vw_ServicesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet5.vw_ServicesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet5TableAdapters.vw_ServicesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet5TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet5TableAdapters.TableAdapterManager.UpdateUpdatedRows(InventoryManager.JandADataSet5,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet5TableAdapters.TableAdapterManager.UpdateInsertedRows(InventoryManager.JandADataSet5,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet5TableAdapters.TableAdapterManager.UpdateDeletedRows(InventoryManager.JandADataSet5,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet5TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:InventoryManager.JandADataSet5TableAdapters.TableAdapterManager.UpdateAll(InventoryManager.JandADataSet5)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet5TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:InventoryManager.JandADataSet5TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:InventoryManager.My.Resources.Resources">
 <summary>
   A strongly-typed resource class, for looking up localized strings, etc.
@@ -297,6 +492,11 @@ Used to sort self-referenced table's rows
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InventoryManager.My.Resources.Resources.customer">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventoryManager.My.Resources.Resources.dashboardIcon">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -318,6 +518,11 @@ Used to sort self-referenced table's rows
 </summary>
 </member>
 <member name="P:InventoryManager.My.Resources.Resources.J_A_LOGO_SALON">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.locked">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

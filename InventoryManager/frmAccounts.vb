@@ -113,6 +113,9 @@ Public Class frmAccounts
         End If
     End Sub
 
+    Private Sub dgvUserList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellContentClick
+
+    End Sub
 
     Private Sub btnDeactivateAccount_Click(sender As Object, e As EventArgs) Handles btnDeactivateAccount.Click
         If (selectedRow < 1) Then

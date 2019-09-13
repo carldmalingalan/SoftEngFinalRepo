@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="JandADataSet5" targetNamespace="http://tempuri.org/JandADataSet5.xsd" xmlns:mstns="http://tempuri.org/JandADataSet5.xsd" xmlns="http://tempuri.org/JandADataSet5.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="UserListing" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="UserListing (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.InventoryManager.My.MySettings.GlobalReference.Default.UserListing" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_ServicesTableAdapter" GeneratorDataComponentClassName="vw_ServicesTableAdapter" Name="vw_Services" UserDataComponentName="vw_ServicesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="UserListing (MySettings)" DbObjectName="JandA.dbo.vw_Services" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ServiceID, ServiceName FROM dbo.vw_Services</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ServiceID" DataSetColumn="ServiceID" />
+              <Mapping SourceColumn="ServiceName" DataSetColumn="ServiceName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="JandADataSet5" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="JandADataSet5" msprop:Generator_UserDSName="JandADataSet5">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vw_Services" msprop:Generator_TableClassName="vw_ServicesDataTable" msprop:Generator_TableVarName="tablevw_Services" msprop:Generator_TablePropName="vw_Services" msprop:Generator_RowDeletingName="vw_ServicesRowDeleting" msprop:Generator_RowChangingName="vw_ServicesRowChanging" msprop:Generator_RowEvHandlerName="vw_ServicesRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_ServicesRowDeleted" msprop:Generator_UserTableName="vw_Services" msprop:Generator_RowChangedName="vw_ServicesRowChanged" msprop:Generator_RowEvArgName="vw_ServicesRowChangeEvent" msprop:Generator_RowClassName="vw_ServicesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ServiceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnServiceID" msprop:Generator_ColumnPropNameInRow="ServiceID" msprop:Generator_ColumnPropNameInTable="ServiceIDColumn" msprop:Generator_UserColumnName="ServiceID" type="xs:int" />
+              <xs:element name="ServiceName" msprop:Generator_ColumnVarNameInTable="columnServiceName" msprop:Generator_ColumnPropNameInRow="ServiceName" msprop:Generator_ColumnPropNameInTable="ServiceNameColumn" msprop:Generator_UserColumnName="ServiceName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

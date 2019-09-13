@@ -108,10 +108,21 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmpName.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpName.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAccounts.Designer.vb">
       <DependentUpon>frmAccounts.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminPrompt.Designer.vb">
+      <DependentUpon>frmAdminPrompt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminPrompt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCreateAccount.Designer.vb">
@@ -163,6 +174,12 @@
     <Compile Include="frmPasswordChange.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmServices.Designer.vb">
+      <DependentUpon>frmServices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmServices.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmTransactions.Designer.vb">
       <DependentUpon>frmTransactions.vb</DependentUpon>
     </Compile>
@@ -201,6 +218,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JandADataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="JandADataSet4.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandADataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandADataSet5.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandADataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -221,6 +248,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAccounts.resx">
       <DependentUpon>frmAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminPrompt.resx">
+      <DependentUpon>frmAdminPrompt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreateAccount.resx">
       <DependentUpon>frmAccountManager.vb</DependentUpon>
@@ -246,6 +276,9 @@
     <EmbeddedResource Include="frmPasswordChange.resx">
       <DependentUpon>frmPasswordChange.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmServices.resx">
+      <DependentUpon>frmServices.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTransactions.resx">
       <DependentUpon>frmTransactions.vb</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +293,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="EmpName.xsc">
+      <DependentUpon>EmpName.xsd</DependentUpon>
+    </None>
+    <None Include="EmpName.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmpName.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmpName.xss">
+      <DependentUpon>EmpName.xsd</DependentUpon>
+    </None>
     <None Include="JandADataSet.xsc">
       <DependentUpon>JandADataSet.xsd</DependentUpon>
     </None>
@@ -304,6 +348,28 @@
     <None Include="JandADataSet3.xss">
       <DependentUpon>JandADataSet3.xsd</DependentUpon>
     </None>
+    <None Include="JandADataSet4.xsc">
+      <DependentUpon>JandADataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandADataSet4.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandADataSet4.xss">
+      <DependentUpon>JandADataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet5.xsc">
+      <DependentUpon>JandADataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="JandADataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandADataSet5.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandADataSet5.xss">
+      <DependentUpon>JandADataSet5.xsd</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -321,6 +387,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon salon_0`.ico" />
+    <None Include="Resources\locked.png" />
+    <None Include="Resources\customer.png" />
     <None Include="Resources\image-not-available-male.jpg" />
     <None Include="Resources\employees.png" />
     <None Include="Resources\New Project%286%29.png" />

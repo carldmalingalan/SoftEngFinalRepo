@@ -26,99 +26,33 @@ Partial Class frmTransactions
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTransactions))
-        Me.lblMonthly = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.BunifuCards2 = New Bunifu.Framework.UI.BunifuCards()
-        Me.lblDaily = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.BunifuCards1 = New Bunifu.Framework.UI.BunifuCards()
         Me.dgvTransactionsList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.BunifuCards3 = New Bunifu.Framework.UI.BunifuCards()
-        Me.lblYearly = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.dtpTransactionDate = New MetroFramework.Controls.MetroDateTime()
         Me.btnExportUsers = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnVoidTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.BunifuCards2.SuspendLayout()
-        Me.BunifuCards1.SuspendLayout()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtCustomer = New Bunifu.Framework.UI.BunifuMetroTextbox()
+        Me.cboServiceAvailed = New MetroFramework.Controls.MetroComboBox()
+        Me.btnCancelTransaction = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cboEmployeeAssigned = New MetroFramework.Controls.MetroComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cboNails = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.cboBody = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.cboHair = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.txtRemarks = New WindowsFormsControlLibrary1.BunifuCustomTextbox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.gbTransDetails = New System.Windows.Forms.GroupBox()
+        Me.btnSaveTransaction = New MaterialSkin.Controls.MaterialFlatButton()
         CType(Me.dgvTransactionsList, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BunifuCards3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.gbTransDetails.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'lblMonthly
-        '
-        Me.lblMonthly.AutoSize = True
-        Me.lblMonthly.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMonthly.Location = New System.Drawing.Point(54, 44)
-        Me.lblMonthly.Name = "lblMonthly"
-        Me.lblMonthly.Size = New System.Drawing.Size(71, 39)
-        Me.lblMonthly.TabIndex = 7
-        Me.lblMonthly.Text = "999"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 103)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(166, 16)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "MONTHLY TRANSACTION"
-        '
-        'BunifuCards2
-        '
-        Me.BunifuCards2.BackColor = System.Drawing.Color.White
-        Me.BunifuCards2.BorderRadius = 5
-        Me.BunifuCards2.BottomSahddow = True
-        Me.BunifuCards2.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards2.Controls.Add(Me.lblMonthly)
-        Me.BunifuCards2.Controls.Add(Me.Label2)
-        Me.BunifuCards2.LeftSahddow = False
-        Me.BunifuCards2.Location = New System.Drawing.Point(193, 22)
-        Me.BunifuCards2.Name = "BunifuCards2"
-        Me.BunifuCards2.RightSahddow = True
-        Me.BunifuCards2.ShadowDepth = 20
-        Me.BunifuCards2.Size = New System.Drawing.Size(175, 131)
-        Me.BunifuCards2.TabIndex = 15
-        '
-        'lblDaily
-        '
-        Me.lblDaily.AutoSize = True
-        Me.lblDaily.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDaily.Location = New System.Drawing.Point(52, 44)
-        Me.lblDaily.Name = "lblDaily"
-        Me.lblDaily.Size = New System.Drawing.Size(71, 39)
-        Me.lblDaily.TabIndex = 6
-        Me.lblDaily.Text = "999"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(19, 103)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(141, 16)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "DAILY TRANSACTION"
-        '
-        'BunifuCards1
-        '
-        Me.BunifuCards1.BackColor = System.Drawing.Color.White
-        Me.BunifuCards1.BorderRadius = 5
-        Me.BunifuCards1.BottomSahddow = True
-        Me.BunifuCards1.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards1.Controls.Add(Me.lblDaily)
-        Me.BunifuCards1.Controls.Add(Me.Label1)
-        Me.BunifuCards1.LeftSahddow = False
-        Me.BunifuCards1.Location = New System.Drawing.Point(12, 22)
-        Me.BunifuCards1.Name = "BunifuCards1"
-        Me.BunifuCards1.RightSahddow = True
-        Me.BunifuCards1.ShadowDepth = 20
-        Me.BunifuCards1.Size = New System.Drawing.Size(175, 131)
-        Me.BunifuCards1.TabIndex = 14
         '
         'dgvTransactionsList
         '
@@ -152,14 +86,14 @@ Partial Class frmTransactions
         Me.dgvTransactionsList.EnableHeadersVisualStyles = False
         Me.dgvTransactionsList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvTransactionsList.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvTransactionsList.Location = New System.Drawing.Point(12, 156)
+        Me.dgvTransactionsList.Location = New System.Drawing.Point(12, 51)
         Me.dgvTransactionsList.MultiSelect = False
         Me.dgvTransactionsList.Name = "dgvTransactionsList"
         Me.dgvTransactionsList.ReadOnly = True
         Me.dgvTransactionsList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvTransactionsList.RowHeadersVisible = False
         Me.dgvTransactionsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvTransactionsList.Size = New System.Drawing.Size(933, 345)
+        Me.dgvTransactionsList.Size = New System.Drawing.Size(442, 450)
         Me.dgvTransactionsList.TabIndex = 10
         '
         'Panel1
@@ -171,46 +105,10 @@ Partial Class frmTransactions
         Me.Panel1.Size = New System.Drawing.Size(1154, 10)
         Me.Panel1.TabIndex = 9
         '
-        'BunifuCards3
-        '
-        Me.BunifuCards3.BackColor = System.Drawing.Color.White
-        Me.BunifuCards3.BorderRadius = 5
-        Me.BunifuCards3.BottomSahddow = True
-        Me.BunifuCards3.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards3.Controls.Add(Me.lblYearly)
-        Me.BunifuCards3.Controls.Add(Me.Label4)
-        Me.BunifuCards3.LeftSahddow = False
-        Me.BunifuCards3.Location = New System.Drawing.Point(374, 22)
-        Me.BunifuCards3.Name = "BunifuCards3"
-        Me.BunifuCards3.RightSahddow = True
-        Me.BunifuCards3.ShadowDepth = 20
-        Me.BunifuCards3.Size = New System.Drawing.Size(175, 131)
-        Me.BunifuCards3.TabIndex = 16
-        '
-        'lblYearly
-        '
-        Me.lblYearly.AutoSize = True
-        Me.lblYearly.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblYearly.Location = New System.Drawing.Point(54, 44)
-        Me.lblYearly.Name = "lblYearly"
-        Me.lblYearly.Size = New System.Drawing.Size(71, 39)
-        Me.lblYearly.TabIndex = 7
-        Me.lblYearly.Text = "999"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 103)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(151, 16)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "YEARLY TRANSACTION"
-        '
         'dtpTransactionDate
         '
         Me.dtpTransactionDate.CalendarFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpTransactionDate.Location = New System.Drawing.Point(693, 121)
+        Me.dtpTransactionDate.Location = New System.Drawing.Point(12, 16)
         Me.dtpTransactionDate.MinDate = New Date(2019, 8, 29, 0, 0, 0, 0)
         Me.dtpTransactionDate.MinimumSize = New System.Drawing.Size(0, 29)
         Me.dtpTransactionDate.Name = "dtpTransactionDate"
@@ -357,18 +255,218 @@ Partial Class frmTransactions
         Me.btnUpdateTransactions.Textcolor = System.Drawing.Color.White
         Me.btnUpdateTransactions.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(15, 52)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(116, 16)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Customer Name:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(15, 139)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(114, 16)
+        Me.Label9.TabIndex = 4
+        Me.Label9.Text = "Service Availed:"
+        '
+        'txtCustomer
+        '
+        Me.txtCustomer.BorderColorFocused = System.Drawing.Color.HotPink
+        Me.txtCustomer.BorderColorIdle = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtCustomer.BorderColorMouseHover = System.Drawing.Color.HotPink
+        Me.txtCustomer.BorderThickness = 3
+        Me.txtCustomer.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtCustomer.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtCustomer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtCustomer.isPassword = False
+        Me.txtCustomer.Location = New System.Drawing.Point(156, 45)
+        Me.txtCustomer.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtCustomer.Name = "txtCustomer"
+        Me.txtCustomer.Size = New System.Drawing.Size(309, 31)
+        Me.txtCustomer.TabIndex = 28
+        Me.txtCustomer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'cboServiceAvailed
+        '
+        Me.cboServiceAvailed.ItemHeight = 23
+        Me.cboServiceAvailed.Location = New System.Drawing.Point(160, 132)
+        Me.cboServiceAvailed.Name = "cboServiceAvailed"
+        Me.cboServiceAvailed.Size = New System.Drawing.Size(305, 29)
+        Me.cboServiceAvailed.TabIndex = 43
+        Me.cboServiceAvailed.UseSelectable = True
+        '
+        'btnCancelTransaction
+        '
+        Me.btnCancelTransaction.AutoSize = True
+        Me.btnCancelTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnCancelTransaction.Depth = 0
+        Me.btnCancelTransaction.Location = New System.Drawing.Point(246, 408)
+        Me.btnCancelTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnCancelTransaction.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnCancelTransaction.Name = "btnCancelTransaction"
+        Me.btnCancelTransaction.Primary = False
+        Me.btnCancelTransaction.Size = New System.Drawing.Size(64, 36)
+        Me.btnCancelTransaction.TabIndex = 44
+        Me.btnCancelTransaction.Text = "CANCEL"
+        Me.btnCancelTransaction.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(15, 175)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(140, 16)
+        Me.Label1.TabIndex = 46
+        Me.Label1.Text = "Employee Assigned:"
+        '
+        'cboEmployeeAssigned
+        '
+        Me.cboEmployeeAssigned.ItemHeight = 23
+        Me.cboEmployeeAssigned.Location = New System.Drawing.Point(160, 167)
+        Me.cboEmployeeAssigned.Name = "cboEmployeeAssigned"
+        Me.cboEmployeeAssigned.Size = New System.Drawing.Size(305, 29)
+        Me.cboEmployeeAssigned.TabIndex = 47
+        Me.cboEmployeeAssigned.UseSelectable = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(15, 90)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(94, 16)
+        Me.Label5.TabIndex = 48
+        Me.Label5.Text = "Service Type:"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.cboNails)
+        Me.GroupBox1.Controls.Add(Me.cboBody)
+        Me.GroupBox1.Controls.Add(Me.cboHair)
+        Me.GroupBox1.Location = New System.Drawing.Point(160, 75)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(305, 47)
+        Me.GroupBox1.TabIndex = 52
+        Me.GroupBox1.TabStop = False
+        '
+        'cboNails
+        '
+        Me.cboNails.AutoSize = True
+        Me.cboNails.Depth = 0
+        Me.cboNails.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.cboNails.Location = New System.Drawing.Point(188, 12)
+        Me.cboNails.Margin = New System.Windows.Forms.Padding(0)
+        Me.cboNails.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.cboNails.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cboNails.Name = "cboNails"
+        Me.cboNails.Ripple = True
+        Me.cboNails.Size = New System.Drawing.Size(68, 30)
+        Me.cboNails.TabIndex = 51
+        Me.cboNails.Text = "NAILS"
+        Me.cboNails.UseVisualStyleBackColor = True
+        '
+        'cboBody
+        '
+        Me.cboBody.AutoSize = True
+        Me.cboBody.Depth = 0
+        Me.cboBody.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.cboBody.Location = New System.Drawing.Point(38, 12)
+        Me.cboBody.Margin = New System.Windows.Forms.Padding(0)
+        Me.cboBody.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.cboBody.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cboBody.Name = "cboBody"
+        Me.cboBody.Ripple = True
+        Me.cboBody.Size = New System.Drawing.Size(65, 30)
+        Me.cboBody.TabIndex = 49
+        Me.cboBody.Text = "BODY"
+        Me.cboBody.UseVisualStyleBackColor = True
+        '
+        'cboHair
+        '
+        Me.cboHair.AutoSize = True
+        Me.cboHair.Depth = 0
+        Me.cboHair.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.cboHair.Location = New System.Drawing.Point(115, 12)
+        Me.cboHair.Margin = New System.Windows.Forms.Padding(0)
+        Me.cboHair.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.cboHair.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cboHair.Name = "cboHair"
+        Me.cboHair.Ripple = True
+        Me.cboHair.Size = New System.Drawing.Size(61, 30)
+        Me.cboHair.TabIndex = 50
+        Me.cboHair.Text = "HAIR"
+        Me.cboHair.UseVisualStyleBackColor = True
+        '
+        'txtRemarks
+        '
+        Me.txtRemarks.BorderColor = System.Drawing.Color.SeaGreen
+        Me.txtRemarks.Location = New System.Drawing.Point(160, 216)
+        Me.txtRemarks.Multiline = True
+        Me.txtRemarks.Name = "txtRemarks"
+        Me.txtRemarks.Size = New System.Drawing.Size(305, 134)
+        Me.txtRemarks.TabIndex = 53
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(15, 219)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(141, 16)
+        Me.Label2.TabIndex = 54
+        Me.Label2.Text = "Additional Remarks:"
+        '
+        'gbTransDetails
+        '
+        Me.gbTransDetails.AutoSize = True
+        Me.gbTransDetails.Controls.Add(Me.Label2)
+        Me.gbTransDetails.Controls.Add(Me.txtRemarks)
+        Me.gbTransDetails.Controls.Add(Me.GroupBox1)
+        Me.gbTransDetails.Controls.Add(Me.Label5)
+        Me.gbTransDetails.Controls.Add(Me.cboEmployeeAssigned)
+        Me.gbTransDetails.Controls.Add(Me.Label1)
+        Me.gbTransDetails.Controls.Add(Me.btnCancelTransaction)
+        Me.gbTransDetails.Controls.Add(Me.btnSaveTransaction)
+        Me.gbTransDetails.Controls.Add(Me.cboServiceAvailed)
+        Me.gbTransDetails.Controls.Add(Me.txtCustomer)
+        Me.gbTransDetails.Controls.Add(Me.Label9)
+        Me.gbTransDetails.Controls.Add(Me.Label3)
+        Me.gbTransDetails.Enabled = False
+        Me.gbTransDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTransDetails.Location = New System.Drawing.Point(460, 51)
+        Me.gbTransDetails.Name = "gbTransDetails"
+        Me.gbTransDetails.Size = New System.Drawing.Size(473, 469)
+        Me.gbTransDetails.TabIndex = 30
+        Me.gbTransDetails.TabStop = False
+        Me.gbTransDetails.Text = "Transaction Details"
+        '
+        'btnSaveTransaction
+        '
+        Me.btnSaveTransaction.AutoSize = True
+        Me.btnSaveTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnSaveTransaction.Depth = 0
+        Me.btnSaveTransaction.Location = New System.Drawing.Point(192, 408)
+        Me.btnSaveTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnSaveTransaction.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnSaveTransaction.Name = "btnSaveTransaction"
+        Me.btnSaveTransaction.Primary = False
+        Me.btnSaveTransaction.Size = New System.Drawing.Size(46, 36)
+        Me.btnSaveTransaction.TabIndex = 45
+        Me.btnSaveTransaction.Text = "SAVE"
+        Me.btnSaveTransaction.UseVisualStyleBackColor = True
+        '
         'frmTransactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.gbTransDetails)
         Me.Controls.Add(Me.dtpTransactionDate)
-        Me.Controls.Add(Me.BunifuCards3)
         Me.Controls.Add(Me.btnExportUsers)
         Me.Controls.Add(Me.btnVoidTransaction)
         Me.Controls.Add(Me.btnAddTransactions)
-        Me.Controls.Add(Me.BunifuCards2)
-        Me.Controls.Add(Me.BunifuCards1)
         Me.Controls.Add(Me.btnUpdateTransactions)
         Me.Controls.Add(Me.dgvTransactionsList)
         Me.Controls.Add(Me.Panel1)
@@ -376,31 +474,37 @@ Partial Class frmTransactions
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmTransactions"
         Me.Text = "frmTransactions"
-        Me.BunifuCards2.ResumeLayout(False)
-        Me.BunifuCards2.PerformLayout()
-        Me.BunifuCards1.ResumeLayout(False)
-        Me.BunifuCards1.PerformLayout()
         CType(Me.dgvTransactionsList, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BunifuCards3.ResumeLayout(False)
-        Me.BunifuCards3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.gbTransDetails.ResumeLayout(False)
+        Me.gbTransDetails.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents btnExportUsers As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnAddTransactions As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents lblMonthly As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents BunifuCards2 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents lblDaily As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents BunifuCards1 As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents btnUpdateTransactions As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dgvTransactionsList As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnVoidTransaction As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents BunifuCards3 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents lblYearly As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents dtpTransactionDate As MetroFramework.Controls.MetroDateTime
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtCustomer As Bunifu.Framework.UI.BunifuMetroTextbox
+    Friend WithEvents cboServiceAvailed As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents btnCancelTransaction As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cboEmployeeAssigned As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents cboNails As MaterialSkin.Controls.MaterialCheckBox
+    Friend WithEvents cboBody As MaterialSkin.Controls.MaterialCheckBox
+    Friend WithEvents cboHair As MaterialSkin.Controls.MaterialCheckBox
+    Friend WithEvents txtRemarks As WindowsFormsControlLibrary1.BunifuCustomTextbox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents gbTransDetails As GroupBox
+    Friend WithEvents btnSaveTransaction As MaterialSkin.Controls.MaterialFlatButton
 End Class

@@ -121,8 +121,8 @@
   <data name="New Project(2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\New Project(2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dashboardIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dashboardIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="image-not-available-male" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image-not-available-male.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inventory(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inventory(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,6 +154,9 @@
   <data name="New Project(1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\New Project(1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dashboardIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dashboardIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="speedometer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\speedometer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,10 +172,13 @@
   <data name="New Project(6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\New Project(6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add(2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add(2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="image-not-available-male" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image-not-available-male.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="locked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\locked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

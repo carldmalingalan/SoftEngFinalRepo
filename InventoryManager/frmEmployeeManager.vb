@@ -56,10 +56,15 @@ Public Class frmEmployeeManager
         If (saveClass = 1) Then
             Dim ask = MsgBox("Are you sure you want to add employee?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If (ask = vbYes) Then
+                Try
+                    fileName = Path.GetFileName(ImageFileName)
+                    fileSavePath = Path.Combine(saveDirectory, fileName)
+                    File.Copy(ImageFileName, fileSavePath, True)
+                Catch
+                    fileSavePath = ""
+                End Try
 
-                fileName = Path.GetFileName(ImageFileName)
-                fileSavePath = Path.Combine(saveDirectory, fileName)
-                File.Copy(ImageFileName, fileSavePath, True)
+
 
                 Call ConnectTOSQLServer()
                 strSQL = "insert into tblEmployeeList(Firstname,Lastname,MiddleName,Email,ContactNumber,Body,Hair,Nails,CreatedBy,CreationDate,LastModifiedBy,LastModifiedDate,Image,EmployeeStatus) values (@Firstname,@Lastname,@Middlename,@Email,@ContactNumber,@Body,@Hair,@Nails,@CreatedBy,getdate(),@Lastmod,getdate(),@Image,'TRUE')"
@@ -155,6 +160,14 @@ Public Class frmEmployeeManager
         dgvEmployeeList.Enabled = False
         gbEmployeeDetails.Enabled = True
         saveClass = 2
+    End Sub
+
+    Private Sub lblDaily_Click(sender As Object, e As EventArgs) Handles lblDaily.Click
+
+    End Sub
+
+    Private Sub lblMonthly_Click(sender As Object, e As EventArgs) Handles lblMonthly.Click
+
     End Sub
 
     Private Sub dgvEmployeeList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployeeList.CellContentClick, dgvEmployeeList.CellClick

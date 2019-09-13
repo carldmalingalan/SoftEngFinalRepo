@@ -206,24 +206,24 @@ Partial Class frmAccounts
         Me.BunifuCards1.Name = "BunifuCards1"
         Me.BunifuCards1.RightSahddow = True
         Me.BunifuCards1.ShadowDepth = 20
-        Me.BunifuCards1.Size = New System.Drawing.Size(175, 131)
+        Me.BunifuCards1.Size = New System.Drawing.Size(145, 98)
         Me.BunifuCards1.TabIndex = 4
         '
         'lblActiveCount
         '
-        Me.lblActiveCount.AutoSize = True
         Me.lblActiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActiveCount.Location = New System.Drawing.Point(52, 44)
+        Me.lblActiveCount.Location = New System.Drawing.Point(25, 21)
         Me.lblActiveCount.Name = "lblActiveCount"
-        Me.lblActiveCount.Size = New System.Drawing.Size(71, 39)
+        Me.lblActiveCount.Size = New System.Drawing.Size(92, 39)
         Me.lblActiveCount.TabIndex = 6
         Me.lblActiveCount.Text = "999"
+        Me.lblActiveCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(41, 103)
+        Me.Label1.Location = New System.Drawing.Point(22, 67)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(95, 16)
         Me.Label1.TabIndex = 5
@@ -238,28 +238,28 @@ Partial Class frmAccounts
         Me.BunifuCards2.Controls.Add(Me.lblInactiveCount)
         Me.BunifuCards2.Controls.Add(Me.Label2)
         Me.BunifuCards2.LeftSahddow = False
-        Me.BunifuCards2.Location = New System.Drawing.Point(193, 16)
+        Me.BunifuCards2.Location = New System.Drawing.Point(163, 16)
         Me.BunifuCards2.Name = "BunifuCards2"
         Me.BunifuCards2.RightSahddow = True
         Me.BunifuCards2.ShadowDepth = 20
-        Me.BunifuCards2.Size = New System.Drawing.Size(175, 131)
+        Me.BunifuCards2.Size = New System.Drawing.Size(151, 98)
         Me.BunifuCards2.TabIndex = 6
         '
         'lblInactiveCount
         '
-        Me.lblInactiveCount.AutoSize = True
         Me.lblInactiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInactiveCount.Location = New System.Drawing.Point(54, 44)
+        Me.lblInactiveCount.Location = New System.Drawing.Point(20, 21)
         Me.lblInactiveCount.Name = "lblInactiveCount"
-        Me.lblInactiveCount.Size = New System.Drawing.Size(71, 39)
+        Me.lblInactiveCount.Size = New System.Drawing.Size(106, 39)
         Me.lblInactiveCount.TabIndex = 7
         Me.lblInactiveCount.Text = "999"
+        Me.lblInactiveCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(31, 103)
+        Me.Label2.Location = New System.Drawing.Point(17, 67)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(109, 16)
         Me.Label2.TabIndex = 5

@@ -38,6 +38,8 @@ Module vbConnect
     Public saveType As String 'accounts
     Public saveType1 As String 'items
     Public saveType2 As String 'transactions
+
+    Public voidID As Int32
     Function GetHash(theInput As String) As String
 
         Using hasher As SHA256 = SHA256.Create()    ' create hash object
@@ -195,10 +197,54 @@ Module vbConnect
     End Sub
 
 
-    Public Sub AddEmployee(Firstname As String, Lastname As String, Middle As String, Contact As String, Email As String, Body As String, Hair As String, Nails As String)
+    Public Sub AddService(ServiceName As String, ServiceDetails As String, Body As String, Hair As String, Nails As String, Status As String)
         Call ConnectTOSQLServer()
-        strSQL = ""
+        strSQL = "INSERT INTO [dbo].[tblServices]([ServiceName],[ServiceDetails],[Body],[Hair],[Nails],[ServiceStatus])VALUES(@ServiceName,@ServiceDetails,@Body,@Hair,@Nails,@ServiceStatus)"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@ServiceName", SqlDbType.VarChar).Value = ServiceName
+        cmd.Parameters.AddWithValue("@ServiceDetails", SqlDbType.VarChar).Value = ServiceDetails
+        cmd.Parameters.AddWithValue("@Body", SqlDbType.VarChar).Value = Body
+        cmd.Parameters.AddWithValue("@Hair", SqlDbType.VarChar).Value = Hair
+        cmd.Parameters.AddWithValue("@Nails", SqlDbType.VarChar).Value = Nails
+        cmd.Parameters.AddWithValue("@ServiceStatus", SqlDbType.VarChar).Value = Status
+        cmd.ExecuteNonQuery()
+        Console.WriteLine(strSQL)
         Call DisConnectSQLServer()
-
     End Sub
+
+    Public Sub UpdateService(ServiceName As String, ServiceDetails As String, Body As String, Hair As String, Nails As String, Status As String, ServiceID As Int32)
+        Call ConnectTOSQLServer()
+        strSQL = "update tblServices set ServiceName = @ServiceName, ServiceDetails = @ServiceDetails, Body = @Body, Hair = @Hair, Nails = @Nails, ServiceStatus = @ServiceStatus where ServiceID = @ServiceID"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@ServiceName", SqlDbType.VarChar).Value = ServiceName
+        cmd.Parameters.AddWithValue("@ServiceDetails", SqlDbType.VarChar).Value = ServiceDetails
+        cmd.Parameters.AddWithValue("@Body", SqlDbType.VarChar).Value = Body
+        cmd.Parameters.AddWithValue("@Hair", SqlDbType.VarChar).Value = Hair
+        cmd.Parameters.AddWithValue("@Nails", SqlDbType.VarChar).Value = Nails
+        cmd.Parameters.AddWithValue("@ServiceStatus", SqlDbType.VarChar).Value = Status
+        cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = ServiceID
+
+        cmd.ExecuteNonQuery()
+        Console.WriteLine(strSQL)
+        Call DisConnectSQLServer()
+    End Sub
+
+    Public Sub AddTransaction(customer As String, body As String, hair As String, nails As String, service As Int32, emp As Int32, remarks As String)
+        Call ConnectTOSQLServer()
+        strSQL = "insert into tblTransactions(CustomerName,Date,Body,Hair,Nails,ServiceAvailedID,EmployeeAssignedID,CreationDate,CreatedBy,DataStatus,Remarks) values (@Customer,getdate(),@Body,@Hair,@Nails,@Service,@Emp,getdate(),@creator,'ACTIVE',@Remarks)"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@Customer", SqlDbType.VarChar).Value = customer
+        cmd.Parameters.AddWithValue("@Body", SqlDbType.VarChar).Value = body
+        cmd.Parameters.AddWithValue("@Hair", SqlDbType.VarChar).Value = hair
+        cmd.Parameters.AddWithValue("@Nails", SqlDbType.VarChar).Value = nails
+        cmd.Parameters.AddWithValue("@Service", SqlDbType.Int).Value = service
+        cmd.Parameters.AddWithValue("@Emp", SqlDbType.Int).Value = emp
+        cmd.Parameters.AddWithValue("@creator", SqlDbType.Int).Value = login_id
+        cmd.Parameters.AddWithValue("@Remarks", SqlDbType.VarChar).Value = remarks
+        Console.WriteLine(strSQL)
+        cmd.ExecuteNonQuery()
+        Call DisConnectSQLServer()
+    End Sub
+
+
 End Module

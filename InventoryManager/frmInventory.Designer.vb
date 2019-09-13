@@ -45,11 +45,15 @@ Partial Class frmInventory
         Me.btnUpdateItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.TblInventoryTableAdapter = New InventoryManager.JandADataSet3TableAdapters.tblInventoryTableAdapter()
+        Me.BunifuCards3 = New Bunifu.Framework.UI.BunifuCards()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.BunifuCards2.SuspendLayout()
         Me.BunifuCards1.SuspendLayout()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblInventoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JandADataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BunifuCards3.SuspendLayout()
         Me.SuspendLayout()
         '
         'BunifuCards2
@@ -82,11 +86,11 @@ Partial Class frmInventory
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(18, 103)
+        Me.Label2.Location = New System.Drawing.Point(6, 103)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(140, 16)
+        Me.Label2.Size = New System.Drawing.Size(166, 16)
         Me.Label2.TabIndex = 5
-        Me.Label2.Text = "OUT OF STOCK ITEMS"
+        Me.Label2.Text = "CRITICALLY STOCK ITEMS"
         '
         'BunifuCards1
         '
@@ -320,11 +324,48 @@ Partial Class frmInventory
         '
         Me.TblInventoryTableAdapter.ClearBeforeFill = True
         '
+        'BunifuCards3
+        '
+        Me.BunifuCards3.BackColor = System.Drawing.Color.White
+        Me.BunifuCards3.BorderRadius = 5
+        Me.BunifuCards3.BottomSahddow = True
+        Me.BunifuCards3.color = System.Drawing.Color.IndianRed
+        Me.BunifuCards3.Controls.Add(Me.Label3)
+        Me.BunifuCards3.Controls.Add(Me.Label4)
+        Me.BunifuCards3.LeftSahddow = False
+        Me.BunifuCards3.Location = New System.Drawing.Point(374, 14)
+        Me.BunifuCards3.Name = "BunifuCards3"
+        Me.BunifuCards3.RightSahddow = True
+        Me.BunifuCards3.ShadowDepth = 20
+        Me.BunifuCards3.Size = New System.Drawing.Size(175, 131)
+        Me.BunifuCards3.TabIndex = 14
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(54, 44)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(71, 39)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "999"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(18, 103)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(140, 16)
+        Me.Label4.TabIndex = 5
+        Me.Label4.Text = "OUT OF STOCK ITEMS"
+        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.BunifuCards3)
         Me.Controls.Add(Me.btnExportItemList)
         Me.Controls.Add(Me.BunifuCards2)
         Me.Controls.Add(Me.BunifuCards1)
@@ -341,6 +382,8 @@ Partial Class frmInventory
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblInventoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JandADataSet3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.BunifuCards3.ResumeLayout(False)
+        Me.BunifuCards3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -363,4 +406,7 @@ Partial Class frmInventory
     Friend WithEvents ItemQuantityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ItemDescriptionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ItemClassificationDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BunifuCards3 As Bunifu.Framework.UI.BunifuCards
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
 End Class

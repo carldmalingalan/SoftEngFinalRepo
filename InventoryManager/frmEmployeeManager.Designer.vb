@@ -53,6 +53,7 @@ Partial Class frmEmployeeManager
         Me.txtLastname = New Bunifu.Framework.UI.BunifuMetroTextbox()
         Me.txtFirstname = New Bunifu.Framework.UI.BunifuMetroTextbox()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.pbEmployeePic = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -64,7 +65,6 @@ Partial Class frmEmployeeManager
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.txtSearch = New Bunifu.Framework.UI.BunifuTextbox()
-        Me.pbEmployeePic = New System.Windows.Forms.PictureBox()
         Me.btnExportEmployeeList = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddEmployee = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateEmployee = New Bunifu.Framework.UI.BunifuFlatButton()
@@ -73,20 +73,20 @@ Partial Class frmEmployeeManager
         Me.BunifuCards1.SuspendLayout()
         CType(Me.dgvEmployeeList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbEmployeeDetails.SuspendLayout()
+        CType(Me.pbEmployeePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuCards4.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbEmployeePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblMonthly
         '
-        Me.lblMonthly.AutoSize = True
         Me.lblMonthly.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMonthly.Location = New System.Drawing.Point(55, 15)
+        Me.lblMonthly.Location = New System.Drawing.Point(44, 27)
         Me.lblMonthly.Name = "lblMonthly"
-        Me.lblMonthly.Size = New System.Drawing.Size(71, 39)
+        Me.lblMonthly.Size = New System.Drawing.Size(90, 39)
         Me.lblMonthly.TabIndex = 7
         Me.lblMonthly.Text = "999"
+        Me.lblMonthly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
@@ -116,13 +116,13 @@ Partial Class frmEmployeeManager
         '
         'lblDaily
         '
-        Me.lblDaily.AutoSize = True
         Me.lblDaily.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDaily.Location = New System.Drawing.Point(52, 15)
+        Me.lblDaily.Location = New System.Drawing.Point(46, 27)
         Me.lblDaily.Name = "lblDaily"
-        Me.lblDaily.Size = New System.Drawing.Size(71, 39)
+        Me.lblDaily.Size = New System.Drawing.Size(90, 39)
         Me.lblDaily.TabIndex = 6
         Me.lblDaily.Text = "999"
+        Me.lblDaily.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label1
         '
@@ -152,13 +152,13 @@ Partial Class frmEmployeeManager
         '
         'lblYearly
         '
-        Me.lblYearly.AutoSize = True
         Me.lblYearly.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblYearly.Location = New System.Drawing.Point(53, 15)
+        Me.lblYearly.Location = New System.Drawing.Point(42, 27)
         Me.lblYearly.Name = "lblYearly"
-        Me.lblYearly.Size = New System.Drawing.Size(71, 39)
+        Me.lblYearly.Size = New System.Drawing.Size(92, 39)
         Me.lblYearly.TabIndex = 7
         Me.lblYearly.Text = "999"
+        Me.lblYearly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label4
         '
@@ -297,7 +297,7 @@ Partial Class frmEmployeeManager
         '
         Me.cboNails.AutoSize = True
         Me.cboNails.Depth = 0
-        Me.cboNails.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.cboNails.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.cboNails.Location = New System.Drawing.Point(261, 221)
         Me.cboNails.Margin = New System.Windows.Forms.Padding(0)
         Me.cboNails.MouseLocation = New System.Drawing.Point(-1, -1)
@@ -313,7 +313,7 @@ Partial Class frmEmployeeManager
         '
         Me.cboHair.AutoSize = True
         Me.cboHair.Depth = 0
-        Me.cboHair.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.cboHair.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.cboHair.Location = New System.Drawing.Point(200, 221)
         Me.cboHair.Margin = New System.Windows.Forms.Padding(0)
         Me.cboHair.MouseLocation = New System.Drawing.Point(-1, -1)
@@ -329,7 +329,7 @@ Partial Class frmEmployeeManager
         '
         Me.cboBody.AutoSize = True
         Me.cboBody.Depth = 0
-        Me.cboBody.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.cboBody.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.cboBody.Location = New System.Drawing.Point(135, 221)
         Me.cboBody.Margin = New System.Windows.Forms.Padding(0)
         Me.cboBody.MouseLocation = New System.Drawing.Point(-1, -1)
@@ -480,6 +480,18 @@ Partial Class frmEmployeeManager
         Me.Label14.TabIndex = 6
         Me.Label14.Text = "Expertise:"
         '
+        'pbEmployeePic
+        '
+        Me.pbEmployeePic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbEmployeePic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbEmployeePic.ErrorImage = Global.InventoryManager.My.Resources.Resources.image_not_available_male
+        Me.pbEmployeePic.Location = New System.Drawing.Point(423, 22)
+        Me.pbEmployeePic.Name = "pbEmployeePic"
+        Me.pbEmployeePic.Size = New System.Drawing.Size(150, 150)
+        Me.pbEmployeePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbEmployeePic.TabIndex = 27
+        Me.pbEmployeePic.TabStop = False
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -576,23 +588,11 @@ Partial Class frmEmployeeManager
         Me.txtSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.txtSearch.ForeColor = System.Drawing.Color.SeaGreen
         Me.txtSearch.Icon = CType(resources.GetObject("txtSearch.Icon"), System.Drawing.Image)
-        Me.txtSearch.Location = New System.Drawing.Point(116, 117)
+        Me.txtSearch.Location = New System.Drawing.Point(144, 119)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(235, 28)
         Me.txtSearch.TabIndex = 29
         Me.txtSearch.text = ""
-        '
-        'pbEmployeePic
-        '
-        Me.pbEmployeePic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbEmployeePic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pbEmployeePic.ErrorImage = Global.InventoryManager.My.Resources.Resources.image_not_available_male
-        Me.pbEmployeePic.Location = New System.Drawing.Point(423, 22)
-        Me.pbEmployeePic.Name = "pbEmployeePic"
-        Me.pbEmployeePic.Size = New System.Drawing.Size(150, 150)
-        Me.pbEmployeePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbEmployeePic.TabIndex = 27
-        Me.pbEmployeePic.TabStop = False
         '
         'btnExportEmployeeList
         '
@@ -726,10 +726,10 @@ Partial Class frmEmployeeManager
         CType(Me.dgvEmployeeList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbEmployeeDetails.ResumeLayout(False)
         Me.gbEmployeeDetails.PerformLayout()
+        CType(Me.pbEmployeePic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BunifuCards4.ResumeLayout(False)
         Me.BunifuCards4.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbEmployeePic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

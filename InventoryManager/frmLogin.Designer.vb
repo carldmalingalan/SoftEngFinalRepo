@@ -89,7 +89,7 @@ Partial Class frmLogin
         '
         Me.pbLogo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pbLogo.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.pbLogo.BackColor = System.Drawing.Color.Transparent
         Me.pbLogo.Image = Global.InventoryManager.My.Resources.Resources.J_A_LOGO_SALON
         Me.pbLogo.Location = New System.Drawing.Point(133, 73)
         Me.pbLogo.Name = "pbLogo"
