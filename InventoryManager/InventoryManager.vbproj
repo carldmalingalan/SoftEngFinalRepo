@@ -143,6 +143,12 @@
     <Compile Include="frmEmployeeManager.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmForgotPassword.Designer.vb">
+      <DependentUpon>frmForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmInventory.Designer.vb">
       <DependentUpon>frmInventory.vb</DependentUpon>
     </Compile>
@@ -191,6 +197,11 @@
     </Compile>
     <Compile Include="frmTransactionsManager.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JandA2DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandA2DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="JandADataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -261,6 +272,9 @@
     <EmbeddedResource Include="frmEmployeeManager.resx">
       <DependentUpon>frmEmployeeManager.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmForgotPassword.resx">
+      <DependentUpon>frmForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
     </EmbeddedResource>
@@ -303,6 +317,17 @@
     </None>
     <None Include="EmpName.xss">
       <DependentUpon>EmpName.xsd</DependentUpon>
+    </None>
+    <None Include="JandA2DataSet.xsc">
+      <DependentUpon>JandA2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JandA2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandA2DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandA2DataSet.xss">
+      <DependentUpon>JandA2DataSet.xsd</DependentUpon>
     </None>
     <None Include="JandADataSet.xsc">
       <DependentUpon>JandADataSet.xsd</DependentUpon>
@@ -414,6 +439,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

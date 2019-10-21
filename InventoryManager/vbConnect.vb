@@ -6,7 +6,6 @@ Imports System.Net.Mail
 Imports System.Net
 Imports System.Configuration
 Imports System.Data.SqlTypes
-Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Security.Cryptography
 Imports System.Text
 
@@ -31,7 +30,7 @@ Module vbConnect
     Public restrictedCharactersForPassword As String = "!-=[]\{}|;':,/<>€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’""•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ?" & Chr(34) 'Letters and numbers are only allowed
 
     Public defaultPassword As String = "41E5653FC7AEB894026D6BB7B2DB7F65902B454945FA8FD65A6327047B5277FB"
-    Public sqlConnectionString = "Server=MARCO\SQLEXPRESS;Database=JandA;Trusted_Connection=True;"
+    Public sqlConnectionString = "Server=MONKEYPC\MARCODATABASE;Database=JandA2;Trusted_Connection=True;"
 
     Public accountID As Int32
     Public itemID As Int32
@@ -76,6 +75,7 @@ Module vbConnect
 
     Public Sub Login(Username As String, Password As String)
         Call ConnectTOSQLServer()
+        Console.WriteLine(Environment.UserName)
         login_name = ""
         strSQL = "select AccountName,AccountID,Username,AccessType,AccountType as AccountStatus from tbllogins where Username = @Username and Password = @Password"
         Console.WriteLine(strSQL)
@@ -97,12 +97,15 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub PasswordChange(NewPassword As String)
+    Public Sub PasswordChange(NewPassword As String, SecretQuestionID As Int32, Answer As String)
         Call ConnectTOSQLServer()
-        strSQL = "update tblLogins set Password = @Password, LastModified = @AccountID, LastModifiedDate = getdate() where AccountID = @AccountID"
+        strSQL = "update tblLogins set Password = @Password, SecretQuestion = @SecretQuestionID, Answer = @Answer, LastModified = @AccountID, LastModifiedDate = getdate() where AccountID = @AccountID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@Password", SqlDbType.VarChar).Value = GetHash(NewPassword)
         cmd.Parameters.AddWithValue("@AccountID", SqlDbType.VarChar).Value = login_id
+        cmd.Parameters.AddWithValue("@SecretQuestionID", SqlDbType.Int).Value = SecretQuestionID
+        cmd.Parameters.AddWithValue("@Answer", SqlDbType.VarChar).Value = Answer
+
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)
         Call DisConnectSQLServer()
@@ -246,5 +249,42 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
+    Public Sub PasswordRecovery(Username As String, Question As String, Answer As String)
+        Call ConnectTOSQLServer()
+        login_name = ""
+        strSQL = "select AccountName,AccountID,Username,AccessType,AccountType as AccountStatus from tbllogins where SecretQuestion = @SecretQ and Username = @Username and Answer = @Answer"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@SecretQ", SqlDbType.VarChar).Value = Question
+        cmd.Parameters.AddWithValue("@Username", SqlDbType.VarChar).Value = Username
+        cmd.Parameters.AddWithValue("@Answer", SqlDbType.VarChar).Value = Answer
+        reader = cmd.ExecuteReader()
+        Console.WriteLine(strSQL)
+        strSQL = "select AccountName,AccountID,Username,AccessType,AccountType as AccountStatus from tbllogins where SecretQuestion = '" & Question & "' and Username = '" & Username & "' and Answer = '" & Answer & "'"
+        Console.WriteLine(strSQL)
+        Do While reader.HasRows
+            Do While reader.Read()
+                login_name = reader.GetString(0)
+                login_id = reader.GetInt32(1)
+                login_username = reader.GetString(2)
+                login_accesstype = reader.GetString(3)
+                login_accountstatus = reader.GetString(4)
+            Loop
+            reader.NextResult()
+        Loop
+        Try
+            If reader.Read() Then
+                strSQL = "update tblLogins set Password = @Default where AccountID = @AccountID"
+                cmd = New SqlCommand(strSQL, Connection)
+                cmd.Parameters.AddWithValue("@Default", SqlDbType.VarChar).Value = defaultPassword
+                cmd.Parameters.AddWithValue("@AccountID", SqlDbType.Int).Value = login_id
+                cmd.ExecuteNonQuery()
+                Console.WriteLine(strSQL)
+            End If
+        Finally
+            reader.Close()
+        End Try
+        reader.Close()
+        Call DisConnectSQLServer()
+    End Sub
 
 End Module

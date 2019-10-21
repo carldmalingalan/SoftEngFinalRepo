@@ -25,6 +25,7 @@ Partial Class frmItemManager
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmItemManager))
         Me.groupBoxRole = New System.Windows.Forms.GroupBox()
+        Me.rdoFace = New MaterialSkin.Controls.MaterialRadioButton()
         Me.rdoNails = New MaterialSkin.Controls.MaterialRadioButton()
         Me.rdoBody = New MaterialSkin.Controls.MaterialRadioButton()
         Me.rdoHair = New MaterialSkin.Controls.MaterialRadioButton()
@@ -33,29 +34,50 @@ Partial Class frmItemManager
         Me.txtItemName = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.btnSaveItem = New MaterialSkin.Controls.MaterialFlatButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.dtpExpirationDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.checkboxExpirationNA = New System.Windows.Forms.CheckBox()
         Me.groupBoxRole.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'groupBoxRole
         '
+        Me.groupBoxRole.Controls.Add(Me.rdoFace)
         Me.groupBoxRole.Controls.Add(Me.rdoNails)
         Me.groupBoxRole.Controls.Add(Me.rdoBody)
         Me.groupBoxRole.Controls.Add(Me.rdoHair)
         Me.groupBoxRole.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.groupBoxRole.Location = New System.Drawing.Point(139, 174)
+        Me.groupBoxRole.Location = New System.Drawing.Point(67, 209)
         Me.groupBoxRole.Name = "groupBoxRole"
-        Me.groupBoxRole.Size = New System.Drawing.Size(183, 119)
+        Me.groupBoxRole.Size = New System.Drawing.Size(200, 92)
         Me.groupBoxRole.TabIndex = 5
         Me.groupBoxRole.TabStop = False
         Me.groupBoxRole.Text = "Item Label"
+        '
+        'rdoFace
+        '
+        Me.rdoFace.AutoSize = True
+        Me.rdoFace.Depth = 0
+        Me.rdoFace.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdoFace.Location = New System.Drawing.Point(19, 51)
+        Me.rdoFace.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdoFace.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdoFace.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdoFace.Name = "rdoFace"
+        Me.rdoFace.Ripple = True
+        Me.rdoFace.Size = New System.Drawing.Size(62, 30)
+        Me.rdoFace.TabIndex = 5
+        Me.rdoFace.TabStop = True
+        Me.rdoFace.Text = "FACE"
+        Me.rdoFace.UseVisualStyleBackColor = True
         '
         'rdoNails
         '
         Me.rdoNails.AutoSize = True
         Me.rdoNails.Depth = 0
         Me.rdoNails.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoNails.Location = New System.Drawing.Point(19, 81)
+        Me.rdoNails.Location = New System.Drawing.Point(102, 51)
         Me.rdoNails.Margin = New System.Windows.Forms.Padding(0)
         Me.rdoNails.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdoNails.MouseState = MaterialSkin.MouseState.HOVER
@@ -73,7 +95,7 @@ Partial Class frmItemManager
         Me.rdoBody.Depth = 0
         Me.rdoBody.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.rdoBody.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoBody.Location = New System.Drawing.Point(19, 51)
+        Me.rdoBody.Location = New System.Drawing.Point(102, 21)
         Me.rdoBody.Margin = New System.Windows.Forms.Padding(0)
         Me.rdoBody.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdoBody.MouseState = MaterialSkin.MouseState.HOVER
@@ -107,7 +129,7 @@ Partial Class frmItemManager
         '
         Me.txtDescription.Depth = 0
         Me.txtDescription.Hint = "Item Description"
-        Me.txtDescription.Location = New System.Drawing.Point(86, 142)
+        Me.txtDescription.Location = New System.Drawing.Point(18, 121)
         Me.txtDescription.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -123,7 +145,7 @@ Partial Class frmItemManager
         '
         Me.txtItemQuantity.Depth = 0
         Me.txtItemQuantity.Hint = "Item Quantity"
-        Me.txtItemQuantity.Location = New System.Drawing.Point(86, 113)
+        Me.txtItemQuantity.Location = New System.Drawing.Point(18, 92)
         Me.txtItemQuantity.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtItemQuantity.Name = "txtItemQuantity"
         Me.txtItemQuantity.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -139,7 +161,7 @@ Partial Class frmItemManager
         '
         Me.txtItemName.Depth = 0
         Me.txtItemName.Hint = "Item Name"
-        Me.txtItemName.Location = New System.Drawing.Point(86, 84)
+        Me.txtItemName.Location = New System.Drawing.Point(18, 63)
         Me.txtItemName.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtItemName.Name = "txtItemName"
         Me.txtItemName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -156,7 +178,7 @@ Partial Class frmItemManager
         Me.btnSaveItem.AutoSize = True
         Me.btnSaveItem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSaveItem.Depth = 0
-        Me.btnSaveItem.Location = New System.Drawing.Point(205, 311)
+        Me.btnSaveItem.Location = New System.Drawing.Point(150, 321)
         Me.btnSaveItem.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnSaveItem.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSaveItem.Name = "btnSaveItem"
@@ -171,11 +193,46 @@ Partial Class frmItemManager
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'dtpExpirationDate
+        '
+        Me.dtpExpirationDate.CustomFormat = "MM/dd/yyyy"
+        Me.dtpExpirationDate.Font = New System.Drawing.Font("Century Gothic", 10.0!)
+        Me.dtpExpirationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpExpirationDate.Location = New System.Drawing.Point(45, 171)
+        Me.dtpExpirationDate.Name = "dtpExpirationDate"
+        Me.dtpExpirationDate.Size = New System.Drawing.Size(106, 24)
+        Me.dtpExpirationDate.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(41, 148)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(119, 20)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Expiration Date"
+        '
+        'checkboxExpirationNA
+        '
+        Me.checkboxExpirationNA.AutoSize = True
+        Me.checkboxExpirationNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.checkboxExpirationNA.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.checkboxExpirationNA.Location = New System.Drawing.Point(180, 171)
+        Me.checkboxExpirationNA.Name = "checkboxExpirationNA"
+        Me.checkboxExpirationNA.Size = New System.Drawing.Size(113, 21)
+        Me.checkboxExpirationNA.TabIndex = 10
+        Me.checkboxExpirationNA.Text = "Not Available"
+        Me.checkboxExpirationNA.UseVisualStyleBackColor = True
+        '
         'frmItemManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(477, 419)
+        Me.ClientSize = New System.Drawing.Size(360, 381)
+        Me.Controls.Add(Me.checkboxExpirationNA)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.dtpExpirationDate)
         Me.Controls.Add(Me.btnSaveItem)
         Me.Controls.Add(Me.groupBoxRole)
         Me.Controls.Add(Me.txtDescription)
@@ -205,4 +262,8 @@ Partial Class frmItemManager
     Friend WithEvents txtItemName As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents btnSaveItem As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents Label1 As Label
+    Friend WithEvents dtpExpirationDate As DateTimePicker
+    Friend WithEvents checkboxExpirationNA As CheckBox
+    Friend WithEvents rdoFace As MaterialSkin.Controls.MaterialRadioButton
 End Class

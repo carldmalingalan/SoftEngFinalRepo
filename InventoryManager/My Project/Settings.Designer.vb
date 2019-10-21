@@ -63,6 +63,17 @@ Namespace My
                 Return CType(Me("UserListing"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MONKEYPC\MARCODATABASE;Initial Catalog=JandA2;Integrated Security=Tru"& _ 
+            "e")>  _
+        Public ReadOnly Property DatabaseConnection() As String
+            Get
+                Return CType(Me("DatabaseConnection"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

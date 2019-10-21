@@ -34,4 +34,8 @@
             Call btnLogin_Click(sender, e)
         End If
     End Sub
+
+    Private Sub lblForgotPassword_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblForgotPassword.LinkClicked
+        frmForgotPassword.showdialog()
+    End Sub
 End Class

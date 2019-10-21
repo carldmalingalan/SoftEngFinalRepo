@@ -28,6 +28,7 @@ Partial Class frmLogin
         Me.txtUsername = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblForgotPassword = New System.Windows.Forms.LinkLabel()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -39,7 +40,7 @@ Partial Class frmLogin
         Me.btnLogin.AutoSize = True
         Me.btnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnLogin.Depth = 0
-        Me.btnLogin.Location = New System.Drawing.Point(82, 72)
+        Me.btnLogin.Location = New System.Drawing.Point(81, 84)
         Me.btnLogin.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnLogin.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnLogin.Name = "btnLogin"
@@ -101,13 +102,25 @@ Partial Class frmLogin
         'Panel1
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.Controls.Add(Me.lblForgotPassword)
         Me.Panel1.Controls.Add(Me.txtUsername)
         Me.Panel1.Controls.Add(Me.btnLogin)
         Me.Panel1.Controls.Add(Me.txtPassword)
         Me.Panel1.Location = New System.Drawing.Point(104, 278)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(215, 112)
+        Me.Panel1.Size = New System.Drawing.Size(215, 139)
         Me.Panel1.TabIndex = 7
+        '
+        'lblForgotPassword
+        '
+        Me.lblForgotPassword.AutoSize = True
+        Me.lblForgotPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblForgotPassword.Location = New System.Drawing.Point(104, 66)
+        Me.lblForgotPassword.Name = "lblForgotPassword"
+        Me.lblForgotPassword.Size = New System.Drawing.Size(100, 15)
+        Me.lblForgotPassword.TabIndex = 8
+        Me.lblForgotPassword.TabStop = True
+        Me.lblForgotPassword.Text = "Forgot Password?"
         '
         'frmLogin
         '
@@ -135,4 +148,5 @@ Partial Class frmLogin
     Friend WithEvents txtUsername As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents pbLogo As PictureBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents lblForgotPassword As LinkLabel
 End Class

@@ -2,7 +2,14 @@
 
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
 
-    Private Sub txtPassword2_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPassword2.KeyDown, txtPassword1.KeyDown
+    Private Sub cboSecretQuestion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSecretQuestion.SelectedIndexChanged
+    End Sub
+
+    Private Sub txtPassword1_OnValueChanged(sender As Object, e As EventArgs) Handles txtPassword1.OnValueChanged
+
+    End Sub
+
+    Private Sub txtPassword2_KeyDown(sender As Object, e As KeyEventArgs)
         If (e.KeyCode = Keys.Enter) Then
             Call btnUpdatePassword_Click(sender, e)
         End If
@@ -16,13 +23,15 @@
             Exit Sub
         End If
 
-        Call PasswordChange(txtPassword1.Text)
+        Call PasswordChange(txtPassword1.Text, cboSecretQuestion.SelectedValue, txtAnswer.Text)
         MsgBox("Password has been successfully changed!", MsgBoxStyle.Information, Application.ProductName)
         frmMenu.Show()
         Me.Close()
     End Sub
 
     Private Sub frmPasswordChange_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'JandA2DataSet.tblSecretQuestion' table. You can move, or remove it, as needed.
+        Me.TblSecretQuestionTableAdapter.Fill(Me.JandA2DataSet.tblSecretQuestion)
         lblAccountID.Text = login_id
         lblName.Text = login_name
         lblRole.Text = login_accesstype

@@ -7,6 +7,14 @@
         frmMenu.Enabled = True
     End Sub
 
+    Private Sub checkboxExpirationNA_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxExpirationNA.CheckedChanged
+        If (checkboxExpirationNA.CheckState = True) Then
+
+        Else
+
+        End If
+    End Sub
+
     Dim itemclass As String
     Private Sub InitializeFlags()
 
@@ -27,6 +35,8 @@
             itemclass = "HAIR"
         ElseIf (rdoBody.Checked) Then
             itemclass = "BODY"
+        ElseIf (rdoFace.Checked) Then
+            itemclass = "FACE"
         Else
             ErrorProvider1.SetError(groupBoxRole, "Please choose a item type.")
             ErrorProvider1.SetIconPadding(groupBoxRole, 5)
