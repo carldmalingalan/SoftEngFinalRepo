@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmEmployeeManager
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,22 +20,19 @@ Partial Class frmEmployeeManager
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEmployeeManager))
-        Me.lblMonthly = New System.Windows.Forms.Label()
+        Me.lblActive = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BunifuCards2 = New Bunifu.Framework.UI.BunifuCards()
-        Me.lblDaily = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.BunifuCards3 = New Bunifu.Framework.UI.BunifuCards()
-        Me.lblYearly = New System.Windows.Forms.Label()
+        Me.lblInactive = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.BunifuCards1 = New Bunifu.Framework.UI.BunifuCards()
         Me.dgvEmployeeList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.gbEmployeeDetails = New System.Windows.Forms.GroupBox()
@@ -59,34 +56,30 @@ Partial Class frmEmployeeManager
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.BunifuCards4 = New Bunifu.Framework.UI.BunifuCards()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.txtSearch = New Bunifu.Framework.UI.BunifuTextbox()
         Me.btnExportEmployeeList = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddEmployee = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateEmployee = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.BunifuCards2.SuspendLayout()
         Me.BunifuCards3.SuspendLayout()
-        Me.BunifuCards1.SuspendLayout()
         CType(Me.dgvEmployeeList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbEmployeeDetails.SuspendLayout()
         CType(Me.pbEmployeePic, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BunifuCards4.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'lblMonthly
+        'lblActive
         '
-        Me.lblMonthly.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMonthly.Location = New System.Drawing.Point(44, 27)
-        Me.lblMonthly.Name = "lblMonthly"
-        Me.lblMonthly.Size = New System.Drawing.Size(90, 39)
-        Me.lblMonthly.TabIndex = 7
-        Me.lblMonthly.Text = "999"
-        Me.lblMonthly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblActive.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblActive.Location = New System.Drawing.Point(44, 27)
+        Me.lblActive.Name = "lblActive"
+        Me.lblActive.Size = New System.Drawing.Size(90, 39)
+        Me.lblActive.TabIndex = 7
+        Me.lblActive.Text = "999"
+        Me.lblActive.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
@@ -104,35 +97,15 @@ Partial Class frmEmployeeManager
         Me.BunifuCards2.BorderRadius = 5
         Me.BunifuCards2.BottomSahddow = True
         Me.BunifuCards2.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards2.Controls.Add(Me.lblMonthly)
+        Me.BunifuCards2.Controls.Add(Me.lblActive)
         Me.BunifuCards2.Controls.Add(Me.Label2)
         Me.BunifuCards2.LeftSahddow = False
-        Me.BunifuCards2.Location = New System.Drawing.Point(188, 16)
+        Me.BunifuCards2.Location = New System.Drawing.Point(12, 16)
         Me.BunifuCards2.Name = "BunifuCards2"
         Me.BunifuCards2.RightSahddow = True
         Me.BunifuCards2.ShadowDepth = 20
         Me.BunifuCards2.Size = New System.Drawing.Size(175, 101)
         Me.BunifuCards2.TabIndex = 24
-        '
-        'lblDaily
-        '
-        Me.lblDaily.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDaily.Location = New System.Drawing.Point(46, 27)
-        Me.lblDaily.Name = "lblDaily"
-        Me.lblDaily.Size = New System.Drawing.Size(90, 39)
-        Me.lblDaily.TabIndex = 6
-        Me.lblDaily.Text = "999"
-        Me.lblDaily.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(28, 74)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 16)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Employee Count"
         '
         'BunifuCards3
         '
@@ -140,25 +113,25 @@ Partial Class frmEmployeeManager
         Me.BunifuCards3.BorderRadius = 5
         Me.BunifuCards3.BottomSahddow = True
         Me.BunifuCards3.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards3.Controls.Add(Me.lblYearly)
+        Me.BunifuCards3.Controls.Add(Me.lblInactive)
         Me.BunifuCards3.Controls.Add(Me.Label4)
         Me.BunifuCards3.LeftSahddow = False
-        Me.BunifuCards3.Location = New System.Drawing.Point(369, 16)
+        Me.BunifuCards3.Location = New System.Drawing.Point(193, 16)
         Me.BunifuCards3.Name = "BunifuCards3"
         Me.BunifuCards3.RightSahddow = True
         Me.BunifuCards3.ShadowDepth = 20
         Me.BunifuCards3.Size = New System.Drawing.Size(175, 101)
         Me.BunifuCards3.TabIndex = 25
         '
-        'lblYearly
+        'lblInactive
         '
-        Me.lblYearly.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblYearly.Location = New System.Drawing.Point(42, 27)
-        Me.lblYearly.Name = "lblYearly"
-        Me.lblYearly.Size = New System.Drawing.Size(92, 39)
-        Me.lblYearly.TabIndex = 7
-        Me.lblYearly.Text = "999"
-        Me.lblYearly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblInactive.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInactive.Location = New System.Drawing.Point(42, 27)
+        Me.lblInactive.Name = "lblInactive"
+        Me.lblInactive.Size = New System.Drawing.Size(92, 39)
+        Me.lblInactive.TabIndex = 7
+        Me.lblInactive.Text = "999"
+        Me.lblInactive.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label4
         '
@@ -170,62 +143,49 @@ Partial Class frmEmployeeManager
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Inactive Employee"
         '
-        'BunifuCards1
-        '
-        Me.BunifuCards1.BackColor = System.Drawing.Color.White
-        Me.BunifuCards1.BorderRadius = 5
-        Me.BunifuCards1.BottomSahddow = True
-        Me.BunifuCards1.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards1.Controls.Add(Me.lblDaily)
-        Me.BunifuCards1.Controls.Add(Me.Label1)
-        Me.BunifuCards1.LeftSahddow = False
-        Me.BunifuCards1.Location = New System.Drawing.Point(7, 16)
-        Me.BunifuCards1.Name = "BunifuCards1"
-        Me.BunifuCards1.RightSahddow = True
-        Me.BunifuCards1.ShadowDepth = 20
-        Me.BunifuCards1.Size = New System.Drawing.Size(175, 101)
-        Me.BunifuCards1.TabIndex = 23
-        '
         'dgvEmployeeList
         '
         Me.dgvEmployeeList.AllowUserToAddRows = False
         Me.dgvEmployeeList.AllowUserToDeleteRows = False
         Me.dgvEmployeeList.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvEmployeeList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvEmployeeList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvEmployeeList.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvEmployeeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvEmployeeList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dgvEmployeeList.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.dgvEmployeeList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvEmployeeList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEmployeeList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEmployeeList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvEmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEmployeeList.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEmployeeList.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvEmployeeList.DoubleBuffered = True
         Me.dgvEmployeeList.EnableHeadersVisualStyles = False
         Me.dgvEmployeeList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvEmployeeList.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvEmployeeList.Location = New System.Drawing.Point(12, 151)
+        Me.dgvEmployeeList.Location = New System.Drawing.Point(12, 163)
         Me.dgvEmployeeList.MultiSelect = False
         Me.dgvEmployeeList.Name = "dgvEmployeeList"
         Me.dgvEmployeeList.ReadOnly = True
         Me.dgvEmployeeList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvEmployeeList.RowHeadersVisible = False
         Me.dgvEmployeeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvEmployeeList.Size = New System.Drawing.Size(365, 344)
+        Me.dgvEmployeeList.Size = New System.Drawing.Size(365, 341)
         Me.dgvEmployeeList.TabIndex = 19
         '
         'Panel1
@@ -239,6 +199,7 @@ Partial Class frmEmployeeManager
         '
         'gbEmployeeDetails
         '
+        Me.gbEmployeeDetails.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbEmployeeDetails.Controls.Add(Me.switchEmployeeStatus)
         Me.gbEmployeeDetails.Controls.Add(Me.Label11)
         Me.gbEmployeeDetails.Controls.Add(Me.cboNails)
@@ -261,9 +222,9 @@ Partial Class frmEmployeeManager
         Me.gbEmployeeDetails.Controls.Add(Me.Label3)
         Me.gbEmployeeDetails.Enabled = False
         Me.gbEmployeeDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbEmployeeDetails.Location = New System.Drawing.Point(383, 145)
+        Me.gbEmployeeDetails.Location = New System.Drawing.Point(383, 163)
         Me.gbEmployeeDetails.Name = "gbEmployeeDetails"
-        Me.gbEmployeeDetails.Size = New System.Drawing.Size(579, 359)
+        Me.gbEmployeeDetails.Size = New System.Drawing.Size(579, 341)
         Me.gbEmployeeDetails.TabIndex = 28
         Me.gbEmployeeDetails.TabStop = False
         Me.gbEmployeeDetails.Text = "Employee Details"
@@ -346,7 +307,7 @@ Partial Class frmEmployeeManager
         Me.btnCancel.AutoSize = True
         Me.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCancel.Depth = 0
-        Me.btnCancel.Location = New System.Drawing.Point(288, 314)
+        Me.btnCancel.Location = New System.Drawing.Point(288, 296)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnCancel.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCancel.Name = "btnCancel"
@@ -361,7 +322,7 @@ Partial Class frmEmployeeManager
         Me.btnSave.AutoSize = True
         Me.btnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSave.Depth = 0
-        Me.btnSave.Location = New System.Drawing.Point(234, 314)
+        Me.btnSave.Location = New System.Drawing.Point(234, 296)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnSave.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSave.Name = "btnSave"
@@ -537,42 +498,6 @@ Partial Class frmEmployeeManager
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Firstname:"
         '
-        'BunifuCards4
-        '
-        Me.BunifuCards4.BackColor = System.Drawing.Color.White
-        Me.BunifuCards4.BorderRadius = 5
-        Me.BunifuCards4.BottomSahddow = True
-        Me.BunifuCards4.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards4.Controls.Add(Me.Label6)
-        Me.BunifuCards4.Controls.Add(Me.Label10)
-        Me.BunifuCards4.LeftSahddow = False
-        Me.BunifuCards4.Location = New System.Drawing.Point(995, 16)
-        Me.BunifuCards4.Name = "BunifuCards4"
-        Me.BunifuCards4.RightSahddow = True
-        Me.BunifuCards4.ShadowDepth = 20
-        Me.BunifuCards4.Size = New System.Drawing.Size(147, 96)
-        Me.BunifuCards4.TabIndex = 26
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(39, 13)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(71, 39)
-        Me.Label6.TabIndex = 7
-        Me.Label6.Text = "999"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(10, 72)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(128, 16)
-        Me.Label10.TabIndex = 5
-        Me.Label10.Text = "Inactive Employee"
-        '
         'ErrorProvider1
         '
         Me.ErrorProvider1.ContainerControl = Me
@@ -581,22 +506,10 @@ Partial Class frmEmployeeManager
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'txtSearch
-        '
-        Me.txtSearch.BackColor = System.Drawing.Color.Silver
-        Me.txtSearch.BackgroundImage = CType(resources.GetObject("txtSearch.BackgroundImage"), System.Drawing.Image)
-        Me.txtSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.txtSearch.ForeColor = System.Drawing.Color.SeaGreen
-        Me.txtSearch.Icon = CType(resources.GetObject("txtSearch.Icon"), System.Drawing.Image)
-        Me.txtSearch.Location = New System.Drawing.Point(144, 119)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(235, 28)
-        Me.txtSearch.TabIndex = 29
-        Me.txtSearch.text = ""
-        '
         'btnExportEmployeeList
         '
         Me.btnExportEmployeeList.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.btnExportEmployeeList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnExportEmployeeList.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.btnExportEmployeeList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExportEmployeeList.BorderRadius = 7
@@ -631,6 +544,7 @@ Partial Class frmEmployeeManager
         'btnAddEmployee
         '
         Me.btnAddEmployee.Activecolor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.btnAddEmployee.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddEmployee.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.btnAddEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAddEmployee.BorderRadius = 7
@@ -665,6 +579,7 @@ Partial Class frmEmployeeManager
         'btnUpdateEmployee
         '
         Me.btnUpdateEmployee.Activecolor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnUpdateEmployee.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnUpdateEmployee.BackColor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.btnUpdateEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnUpdateEmployee.BorderRadius = 7
@@ -696,17 +611,49 @@ Partial Class frmEmployeeManager
         Me.btnUpdateEmployee.Textcolor = System.Drawing.Color.White
         Me.btnUpdateEmployee.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
+        'btnSearch
+        '
+        Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSearch.FlatAppearance.BorderSize = 0
+        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearch.Image = Global.InventoryManager.My.Resources.Resources.magnifying_glass_1_
+        Me.btnSearch.Location = New System.Drawing.Point(341, 124)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(33, 33)
+        Me.btnSearch.TabIndex = 30
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtSearch.HintForeColor = System.Drawing.Color.Silver
+        Me.txtSearch.HintText = "Search"
+        Me.txtSearch.isPassword = False
+        Me.txtSearch.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtSearch.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtSearch.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtSearch.LineThickness = 3
+        Me.txtSearch.Location = New System.Drawing.Point(97, 121)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(240, 33)
+        Me.txtSearch.TabIndex = 29
+        Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
         'frmEmployeeManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.HighlightText
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
-        Me.Controls.Add(Me.BunifuCards4)
         Me.Controls.Add(Me.gbEmployeeDetails)
         Me.Controls.Add(Me.BunifuCards2)
         Me.Controls.Add(Me.BunifuCards3)
-        Me.Controls.Add(Me.BunifuCards1)
         Me.Controls.Add(Me.dgvEmployeeList)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnExportEmployeeList)
@@ -721,28 +668,21 @@ Partial Class frmEmployeeManager
         Me.BunifuCards2.PerformLayout()
         Me.BunifuCards3.ResumeLayout(False)
         Me.BunifuCards3.PerformLayout()
-        Me.BunifuCards1.ResumeLayout(False)
-        Me.BunifuCards1.PerformLayout()
         CType(Me.dgvEmployeeList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbEmployeeDetails.ResumeLayout(False)
         Me.gbEmployeeDetails.PerformLayout()
         CType(Me.pbEmployeePic, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BunifuCards4.ResumeLayout(False)
-        Me.BunifuCards4.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents lblMonthly As Label
+    Friend WithEvents lblActive As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents BunifuCards2 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents lblDaily As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents BunifuCards3 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents lblYearly As Label
+    Friend WithEvents lblInactive As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents BunifuCards1 As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents dgvEmployeeList As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnExportEmployeeList As Bunifu.Framework.UI.BunifuFlatButton
@@ -761,9 +701,6 @@ Partial Class frmEmployeeManager
     Friend WithEvents txtMiddleInitial As Bunifu.Framework.UI.BunifuMetroTextbox
     Friend WithEvents txtLastname As Bunifu.Framework.UI.BunifuMetroTextbox
     Friend WithEvents txtFirstname As Bunifu.Framework.UI.BunifuMetroTextbox
-    Friend WithEvents BunifuCards4 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label10 As Label
     Friend WithEvents cboNails As MaterialSkin.Controls.MaterialCheckBox
     Friend WithEvents cboHair As MaterialSkin.Controls.MaterialCheckBox
     Friend WithEvents cboBody As MaterialSkin.Controls.MaterialCheckBox
@@ -774,5 +711,6 @@ Partial Class frmEmployeeManager
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Label11 As Label
     Friend WithEvents switchEmployeeStatus As Bunifu.Framework.UI.BunifuSwitch
-    Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuTextbox
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
 End Class

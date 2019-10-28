@@ -49,7 +49,7 @@ Partial Class frmDashboard
         Series1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series1.IsXValueIndexed = True
         Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
+        Series1.Name = "Series2"
         Series1.ShadowColor = System.Drawing.Color.Silver
         Me.chartEmployeeTransactions.Series.Add(Series1)
         Me.chartEmployeeTransactions.Size = New System.Drawing.Size(734, 391)
@@ -92,6 +92,7 @@ Partial Class frmDashboard
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
         Me.Controls.Add(Me.chartCategories)
         Me.Controls.Add(Me.BunifuCards1)

@@ -22,7 +22,6 @@ Partial Class frmInventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -34,25 +33,15 @@ Partial Class frmInventory
         Me.lblActiveCount = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvItemList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.ItemIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemQuantityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemDescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemClassificationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TblInventoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.JandADataSet3 = New InventoryManager.JandADataSet3()
         Me.btnExportItemList = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddItem = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.TblInventoryTableAdapter = New InventoryManager.JandADataSet3TableAdapters.tblInventoryTableAdapter()
         Me.BunifuCards3 = New Bunifu.Framework.UI.BunifuCards()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.BunifuCards2.SuspendLayout()
         Me.BunifuCards1.SuspendLayout()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblInventoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.JandADataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuCards3.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -135,7 +124,6 @@ Partial Class frmInventory
         Me.dgvItemList.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvItemList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvItemList.AutoGenerateColumns = False
         Me.dgvItemList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvItemList.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.dgvItemList.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -149,8 +137,6 @@ Partial Class frmInventory
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvItemList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvItemList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemIDDataGridViewTextBoxColumn, Me.ItemNameDataGridViewTextBoxColumn, Me.ItemQuantityDataGridViewTextBoxColumn, Me.ItemDescriptionDataGridViewTextBoxColumn, Me.ItemClassificationDataGridViewTextBoxColumn})
-        Me.dgvItemList.DataSource = Me.TblInventoryBindingSource
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -172,51 +158,6 @@ Partial Class frmInventory
         Me.dgvItemList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvItemList.Size = New System.Drawing.Size(933, 345)
         Me.dgvItemList.TabIndex = 8
-        '
-        'ItemIDDataGridViewTextBoxColumn
-        '
-        Me.ItemIDDataGridViewTextBoxColumn.DataPropertyName = "ItemID"
-        Me.ItemIDDataGridViewTextBoxColumn.HeaderText = "ItemID"
-        Me.ItemIDDataGridViewTextBoxColumn.Name = "ItemIDDataGridViewTextBoxColumn"
-        Me.ItemIDDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ItemNameDataGridViewTextBoxColumn
-        '
-        Me.ItemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName"
-        Me.ItemNameDataGridViewTextBoxColumn.HeaderText = "ItemName"
-        Me.ItemNameDataGridViewTextBoxColumn.Name = "ItemNameDataGridViewTextBoxColumn"
-        Me.ItemNameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ItemQuantityDataGridViewTextBoxColumn
-        '
-        Me.ItemQuantityDataGridViewTextBoxColumn.DataPropertyName = "ItemQuantity"
-        Me.ItemQuantityDataGridViewTextBoxColumn.HeaderText = "ItemQuantity"
-        Me.ItemQuantityDataGridViewTextBoxColumn.Name = "ItemQuantityDataGridViewTextBoxColumn"
-        Me.ItemQuantityDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ItemDescriptionDataGridViewTextBoxColumn
-        '
-        Me.ItemDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ItemDescription"
-        Me.ItemDescriptionDataGridViewTextBoxColumn.HeaderText = "ItemDescription"
-        Me.ItemDescriptionDataGridViewTextBoxColumn.Name = "ItemDescriptionDataGridViewTextBoxColumn"
-        Me.ItemDescriptionDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ItemClassificationDataGridViewTextBoxColumn
-        '
-        Me.ItemClassificationDataGridViewTextBoxColumn.DataPropertyName = "ItemClassification"
-        Me.ItemClassificationDataGridViewTextBoxColumn.HeaderText = "ItemClassification"
-        Me.ItemClassificationDataGridViewTextBoxColumn.Name = "ItemClassificationDataGridViewTextBoxColumn"
-        Me.ItemClassificationDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TblInventoryBindingSource
-        '
-        Me.TblInventoryBindingSource.DataMember = "tblInventory"
-        Me.TblInventoryBindingSource.DataSource = Me.JandADataSet3
-        '
-        'JandADataSet3
-        '
-        Me.JandADataSet3.DataSetName = "JandADataSet3"
-        Me.JandADataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnExportItemList
         '
@@ -320,10 +261,6 @@ Partial Class frmInventory
         Me.btnAddItem.Textcolor = System.Drawing.Color.White
         Me.btnAddItem.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
-        'TblInventoryTableAdapter
-        '
-        Me.TblInventoryTableAdapter.ClearBeforeFill = True
-        '
         'BunifuCards3
         '
         Me.BunifuCards3.BackColor = System.Drawing.Color.White
@@ -380,8 +317,6 @@ Partial Class frmInventory
         Me.BunifuCards1.ResumeLayout(False)
         Me.BunifuCards1.PerformLayout()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblInventoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.JandADataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BunifuCards3.ResumeLayout(False)
         Me.BunifuCards3.PerformLayout()
         Me.ResumeLayout(False)
@@ -398,14 +333,6 @@ Partial Class frmInventory
     Friend WithEvents btnUpdateItem As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnAddItem As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dgvItemList As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents JandADataSet3 As JandADataSet3
-    Friend WithEvents TblInventoryBindingSource As BindingSource
-    Friend WithEvents TblInventoryTableAdapter As JandADataSet3TableAdapters.tblInventoryTableAdapter
-    Friend WithEvents ItemIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ItemNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ItemQuantityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ItemDescriptionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ItemClassificationDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BunifuCards3 As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label

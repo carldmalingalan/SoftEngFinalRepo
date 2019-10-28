@@ -180,10 +180,22 @@
     <Compile Include="frmPasswordChange.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSearchCustomer.Designer.vb">
+      <DependentUpon>frmSearchCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmServices.Designer.vb">
       <DependentUpon>frmServices.vb</DependentUpon>
     </Compile>
     <Compile Include="frmServices.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransactionManager.Designer.vb">
+      <DependentUpon>frmTransactionManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransactionManager.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTransactions.Designer.vb">
@@ -192,16 +204,15 @@
     <Compile Include="frmTransactions.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTransactionsManager.Designer.vb">
-      <DependentUpon>frmTransactionsManager.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmTransactionsManager.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="JandA2DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JandA2DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="JandA2DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JandA2DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="JandADataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -290,14 +301,17 @@
     <EmbeddedResource Include="frmPasswordChange.resx">
       <DependentUpon>frmPasswordChange.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchCustomer.resx">
+      <DependentUpon>frmSearchCustomer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmServices.resx">
       <DependentUpon>frmServices.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTransactionManager.resx">
+      <DependentUpon>frmTransactionManager.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTransactions.resx">
       <DependentUpon>frmTransactions.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTransactionsManager.resx">
-      <DependentUpon>frmTransactionsManager.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -328,6 +342,17 @@
     </None>
     <None Include="JandA2DataSet.xss">
       <DependentUpon>JandA2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JandA2DataSet1.xsc">
+      <DependentUpon>JandA2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="JandA2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JandA2DataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JandA2DataSet1.xss">
+      <DependentUpon>JandA2DataSet1.xsd</DependentUpon>
     </None>
     <None Include="JandADataSet.xsc">
       <DependentUpon>JandADataSet.xsd</DependentUpon>
@@ -412,6 +437,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon salon_0`.ico" />
+    <None Include="Resources\magnifying-glass%281%29.png" />
+    <None Include="Resources\magnifying-glass.png" />
     <None Include="Resources\locked.png" />
     <None Include="Resources\customer.png" />
     <None Include="Resources\image-not-available-male.jpg" />

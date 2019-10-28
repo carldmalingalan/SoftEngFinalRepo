@@ -22,42 +22,26 @@ Partial Class frmAccounts
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAccounts))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvUserList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.AccountIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FirstnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AccountNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AccessTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AccountTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TblLoginsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.JandADataSet1 = New InventoryManager.JandADataSet1()
-        Me.TblLoginsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.JandADataSet = New InventoryManager.JandADataSet()
-        Me.TblLoginsTableAdapter = New InventoryManager.JandADataSetTableAdapters.tblLoginsTableAdapter()
-        Me.TblLoginsTableAdapter1 = New InventoryManager.JandADataSet1TableAdapters.tblLoginsTableAdapter()
         Me.BunifuCards1 = New Bunifu.Framework.UI.BunifuCards()
         Me.lblActiveCount = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BunifuCards2 = New Bunifu.Framework.UI.BunifuCards()
         Me.lblInactiveCount = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnAddEmployee = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnExportUsers = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnDeactivateAccount = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateAccount = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnCreateAccount = New Bunifu.Framework.UI.BunifuFlatButton()
         CType(Me.dgvUserList, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblLoginsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.JandADataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblLoginsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.JandADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuCards1.SuspendLayout()
         Me.BunifuCards2.SuspendLayout()
         Me.SuspendLayout()
@@ -78,9 +62,11 @@ Partial Class frmAccounts
         Me.dgvUserList.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvUserList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvUserList.AutoGenerateColumns = False
+        Me.dgvUserList.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvUserList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvUserList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dgvUserList.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.dgvUserList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvUserList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -92,8 +78,6 @@ Partial Class frmAccounts
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvUserList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvUserList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AccountIDDataGridViewTextBoxColumn, Me.LastnameDataGridViewTextBoxColumn, Me.FirstnameDataGridViewTextBoxColumn, Me.AccountNameDataGridViewTextBoxColumn, Me.UsernameDataGridViewTextBoxColumn, Me.AccessTypeDataGridViewTextBoxColumn, Me.AccountTypeDataGridViewTextBoxColumn})
-        Me.dgvUserList.DataSource = Me.TblLoginsBindingSource1
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -106,92 +90,15 @@ Partial Class frmAccounts
         Me.dgvUserList.EnableHeadersVisualStyles = False
         Me.dgvUserList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvUserList.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvUserList.Location = New System.Drawing.Point(12, 150)
+        Me.dgvUserList.Location = New System.Drawing.Point(12, 120)
         Me.dgvUserList.MultiSelect = False
         Me.dgvUserList.Name = "dgvUserList"
         Me.dgvUserList.ReadOnly = True
         Me.dgvUserList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvUserList.RowHeadersVisible = False
         Me.dgvUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvUserList.Size = New System.Drawing.Size(933, 345)
+        Me.dgvUserList.Size = New System.Drawing.Size(933, 375)
         Me.dgvUserList.TabIndex = 1
-        '
-        'AccountIDDataGridViewTextBoxColumn
-        '
-        Me.AccountIDDataGridViewTextBoxColumn.DataPropertyName = "AccountID"
-        Me.AccountIDDataGridViewTextBoxColumn.HeaderText = "AccountID"
-        Me.AccountIDDataGridViewTextBoxColumn.Name = "AccountIDDataGridViewTextBoxColumn"
-        Me.AccountIDDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'LastnameDataGridViewTextBoxColumn
-        '
-        Me.LastnameDataGridViewTextBoxColumn.DataPropertyName = "Lastname"
-        Me.LastnameDataGridViewTextBoxColumn.HeaderText = "Lastname"
-        Me.LastnameDataGridViewTextBoxColumn.Name = "LastnameDataGridViewTextBoxColumn"
-        Me.LastnameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FirstnameDataGridViewTextBoxColumn
-        '
-        Me.FirstnameDataGridViewTextBoxColumn.DataPropertyName = "Firstname"
-        Me.FirstnameDataGridViewTextBoxColumn.HeaderText = "Firstname"
-        Me.FirstnameDataGridViewTextBoxColumn.Name = "FirstnameDataGridViewTextBoxColumn"
-        Me.FirstnameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AccountNameDataGridViewTextBoxColumn
-        '
-        Me.AccountNameDataGridViewTextBoxColumn.DataPropertyName = "AccountName"
-        Me.AccountNameDataGridViewTextBoxColumn.HeaderText = "AccountName"
-        Me.AccountNameDataGridViewTextBoxColumn.Name = "AccountNameDataGridViewTextBoxColumn"
-        Me.AccountNameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'UsernameDataGridViewTextBoxColumn
-        '
-        Me.UsernameDataGridViewTextBoxColumn.DataPropertyName = "Username"
-        Me.UsernameDataGridViewTextBoxColumn.HeaderText = "Username"
-        Me.UsernameDataGridViewTextBoxColumn.Name = "UsernameDataGridViewTextBoxColumn"
-        Me.UsernameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AccessTypeDataGridViewTextBoxColumn
-        '
-        Me.AccessTypeDataGridViewTextBoxColumn.DataPropertyName = "AccessType"
-        Me.AccessTypeDataGridViewTextBoxColumn.HeaderText = "AccessType"
-        Me.AccessTypeDataGridViewTextBoxColumn.Name = "AccessTypeDataGridViewTextBoxColumn"
-        Me.AccessTypeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AccountTypeDataGridViewTextBoxColumn
-        '
-        Me.AccountTypeDataGridViewTextBoxColumn.DataPropertyName = "AccountType"
-        Me.AccountTypeDataGridViewTextBoxColumn.HeaderText = "AccountType"
-        Me.AccountTypeDataGridViewTextBoxColumn.Name = "AccountTypeDataGridViewTextBoxColumn"
-        Me.AccountTypeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TblLoginsBindingSource1
-        '
-        Me.TblLoginsBindingSource1.DataMember = "tblLogins"
-        Me.TblLoginsBindingSource1.DataSource = Me.JandADataSet1
-        '
-        'JandADataSet1
-        '
-        Me.JandADataSet1.DataSetName = "JandADataSet1"
-        Me.JandADataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TblLoginsBindingSource
-        '
-        Me.TblLoginsBindingSource.DataMember = "tblLogins"
-        Me.TblLoginsBindingSource.DataSource = Me.JandADataSet
-        '
-        'JandADataSet
-        '
-        Me.JandADataSet.DataSetName = "JandADataSet"
-        Me.JandADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TblLoginsTableAdapter
-        '
-        Me.TblLoginsTableAdapter.ClearBeforeFill = True
-        '
-        'TblLoginsTableAdapter1
-        '
-        Me.TblLoginsTableAdapter1.ClearBeforeFill = True
         '
         'BunifuCards1
         '
@@ -265,9 +172,40 @@ Partial Class frmAccounts
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "INACTIVE USERS"
         '
+        'txtSearch
+        '
+        Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtSearch.HintForeColor = System.Drawing.Color.Silver
+        Me.txtSearch.HintText = "Search"
+        Me.txtSearch.isPassword = False
+        Me.txtSearch.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtSearch.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtSearch.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtSearch.LineThickness = 3
+        Me.txtSearch.Location = New System.Drawing.Point(668, 83)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(240, 33)
+        Me.txtSearch.TabIndex = 9
+        Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'btnSearch
+        '
+        Me.btnSearch.FlatAppearance.BorderSize = 0
+        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearch.Image = Global.InventoryManager.My.Resources.Resources.magnifying_glass_1_
+        Me.btnSearch.Location = New System.Drawing.Point(912, 83)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(33, 33)
+        Me.btnSearch.TabIndex = 10
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
         'btnAddEmployee
         '
         Me.btnAddEmployee.Activecolor = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(190, Byte), Integer), CType(CType(106, Byte), Integer))
+        Me.btnAddEmployee.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddEmployee.BackColor = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(190, Byte), Integer), CType(CType(106, Byte), Integer))
         Me.btnAddEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAddEmployee.BorderRadius = 7
@@ -302,6 +240,7 @@ Partial Class frmAccounts
         'btnExportUsers
         '
         Me.btnExportUsers.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.btnExportUsers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnExportUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.btnExportUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExportUsers.BorderRadius = 7
@@ -336,6 +275,7 @@ Partial Class frmAccounts
         'btnDeactivateAccount
         '
         Me.btnDeactivateAccount.Activecolor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnDeactivateAccount.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnDeactivateAccount.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnDeactivateAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnDeactivateAccount.BorderRadius = 7
@@ -370,6 +310,7 @@ Partial Class frmAccounts
         'btnUpdateAccount
         '
         Me.btnUpdateAccount.Activecolor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnUpdateAccount.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnUpdateAccount.BackColor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.btnUpdateAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnUpdateAccount.BorderRadius = 7
@@ -404,6 +345,7 @@ Partial Class frmAccounts
         'btnCreateAccount
         '
         Me.btnCreateAccount.Activecolor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.btnCreateAccount.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCreateAccount.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.btnCreateAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnCreateAccount.BorderRadius = 7
@@ -439,8 +381,10 @@ Partial Class frmAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.btnAddEmployee)
         Me.Controls.Add(Me.btnExportUsers)
         Me.Controls.Add(Me.BunifuCards2)
@@ -454,10 +398,6 @@ Partial Class frmAccounts
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAccounts"
         CType(Me.dgvUserList, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblLoginsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.JandADataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblLoginsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.JandADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BunifuCards1.ResumeLayout(False)
         Me.BunifuCards1.PerformLayout()
         Me.BunifuCards2.ResumeLayout(False)
@@ -468,19 +408,6 @@ Partial Class frmAccounts
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents dgvUserList As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents JandADataSet As JandADataSet
-    Friend WithEvents TblLoginsBindingSource As BindingSource
-    Friend WithEvents TblLoginsTableAdapter As JandADataSetTableAdapters.tblLoginsTableAdapter
-    Friend WithEvents JandADataSet1 As JandADataSet1
-    Friend WithEvents TblLoginsBindingSource1 As BindingSource
-    Friend WithEvents TblLoginsTableAdapter1 As JandADataSet1TableAdapters.tblLoginsTableAdapter
-    Friend WithEvents AccountIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents LastnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FirstnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AccountNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents UsernameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AccessTypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AccountTypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents btnCreateAccount As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnUpdateAccount As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnDeactivateAccount As Bunifu.Framework.UI.BunifuFlatButton
@@ -492,4 +419,6 @@ Partial Class frmAccounts
     Friend WithEvents Label2 As Label
     Friend WithEvents btnExportUsers As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnAddEmployee As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents btnSearch As Button
 End Class

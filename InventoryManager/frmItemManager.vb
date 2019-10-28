@@ -9,9 +9,11 @@
 
     Private Sub checkboxExpirationNA_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxExpirationNA.CheckedChanged
         If (checkboxExpirationNA.CheckState = True) Then
-
+            dtpExpirationDate.CustomFormat = " "  'An empty SPACE
+            dtpExpirationDate.Format = DateTimePickerFormat.Custom
         Else
-
+            dtpExpirationDate.CustomFormat = "MM/dd/yyyy"  'An empty SPACE
+            dtpExpirationDate.Format = DateTimePickerFormat.Custom
         End If
     End Sub
 

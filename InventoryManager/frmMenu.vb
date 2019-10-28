@@ -28,6 +28,7 @@
             btnTransactions.Enabled = False
             btnExit.Enabled = True
         End If
+        btnDashboard_Click(sender, e)
         Call btnAccounts_EnabledChanged()
     End Sub
 

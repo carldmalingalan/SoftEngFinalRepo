@@ -27,17 +27,14 @@ Partial Class frmServices
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmServices))
-        Me.BunifuCards2 = New Bunifu.Framework.UI.BunifuCards()
-        Me.lblInactiveCount = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.BunifuCards1 = New Bunifu.Framework.UI.BunifuCards()
-        Me.lblActiveCount = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvServiceList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.btnExportServices = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateService = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnCreateService = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.gbServiceDetails = New System.Windows.Forms.GroupBox()
+        Me.cboFace = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtRemarks = New WindowsFormsControlLibrary1.BunifuCustomTextbox()
         Me.switchServiceStatus = New Bunifu.Framework.UI.BunifuSwitch()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cboNails = New MaterialSkin.Controls.MaterialCheckBox()
@@ -51,84 +48,10 @@ Partial Class frmServices
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.BunifuCards2.SuspendLayout()
-        Me.BunifuCards1.SuspendLayout()
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbServiceDetails.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'BunifuCards2
-        '
-        Me.BunifuCards2.BackColor = System.Drawing.Color.White
-        Me.BunifuCards2.BorderRadius = 5
-        Me.BunifuCards2.BottomSahddow = True
-        Me.BunifuCards2.color = System.Drawing.Color.IndianRed
-        Me.BunifuCards2.Controls.Add(Me.lblInactiveCount)
-        Me.BunifuCards2.Controls.Add(Me.Label2)
-        Me.BunifuCards2.LeftSahddow = False
-        Me.BunifuCards2.Location = New System.Drawing.Point(163, 14)
-        Me.BunifuCards2.Name = "BunifuCards2"
-        Me.BunifuCards2.RightSahddow = True
-        Me.BunifuCards2.ShadowDepth = 20
-        Me.BunifuCards2.Size = New System.Drawing.Size(151, 98)
-        Me.BunifuCards2.TabIndex = 14
-        '
-        'lblInactiveCount
-        '
-        Me.lblInactiveCount.AutoSize = True
-        Me.lblInactiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInactiveCount.Location = New System.Drawing.Point(37, 21)
-        Me.lblInactiveCount.Name = "lblInactiveCount"
-        Me.lblInactiveCount.Size = New System.Drawing.Size(71, 39)
-        Me.lblInactiveCount.TabIndex = 7
-        Me.lblInactiveCount.Text = "999"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(17, 67)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(109, 16)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "INACTIVE USERS"
-        '
-        'BunifuCards1
-        '
-        Me.BunifuCards1.BackColor = System.Drawing.Color.White
-        Me.BunifuCards1.BorderRadius = 5
-        Me.BunifuCards1.BottomSahddow = True
-        Me.BunifuCards1.color = System.Drawing.Color.IndianRed
-        Me.BunifuCards1.Controls.Add(Me.lblActiveCount)
-        Me.BunifuCards1.Controls.Add(Me.Label1)
-        Me.BunifuCards1.LeftSahddow = False
-        Me.BunifuCards1.Location = New System.Drawing.Point(12, 14)
-        Me.BunifuCards1.Name = "BunifuCards1"
-        Me.BunifuCards1.RightSahddow = True
-        Me.BunifuCards1.ShadowDepth = 20
-        Me.BunifuCards1.Size = New System.Drawing.Size(145, 98)
-        Me.BunifuCards1.TabIndex = 13
-        '
-        'lblActiveCount
-        '
-        Me.lblActiveCount.AutoSize = True
-        Me.lblActiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActiveCount.Location = New System.Drawing.Point(34, 21)
-        Me.lblActiveCount.Name = "lblActiveCount"
-        Me.lblActiveCount.Size = New System.Drawing.Size(71, 39)
-        Me.lblActiveCount.TabIndex = 6
-        Me.lblActiveCount.Text = "999"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(22, 67)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 16)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "ACTIVE USERS"
         '
         'dgvServiceList
         '
@@ -138,7 +61,7 @@ Partial Class frmServices
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvServiceList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvServiceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvServiceList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dgvServiceList.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.dgvServiceList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvServiceList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -162,19 +85,20 @@ Partial Class frmServices
         Me.dgvServiceList.EnableHeadersVisualStyles = False
         Me.dgvServiceList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvServiceList.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvServiceList.Location = New System.Drawing.Point(12, 148)
+        Me.dgvServiceList.Location = New System.Drawing.Point(12, 12)
         Me.dgvServiceList.MultiSelect = False
         Me.dgvServiceList.Name = "dgvServiceList"
         Me.dgvServiceList.ReadOnly = True
         Me.dgvServiceList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvServiceList.RowHeadersVisible = False
         Me.dgvServiceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvServiceList.Size = New System.Drawing.Size(512, 345)
+        Me.dgvServiceList.Size = New System.Drawing.Size(512, 481)
         Me.dgvServiceList.TabIndex = 9
         '
         'btnExportServices
         '
         Me.btnExportServices.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.btnExportServices.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnExportServices.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.btnExportServices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExportServices.BorderRadius = 7
@@ -209,6 +133,7 @@ Partial Class frmServices
         'btnUpdateService
         '
         Me.btnUpdateService.Activecolor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnUpdateService.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnUpdateService.BackColor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.btnUpdateService.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnUpdateService.BorderRadius = 7
@@ -243,6 +168,7 @@ Partial Class frmServices
         'btnCreateService
         '
         Me.btnCreateService.Activecolor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.btnCreateService.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCreateService.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.btnCreateService.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnCreateService.BorderRadius = 7
@@ -276,6 +202,11 @@ Partial Class frmServices
         '
         'gbServiceDetails
         '
+        Me.gbServiceDetails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbServiceDetails.Controls.Add(Me.cboFace)
+        Me.gbServiceDetails.Controls.Add(Me.Label4)
+        Me.gbServiceDetails.Controls.Add(Me.txtRemarks)
         Me.gbServiceDetails.Controls.Add(Me.switchServiceStatus)
         Me.gbServiceDetails.Controls.Add(Me.Label11)
         Me.gbServiceDetails.Controls.Add(Me.cboNails)
@@ -290,12 +221,51 @@ Partial Class frmServices
         Me.gbServiceDetails.Controls.Add(Me.Label3)
         Me.gbServiceDetails.Enabled = False
         Me.gbServiceDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbServiceDetails.Location = New System.Drawing.Point(530, 148)
+        Me.gbServiceDetails.Location = New System.Drawing.Point(530, 12)
         Me.gbServiceDetails.Name = "gbServiceDetails"
-        Me.gbServiceDetails.Size = New System.Drawing.Size(415, 266)
+        Me.gbServiceDetails.Size = New System.Drawing.Size(415, 483)
         Me.gbServiceDetails.TabIndex = 29
         Me.gbServiceDetails.TabStop = False
         Me.gbServiceDetails.Text = "Service Details"
+        '
+        'cboFace
+        '
+        Me.cboFace.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cboFace.AutoSize = True
+        Me.cboFace.Depth = 0
+        Me.cboFace.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.cboFace.Location = New System.Drawing.Point(325, 66)
+        Me.cboFace.Margin = New System.Windows.Forms.Padding(0)
+        Me.cboFace.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.cboFace.MouseState = MaterialSkin.MouseState.HOVER
+        Me.cboFace.Name = "cboFace"
+        Me.cboFace.Ripple = True
+        Me.cboFace.Size = New System.Drawing.Size(63, 30)
+        Me.cboFace.TabIndex = 57
+        Me.cboFace.Text = "FACE"
+        Me.cboFace.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(15, 173)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(85, 16)
+        Me.Label4.TabIndex = 56
+        Me.Label4.Text = "Description:"
+        '
+        'txtRemarks
+        '
+        Me.txtRemarks.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtRemarks.BorderColor = System.Drawing.Color.SeaGreen
+        Me.txtRemarks.Location = New System.Drawing.Point(135, 170)
+        Me.txtRemarks.Multiline = True
+        Me.txtRemarks.Name = "txtRemarks"
+        Me.txtRemarks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtRemarks.Size = New System.Drawing.Size(276, 209)
+        Me.txtRemarks.TabIndex = 55
         '
         'switchServiceStatus
         '
@@ -324,10 +294,12 @@ Partial Class frmServices
         '
         'cboNails
         '
+        Me.cboNails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboNails.AutoSize = True
         Me.cboNails.Depth = 0
         Me.cboNails.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboNails.Location = New System.Drawing.Point(281, 66)
+        Me.cboNails.Location = New System.Drawing.Point(257, 66)
         Me.cboNails.Margin = New System.Windows.Forms.Padding(0)
         Me.cboNails.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.cboNails.MouseState = MaterialSkin.MouseState.HOVER
@@ -340,10 +312,12 @@ Partial Class frmServices
         '
         'cboHair
         '
+        Me.cboHair.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboHair.AutoSize = True
         Me.cboHair.Depth = 0
         Me.cboHair.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboHair.Location = New System.Drawing.Point(208, 66)
+        Me.cboHair.Location = New System.Drawing.Point(196, 66)
         Me.cboHair.Margin = New System.Windows.Forms.Padding(0)
         Me.cboHair.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.cboHair.MouseState = MaterialSkin.MouseState.HOVER
@@ -356,6 +330,8 @@ Partial Class frmServices
         '
         'cboBody
         '
+        Me.cboBody.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboBody.AutoSize = True
         Me.cboBody.Depth = 0
         Me.cboBody.Font = New System.Drawing.Font("Roboto", 10.0!)
@@ -372,10 +348,12 @@ Partial Class frmServices
         '
         'btnCancel
         '
+        Me.btnCancel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.AutoSize = True
         Me.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCancel.Depth = 0
-        Me.btnCancel.Location = New System.Drawing.Point(210, 208)
+        Me.btnCancel.Location = New System.Drawing.Point(293, 438)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnCancel.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCancel.Name = "btnCancel"
@@ -387,10 +365,12 @@ Partial Class frmServices
         '
         'btnSave
         '
+        Me.btnSave.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.AutoSize = True
         Me.btnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSave.Depth = 0
-        Me.btnSave.Location = New System.Drawing.Point(156, 208)
+        Me.btnSave.Location = New System.Drawing.Point(239, 438)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnSave.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSave.Name = "btnSave"
@@ -402,6 +382,8 @@ Partial Class frmServices
         '
         'txtServiceDetails
         '
+        Me.txtServiceDetails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtServiceDetails.BorderColorFocused = System.Drawing.Color.HotPink
         Me.txtServiceDetails.BorderColorIdle = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtServiceDetails.BorderColorMouseHover = System.Drawing.Color.HotPink
@@ -410,15 +392,17 @@ Partial Class frmServices
         Me.txtServiceDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.txtServiceDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtServiceDetails.isPassword = False
-        Me.txtServiceDetails.Location = New System.Drawing.Point(133, 101)
+        Me.txtServiceDetails.Location = New System.Drawing.Point(135, 101)
         Me.txtServiceDetails.Margin = New System.Windows.Forms.Padding(4)
         Me.txtServiceDetails.Name = "txtServiceDetails"
-        Me.txtServiceDetails.Size = New System.Drawing.Size(247, 31)
+        Me.txtServiceDetails.Size = New System.Drawing.Size(276, 31)
         Me.txtServiceDetails.TabIndex = 30
         Me.txtServiceDetails.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'txtServiceName
         '
+        Me.txtServiceName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtServiceName.BorderColorFocused = System.Drawing.Color.HotPink
         Me.txtServiceName.BorderColorIdle = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtServiceName.BorderColorMouseHover = System.Drawing.Color.HotPink
@@ -427,10 +411,10 @@ Partial Class frmServices
         Me.txtServiceName.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.txtServiceName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtServiceName.isPassword = False
-        Me.txtServiceName.Location = New System.Drawing.Point(133, 23)
+        Me.txtServiceName.Location = New System.Drawing.Point(135, 23)
         Me.txtServiceName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtServiceName.Name = "txtServiceName"
-        Me.txtServiceName.Size = New System.Drawing.Size(247, 31)
+        Me.txtServiceName.Size = New System.Drawing.Size(276, 31)
         Me.txtServiceName.TabIndex = 28
         Me.txtServiceName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
@@ -469,11 +453,10 @@ Partial Class frmServices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1154, 507)
         Me.Controls.Add(Me.gbServiceDetails)
         Me.Controls.Add(Me.btnExportServices)
-        Me.Controls.Add(Me.BunifuCards2)
-        Me.Controls.Add(Me.BunifuCards1)
         Me.Controls.Add(Me.btnUpdateService)
         Me.Controls.Add(Me.btnCreateService)
         Me.Controls.Add(Me.dgvServiceList)
@@ -481,10 +464,6 @@ Partial Class frmServices
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmServices"
         Me.Text = "frmServices"
-        Me.BunifuCards2.ResumeLayout(False)
-        Me.BunifuCards2.PerformLayout()
-        Me.BunifuCards1.ResumeLayout(False)
-        Me.BunifuCards1.PerformLayout()
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbServiceDetails.ResumeLayout(False)
         Me.gbServiceDetails.PerformLayout()
@@ -493,12 +472,6 @@ Partial Class frmServices
 
     End Sub
     Friend WithEvents btnExportServices As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents BunifuCards2 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents lblInactiveCount As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents BunifuCards1 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents lblActiveCount As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents btnUpdateService As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnCreateService As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dgvServiceList As Bunifu.Framework.UI.BunifuCustomDataGrid
@@ -516,4 +489,7 @@ Partial Class frmServices
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtRemarks As WindowsFormsControlLibrary1.BunifuCustomTextbox
+    Friend WithEvents cboFace As MaterialSkin.Controls.MaterialCheckBox
 End Class

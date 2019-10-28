@@ -11,13 +11,15 @@ Public Class frmEmployeeManager
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
     Dim saveClass As String
     Dim userID As Int32
+    Dim cond As String
+    Dim Activecount, inactivecount As String
 
     Dim HairStat, NailStat, BodyStat As String
     Private ImageFileName As String
     Private Imageloc As String
     Dim fileName As String
     Private fileSavePath As String
-    Dim saveDirectory As String = "C:\Users\Marco\Desktop\ISAD Images"
+    Dim saveDirectory As String = "C:\Users\Monkey\Desktop\ISAD Profile Pictures"
     Private newlocation As String
     Private old_newlocation As String
     Private imgFound As Image
@@ -38,6 +40,8 @@ Public Class frmEmployeeManager
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Call clearfields()
+        InitializeFlags()
+        selectedRow = -1
         gbEmployeeDetails.Enabled = False
         dgvEmployeeList.Enabled = True
     End Sub
@@ -48,6 +52,8 @@ Public Class frmEmployeeManager
         LastNameValidation()
         MiddleValidation()
         Expertisevalidation()
+        ImageValidation()
+
         If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
 
             MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
@@ -63,11 +69,8 @@ Public Class frmEmployeeManager
                 Catch
                     fileSavePath = ""
                 End Try
-
-
-
                 Call ConnectTOSQLServer()
-                strSQL = "insert into tblEmployeeList(Firstname,Lastname,MiddleName,Email,ContactNumber,Body,Hair,Nails,CreatedBy,CreationDate,LastModifiedBy,LastModifiedDate,Image,EmployeeStatus) values (@Firstname,@Lastname,@Middlename,@Email,@ContactNumber,@Body,@Hair,@Nails,@CreatedBy,getdate(),@Lastmod,getdate(),@Image,'TRUE')"
+                strSQL = "insert into tblEmployeeList(Firstname,Lastname,MiddleInitial,Email,ContactNumber,Body,Hair,Nails,CreatedBy,CreationDate,LastModifiedBy,LastModifiedDate,Image,EmployeeStatus) values (@Firstname,@Lastname,@Middlename,@Email,@ContactNumber,@Body,@Hair,@Nails,@CreatedBy,getdate(),@Lastmod,getdate(),@Image,'TRUE')"
                 cmd = New SqlCommand(strSQL, Connection)
                 cmd.Parameters.AddWithValue("@Firstname", SqlDbType.VarChar).Value = txtFirstname.Text
                 cmd.Parameters.AddWithValue("@Lastname", SqlDbType.VarChar).Value = txtLastname.Text
@@ -90,12 +93,18 @@ Public Class frmEmployeeManager
                 gbEmployeeDetails.Enabled = False
                 MsgBox("Successfully added employee details.", MsgBoxStyle.Information, Application.ProductName)
             End If
-        ElseIf (saveClass = 2)
-            Dim ask = MsgBox("Are you sure you want to add employee?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+        ElseIf (saveClass = 2) Then
+            Dim ask = MsgBox("Are you sure you want to update employee?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If (ask = vbYes) Then
-
+                Try
+                    fileName = Path.GetFileName(ImageFileName)
+                    fileSavePath = Path.Combine(saveDirectory, fileName)
+                    File.Copy(ImageFileName, fileSavePath, True)
+                Catch
+                    fileSavePath = ""
+                End Try
                 Call ConnectTOSQLServer()
-                strSQL = "update tblEmployeeList set Lastname = @Lastname, Firstname = @Firstname, MiddleName= @Middle,Email = @Email, ContactNumber = @Contact, Body = @Body, Hair = @Hair, Nails = @Nails, LastModifiedBy = @Lastmod, LastModifiedDate = getdate(), Image = @Image , EmployeeStatus = @EmpStatus where EmployeeID = @EmpID"
+                strSQL = "update tblEmployeeList set Lastname = @Lastname, Firstname = @Firstname, MiddleInitial= @Middle,Email = @Email, ContactNumber = @Contact, Body = @Body, Hair = @Hair, Nails = @Nails, LastModifiedBy = @Lastmod, LastModifiedDate = getdate(), Image = @Image , EmployeeStatus = @EmpStatus where EmployeeID = @EmpID"
                 cmd = New SqlCommand(strSQL, Connection)
                 cmd.Parameters.AddWithValue("@Lastname", SqlDbType.VarChar).Value = txtLastname.Text
                 cmd.Parameters.AddWithValue("@Firstname", SqlDbType.VarChar).Value = txtFirstname.Text
@@ -162,17 +171,9 @@ Public Class frmEmployeeManager
         saveClass = 2
     End Sub
 
-    Private Sub lblDaily_Click(sender As Object, e As EventArgs) Handles lblDaily.Click
-
-    End Sub
-
-    Private Sub lblMonthly_Click(sender As Object, e As EventArgs) Handles lblMonthly.Click
-
-    End Sub
-
     Private Sub dgvEmployeeList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployeeList.CellContentClick, dgvEmployeeList.CellClick
         Call ConnectTOSQLServer()
-        strSQL = "select EmployeeID,Firstname,Lastname,MiddleName,Email,ContactNumber,Body,Hair,Nails,EmployeeStatus,Image from tblEmployeeList where EmployeeID = '" & userID & "'"
+        strSQL = "select EmployeeID,Firstname,Lastname,MiddleInitial,Email,ContactNumber,Body,Hair,Nails,EmployeeStatus,Image from tblEmployeeList where EmployeeID = '" & userID & "'"
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()
         Do While reader.HasRows
@@ -199,6 +200,10 @@ Public Class frmEmployeeManager
         reader.Close()
         Call DisConnectSQLServer()
         Call ValidateCheckBox()
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Call ViewEmployeeList()
     End Sub
 
     Private Sub ValidateCheckBox()
@@ -287,15 +292,30 @@ Public Class frmEmployeeManager
         If (cboBody.Checked = False And cboHair.Checked = False And cboNails.Checked = False) Then
             ErrorProvider1.SetError(cboNails, "Please choose atleast one expertise.")
             ErrorProvider1.SetIconPadding(cboNails, 3)
-            flag6 = False
+            flag4 = False
         Else
             ErrorProvider1.SetError(cboNails, "")
         End If
     End Sub
 
+    Private Sub ImageValidation()
+        If pbEmployeePic.BackgroundImage Is Nothing Then
+            ErrorProvider1.SetError(btnBrowseImage, "Please insert a photo.")
+            ErrorProvider1.SetIconPadding(btnBrowseImage, 3)
+            flag5 = False
+        Else
+            ErrorProvider1.SetError(btnBrowseImage, "")
+        End If
+    End Sub
+
     Private Sub ViewEmployeeList()
         Call ConnectTOSQLServer()
-        strSQL = "Select EmployeeID, Concat(Lastname,', ',Firstname,' ',Middlename,'.') as EmployeeName from tblEmployeeList"
+        If (txtSearch.Text <> "") Then
+            cond = " where Lastname = '" & txtSearch.Text.Trim.Replace("-", "") & "' or Firstname = '" & txtSearch.Text.Trim.Replace("-", "") & "'"
+        Else
+            cond = ""
+        End If
+        strSQL = "Select EmployeeID, Concat(Lastname,', ',Firstname,' ',MiddleInitial,'.') as [Employee Name] from tblEmployeeList" & cond
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim EmployeeList As New DataSet()
@@ -304,6 +324,32 @@ Public Class frmEmployeeManager
         dgvEmployeeList.DataSource = EmployeeList
         dgvEmployeeList.DataMember = "tblEmployeeList"
 
+        strSQL = "Select COUNT(EmployeeID) from tblEmployeeList where EmployeeStatus = 'TRUE'"
+        Console.WriteLine()
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader()
+        Do While reader.HasRows
+            Do While reader.Read()
+                ActiveCount = reader.GetInt32(0)
+            Loop
+            reader.NextResult()
+        Loop
+        reader.Close()
+
+        strSQL = "Select COUNT(EmployeeID) from tblEmployeeList where EmployeeStatus = 'FALSE'"
+        Console.WriteLine()
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader()
+        Do While reader.HasRows
+            Do While reader.Read()
+                InactiveCount = reader.GetInt32(0)
+            Loop
+            reader.NextResult()
+        Loop
+        reader.Close()
+
+        lblActive.Text = ActiveCount
+        lblInactive.Text = InactiveCount
         Call DisConnectSQLServer()
     End Sub
 End Class

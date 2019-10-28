@@ -67,10 +67,11 @@ C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\D
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmPasswordChange.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmServices.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmTransactions.resources
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmTransactionsManager.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.Resources.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.vbproj.GenerateResource.Cache
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.exe
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.xml
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.pdb
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.vbprojResolveAssemblyReference.cache
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmTransactionManager.resources
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmSearchCustomer.resources

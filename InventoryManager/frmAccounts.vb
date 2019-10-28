@@ -4,12 +4,12 @@ Public Class frmAccounts
 
     Private Property selectedRow As Integer
     Private ActiveCount, InactiveCount As Int32
+    Private cond As String
 
     Private Sub frmAccounts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'JandADataSet1.tblLogins' table. You can move, or remove it, as needed.
-        Me.TblLoginsTableAdapter1.Fill(Me.JandADataSet1.tblLogins)
-        'TODO: This line of code loads data into the 'JandADataSet.tblLogins' table. You can move, or remove it, as needed.
-        Me.TblLoginsTableAdapter.Fill(Me.JandADataSet.tblLogins)
+        'TODO: This line of code loads data into the 'JandA2DataSet1.tblLogins' table. You can move, or remove it, as needed.
+
+
         Call viewUserlist_reload()
 
     End Sub
@@ -24,7 +24,14 @@ Public Class frmAccounts
 
     Private Sub viewUserlist_reload()
         Call ConnectTOSQLServer()
-        strSQL = "SELECT AccountID, Lastname, Firstname, AccountName, Username, AccessType, AccountType FROM dbo.tblLogins"
+        If (txtSearch.Text <> "") Then
+            cond = "where Username like '%" & txtSearch.Text.Trim.Replace("-", "") & "%' or AccessType = '" & txtSearch.Text.Trim.Replace("-", "") & "' or  Lastname = '" & txtSearch.Text.Trim.Replace("-", "") & "' or Firstname = '" & txtSearch.Text.Trim.Replace("-", "") & "'"
+
+        Else
+            cond = ""
+        End If
+        strSQL = "Select AccountID, Lastname, Firstname, AccountName As [FullName], Username, AccessType As [AccessType], AccountType As [Status] FROM dbo.tblLogins " & cond
+
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim UserList As New DataSet()
@@ -33,7 +40,7 @@ Public Class frmAccounts
         dgvUserList.DataSource = UserList
         dgvUserList.DataMember = "tblLogins"
 
-        strSQL = "select COUNT(accountID) from tblLogins where AccountType = 'ACTIVE'"
+        strSQL = "Select COUNT(accountID) from tblLogins where AccountType = 'ACTIVE'"
         Console.WriteLine()
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()
@@ -85,7 +92,8 @@ Public Class frmAccounts
 
     End Sub
 
-    Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellClick
+    Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellClick, dgvUserList.CellContentClick
+        Console.WriteLine(e.RowIndex)
         If (dgvUserList.Rows.Count > 0) Then
             Try
                 selectedRow = e.RowIndex
@@ -95,13 +103,12 @@ Public Class frmAccounts
                 btnDeactivateAccount.Text = "Deactivate Account"
             Else
                 btnDeactivateAccount.Text = "Activate Account"
-
             End If
         End If
     End Sub
 
     Private Sub btnResetAccount_Click(sender As Object, e As EventArgs) Handles btnAddEmployee.Click
-        If (selectedRow < 1) Then
+        If (selectedRow < 0) Then
             MsgBox("Please select an account first.", MsgBoxStyle.Information, Application.ProductName)
         Else
             Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
@@ -113,8 +120,8 @@ Public Class frmAccounts
         End If
     End Sub
 
-    Private Sub dgvUserList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellContentClick
-
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Call viewUserlist_reload()
     End Sub
 
     Private Sub btnDeactivateAccount_Click(sender As Object, e As EventArgs) Handles btnDeactivateAccount.Click

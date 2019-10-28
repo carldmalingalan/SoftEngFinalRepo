@@ -18,7 +18,7 @@
     Private Sub btnUpdatePassword_Click(sender As Object, e As EventArgs) Handles btnUpdatePassword.Click
         InitializeFlags()
         PasswordValidation()
-        If (flag6 = False Or flag7 = False) Then
+        If (flag6 = False Or flag7 = False Or flag1 = False) Then
             MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
             Exit Sub
         End If
@@ -65,6 +65,8 @@
         ElseIf txtPassword1.Text = "admin12345" Then
             ErrorProvider1.SetError(txtPassword1, "Password should not be the same as default password.")
             ErrorProvider1.SetIconPadding(txtPassword1, 3)
+            flag6 = False
+
 
         Else
             ErrorProvider1.SetError(txtPassword1, "")
@@ -85,8 +87,12 @@
         ElseIf txtPassword2.Text = "admin12345" Then
             ErrorProvider1.SetError(txtPassword2, "Password should not be the same as default password.")
             ErrorProvider1.SetIconPadding(txtPassword2, 3)
+            flag7 = False
+
         Else
             ErrorProvider1.SetError(txtPassword2, "")
         End If
+
+
     End Sub
 End Class

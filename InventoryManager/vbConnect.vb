@@ -105,7 +105,6 @@ Module vbConnect
         cmd.Parameters.AddWithValue("@AccountID", SqlDbType.VarChar).Value = login_id
         cmd.Parameters.AddWithValue("@SecretQuestionID", SqlDbType.Int).Value = SecretQuestionID
         cmd.Parameters.AddWithValue("@Answer", SqlDbType.VarChar).Value = Answer
-
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)
         Call DisConnectSQLServer()
@@ -144,9 +143,12 @@ Module vbConnect
 
     Public Sub ActivateAccount(AccountID As Int32)
         Call ConnectTOSQLServer()
-        strSQL = "update tblLogins set AccountType = 'ACTIVE' where AccountID = @AccountID"
+        strSQL = "update tblLogins set AccountType = 'ACTIVE',LastModified=@Modifier, LastModifiedDate = getdate() where AccountID = @AccountID"
+
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@AccountID", SqlDbType.VarChar).Value = AccountID
+        cmd.Parameters.AddWithValue("@Modifier", SqlDbType.VarChar).Value = login_id
+
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)
         Call DisConnectSQLServer()
@@ -154,9 +156,11 @@ Module vbConnect
 
     Public Sub DeactivateAccount(AccountID As Int32)
         Call ConnectTOSQLServer()
-        strSQL = "update tblLogins set AccountType = 'INACTIVE' where AccountID = @AccountID"
+        strSQL = "update tblLogins set AccountType = 'INACTIVE', LastModified=@Modifier, LastModifiedDate = getdate() where AccountID = @AccountID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@AccountID", SqlDbType.Int).Value = AccountID
+        cmd.Parameters.AddWithValue("@Modifier", SqlDbType.VarChar).Value = login_id
+
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)
         Call DisConnectSQLServer()
@@ -200,32 +204,37 @@ Module vbConnect
     End Sub
 
 
-    Public Sub AddService(ServiceName As String, ServiceDetails As String, Body As String, Hair As String, Nails As String, Status As String)
+    Public Sub AddService(ServiceName As String, ServiceDetails As String, Body As String, Hair As String, Nails As String, Status As String, Description As String, Face As String)
         Call ConnectTOSQLServer()
-        strSQL = "INSERT INTO [dbo].[tblServices]([ServiceName],[ServiceDetails],[Body],[Hair],[Nails],[ServiceStatus])VALUES(@ServiceName,@ServiceDetails,@Body,@Hair,@Nails,@ServiceStatus)"
+        strSQL = "INSERT INTO [dbo].[tblServices]([Name],[Details],[Body],[Hair],[Nails],[Face],[Status],[Description])VALUES(@ServiceName,@ServiceDetails,@Body,@Hair,@Nails,@ServiceStatus,@Description,@Face)"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@ServiceName", SqlDbType.VarChar).Value = ServiceName
         cmd.Parameters.AddWithValue("@ServiceDetails", SqlDbType.VarChar).Value = ServiceDetails
         cmd.Parameters.AddWithValue("@Body", SqlDbType.VarChar).Value = Body
         cmd.Parameters.AddWithValue("@Hair", SqlDbType.VarChar).Value = Hair
         cmd.Parameters.AddWithValue("@Nails", SqlDbType.VarChar).Value = Nails
+        cmd.Parameters.AddWithValue("@Face", SqlDbType.VarChar).Value = Face
         cmd.Parameters.AddWithValue("@ServiceStatus", SqlDbType.VarChar).Value = Status
+        cmd.Parameters.AddWithValue("@Description", SqlDbType.VarChar).Value = Description
+
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub UpdateService(ServiceName As String, ServiceDetails As String, Body As String, Hair As String, Nails As String, Status As String, ServiceID As Int32)
+    Public Sub UpdateService(ServiceName As String, ServiceDetails As String, Body As String, Hair As String, Nails As String, Status As String, ServiceID As Int32, Description As String, Face As String)
         Call ConnectTOSQLServer()
-        strSQL = "update tblServices set ServiceName = @ServiceName, ServiceDetails = @ServiceDetails, Body = @Body, Hair = @Hair, Nails = @Nails, ServiceStatus = @ServiceStatus where ServiceID = @ServiceID"
+        strSQL = "update tblServices set Name = @ServiceName, Details = @ServiceDetails, Body = @Body, Hair = @Hair, Nails = @Nails,Face = @Face ,Status = @ServiceStatus, Description = @Description where ServiceID = @ServiceID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@ServiceName", SqlDbType.VarChar).Value = ServiceName
         cmd.Parameters.AddWithValue("@ServiceDetails", SqlDbType.VarChar).Value = ServiceDetails
         cmd.Parameters.AddWithValue("@Body", SqlDbType.VarChar).Value = Body
         cmd.Parameters.AddWithValue("@Hair", SqlDbType.VarChar).Value = Hair
         cmd.Parameters.AddWithValue("@Nails", SqlDbType.VarChar).Value = Nails
+        cmd.Parameters.AddWithValue("@Face", SqlDbType.VarChar).Value = Face
         cmd.Parameters.AddWithValue("@ServiceStatus", SqlDbType.VarChar).Value = Status
         cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = ServiceID
+        cmd.Parameters.AddWithValue("@Description", SqlDbType.VarChar).Value = Description
 
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)

@@ -6,7 +6,6 @@ Public Class frmInventory
 
     Private Sub frmInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'JandADataSet3.tblInventory' table. You can move, or remove it, as needed.
-        Me.TblInventoryTableAdapter.Fill(Me.JandADataSet3.tblInventory)
         Call viewItemList_reload()
     End Sub
 

@@ -42,6 +42,7 @@ Partial Class frmMenu
         Me.btnTransactions = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btnAccounts = New Bunifu.Framework.UI.BunifuImageButton()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.panelShow.SuspendLayout()
         CType(Me.btnDashboard, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,18 +53,23 @@ Partial Class frmMenu
         CType(Me.btnTransactions, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnAccounts, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'panelShow
         '
+        Me.panelShow.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.panelShow.Controls.Add(Me.panelMenu)
-        Me.panelShow.Location = New System.Drawing.Point(23, 190)
+        Me.panelShow.Location = New System.Drawing.Point(23, 208)
         Me.panelShow.Name = "panelShow"
         Me.panelShow.Size = New System.Drawing.Size(1154, 507)
         Me.panelShow.TabIndex = 5
         '
         'panelMenu
         '
+        Me.panelMenu.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelMenu.Location = New System.Drawing.Point(0, 0)
         Me.panelMenu.Name = "panelMenu"
@@ -74,7 +80,7 @@ Partial Class frmMenu
         '
         Me.lblAccounts.AutoSize = True
         Me.lblAccounts.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAccounts.Location = New System.Drawing.Point(229, 146)
+        Me.lblAccounts.Location = New System.Drawing.Point(8, 94)
         Me.lblAccounts.Name = "lblAccounts"
         Me.lblAccounts.Size = New System.Drawing.Size(77, 18)
         Me.lblAccounts.TabIndex = 6
@@ -84,7 +90,7 @@ Partial Class frmMenu
         '
         Me.lblInventory.AutoSize = True
         Me.lblInventory.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInventory.Location = New System.Drawing.Point(555, 146)
+        Me.lblInventory.Location = New System.Drawing.Point(334, 94)
         Me.lblInventory.Name = "lblInventory"
         Me.lblInventory.Size = New System.Drawing.Size(76, 18)
         Me.lblInventory.TabIndex = 6
@@ -94,7 +100,7 @@ Partial Class frmMenu
         '
         Me.lblTransactions.AutoSize = True
         Me.lblTransactions.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTransactions.Location = New System.Drawing.Point(652, 146)
+        Me.lblTransactions.Location = New System.Drawing.Point(431, 94)
         Me.lblTransactions.Name = "lblTransactions"
         Me.lblTransactions.Size = New System.Drawing.Size(97, 18)
         Me.lblTransactions.TabIndex = 6
@@ -104,7 +110,7 @@ Partial Class frmMenu
         '
         Me.lblSettings.AutoSize = True
         Me.lblSettings.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSettings.Location = New System.Drawing.Point(879, 148)
+        Me.lblSettings.Location = New System.Drawing.Point(658, 96)
         Me.lblSettings.Name = "lblSettings"
         Me.lblSettings.Size = New System.Drawing.Size(63, 18)
         Me.lblSettings.TabIndex = 6
@@ -114,7 +120,7 @@ Partial Class frmMenu
         '
         Me.lblExit.AutoSize = True
         Me.lblExit.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblExit.Location = New System.Drawing.Point(998, 148)
+        Me.lblExit.Location = New System.Drawing.Point(777, 96)
         Me.lblExit.Name = "lblExit"
         Me.lblExit.Size = New System.Drawing.Size(32, 18)
         Me.lblExit.TabIndex = 6
@@ -124,7 +130,7 @@ Partial Class frmMenu
         '
         Me.lblDashboard.AutoSize = True
         Me.lblDashboard.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDashboard.Location = New System.Drawing.Point(333, 148)
+        Me.lblDashboard.Location = New System.Drawing.Point(112, 96)
         Me.lblDashboard.Name = "lblDashboard"
         Me.lblDashboard.Size = New System.Drawing.Size(89, 18)
         Me.lblDashboard.TabIndex = 8
@@ -134,7 +140,7 @@ Partial Class frmMenu
         '
         Me.lblEmployees.AutoSize = True
         Me.lblEmployees.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmployees.Location = New System.Drawing.Point(441, 146)
+        Me.lblEmployees.Location = New System.Drawing.Point(220, 94)
         Me.lblEmployees.Name = "lblEmployees"
         Me.lblEmployees.Size = New System.Drawing.Size(89, 18)
         Me.lblEmployees.TabIndex = 6
@@ -144,7 +150,7 @@ Partial Class frmMenu
         '
         Me.lblServices.AutoSize = True
         Me.lblServices.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblServices.Location = New System.Drawing.Point(770, 146)
+        Me.lblServices.Location = New System.Drawing.Point(549, 94)
         Me.lblServices.Name = "lblServices"
         Me.lblServices.Size = New System.Drawing.Size(69, 18)
         Me.lblServices.TabIndex = 6
@@ -156,7 +162,7 @@ Partial Class frmMenu
         Me.btnDashboard.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnDashboard.Image = Global.InventoryManager.My.Resources.Resources.speedometer
         Me.btnDashboard.ImageActive = Nothing
-        Me.btnDashboard.Location = New System.Drawing.Point(332, 55)
+        Me.btnDashboard.Location = New System.Drawing.Point(111, 3)
         Me.btnDashboard.Name = "btnDashboard"
         Me.btnDashboard.Size = New System.Drawing.Size(90, 90)
         Me.btnDashboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -170,7 +176,7 @@ Partial Class frmMenu
         Me.btnExit.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnExit.Image = Global.InventoryManager.My.Resources.Resources.logout_1_
         Me.btnExit.ImageActive = Nothing
-        Me.btnExit.Location = New System.Drawing.Point(967, 55)
+        Me.btnExit.Location = New System.Drawing.Point(746, 3)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(90, 90)
         Me.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -184,7 +190,7 @@ Partial Class frmMenu
         Me.btnInventory.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnInventory.Image = Global.InventoryManager.My.Resources.Resources.inventory_1_
         Me.btnInventory.ImageActive = Nothing
-        Me.btnInventory.Location = New System.Drawing.Point(548, 55)
+        Me.btnInventory.Location = New System.Drawing.Point(327, 3)
         Me.btnInventory.Name = "btnInventory"
         Me.btnInventory.Size = New System.Drawing.Size(90, 90)
         Me.btnInventory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -198,7 +204,7 @@ Partial Class frmMenu
         Me.btnEmployeeList.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnEmployeeList.Image = Global.InventoryManager.My.Resources.Resources.employees
         Me.btnEmployeeList.ImageActive = Nothing
-        Me.btnEmployeeList.Location = New System.Drawing.Point(440, 55)
+        Me.btnEmployeeList.Location = New System.Drawing.Point(219, 3)
         Me.btnEmployeeList.Name = "btnEmployeeList"
         Me.btnEmployeeList.Size = New System.Drawing.Size(90, 90)
         Me.btnEmployeeList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -212,7 +218,7 @@ Partial Class frmMenu
         Me.btnServices.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnServices.Image = Global.InventoryManager.My.Resources.Resources.customer
         Me.btnServices.ImageActive = Nothing
-        Me.btnServices.Location = New System.Drawing.Point(761, 55)
+        Me.btnServices.Location = New System.Drawing.Point(540, 3)
         Me.btnServices.Name = "btnServices"
         Me.btnServices.Size = New System.Drawing.Size(90, 90)
         Me.btnServices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -226,7 +232,7 @@ Partial Class frmMenu
         Me.btnSettings.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnSettings.Image = Global.InventoryManager.My.Resources.Resources.settings
         Me.btnSettings.ImageActive = Nothing
-        Me.btnSettings.Location = New System.Drawing.Point(865, 55)
+        Me.btnSettings.Location = New System.Drawing.Point(644, 3)
         Me.btnSettings.Name = "btnSettings"
         Me.btnSettings.Size = New System.Drawing.Size(90, 90)
         Me.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -240,7 +246,7 @@ Partial Class frmMenu
         Me.btnTransactions.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnTransactions.Image = Global.InventoryManager.My.Resources.Resources.transactionsIcon
         Me.btnTransactions.ImageActive = Nothing
-        Me.btnTransactions.Location = New System.Drawing.Point(654, 55)
+        Me.btnTransactions.Location = New System.Drawing.Point(433, 3)
         Me.btnTransactions.Name = "btnTransactions"
         Me.btnTransactions.Size = New System.Drawing.Size(90, 90)
         Me.btnTransactions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -254,7 +260,7 @@ Partial Class frmMenu
         Me.btnAccounts.ErrorImage = Global.InventoryManager.My.Resources.Resources.locked
         Me.btnAccounts.Image = Global.InventoryManager.My.Resources.Resources.accountsIcon
         Me.btnAccounts.ImageActive = Nothing
-        Me.btnAccounts.Location = New System.Drawing.Point(224, 55)
+        Me.btnAccounts.Location = New System.Drawing.Point(3, 3)
         Me.btnAccounts.Name = "btnAccounts"
         Me.btnAccounts.Size = New System.Drawing.Size(90, 90)
         Me.btnAccounts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -264,8 +270,6 @@ Partial Class frmMenu
         '
         'pbLogo
         '
-        Me.pbLogo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbLogo.BackColor = System.Drawing.Color.Transparent
         Me.pbLogo.Image = Global.InventoryManager.My.Resources.Resources.J_A_LOGO_SALON
         Me.pbLogo.Location = New System.Drawing.Point(23, 46)
@@ -275,35 +279,45 @@ Partial Class frmMenu
         Me.pbLogo.TabIndex = 4
         Me.pbLogo.TabStop = False
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.btnAccounts)
+        Me.Panel1.Controls.Add(Me.lblDashboard)
+        Me.Panel1.Controls.Add(Me.btnTransactions)
+        Me.Panel1.Controls.Add(Me.btnDashboard)
+        Me.Panel1.Controls.Add(Me.btnSettings)
+        Me.Panel1.Controls.Add(Me.lblEmployees)
+        Me.Panel1.Controls.Add(Me.btnServices)
+        Me.Panel1.Controls.Add(Me.lblServices)
+        Me.Panel1.Controls.Add(Me.btnEmployeeList)
+        Me.Panel1.Controls.Add(Me.lblSettings)
+        Me.Panel1.Controls.Add(Me.btnInventory)
+        Me.Panel1.Controls.Add(Me.lblExit)
+        Me.Panel1.Controls.Add(Me.btnExit)
+        Me.Panel1.Controls.Add(Me.lblTransactions)
+        Me.Panel1.Controls.Add(Me.lblAccounts)
+        Me.Panel1.Controls.Add(Me.lblInventory)
+        Me.Panel1.Location = New System.Drawing.Point(198, 46)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(849, 121)
+        Me.Panel1.TabIndex = 9
+        '
         'frmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1200, 720)
-        Me.Controls.Add(Me.lblDashboard)
-        Me.Controls.Add(Me.btnDashboard)
-        Me.Controls.Add(Me.lblEmployees)
-        Me.Controls.Add(Me.lblServices)
-        Me.Controls.Add(Me.lblSettings)
-        Me.Controls.Add(Me.lblExit)
-        Me.Controls.Add(Me.lblTransactions)
-        Me.Controls.Add(Me.lblInventory)
-        Me.Controls.Add(Me.lblAccounts)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.panelShow)
-        Me.Controls.Add(Me.btnExit)
-        Me.Controls.Add(Me.btnInventory)
-        Me.Controls.Add(Me.btnEmployeeList)
-        Me.Controls.Add(Me.btnServices)
-        Me.Controls.Add(Me.btnSettings)
-        Me.Controls.Add(Me.btnTransactions)
-        Me.Controls.Add(Me.btnAccounts)
         Me.Controls.Add(Me.pbLogo)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.Movable = False
         Me.Name = "frmMenu"
         Me.Resizable = False
         Me.Style = MetroFramework.MetroColorStyle.Pink
         Me.Text = "J and A Inventory Manager"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.panelShow.ResumeLayout(False)
         CType(Me.btnDashboard, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).EndInit()
@@ -314,8 +328,9 @@ Partial Class frmMenu
         CType(Me.btnTransactions, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnAccounts, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnAccounts As Bunifu.Framework.UI.BunifuImageButton
@@ -337,4 +352,5 @@ Partial Class frmMenu
     Friend WithEvents lblEmployees As Label
     Friend WithEvents btnServices As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents lblServices As Label
+    Friend WithEvents Panel1 As Panel
 End Class

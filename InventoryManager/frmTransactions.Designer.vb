@@ -33,25 +33,7 @@ Partial Class frmTransactions
         Me.btnVoidTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtCustomer = New Bunifu.Framework.UI.BunifuMetroTextbox()
-        Me.cboServiceAvailed = New MetroFramework.Controls.MetroComboBox()
-        Me.btnCancelTransaction = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cboEmployeeAssigned = New MetroFramework.Controls.MetroComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cboNails = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboBody = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboHair = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.txtRemarks = New WindowsFormsControlLibrary1.BunifuCustomTextbox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.gbTransDetails = New System.Windows.Forms.GroupBox()
-        Me.btnSaveTransaction = New MaterialSkin.Controls.MaterialFlatButton()
         CType(Me.dgvTransactionsList, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        Me.gbTransDetails.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvTransactionsList
@@ -61,8 +43,10 @@ Partial Class frmTransactions
         Me.dgvTransactionsList.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvTransactionsList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvTransactionsList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvTransactionsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvTransactionsList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dgvTransactionsList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvTransactionsList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvTransactionsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -93,7 +77,7 @@ Partial Class frmTransactions
         Me.dgvTransactionsList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvTransactionsList.RowHeadersVisible = False
         Me.dgvTransactionsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvTransactionsList.Size = New System.Drawing.Size(442, 450)
+        Me.dgvTransactionsList.Size = New System.Drawing.Size(933, 450)
         Me.dgvTransactionsList.TabIndex = 10
         '
         'Panel1
@@ -122,6 +106,7 @@ Partial Class frmTransactions
         'btnExportUsers
         '
         Me.btnExportUsers.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.btnExportUsers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnExportUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.btnExportUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExportUsers.BorderRadius = 7
@@ -156,6 +141,7 @@ Partial Class frmTransactions
         'btnVoidTransaction
         '
         Me.btnVoidTransaction.Activecolor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnVoidTransaction.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnVoidTransaction.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnVoidTransaction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnVoidTransaction.BorderRadius = 7
@@ -190,6 +176,7 @@ Partial Class frmTransactions
         'btnAddTransactions
         '
         Me.btnAddTransactions.Activecolor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.btnAddTransactions.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddTransactions.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.btnAddTransactions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAddTransactions.BorderRadius = 7
@@ -224,6 +211,7 @@ Partial Class frmTransactions
         'btnUpdateTransactions
         '
         Me.btnUpdateTransactions.Activecolor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnUpdateTransactions.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnUpdateTransactions.BackColor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.btnUpdateTransactions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnUpdateTransactions.BorderRadius = 7
@@ -255,214 +243,12 @@ Partial Class frmTransactions
         Me.btnUpdateTransactions.Textcolor = System.Drawing.Color.White
         Me.btnUpdateTransactions.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(15, 52)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(116, 16)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Customer Name:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(15, 139)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(114, 16)
-        Me.Label9.TabIndex = 4
-        Me.Label9.Text = "Service Availed:"
-        '
-        'txtCustomer
-        '
-        Me.txtCustomer.BorderColorFocused = System.Drawing.Color.HotPink
-        Me.txtCustomer.BorderColorIdle = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtCustomer.BorderColorMouseHover = System.Drawing.Color.HotPink
-        Me.txtCustomer.BorderThickness = 3
-        Me.txtCustomer.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtCustomer.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtCustomer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtCustomer.isPassword = False
-        Me.txtCustomer.Location = New System.Drawing.Point(156, 45)
-        Me.txtCustomer.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtCustomer.Name = "txtCustomer"
-        Me.txtCustomer.Size = New System.Drawing.Size(309, 31)
-        Me.txtCustomer.TabIndex = 28
-        Me.txtCustomer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'cboServiceAvailed
-        '
-        Me.cboServiceAvailed.ItemHeight = 23
-        Me.cboServiceAvailed.Location = New System.Drawing.Point(160, 132)
-        Me.cboServiceAvailed.Name = "cboServiceAvailed"
-        Me.cboServiceAvailed.Size = New System.Drawing.Size(305, 29)
-        Me.cboServiceAvailed.TabIndex = 43
-        Me.cboServiceAvailed.UseSelectable = True
-        '
-        'btnCancelTransaction
-        '
-        Me.btnCancelTransaction.AutoSize = True
-        Me.btnCancelTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnCancelTransaction.Depth = 0
-        Me.btnCancelTransaction.Location = New System.Drawing.Point(246, 408)
-        Me.btnCancelTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnCancelTransaction.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnCancelTransaction.Name = "btnCancelTransaction"
-        Me.btnCancelTransaction.Primary = False
-        Me.btnCancelTransaction.Size = New System.Drawing.Size(64, 36)
-        Me.btnCancelTransaction.TabIndex = 44
-        Me.btnCancelTransaction.Text = "CANCEL"
-        Me.btnCancelTransaction.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 175)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(140, 16)
-        Me.Label1.TabIndex = 46
-        Me.Label1.Text = "Employee Assigned:"
-        '
-        'cboEmployeeAssigned
-        '
-        Me.cboEmployeeAssigned.ItemHeight = 23
-        Me.cboEmployeeAssigned.Location = New System.Drawing.Point(160, 167)
-        Me.cboEmployeeAssigned.Name = "cboEmployeeAssigned"
-        Me.cboEmployeeAssigned.Size = New System.Drawing.Size(305, 29)
-        Me.cboEmployeeAssigned.TabIndex = 47
-        Me.cboEmployeeAssigned.UseSelectable = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(15, 90)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 16)
-        Me.Label5.TabIndex = 48
-        Me.Label5.Text = "Service Type:"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.cboNails)
-        Me.GroupBox1.Controls.Add(Me.cboBody)
-        Me.GroupBox1.Controls.Add(Me.cboHair)
-        Me.GroupBox1.Location = New System.Drawing.Point(160, 75)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(305, 47)
-        Me.GroupBox1.TabIndex = 52
-        Me.GroupBox1.TabStop = False
-        '
-        'cboNails
-        '
-        Me.cboNails.AutoSize = True
-        Me.cboNails.Depth = 0
-        Me.cboNails.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboNails.Location = New System.Drawing.Point(188, 12)
-        Me.cboNails.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboNails.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboNails.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboNails.Name = "cboNails"
-        Me.cboNails.Ripple = True
-        Me.cboNails.Size = New System.Drawing.Size(68, 30)
-        Me.cboNails.TabIndex = 51
-        Me.cboNails.Text = "NAILS"
-        Me.cboNails.UseVisualStyleBackColor = True
-        '
-        'cboBody
-        '
-        Me.cboBody.AutoSize = True
-        Me.cboBody.Depth = 0
-        Me.cboBody.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboBody.Location = New System.Drawing.Point(38, 12)
-        Me.cboBody.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboBody.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboBody.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboBody.Name = "cboBody"
-        Me.cboBody.Ripple = True
-        Me.cboBody.Size = New System.Drawing.Size(65, 30)
-        Me.cboBody.TabIndex = 49
-        Me.cboBody.Text = "BODY"
-        Me.cboBody.UseVisualStyleBackColor = True
-        '
-        'cboHair
-        '
-        Me.cboHair.AutoSize = True
-        Me.cboHair.Depth = 0
-        Me.cboHair.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboHair.Location = New System.Drawing.Point(115, 12)
-        Me.cboHair.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboHair.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboHair.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboHair.Name = "cboHair"
-        Me.cboHair.Ripple = True
-        Me.cboHair.Size = New System.Drawing.Size(61, 30)
-        Me.cboHair.TabIndex = 50
-        Me.cboHair.Text = "HAIR"
-        Me.cboHair.UseVisualStyleBackColor = True
-        '
-        'txtRemarks
-        '
-        Me.txtRemarks.BorderColor = System.Drawing.Color.SeaGreen
-        Me.txtRemarks.Location = New System.Drawing.Point(160, 216)
-        Me.txtRemarks.Multiline = True
-        Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(305, 134)
-        Me.txtRemarks.TabIndex = 53
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 219)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 16)
-        Me.Label2.TabIndex = 54
-        Me.Label2.Text = "Additional Remarks:"
-        '
-        'gbTransDetails
-        '
-        Me.gbTransDetails.AutoSize = True
-        Me.gbTransDetails.Controls.Add(Me.Label2)
-        Me.gbTransDetails.Controls.Add(Me.txtRemarks)
-        Me.gbTransDetails.Controls.Add(Me.GroupBox1)
-        Me.gbTransDetails.Controls.Add(Me.Label5)
-        Me.gbTransDetails.Controls.Add(Me.cboEmployeeAssigned)
-        Me.gbTransDetails.Controls.Add(Me.Label1)
-        Me.gbTransDetails.Controls.Add(Me.btnCancelTransaction)
-        Me.gbTransDetails.Controls.Add(Me.btnSaveTransaction)
-        Me.gbTransDetails.Controls.Add(Me.cboServiceAvailed)
-        Me.gbTransDetails.Controls.Add(Me.txtCustomer)
-        Me.gbTransDetails.Controls.Add(Me.Label9)
-        Me.gbTransDetails.Controls.Add(Me.Label3)
-        Me.gbTransDetails.Enabled = False
-        Me.gbTransDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbTransDetails.Location = New System.Drawing.Point(460, 51)
-        Me.gbTransDetails.Name = "gbTransDetails"
-        Me.gbTransDetails.Size = New System.Drawing.Size(473, 469)
-        Me.gbTransDetails.TabIndex = 30
-        Me.gbTransDetails.TabStop = False
-        Me.gbTransDetails.Text = "Transaction Details"
-        '
-        'btnSaveTransaction
-        '
-        Me.btnSaveTransaction.AutoSize = True
-        Me.btnSaveTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnSaveTransaction.Depth = 0
-        Me.btnSaveTransaction.Location = New System.Drawing.Point(192, 408)
-        Me.btnSaveTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnSaveTransaction.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnSaveTransaction.Name = "btnSaveTransaction"
-        Me.btnSaveTransaction.Primary = False
-        Me.btnSaveTransaction.Size = New System.Drawing.Size(46, 36)
-        Me.btnSaveTransaction.TabIndex = 45
-        Me.btnSaveTransaction.Text = "SAVE"
-        Me.btnSaveTransaction.UseVisualStyleBackColor = True
-        '
         'frmTransactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
-        Me.Controls.Add(Me.gbTransDetails)
         Me.Controls.Add(Me.dtpTransactionDate)
         Me.Controls.Add(Me.btnExportUsers)
         Me.Controls.Add(Me.btnVoidTransaction)
@@ -475,12 +261,7 @@ Partial Class frmTransactions
         Me.Name = "frmTransactions"
         Me.Text = "frmTransactions"
         CType(Me.dgvTransactionsList, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.gbTransDetails.ResumeLayout(False)
-        Me.gbTransDetails.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -491,20 +272,4 @@ Partial Class frmTransactions
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnVoidTransaction As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dtpTransactionDate As MetroFramework.Controls.MetroDateTime
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents txtCustomer As Bunifu.Framework.UI.BunifuMetroTextbox
-    Friend WithEvents cboServiceAvailed As MetroFramework.Controls.MetroComboBox
-    Friend WithEvents btnCancelTransaction As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents Label1 As Label
-    Friend WithEvents cboEmployeeAssigned As MetroFramework.Controls.MetroComboBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents cboNails As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents cboBody As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents cboHair As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents txtRemarks As WindowsFormsControlLibrary1.BunifuCustomTextbox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents gbTransDetails As GroupBox
-    Friend WithEvents btnSaveTransaction As MaterialSkin.Controls.MaterialFlatButton
 End Class

@@ -61,7 +61,7 @@ Partial Class frmPasswordChange
         Me.pbLogo.Image = Global.InventoryManager.My.Resources.Resources.J_A_LOGO_SALON
         Me.pbLogo.Location = New System.Drawing.Point(23, 63)
         Me.pbLogo.Name = "pbLogo"
-        Me.pbLogo.Size = New System.Drawing.Size(151, 148)
+        Me.pbLogo.Size = New System.Drawing.Size(155, 148)
         Me.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbLogo.TabIndex = 4
         Me.pbLogo.TabStop = False
@@ -300,7 +300,7 @@ Partial Class frmPasswordChange
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(436, 488)
+        Me.ClientSize = New System.Drawing.Size(455, 488)
         Me.Controls.Add(Me.BunifuCustomLabel4)
         Me.Controls.Add(Me.BunifuCustomLabel3)
         Me.Controls.Add(Me.txtPassword2)
