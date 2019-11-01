@@ -40,7 +40,7 @@ Partial Class frmLogin
         Me.btnLogin.AutoSize = True
         Me.btnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnLogin.Depth = 0
-        Me.btnLogin.Location = New System.Drawing.Point(81, 84)
+        Me.btnLogin.Location = New System.Drawing.Point(87, 72)
         Me.btnLogin.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnLogin.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnLogin.Name = "btnLogin"
@@ -55,7 +55,7 @@ Partial Class frmLogin
         Me.txtPassword.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPassword.Depth = 0
-        Me.txtPassword.Hint = "Type Your Password"
+        Me.txtPassword.Hint = "Password"
         Me.txtPassword.Location = New System.Drawing.Point(29, 40)
         Me.txtPassword.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtPassword.Name = "txtPassword"
@@ -63,7 +63,7 @@ Partial Class frmLogin
         Me.txtPassword.SelectedText = ""
         Me.txtPassword.SelectionLength = 0
         Me.txtPassword.SelectionStart = 0
-        Me.txtPassword.Size = New System.Drawing.Size(167, 23)
+        Me.txtPassword.Size = New System.Drawing.Size(173, 23)
         Me.txtPassword.TabIndex = 3
         Me.txtPassword.TabStop = False
         Me.txtPassword.UseSystemPasswordChar = True
@@ -73,7 +73,7 @@ Partial Class frmLogin
         Me.txtUsername.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtUsername.Depth = 0
-        Me.txtUsername.Hint = "Type Your Username"
+        Me.txtUsername.Hint = "Username"
         Me.txtUsername.Location = New System.Drawing.Point(29, 11)
         Me.txtUsername.MouseState = MaterialSkin.MouseState.HOVER
         Me.txtUsername.Name = "txtUsername"
@@ -81,7 +81,7 @@ Partial Class frmLogin
         Me.txtUsername.SelectedText = ""
         Me.txtUsername.SelectionLength = 0
         Me.txtUsername.SelectionStart = 0
-        Me.txtUsername.Size = New System.Drawing.Size(167, 23)
+        Me.txtUsername.Size = New System.Drawing.Size(173, 23)
         Me.txtUsername.TabIndex = 2
         Me.txtUsername.TabStop = False
         Me.txtUsername.UseSystemPasswordChar = False
@@ -92,7 +92,7 @@ Partial Class frmLogin
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbLogo.BackColor = System.Drawing.Color.Transparent
         Me.pbLogo.Image = Global.InventoryManager.My.Resources.Resources.J_A_LOGO_SALON
-        Me.pbLogo.Location = New System.Drawing.Point(133, 73)
+        Me.pbLogo.Location = New System.Drawing.Point(133, 63)
         Me.pbLogo.Name = "pbLogo"
         Me.pbLogo.Size = New System.Drawing.Size(152, 148)
         Me.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -106,18 +106,18 @@ Partial Class frmLogin
         Me.Panel1.Controls.Add(Me.txtUsername)
         Me.Panel1.Controls.Add(Me.btnLogin)
         Me.Panel1.Controls.Add(Me.txtPassword)
-        Me.Panel1.Location = New System.Drawing.Point(104, 278)
+        Me.Panel1.Location = New System.Drawing.Point(96, 230)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(215, 139)
+        Me.Panel1.Size = New System.Drawing.Size(221, 156)
         Me.Panel1.TabIndex = 7
         '
         'lblForgotPassword
         '
         Me.lblForgotPassword.AutoSize = True
-        Me.lblForgotPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblForgotPassword.Location = New System.Drawing.Point(104, 66)
+        Me.lblForgotPassword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblForgotPassword.Location = New System.Drawing.Point(26, 126)
         Me.lblForgotPassword.Name = "lblForgotPassword"
-        Me.lblForgotPassword.Size = New System.Drawing.Size(100, 15)
+        Me.lblForgotPassword.Size = New System.Drawing.Size(113, 17)
         Me.lblForgotPassword.TabIndex = 8
         Me.lblForgotPassword.TabStop = True
         Me.lblForgotPassword.Text = "Forgot Password?"

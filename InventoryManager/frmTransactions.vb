@@ -16,6 +16,10 @@ Public Class frmTransactions
         frmTransactionManager.ShowDialog()
     End Sub
 
+    Private Sub dgvTransactionsList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTransactionsList.CellContentClick
+
+    End Sub
+
     Private Sub viewTransactions()
         Call ConnectTOSQLServer()
         strSQL = "SELECT [TransactionID] ,[Date] ,[Customer Name],[Service Name]   ,[Assigned To]     ,[Created By] FROM [dbo].[vw_Transaction]"

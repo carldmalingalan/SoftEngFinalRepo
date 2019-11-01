@@ -293,7 +293,7 @@ Partial Public Class JandADataSet
         
         Private columnUsername As Global.System.Data.DataColumn
         
-        Private columnPassword_s_ As Global.System.Data.DataColumn
+        Private columnPassword As Global.System.Data.DataColumn
         
         Private columnAccessType As Global.System.Data.DataColumn
         
@@ -384,9 +384,9 @@ Partial Public Class JandADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Password_s_Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property PasswordColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPassword_s_
+                Return Me.columnPassword
             End Get
         End Property
         
@@ -475,9 +475,9 @@ Partial Public Class JandADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblLoginsRow(ByVal Lastname As String, ByVal Firstname As String, ByVal AccountName As String, ByVal Username As String, ByVal Password_s_ As String, ByVal AccessType As String, ByVal AccountType As String, ByVal CreationDate As Date, ByVal CreatedBy As String, ByVal LastModified As String, ByVal LastModifiedDate As Date) As tblLoginsRow
+        Public Overloads Function AddtblLoginsRow(ByVal Lastname As String, ByVal Firstname As String, ByVal AccountName As String, ByVal Username As String, ByVal Password As String, ByVal AccessType As String, ByVal AccountType As String, ByVal CreationDate As Date, ByVal CreatedBy As String, ByVal LastModified As String, ByVal LastModifiedDate As Date) As tblLoginsRow
             Dim rowtblLoginsRow As tblLoginsRow = CType(Me.NewRow,tblLoginsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Lastname, Firstname, AccountName, Username, Password_s_, AccessType, AccountType, CreationDate, CreatedBy, LastModified, LastModifiedDate}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Lastname, Firstname, AccountName, Username, Password, AccessType, AccountType, CreationDate, CreatedBy, LastModified, LastModifiedDate}
             rowtblLoginsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtblLoginsRow)
             Return rowtblLoginsRow
@@ -511,7 +511,7 @@ Partial Public Class JandADataSet
             Me.columnFirstname = MyBase.Columns("Firstname")
             Me.columnAccountName = MyBase.Columns("AccountName")
             Me.columnUsername = MyBase.Columns("Username")
-            Me.columnPassword_s_ = MyBase.Columns("Password s ")
+            Me.columnPassword = MyBase.Columns("Password")
             Me.columnAccessType = MyBase.Columns("AccessType")
             Me.columnAccountType = MyBase.Columns("AccountType")
             Me.columnCreationDate = MyBase.Columns("CreationDate")
@@ -533,8 +533,8 @@ Partial Public Class JandADataSet
             MyBase.Columns.Add(Me.columnAccountName)
             Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUsername)
-            Me.columnPassword_s_ = New Global.System.Data.DataColumn("Password s ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPassword_s_)
+            Me.columnPassword = New Global.System.Data.DataColumn("Password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPassword)
             Me.columnAccessType = New Global.System.Data.DataColumn("AccessType", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAccessType)
             Me.columnAccountType = New Global.System.Data.DataColumn("AccountType", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -559,7 +559,7 @@ Partial Public Class JandADataSet
             Me.columnAccountName.ReadOnly = true
             Me.columnAccountName.MaxLength = 102
             Me.columnUsername.MaxLength = 150
-            Me.columnPassword_s_.MaxLength = 150
+            Me.columnPassword.MaxLength = 150
             Me.columnAccessType.MaxLength = 50
             Me.columnAccountType.MaxLength = 50
             Me.columnCreatedBy.MaxLength = 50
@@ -781,16 +781,16 @@ Partial Public Class JandADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Password_s_() As String
+        Public Property Password() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletblLogins.Password_s_Column),String)
+                    Return CType(Me(Me.tabletblLogins.PasswordColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Password s ' in table 'tblLogins' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Password' in table 'tblLogins' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblLogins.Password_s_Column) = value
+                Me(Me.tabletblLogins.PasswordColumn) = value
             End Set
         End Property
         
@@ -934,14 +934,14 @@ Partial Public Class JandADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsPassword_s_Null() As Boolean
-            Return Me.IsNull(Me.tabletblLogins.Password_s_Column)
+        Public Function IsPasswordNull() As Boolean
+            Return Me.IsNull(Me.tabletblLogins.PasswordColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetPassword_s_Null()
-            Me(Me.tabletblLogins.Password_s_Column) = Global.System.Convert.DBNull
+        Public Sub SetPasswordNull()
+            Me(Me.tabletblLogins.PasswordColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1188,7 +1188,7 @@ Namespace JandADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Firstname", "Firstname")
             tableMapping.ColumnMappings.Add("AccountName", "AccountName")
             tableMapping.ColumnMappings.Add("Username", "Username")
-            tableMapping.ColumnMappings.Add("Password", "Password s ")
+            tableMapping.ColumnMappings.Add("Password", "Password")
             tableMapping.ColumnMappings.Add("AccessType", "AccessType")
             tableMapping.ColumnMappings.Add("AccountType", "AccountType")
             tableMapping.ColumnMappings.Add("CreationDate", "CreationDate")

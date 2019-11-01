@@ -32,14 +32,14 @@ Partial Class frmServices
         Me.btnUpdateService = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnCreateService = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.gbServiceDetails = New System.Windows.Forms.GroupBox()
-        Me.cboFace = New MaterialSkin.Controls.MaterialCheckBox()
+        Me.rdoNails = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.rdoHair = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.rdoBody = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.rdoFace = New MaterialSkin.Controls.MaterialRadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtRemarks = New WindowsFormsControlLibrary1.BunifuCustomTextbox()
         Me.switchServiceStatus = New Bunifu.Framework.UI.BunifuSwitch()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.cboNails = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboHair = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboBody = New MaterialSkin.Controls.MaterialCheckBox()
         Me.btnCancel = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnSave = New MaterialSkin.Controls.MaterialFlatButton()
         Me.txtServiceDetails = New Bunifu.Framework.UI.BunifuMetroTextbox()
@@ -48,6 +48,7 @@ Partial Class frmServices
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.tets = New System.Windows.Forms.TextBox()
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbServiceDetails.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,7 +62,7 @@ Partial Class frmServices
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvServiceList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvServiceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvServiceList.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.dgvServiceList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvServiceList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvServiceList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -204,14 +205,16 @@ Partial Class frmServices
         '
         Me.gbServiceDetails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbServiceDetails.Controls.Add(Me.cboFace)
+        Me.gbServiceDetails.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.gbServiceDetails.Controls.Add(Me.tets)
+        Me.gbServiceDetails.Controls.Add(Me.rdoNails)
+        Me.gbServiceDetails.Controls.Add(Me.rdoHair)
+        Me.gbServiceDetails.Controls.Add(Me.rdoBody)
+        Me.gbServiceDetails.Controls.Add(Me.rdoFace)
         Me.gbServiceDetails.Controls.Add(Me.Label4)
         Me.gbServiceDetails.Controls.Add(Me.txtRemarks)
         Me.gbServiceDetails.Controls.Add(Me.switchServiceStatus)
         Me.gbServiceDetails.Controls.Add(Me.Label11)
-        Me.gbServiceDetails.Controls.Add(Me.cboNails)
-        Me.gbServiceDetails.Controls.Add(Me.cboHair)
-        Me.gbServiceDetails.Controls.Add(Me.cboBody)
         Me.gbServiceDetails.Controls.Add(Me.btnCancel)
         Me.gbServiceDetails.Controls.Add(Me.btnSave)
         Me.gbServiceDetails.Controls.Add(Me.txtServiceDetails)
@@ -228,23 +231,73 @@ Partial Class frmServices
         Me.gbServiceDetails.TabStop = False
         Me.gbServiceDetails.Text = "Service Details"
         '
-        'cboFace
+        'rdoNails
         '
-        Me.cboFace.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cboFace.AutoSize = True
-        Me.cboFace.Depth = 0
-        Me.cboFace.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboFace.Location = New System.Drawing.Point(325, 66)
-        Me.cboFace.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboFace.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboFace.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboFace.Name = "cboFace"
-        Me.cboFace.Ripple = True
-        Me.cboFace.Size = New System.Drawing.Size(63, 30)
-        Me.cboFace.TabIndex = 57
-        Me.cboFace.Text = "FACE"
-        Me.cboFace.UseVisualStyleBackColor = True
+        Me.rdoNails.AutoSize = True
+        Me.rdoNails.Depth = 0
+        Me.rdoNails.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdoNails.Location = New System.Drawing.Point(321, 65)
+        Me.rdoNails.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdoNails.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdoNails.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdoNails.Name = "rdoNails"
+        Me.rdoNails.Ripple = True
+        Me.rdoNails.Size = New System.Drawing.Size(67, 30)
+        Me.rdoNails.TabIndex = 30
+        Me.rdoNails.TabStop = True
+        Me.rdoNails.Text = "NAILS"
+        Me.rdoNails.UseVisualStyleBackColor = True
+        '
+        'rdoHair
+        '
+        Me.rdoHair.AutoSize = True
+        Me.rdoHair.Depth = 0
+        Me.rdoHair.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdoHair.Location = New System.Drawing.Point(261, 65)
+        Me.rdoHair.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdoHair.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdoHair.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdoHair.Name = "rdoHair"
+        Me.rdoHair.Ripple = True
+        Me.rdoHair.Size = New System.Drawing.Size(60, 30)
+        Me.rdoHair.TabIndex = 30
+        Me.rdoHair.TabStop = True
+        Me.rdoHair.Text = "HAIR"
+        Me.rdoHair.UseVisualStyleBackColor = True
+        '
+        'rdoBody
+        '
+        Me.rdoBody.AutoSize = True
+        Me.rdoBody.Depth = 0
+        Me.rdoBody.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdoBody.Location = New System.Drawing.Point(197, 65)
+        Me.rdoBody.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdoBody.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdoBody.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdoBody.Name = "rdoBody"
+        Me.rdoBody.Ripple = True
+        Me.rdoBody.Size = New System.Drawing.Size(64, 30)
+        Me.rdoBody.TabIndex = 30
+        Me.rdoBody.TabStop = True
+        Me.rdoBody.Text = "BODY"
+        Me.rdoBody.UseVisualStyleBackColor = True
+        '
+        'rdoFace
+        '
+        Me.rdoFace.AutoSize = True
+        Me.rdoFace.Depth = 0
+        Me.rdoFace.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdoFace.Location = New System.Drawing.Point(135, 65)
+        Me.rdoFace.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdoFace.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdoFace.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdoFace.Name = "rdoFace"
+        Me.rdoFace.Ripple = True
+        Me.rdoFace.Size = New System.Drawing.Size(62, 30)
+        Me.rdoFace.TabIndex = 30
+        Me.rdoFace.TabStop = True
+        Me.rdoFace.Text = "FACE"
+        Me.rdoFace.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -273,7 +326,7 @@ Partial Class frmServices
         Me.switchServiceStatus.BorderRadius = 0
         Me.switchServiceStatus.Cursor = System.Windows.Forms.Cursors.Hand
         Me.switchServiceStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.switchServiceStatus.Location = New System.Drawing.Point(133, 144)
+        Me.switchServiceStatus.Location = New System.Drawing.Point(137, 144)
         Me.switchServiceStatus.Margin = New System.Windows.Forms.Padding(4)
         Me.switchServiceStatus.Name = "switchServiceStatus"
         Me.switchServiceStatus.Oncolor = System.Drawing.Color.SeaGreen
@@ -291,60 +344,6 @@ Partial Class frmServices
         Me.Label11.Size = New System.Drawing.Size(50, 16)
         Me.Label11.TabIndex = 39
         Me.Label11.Text = "Status:"
-        '
-        'cboNails
-        '
-        Me.cboNails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cboNails.AutoSize = True
-        Me.cboNails.Depth = 0
-        Me.cboNails.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboNails.Location = New System.Drawing.Point(257, 66)
-        Me.cboNails.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboNails.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboNails.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboNails.Name = "cboNails"
-        Me.cboNails.Ripple = True
-        Me.cboNails.Size = New System.Drawing.Size(68, 30)
-        Me.cboNails.TabIndex = 37
-        Me.cboNails.Text = "NAILS"
-        Me.cboNails.UseVisualStyleBackColor = True
-        '
-        'cboHair
-        '
-        Me.cboHair.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cboHair.AutoSize = True
-        Me.cboHair.Depth = 0
-        Me.cboHair.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboHair.Location = New System.Drawing.Point(196, 66)
-        Me.cboHair.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboHair.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboHair.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboHair.Name = "cboHair"
-        Me.cboHair.Ripple = True
-        Me.cboHair.Size = New System.Drawing.Size(61, 30)
-        Me.cboHair.TabIndex = 36
-        Me.cboHair.Text = "HAIR"
-        Me.cboHair.UseVisualStyleBackColor = True
-        '
-        'cboBody
-        '
-        Me.cboBody.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cboBody.AutoSize = True
-        Me.cboBody.Depth = 0
-        Me.cboBody.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboBody.Location = New System.Drawing.Point(131, 66)
-        Me.cboBody.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboBody.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboBody.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboBody.Name = "cboBody"
-        Me.cboBody.Ripple = True
-        Me.cboBody.Size = New System.Drawing.Size(65, 30)
-        Me.cboBody.TabIndex = 35
-        Me.cboBody.Text = "BODY"
-        Me.cboBody.UseVisualStyleBackColor = True
         '
         'btnCancel
         '
@@ -449,11 +448,18 @@ Partial Class frmServices
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'tets
+        '
+        Me.tets.Location = New System.Drawing.Point(18, 216)
+        Me.tets.Name = "tets"
+        Me.tets.Size = New System.Drawing.Size(100, 23)
+        Me.tets.TabIndex = 57
+        '
         'frmServices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
         Me.Controls.Add(Me.gbServiceDetails)
         Me.Controls.Add(Me.btnExportServices)
@@ -478,9 +484,6 @@ Partial Class frmServices
     Friend WithEvents gbServiceDetails As GroupBox
     Friend WithEvents switchServiceStatus As Bunifu.Framework.UI.BunifuSwitch
     Friend WithEvents Label11 As Label
-    Friend WithEvents cboNails As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents cboHair As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents cboBody As MaterialSkin.Controls.MaterialCheckBox
     Friend WithEvents btnCancel As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnSave As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents txtServiceDetails As Bunifu.Framework.UI.BunifuMetroTextbox
@@ -491,5 +494,9 @@ Partial Class frmServices
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents Label4 As Label
     Friend WithEvents txtRemarks As WindowsFormsControlLibrary1.BunifuCustomTextbox
-    Friend WithEvents cboFace As MaterialSkin.Controls.MaterialCheckBox
+    Friend WithEvents rdoNails As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents rdoHair As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents rdoBody As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents rdoFace As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents tets As TextBox
 End Class

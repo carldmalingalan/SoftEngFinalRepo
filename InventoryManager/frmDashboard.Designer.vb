@@ -67,7 +67,7 @@ Partial Class frmDashboard
         Me.BunifuCards1.Name = "BunifuCards1"
         Me.BunifuCards1.RightSahddow = True
         Me.BunifuCards1.ShadowDepth = 20
-        Me.BunifuCards1.Size = New System.Drawing.Size(146, 86)
+        Me.BunifuCards1.Size = New System.Drawing.Size(278, 100)
         Me.BunifuCards1.TabIndex = 1
         '
         'chartCategories

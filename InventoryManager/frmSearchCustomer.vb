@@ -7,7 +7,7 @@ Public Class frmSearchCustomer
 
     Private Sub viewrecords()
         Call ConnectTOSQLServer()
-        strSQL = "select Lastname, Firstname, Middlename as [Middle Initial], CustomerID from tblCustomer where Lastname like '%@searchtext%' or Firstname like '%@searchtext%'"
+        strSQL = "select Lastname, Firstname, [Middle Initial], CustomerID from tblCustomer where Lastname like '%@searchtext%' or Firstname like '%@searchtext%'"
         cmd.Parameters.AddWithValue("@searchtext", SqlDbType.VarChar).Value = txtSearchname.Text
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim SearchList As New DataSet()
@@ -17,4 +17,6 @@ Public Class frmSearchCustomer
         dgvSearchList.Rows(4).Visible = False
         Call DisConnectSQLServer()
     End Sub
+
+
 End Class

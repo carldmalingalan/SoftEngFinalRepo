@@ -6,6 +6,7 @@ Public Class frmServices
     Private selectedRow As Integer
     Dim flag1, flag2, flag3, flag4 As Boolean
     Dim serviceID As Int32
+    Dim Service_Category, category As String
 
     Private Sub frmServices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call viewServices()
@@ -30,9 +31,11 @@ Public Class frmServices
     Private Sub clearfields()
         txtServiceDetails.Text = ""
         txtServiceName.Text = ""
-        cboBody.Checked = False
-        cboHair.Checked = False
-        cboNails.Checked = False
+        txtServiceDetails.Text = ""
+        rdoBody.Checked = False
+        rdoFace.Checked = False
+        rdoHair.Checked = False
+        rdoNails.Checked = False
         switchServiceStatus.Value = False
         dgvServiceList.Enabled = True
         gbServiceDetails.Enabled = False
@@ -62,18 +65,21 @@ Public Class frmServices
                 Console.WriteLine()
                 cmd = New SqlCommand(strSQL, Connection)
                 reader = cmd.ExecuteReader()
-                Do While reader.HasRows
-                    Do While reader.Read()
-                        txtServiceName.Text = reader.GetString(1)
-                        txtServiceDetails.Text = reader.GetString(2)
-                        cboBody.CheckState = reader.GetString(3)
-                        cboHair.CheckState = reader.GetString(4)
-                        cboNails.CheckState = reader.GetString(5)
-                        switchServiceStatus.Value = reader.GetString(6)
-                        cboFace.CheckState = reader.GetString(12)
-                        txtRemarks.Text = reader.GetString(11)
-                    Loop
-                    reader.NextResult()
+                Do While reader.Read()
+                    txtServiceName.Text = reader.GetString(1)
+                    txtServiceDetails.Text = reader.GetString(2)
+                    switchServiceStatus.Value = reader.GetString(3)
+                    txtRemarks.Text = reader.GetString(8)
+                    tets.Text = reader.GetString(9)
+                    If tets.Text = "FACE" Then
+                        rdoFace.Checked = True
+                    ElseIf tets.Text = "BODY" Then
+                        rdoBody.Checked = True
+                    ElseIf tets.Text = "NAILS" Then
+                        rdoNails.Checked = True
+                    ElseIf tets.Text = "HAIR" Then
+                        rdoHair.Checked = True
+                    End If
                 Loop
                 reader.Close()
                 Call DisConnectSQLServer()
@@ -113,11 +119,20 @@ Public Class frmServices
         End If
         Dim ask = MsgBox("Do you want to save this service?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If ask = vbYes Then
+            If (rdoBody.Checked = True) Then
+                Service_Category = rdoBody.Text
+            ElseIf (rdoFace.Checked = True) Then
+                Service_Category = rdoFace.Text
+            ElseIf (rdoHair.Checked = True) Then
+                Service_Category = rdoHair.Text
+            ElseIf (rdoNails.Checked = True) Then
+                Service_Category = rdoNails.Text
+            End If
             If (saveClass = 1) Then ' add
-                Call AddService(txtServiceName.Text, txtServiceDetails.Text, cboBody.CheckState, cboHair.CheckState, cboNails.CheckState, switchServiceStatus.Value, txtRemarks.Text, cboFace.CheckState)
+                Call AddService(txtServiceName.Text, txtServiceDetails.Text, switchServiceStatus.Value, txtRemarks.Text, Service_Category)
                 MsgBox("Service has been successfully added into the list.", MsgBoxStyle.Information, Application.ProductName)
             ElseIf (saveClass = 2) Then 'update
-                Call UpdateService(txtServiceName.Text, txtServiceDetails.Text, cboBody.CheckState, cboHair.CheckState, cboNails.CheckState, switchServiceStatus.Value, serviceID, txtRemarks.Text, cboFace.CheckState)
+                Call UpdateService(txtServiceName.Text, txtServiceDetails.Text, switchServiceStatus.Value, serviceID, txtRemarks.Text, Service_Category)
                 MsgBox("Service has been successfully update into the list.", MsgBoxStyle.Information, Application.ProductName)
             End If
             Call clearfields()
@@ -131,9 +146,9 @@ Public Class frmServices
             ErrorProvider1.SetIconPadding(txtServiceName, 5)
             flag1 = False
         End If
-        If (cboBody.Checked = False And cboHair.Checked = False And cboNails.Checked = False And cboFace.Checked = False) Then
-            ErrorProvider1.SetError(cboFace, "Blank type is not allowed.")
-            ErrorProvider1.SetIconPadding(cboFace, 5)
+        If (rdoBody.Checked = False And rdoFace.Checked = False And rdoHair.Checked = False And rdoNails.Checked = False) Then
+            ErrorProvider1.SetError(rdoNails, "Blank type is not allowed.")
+            ErrorProvider1.SetIconPadding(rdoNails, 5)
             flag2 = False
         End If
     End Sub

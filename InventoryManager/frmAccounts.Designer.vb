@@ -174,6 +174,7 @@ Partial Class frmAccounts
         '
         'txtSearch
         '
+        Me.txtSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.txtSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -184,7 +185,7 @@ Partial Class frmAccounts
         Me.txtSearch.LineIdleColor = System.Drawing.Color.Gray
         Me.txtSearch.LineMouseHoverColor = System.Drawing.Color.Blue
         Me.txtSearch.LineThickness = 3
-        Me.txtSearch.Location = New System.Drawing.Point(668, 83)
+        Me.txtSearch.Location = New System.Drawing.Point(667, 80)
         Me.txtSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(240, 33)
@@ -193,10 +194,11 @@ Partial Class frmAccounts
         '
         'btnSearch
         '
+        Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSearch.FlatAppearance.BorderSize = 0
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Image = Global.InventoryManager.My.Resources.Resources.magnifying_glass_1_
-        Me.btnSearch.Location = New System.Drawing.Point(912, 83)
+        Me.btnSearch.Location = New System.Drawing.Point(911, 80)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(33, 33)
         Me.btnSearch.TabIndex = 10

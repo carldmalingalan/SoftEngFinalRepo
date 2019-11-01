@@ -39,6 +39,9 @@ Partial Class frmInventory
         Me.BunifuCards3 = New Bunifu.Framework.UI.BunifuCards()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.BunifuCards2.SuspendLayout()
         Me.BunifuCards1.SuspendLayout()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,7 +53,7 @@ Partial Class frmInventory
         Me.BunifuCards2.BackColor = System.Drawing.Color.White
         Me.BunifuCards2.BorderRadius = 5
         Me.BunifuCards2.BottomSahddow = True
-        Me.BunifuCards2.color = System.Drawing.Color.IndianRed
+        Me.BunifuCards2.color = System.Drawing.Color.SandyBrown
         Me.BunifuCards2.Controls.Add(Me.lblInactiveCount)
         Me.BunifuCards2.Controls.Add(Me.Label2)
         Me.BunifuCards2.LeftSahddow = False
@@ -58,14 +61,14 @@ Partial Class frmInventory
         Me.BunifuCards2.Name = "BunifuCards2"
         Me.BunifuCards2.RightSahddow = True
         Me.BunifuCards2.ShadowDepth = 20
-        Me.BunifuCards2.Size = New System.Drawing.Size(175, 131)
+        Me.BunifuCards2.Size = New System.Drawing.Size(175, 101)
         Me.BunifuCards2.TabIndex = 13
         '
         'lblInactiveCount
         '
         Me.lblInactiveCount.AutoSize = True
         Me.lblInactiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInactiveCount.Location = New System.Drawing.Point(54, 44)
+        Me.lblInactiveCount.Location = New System.Drawing.Point(53, 17)
         Me.lblInactiveCount.Name = "lblInactiveCount"
         Me.lblInactiveCount.Size = New System.Drawing.Size(71, 39)
         Me.lblInactiveCount.TabIndex = 7
@@ -75,18 +78,18 @@ Partial Class frmInventory
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(6, 103)
+        Me.Label2.Location = New System.Drawing.Point(13, 76)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(166, 16)
+        Me.Label2.Size = New System.Drawing.Size(149, 16)
         Me.Label2.TabIndex = 5
-        Me.Label2.Text = "CRITICALLY STOCK ITEMS"
+        Me.Label2.Text = "CRITICAL-POINT ITEMS"
         '
         'BunifuCards1
         '
         Me.BunifuCards1.BackColor = System.Drawing.Color.White
         Me.BunifuCards1.BorderRadius = 5
         Me.BunifuCards1.BottomSahddow = True
-        Me.BunifuCards1.color = System.Drawing.Color.IndianRed
+        Me.BunifuCards1.color = System.Drawing.Color.SandyBrown
         Me.BunifuCards1.Controls.Add(Me.lblActiveCount)
         Me.BunifuCards1.Controls.Add(Me.Label1)
         Me.BunifuCards1.LeftSahddow = False
@@ -94,14 +97,14 @@ Partial Class frmInventory
         Me.BunifuCards1.Name = "BunifuCards1"
         Me.BunifuCards1.RightSahddow = True
         Me.BunifuCards1.ShadowDepth = 20
-        Me.BunifuCards1.Size = New System.Drawing.Size(175, 131)
+        Me.BunifuCards1.Size = New System.Drawing.Size(175, 101)
         Me.BunifuCards1.TabIndex = 12
         '
         'lblActiveCount
         '
         Me.lblActiveCount.AutoSize = True
         Me.lblActiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActiveCount.Location = New System.Drawing.Point(52, 44)
+        Me.lblActiveCount.Location = New System.Drawing.Point(47, 17)
         Me.lblActiveCount.Name = "lblActiveCount"
         Me.lblActiveCount.Size = New System.Drawing.Size(71, 39)
         Me.lblActiveCount.TabIndex = 6
@@ -111,7 +114,7 @@ Partial Class frmInventory
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(32, 103)
+        Me.Label1.Location = New System.Drawing.Point(27, 76)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 16)
         Me.Label1.TabIndex = 5
@@ -124,8 +127,10 @@ Partial Class frmInventory
         Me.dgvItemList.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvItemList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvItemList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvItemList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvItemList.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.dgvItemList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvItemList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvItemList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -149,19 +154,20 @@ Partial Class frmInventory
         Me.dgvItemList.EnableHeadersVisualStyles = False
         Me.dgvItemList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvItemList.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvItemList.Location = New System.Drawing.Point(12, 148)
+        Me.dgvItemList.Location = New System.Drawing.Point(12, 121)
         Me.dgvItemList.MultiSelect = False
         Me.dgvItemList.Name = "dgvItemList"
         Me.dgvItemList.ReadOnly = True
         Me.dgvItemList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvItemList.RowHeadersVisible = False
         Me.dgvItemList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvItemList.Size = New System.Drawing.Size(933, 345)
+        Me.dgvItemList.Size = New System.Drawing.Size(933, 372)
         Me.dgvItemList.TabIndex = 8
         '
         'btnExportItemList
         '
         Me.btnExportItemList.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.btnExportItemList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnExportItemList.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.btnExportItemList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnExportItemList.BorderRadius = 7
@@ -196,6 +202,7 @@ Partial Class frmInventory
         'btnUpdateItem
         '
         Me.btnUpdateItem.Activecolor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.btnUpdateItem.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnUpdateItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.btnUpdateItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnUpdateItem.BorderRadius = 7
@@ -230,6 +237,7 @@ Partial Class frmInventory
         'btnAddItem
         '
         Me.btnAddItem.Activecolor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.btnAddItem.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.btnAddItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAddItem.BorderRadius = 7
@@ -266,7 +274,7 @@ Partial Class frmInventory
         Me.BunifuCards3.BackColor = System.Drawing.Color.White
         Me.BunifuCards3.BorderRadius = 5
         Me.BunifuCards3.BottomSahddow = True
-        Me.BunifuCards3.color = System.Drawing.Color.IndianRed
+        Me.BunifuCards3.color = System.Drawing.Color.SandyBrown
         Me.BunifuCards3.Controls.Add(Me.Label3)
         Me.BunifuCards3.Controls.Add(Me.Label4)
         Me.BunifuCards3.LeftSahddow = False
@@ -274,14 +282,14 @@ Partial Class frmInventory
         Me.BunifuCards3.Name = "BunifuCards3"
         Me.BunifuCards3.RightSahddow = True
         Me.BunifuCards3.ShadowDepth = 20
-        Me.BunifuCards3.Size = New System.Drawing.Size(175, 131)
+        Me.BunifuCards3.Size = New System.Drawing.Size(175, 101)
         Me.BunifuCards3.TabIndex = 14
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(54, 44)
+        Me.Label3.Location = New System.Drawing.Point(53, 17)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(71, 39)
         Me.Label3.TabIndex = 7
@@ -291,17 +299,62 @@ Partial Class frmInventory
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(18, 103)
+        Me.Label4.Location = New System.Drawing.Point(17, 76)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(140, 16)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "OUT OF STOCK ITEMS"
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.SandyBrown
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1154, 10)
+        Me.Panel1.TabIndex = 19
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSearch.FlatAppearance.BorderSize = 0
+        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearch.Image = Global.InventoryManager.My.Resources.Resources.magnifying_glass_1_
+        Me.btnSearch.Location = New System.Drawing.Point(912, 82)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(33, 33)
+        Me.btnSearch.TabIndex = 32
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtSearch.HintForeColor = System.Drawing.Color.Silver
+        Me.txtSearch.HintText = "Search"
+        Me.txtSearch.isPassword = False
+        Me.txtSearch.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtSearch.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtSearch.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtSearch.LineThickness = 3
+        Me.txtSearch.Location = New System.Drawing.Point(669, 81)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(240, 33)
+        Me.txtSearch.TabIndex = 31
+        Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BunifuCards3)
         Me.Controls.Add(Me.btnExportItemList)
         Me.Controls.Add(Me.BunifuCards2)
@@ -336,4 +389,7 @@ Partial Class frmInventory
     Friend WithEvents BunifuCards3 As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
 End Class

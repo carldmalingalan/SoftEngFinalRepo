@@ -1,5 +1,7 @@
 ﻿Public Class frmMenu
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Timer1.Enabled = True
+        lblName.Text = login_name
         If (login_accesstype = "ADMINISTRATOR") Then
             btnAccounts.Enabled = True
             btnDashboard.Enabled = True
@@ -156,7 +158,12 @@
         End If
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles lblDashboard.Click
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        lblDate.Text = DateString
+        lblTime.Text = TimeString
     End Sub
 End Class

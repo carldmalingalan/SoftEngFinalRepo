@@ -38,9 +38,6 @@ Partial Class frmEmployeeManager
         Me.gbEmployeeDetails = New System.Windows.Forms.GroupBox()
         Me.switchEmployeeStatus = New Bunifu.Framework.UI.BunifuSwitch()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.cboNails = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboHair = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboBody = New MaterialSkin.Controls.MaterialCheckBox()
         Me.btnCancel = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnSave = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnBrowseImage = New MaterialSkin.Controls.MaterialFlatButton()
@@ -49,7 +46,6 @@ Partial Class frmEmployeeManager
         Me.txtMiddleInitial = New Bunifu.Framework.UI.BunifuMetroTextbox()
         Me.txtLastname = New Bunifu.Framework.UI.BunifuMetroTextbox()
         Me.txtFirstname = New Bunifu.Framework.UI.BunifuMetroTextbox()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.pbEmployeePic = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -202,9 +198,6 @@ Partial Class frmEmployeeManager
         Me.gbEmployeeDetails.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbEmployeeDetails.Controls.Add(Me.switchEmployeeStatus)
         Me.gbEmployeeDetails.Controls.Add(Me.Label11)
-        Me.gbEmployeeDetails.Controls.Add(Me.cboNails)
-        Me.gbEmployeeDetails.Controls.Add(Me.cboHair)
-        Me.gbEmployeeDetails.Controls.Add(Me.cboBody)
         Me.gbEmployeeDetails.Controls.Add(Me.btnCancel)
         Me.gbEmployeeDetails.Controls.Add(Me.btnSave)
         Me.gbEmployeeDetails.Controls.Add(Me.btnBrowseImage)
@@ -213,7 +206,6 @@ Partial Class frmEmployeeManager
         Me.gbEmployeeDetails.Controls.Add(Me.txtMiddleInitial)
         Me.gbEmployeeDetails.Controls.Add(Me.txtLastname)
         Me.gbEmployeeDetails.Controls.Add(Me.txtFirstname)
-        Me.gbEmployeeDetails.Controls.Add(Me.Label14)
         Me.gbEmployeeDetails.Controls.Add(Me.pbEmployeePic)
         Me.gbEmployeeDetails.Controls.Add(Me.Label8)
         Me.gbEmployeeDetails.Controls.Add(Me.Label9)
@@ -235,7 +227,7 @@ Partial Class frmEmployeeManager
         Me.switchEmployeeStatus.BorderRadius = 0
         Me.switchEmployeeStatus.Cursor = System.Windows.Forms.Cursors.Hand
         Me.switchEmployeeStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.switchEmployeeStatus.Location = New System.Drawing.Point(135, 259)
+        Me.switchEmployeeStatus.Location = New System.Drawing.Point(136, 218)
         Me.switchEmployeeStatus.Margin = New System.Windows.Forms.Padding(4)
         Me.switchEmployeeStatus.Name = "switchEmployeeStatus"
         Me.switchEmployeeStatus.Oncolor = System.Drawing.Color.SeaGreen
@@ -248,59 +240,11 @@ Partial Class frmEmployeeManager
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(15, 259)
+        Me.Label11.Location = New System.Drawing.Point(15, 219)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(50, 16)
         Me.Label11.TabIndex = 39
         Me.Label11.Text = "Status:"
-        '
-        'cboNails
-        '
-        Me.cboNails.AutoSize = True
-        Me.cboNails.Depth = 0
-        Me.cboNails.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboNails.Location = New System.Drawing.Point(261, 221)
-        Me.cboNails.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboNails.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboNails.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboNails.Name = "cboNails"
-        Me.cboNails.Ripple = True
-        Me.cboNails.Size = New System.Drawing.Size(68, 30)
-        Me.cboNails.TabIndex = 37
-        Me.cboNails.Text = "NAILS"
-        Me.cboNails.UseVisualStyleBackColor = True
-        '
-        'cboHair
-        '
-        Me.cboHair.AutoSize = True
-        Me.cboHair.Depth = 0
-        Me.cboHair.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboHair.Location = New System.Drawing.Point(200, 221)
-        Me.cboHair.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboHair.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboHair.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboHair.Name = "cboHair"
-        Me.cboHair.Ripple = True
-        Me.cboHair.Size = New System.Drawing.Size(61, 30)
-        Me.cboHair.TabIndex = 36
-        Me.cboHair.Text = "HAIR"
-        Me.cboHair.UseVisualStyleBackColor = True
-        '
-        'cboBody
-        '
-        Me.cboBody.AutoSize = True
-        Me.cboBody.Depth = 0
-        Me.cboBody.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.cboBody.Location = New System.Drawing.Point(135, 221)
-        Me.cboBody.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboBody.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboBody.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboBody.Name = "cboBody"
-        Me.cboBody.Ripple = True
-        Me.cboBody.Size = New System.Drawing.Size(65, 30)
-        Me.cboBody.TabIndex = 35
-        Me.cboBody.Text = "BODY"
-        Me.cboBody.UseVisualStyleBackColor = True
         '
         'btnCancel
         '
@@ -431,15 +375,6 @@ Partial Class frmEmployeeManager
         Me.txtFirstname.Size = New System.Drawing.Size(263, 31)
         Me.txtFirstname.TabIndex = 28
         Me.txtFirstname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(15, 227)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(70, 16)
-        Me.Label14.TabIndex = 6
-        Me.Label14.Text = "Expertise:"
         '
         'pbEmployeePic
         '
@@ -690,7 +625,6 @@ Partial Class frmEmployeeManager
     Friend WithEvents btnUpdateEmployee As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents pbEmployeePic As PictureBox
     Friend WithEvents gbEmployeeDetails As GroupBox
-    Friend WithEvents Label14 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label7 As Label
@@ -701,9 +635,6 @@ Partial Class frmEmployeeManager
     Friend WithEvents txtMiddleInitial As Bunifu.Framework.UI.BunifuMetroTextbox
     Friend WithEvents txtLastname As Bunifu.Framework.UI.BunifuMetroTextbox
     Friend WithEvents txtFirstname As Bunifu.Framework.UI.BunifuMetroTextbox
-    Friend WithEvents cboNails As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents cboHair As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents cboBody As MaterialSkin.Controls.MaterialCheckBox
     Friend WithEvents btnSave As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnBrowseImage As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnCancel As MaterialSkin.Controls.MaterialFlatButton

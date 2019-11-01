@@ -51,7 +51,6 @@ Public Class frmEmployeeManager
         FirstNameValidation()
         LastNameValidation()
         MiddleValidation()
-        Expertisevalidation()
         ImageValidation()
 
         If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
@@ -70,16 +69,13 @@ Public Class frmEmployeeManager
                     fileSavePath = ""
                 End Try
                 Call ConnectTOSQLServer()
-                strSQL = "insert into tblEmployeeList(Firstname,Lastname,MiddleInitial,Email,ContactNumber,Body,Hair,Nails,CreatedBy,CreationDate,LastModifiedBy,LastModifiedDate,Image,EmployeeStatus) values (@Firstname,@Lastname,@Middlename,@Email,@ContactNumber,@Body,@Hair,@Nails,@CreatedBy,getdate(),@Lastmod,getdate(),@Image,'TRUE')"
+                strSQL = "insert into tblEmployeeList(Firstname,Lastname,MiddleInitial,Email,ContactNumber,CreatedBy,CreationDate,LastModifiedBy,LastModifiedDate,Image,EmployeeStatus) values (@Firstname,@Lastname,@Middlename,@Email,@ContactNumber,@CreatedBy,getdate(),@Lastmod,getdate(),@Image,'TRUE')"
                 cmd = New SqlCommand(strSQL, Connection)
                 cmd.Parameters.AddWithValue("@Firstname", SqlDbType.VarChar).Value = txtFirstname.Text
                 cmd.Parameters.AddWithValue("@Lastname", SqlDbType.VarChar).Value = txtLastname.Text
                 cmd.Parameters.AddWithValue("@MiddleName", SqlDbType.VarChar).Value = txtMiddleInitial.Text
                 cmd.Parameters.AddWithValue("@Email", SqlDbType.VarChar).Value = txtEmail.Text
                 cmd.Parameters.AddWithValue("@ContactNumber", SqlDbType.VarChar).Value = txtContactNumber.Text
-                cmd.Parameters.AddWithValue("@Body", SqlDbType.VarChar).Value = cboBody.CheckState
-                cmd.Parameters.AddWithValue("@Hair", SqlDbType.VarChar).Value = cboHair.CheckState
-                cmd.Parameters.AddWithValue("@Nails", SqlDbType.VarChar).Value = cboNails.CheckState
                 cmd.Parameters.AddWithValue("@CreatedBy", SqlDbType.Int).Value = login_id
                 cmd.Parameters.AddWithValue("@Lastmod", SqlDbType.Int).Value = login_id
                 cmd.Parameters.AddWithValue("@Image", SqlDbType.VarChar).Value = fileSavePath
@@ -104,16 +100,13 @@ Public Class frmEmployeeManager
                     fileSavePath = ""
                 End Try
                 Call ConnectTOSQLServer()
-                strSQL = "update tblEmployeeList set Lastname = @Lastname, Firstname = @Firstname, MiddleInitial= @Middle,Email = @Email, ContactNumber = @Contact, Body = @Body, Hair = @Hair, Nails = @Nails, LastModifiedBy = @Lastmod, LastModifiedDate = getdate(), Image = @Image , EmployeeStatus = @EmpStatus where EmployeeID = @EmpID"
+                strSQL = "update tblEmployeeList set Lastname = @Lastname, Firstname = @Firstname, MiddleInitial= @Middle,Email = @Email, ContactNumber = @Contact, LastModifiedBy = @Lastmod, LastModifiedDate = getdate(), Image = @Image , EmployeeStatus = @EmpStatus where EmployeeID = @EmpID"
                 cmd = New SqlCommand(strSQL, Connection)
                 cmd.Parameters.AddWithValue("@Lastname", SqlDbType.VarChar).Value = txtLastname.Text
                 cmd.Parameters.AddWithValue("@Firstname", SqlDbType.VarChar).Value = txtFirstname.Text
                 cmd.Parameters.AddWithValue("@Middle", SqlDbType.VarChar).Value = txtMiddleInitial.Text
                 cmd.Parameters.AddWithValue("@Email", SqlDbType.VarChar).Value = txtEmail.Text
                 cmd.Parameters.AddWithValue("@Contact", SqlDbType.VarChar).Value = txtContactNumber.Text
-                cmd.Parameters.AddWithValue("@Body", SqlDbType.VarChar).Value = cboBody.CheckState
-                cmd.Parameters.AddWithValue("@Hair", SqlDbType.VarChar).Value = cboHair.CheckState
-                cmd.Parameters.AddWithValue("@Nails", SqlDbType.VarChar).Value = cboNails.CheckState
                 cmd.Parameters.AddWithValue("@Lastmod", SqlDbType.Int).Value = login_id
                 If (fileSavePath <> "") Then
                     cmd.Parameters.AddWithValue("@Image", SqlDbType.VarChar).Value = fileSavePath
@@ -125,15 +118,16 @@ Public Class frmEmployeeManager
                 Console.WriteLine(strSQL)
                 cmd.ExecuteNonQuery()
                 fileSavePath = Nothing
-                    imageName = Nothing
-                    pbEmployeePic.BackgroundImage = Nothing
-                    Me.Cursor = Cursors.Default
-                    Call DisConnectSQLServer()
-                    Call clearfields()
-                    gbEmployeeDetails.Enabled = False
-                    MsgBox("Successfully update employee details.", MsgBoxStyle.Information, Application.ProductName)
-                End If
+                imageName = Nothing
+                pbEmployeePic.BackgroundImage = Nothing
+                Me.Cursor = Cursors.Default
+                Call DisConnectSQLServer()
+                gbEmployeeDetails.Enabled = False
+                MsgBox("Successfully update employee details.", MsgBoxStyle.Information, Application.ProductName)
             End If
+            Call clearfields()
+
+        End If
         Call ViewEmployeeList()
 
     End Sub
@@ -150,6 +144,7 @@ Public Class frmEmployeeManager
 
     Private Sub btnBrowseImage_Click(sender As Object, e As EventArgs) Handles btnBrowseImage.Click
         Using openFileDialog1 As OpenFileDialog = New OpenFileDialog()
+            openFileDialog1.Filter = "Image Files (JPEG,GIF,BMP,PNG,ICO)|*.jpg;*.jpeg;*.gif;*.bmp;*.png;*ico"
             If openFileDialog1.ShowDialog() = DialogResult.OK Then
                 If Not Directory.Exists(saveDirectory) Then
                     Directory.CreateDirectory(saveDirectory)
@@ -167,13 +162,16 @@ Public Class frmEmployeeManager
 
     Private Sub btnUpdateEmployee_Click(sender As Object, e As EventArgs) Handles btnUpdateEmployee.Click
         dgvEmployeeList.Enabled = False
+        btnAddEmployee.Enabled = False
+        btnUpdateEmployee.Enabled = False
+        btnExportEmployeeList.Enabled = False
         gbEmployeeDetails.Enabled = True
         saveClass = 2
     End Sub
 
     Private Sub dgvEmployeeList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmployeeList.CellContentClick, dgvEmployeeList.CellClick
         Call ConnectTOSQLServer()
-        strSQL = "select EmployeeID,Firstname,Lastname,MiddleInitial,Email,ContactNumber,Body,Hair,Nails,EmployeeStatus,Image from tblEmployeeList where EmployeeID = '" & userID & "'"
+        strSQL = "select EmployeeID,Firstname,Lastname,MiddleInitial,Email,ContactNumber,EmployeeStatus,Image from tblEmployeeList where EmployeeID = '" & userID & "'"
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()
         Do While reader.HasRows
@@ -184,13 +182,10 @@ Public Class frmEmployeeManager
                 txtMiddleInitial.Text = reader.GetString(3)
                 txtEmail.Text = reader.GetString(4)
                 txtContactNumber.Text = reader.GetString(5)
-                BodyStat = reader.GetString(6)
-                HairStat = reader.GetString(7)
-                NailStat = reader.GetString(8)
-                switchEmployeeStatus.Value = reader.GetString(9)
+                switchEmployeeStatus.Value = reader.GetString(6)
                 Try
-                    pbEmployeePic.BackgroundImage = Image.FromFile("" & reader.GetString(10) & "")
-                    Imageloc = reader.GetString(10)
+                    pbEmployeePic.BackgroundImage = Image.FromFile("" & reader.GetString(7) & "")
+                    Imageloc = reader.GetString(7)
                 Catch ex As Exception
                     pbEmployeePic.BackgroundImage = pbEmployeePic.ErrorImage
                 End Try
@@ -199,21 +194,20 @@ Public Class frmEmployeeManager
         Loop
         reader.Close()
         Call DisConnectSQLServer()
-        Call ValidateCheckBox()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Call ViewEmployeeList()
     End Sub
 
-    Private Sub ValidateCheckBox()
-        cboBody.CheckState = BodyStat
-        cboHair.CheckState = HairStat
-        cboNails.CheckState = NailStat
-    End Sub
+
 
     Private Sub btnAddEmployee_Click(sender As Object, e As EventArgs) Handles btnAddEmployee.Click
         clearfields()
+        btnAddEmployee.Enabled = False
+        btnUpdateEmployee.Enabled = False
+        btnExportEmployeeList.Enabled = False
+        dgvEmployeeList.Enabled = False
         gbEmployeeDetails.Enabled = True
         saveClass = 1
     End Sub
@@ -224,9 +218,10 @@ Public Class frmEmployeeManager
         txtFirstname.Text = ""
         txtLastname.Text = ""
         txtMiddleInitial.Text = ""
-        cboBody.Checked = False
-        cboHair.Checked = False
-        cboNails.Checked = False
+        btnAddEmployee.Enabled = True
+        btnUpdateEmployee.Enabled = True
+        btnExportEmployeeList.Enabled = True
+        dgvEmployeeList.Enabled = True
         pbEmployeePic.BackgroundImage = Nothing
     End Sub
 
@@ -236,11 +231,11 @@ Public Class frmEmployeeManager
             ErrorProvider1.SetIconPadding(txtFirstname, 5)
             flag1 = False
         ElseIf txtFirstname.Text.IndexOfAny(restrictedCharactersForName) > -1 Then
-            ErrorProvider1.SetError(txtFirstname, "Special characters are Not allowed In this field.")
+            ErrorProvider1.SetError(txtFirstname, "Special characters are not allowed In this field.")
             ErrorProvider1.SetIconPadding(txtFirstname, 5)
             flag1 = False
         ElseIf IsNumeric(txtFirstname.Text) = True Or txtFirstname.Text.IndexOfAny("1234567890") > -1 Then
-            ErrorProvider1.SetError(txtFirstname, "Numeric characters are Not allowed In this field.")
+            ErrorProvider1.SetError(txtFirstname, "Numbers are not allowed In this field.")
             ErrorProvider1.SetIconPadding(txtFirstname, 5)
             flag1 = False
         Else
@@ -254,11 +249,11 @@ Public Class frmEmployeeManager
             ErrorProvider1.SetIconPadding(txtLastname, 5)
             flag2 = False
         ElseIf txtLastname.Text.IndexOfAny(restrictedCharactersForName) > -1 Then
-            ErrorProvider1.SetError(txtLastname, "Special characters are Not allowed In this field.")
+            ErrorProvider1.SetError(txtLastname, "Special characters are not allowed In this field.")
             ErrorProvider1.SetIconPadding(txtLastname, 5)
             flag2 = False
         ElseIf IsNumeric(txtLastname.Text) = True Or txtLastname.Text.IndexOfAny("1234567890") > -1 Then
-            ErrorProvider1.SetError(txtLastname, "Numeric characters are Not characters allowed In this field.")
+            ErrorProvider1.SetError(txtLastname, "Numbers are not allowed In this field.")
             ErrorProvider1.SetIconPadding(txtLastname, 5)
             flag2 = False
         Else
@@ -272,11 +267,11 @@ Public Class frmEmployeeManager
             ErrorProvider1.SetIconPadding(txtMiddleInitial, 5)
             flag3 = False
         ElseIf txtMiddleInitial.Text.IndexOfAny(restrictedCharactersForName) > -1 Then
-            ErrorProvider1.SetError(txtMiddleInitial, "Special characters are Not allowed In this field.")
+            ErrorProvider1.SetError(txtMiddleInitial, "Special characters are not allowed In this field.")
             ErrorProvider1.SetIconPadding(txtMiddleInitial, 5)
             flag3 = False
         ElseIf IsNumeric(txtMiddleInitial.Text) = True Or txtMiddleInitial.Text.IndexOfAny("1234567890") > -1 Then
-            ErrorProvider1.SetError(txtMiddleInitial, "Numeric characters are Not characters allowed In this field.")
+            ErrorProvider1.SetError(txtMiddleInitial, "Number are not allowed In this field.")
             ErrorProvider1.SetIconPadding(txtMiddleInitial, 5)
             flag3 = False
         ElseIf txtMiddleInitial.Text.Length > 1 Then
@@ -288,15 +283,7 @@ Public Class frmEmployeeManager
         End If
     End Sub
 
-    Private Sub Expertisevalidation()
-        If (cboBody.Checked = False And cboHair.Checked = False And cboNails.Checked = False) Then
-            ErrorProvider1.SetError(cboNails, "Please choose atleast one expertise.")
-            ErrorProvider1.SetIconPadding(cboNails, 3)
-            flag4 = False
-        Else
-            ErrorProvider1.SetError(cboNails, "")
-        End If
-    End Sub
+
 
     Private Sub ImageValidation()
         If pbEmployeePic.BackgroundImage Is Nothing Then
@@ -324,7 +311,7 @@ Public Class frmEmployeeManager
         dgvEmployeeList.DataSource = EmployeeList
         dgvEmployeeList.DataMember = "tblEmployeeList"
 
-        strSQL = "Select COUNT(EmployeeID) from tblEmployeeList where EmployeeStatus = 'TRUE'"
+        strSQL = "Select COUNT(EmployeeID) from tblEmployeeList where EmployeeStatus = '1'"
         Console.WriteLine()
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()
@@ -336,7 +323,7 @@ Public Class frmEmployeeManager
         Loop
         reader.Close()
 
-        strSQL = "Select COUNT(EmployeeID) from tblEmployeeList where EmployeeStatus = 'FALSE'"
+        strSQL = "Select COUNT(EmployeeID) from tblEmployeeList where EmployeeStatus = '0'"
         Console.WriteLine()
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()

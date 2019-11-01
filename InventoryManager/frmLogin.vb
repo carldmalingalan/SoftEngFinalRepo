@@ -36,6 +36,8 @@
     End Sub
 
     Private Sub lblForgotPassword_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblForgotPassword.LinkClicked
-        frmForgotPassword.showdialog()
+        frmForgotPassword.ShowDialog()
     End Sub
+
+
 End Class

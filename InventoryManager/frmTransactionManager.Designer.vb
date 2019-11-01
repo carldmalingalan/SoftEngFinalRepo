@@ -23,6 +23,9 @@ Partial Class frmTransactionManager
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTransactionManager))
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gbTransDetails = New System.Windows.Forms.GroupBox()
         Me.txtCustomerNumber = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -33,12 +36,6 @@ Partial Class frmTransactionManager
         Me.txtCustFirstname = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtRemarks = New WindowsFormsControlLibrary1.BunifuCustomTextbox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cboFace = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboNails = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboBody = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.cboHair = New MaterialSkin.Controls.MaterialCheckBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.cboEmployeeAssigned = New MetroFramework.Controls.MetroComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnCancelTransaction = New MaterialSkin.Controls.MaterialFlatButton()
@@ -48,8 +45,12 @@ Partial Class frmTransactionManager
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnExistingCustomer = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.btnNewCustomer = New Bunifu.Framework.UI.BunifuThinButton2()
+        Me.lblResultCount = New System.Windows.Forms.Label()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.txtSearchname = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.dgvSearchList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.gbTransDetails.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        CType(Me.dgvSearchList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbTransDetails
@@ -64,8 +65,6 @@ Partial Class frmTransactionManager
         Me.gbTransDetails.Controls.Add(Me.txtCustFirstname)
         Me.gbTransDetails.Controls.Add(Me.Label2)
         Me.gbTransDetails.Controls.Add(Me.txtRemarks)
-        Me.gbTransDetails.Controls.Add(Me.GroupBox1)
-        Me.gbTransDetails.Controls.Add(Me.Label5)
         Me.gbTransDetails.Controls.Add(Me.cboEmployeeAssigned)
         Me.gbTransDetails.Controls.Add(Me.Label1)
         Me.gbTransDetails.Controls.Add(Me.btnCancelTransaction)
@@ -75,9 +74,9 @@ Partial Class frmTransactionManager
         Me.gbTransDetails.Controls.Add(Me.Label3)
         Me.gbTransDetails.Enabled = False
         Me.gbTransDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbTransDetails.Location = New System.Drawing.Point(12, 77)
+        Me.gbTransDetails.Location = New System.Drawing.Point(8, 77)
         Me.gbTransDetails.Name = "gbTransDetails"
-        Me.gbTransDetails.Size = New System.Drawing.Size(479, 421)
+        Me.gbTransDetails.Size = New System.Drawing.Size(479, 340)
         Me.gbTransDetails.TabIndex = 31
         Me.gbTransDetails.TabStop = False
         Me.gbTransDetails.Text = "Transaction Details"
@@ -150,7 +149,7 @@ Partial Class frmTransactionManager
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 269)
+        Me.Label2.Location = New System.Drawing.Point(14, 202)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(141, 16)
         Me.Label2.TabIndex = 54
@@ -159,101 +158,16 @@ Partial Class frmTransactionManager
         'txtRemarks
         '
         Me.txtRemarks.BorderColor = System.Drawing.Color.SeaGreen
-        Me.txtRemarks.Location = New System.Drawing.Point(159, 266)
+        Me.txtRemarks.Location = New System.Drawing.Point(159, 199)
         Me.txtRemarks.Multiline = True
         Me.txtRemarks.Name = "txtRemarks"
         Me.txtRemarks.Size = New System.Drawing.Size(305, 71)
         Me.txtRemarks.TabIndex = 53
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.cboFace)
-        Me.GroupBox1.Controls.Add(Me.cboNails)
-        Me.GroupBox1.Controls.Add(Me.cboBody)
-        Me.GroupBox1.Controls.Add(Me.cboHair)
-        Me.GroupBox1.Location = New System.Drawing.Point(159, 125)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(305, 47)
-        Me.GroupBox1.TabIndex = 52
-        Me.GroupBox1.TabStop = False
-        '
-        'cboFace
-        '
-        Me.cboFace.AutoSize = True
-        Me.cboFace.Depth = 0
-        Me.cboFace.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.cboFace.Location = New System.Drawing.Point(232, 12)
-        Me.cboFace.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboFace.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboFace.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboFace.Name = "cboFace"
-        Me.cboFace.Ripple = True
-        Me.cboFace.Size = New System.Drawing.Size(63, 30)
-        Me.cboFace.TabIndex = 52
-        Me.cboFace.Text = "FACE"
-        Me.cboFace.UseVisualStyleBackColor = True
-        '
-        'cboNails
-        '
-        Me.cboNails.AutoSize = True
-        Me.cboNails.Depth = 0
-        Me.cboNails.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.cboNails.Location = New System.Drawing.Point(153, 12)
-        Me.cboNails.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboNails.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboNails.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboNails.Name = "cboNails"
-        Me.cboNails.Ripple = True
-        Me.cboNails.Size = New System.Drawing.Size(68, 30)
-        Me.cboNails.TabIndex = 51
-        Me.cboNails.Text = "NAILS"
-        Me.cboNails.UseVisualStyleBackColor = True
-        '
-        'cboBody
-        '
-        Me.cboBody.AutoSize = True
-        Me.cboBody.Depth = 0
-        Me.cboBody.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.cboBody.Location = New System.Drawing.Point(3, 12)
-        Me.cboBody.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboBody.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboBody.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboBody.Name = "cboBody"
-        Me.cboBody.Ripple = True
-        Me.cboBody.Size = New System.Drawing.Size(65, 30)
-        Me.cboBody.TabIndex = 49
-        Me.cboBody.Text = "BODY"
-        Me.cboBody.UseVisualStyleBackColor = True
-        '
-        'cboHair
-        '
-        Me.cboHair.AutoSize = True
-        Me.cboHair.Depth = 0
-        Me.cboHair.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.cboHair.Location = New System.Drawing.Point(80, 12)
-        Me.cboHair.Margin = New System.Windows.Forms.Padding(0)
-        Me.cboHair.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.cboHair.MouseState = MaterialSkin.MouseState.HOVER
-        Me.cboHair.Name = "cboHair"
-        Me.cboHair.Ripple = True
-        Me.cboHair.Size = New System.Drawing.Size(61, 30)
-        Me.cboHair.TabIndex = 50
-        Me.cboHair.Text = "HAIR"
-        Me.cboHair.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 140)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 16)
-        Me.Label5.TabIndex = 48
-        Me.Label5.Text = "Service Type:"
-        '
         'cboEmployeeAssigned
         '
         Me.cboEmployeeAssigned.ItemHeight = 23
-        Me.cboEmployeeAssigned.Location = New System.Drawing.Point(159, 217)
+        Me.cboEmployeeAssigned.Location = New System.Drawing.Point(159, 164)
         Me.cboEmployeeAssigned.Name = "cboEmployeeAssigned"
         Me.cboEmployeeAssigned.Size = New System.Drawing.Size(305, 29)
         Me.cboEmployeeAssigned.TabIndex = 47
@@ -262,7 +176,7 @@ Partial Class frmTransactionManager
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(14, 225)
+        Me.Label1.Location = New System.Drawing.Point(14, 172)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(140, 16)
         Me.Label1.TabIndex = 46
@@ -273,7 +187,7 @@ Partial Class frmTransactionManager
         Me.btnCancelTransaction.AutoSize = True
         Me.btnCancelTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCancelTransaction.Depth = 0
-        Me.btnCancelTransaction.Location = New System.Drawing.Point(240, 360)
+        Me.btnCancelTransaction.Location = New System.Drawing.Point(238, 279)
         Me.btnCancelTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnCancelTransaction.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCancelTransaction.Name = "btnCancelTransaction"
@@ -288,7 +202,7 @@ Partial Class frmTransactionManager
         Me.btnSaveTransaction.AutoSize = True
         Me.btnSaveTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSaveTransaction.Depth = 0
-        Me.btnSaveTransaction.Location = New System.Drawing.Point(186, 360)
+        Me.btnSaveTransaction.Location = New System.Drawing.Point(184, 279)
         Me.btnSaveTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnSaveTransaction.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSaveTransaction.Name = "btnSaveTransaction"
@@ -301,7 +215,7 @@ Partial Class frmTransactionManager
         'cboServiceAvailed
         '
         Me.cboServiceAvailed.ItemHeight = 23
-        Me.cboServiceAvailed.Location = New System.Drawing.Point(159, 182)
+        Me.cboServiceAvailed.Location = New System.Drawing.Point(159, 129)
         Me.cboServiceAvailed.Name = "cboServiceAvailed"
         Me.cboServiceAvailed.Size = New System.Drawing.Size(305, 29)
         Me.cboServiceAvailed.TabIndex = 43
@@ -310,7 +224,7 @@ Partial Class frmTransactionManager
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(14, 189)
+        Me.Label9.Location = New System.Drawing.Point(14, 136)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(114, 16)
         Me.Label9.TabIndex = 4
@@ -343,7 +257,7 @@ Partial Class frmTransactionManager
         Me.btnExistingCustomer.IdleFillColor = System.Drawing.Color.White
         Me.btnExistingCustomer.IdleForecolor = System.Drawing.Color.Teal
         Me.btnExistingCustomer.IdleLineColor = System.Drawing.Color.Teal
-        Me.btnExistingCustomer.Location = New System.Drawing.Point(260, 14)
+        Me.btnExistingCustomer.Location = New System.Drawing.Point(258, 14)
         Me.btnExistingCustomer.Margin = New System.Windows.Forms.Padding(5)
         Me.btnExistingCustomer.Name = "btnExistingCustomer"
         Me.btnExistingCustomer.Size = New System.Drawing.Size(129, 55)
@@ -368,18 +282,105 @@ Partial Class frmTransactionManager
         Me.btnNewCustomer.IdleFillColor = System.Drawing.Color.White
         Me.btnNewCustomer.IdleForecolor = System.Drawing.Color.SeaGreen
         Me.btnNewCustomer.IdleLineColor = System.Drawing.Color.SeaGreen
-        Me.btnNewCustomer.Location = New System.Drawing.Point(121, 14)
+        Me.btnNewCustomer.Location = New System.Drawing.Point(119, 14)
         Me.btnNewCustomer.Margin = New System.Windows.Forms.Padding(5)
         Me.btnNewCustomer.Name = "btnNewCustomer"
         Me.btnNewCustomer.Size = New System.Drawing.Size(129, 55)
         Me.btnNewCustomer.TabIndex = 32
         Me.btnNewCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'lblResultCount
+        '
+        Me.lblResultCount.AutoSize = True
+        Me.lblResultCount.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResultCount.Location = New System.Drawing.Point(494, 65)
+        Me.lblResultCount.Name = "lblResultCount"
+        Me.lblResultCount.Size = New System.Drawing.Size(0, 17)
+        Me.lblResultCount.TabIndex = 36
+        '
+        'btnSearch
+        '
+        Me.btnSearch.FlatAppearance.BorderSize = 0
+        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearch.Image = Global.InventoryManager.My.Resources.Resources.magnifying_glass_1_
+        Me.btnSearch.Location = New System.Drawing.Point(883, 47)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(33, 33)
+        Me.btnSearch.TabIndex = 34
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'txtSearchname
+        '
+        Me.txtSearchname.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSearchname.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtSearchname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtSearchname.HintForeColor = System.Drawing.Color.DarkGray
+        Me.txtSearchname.HintText = "Search Name"
+        Me.txtSearchname.isPassword = False
+        Me.txtSearchname.LineFocusedColor = System.Drawing.Color.Teal
+        Me.txtSearchname.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtSearchname.LineMouseHoverColor = System.Drawing.Color.Teal
+        Me.txtSearchname.LineThickness = 3
+        Me.txtSearchname.Location = New System.Drawing.Point(716, 47)
+        Me.txtSearchname.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSearchname.Name = "txtSearchname"
+        Me.txtSearchname.Size = New System.Drawing.Size(160, 33)
+        Me.txtSearchname.TabIndex = 33
+        Me.txtSearchname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'dgvSearchList
+        '
+        Me.dgvSearchList.AllowUserToAddRows = False
+        Me.dgvSearchList.AllowUserToDeleteRows = False
+        Me.dgvSearchList.AllowUserToResizeRows = False
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvSearchList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvSearchList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvSearchList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvSearchList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.dgvSearchList.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvSearchList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvSearchList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgvSearchList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvSearchList.DefaultCellStyle = DataGridViewCellStyle6
+        Me.dgvSearchList.DoubleBuffered = True
+        Me.dgvSearchList.EnableHeadersVisualStyles = False
+        Me.dgvSearchList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
+        Me.dgvSearchList.HeaderForeColor = System.Drawing.Color.Snow
+        Me.dgvSearchList.Location = New System.Drawing.Point(493, 85)
+        Me.dgvSearchList.MultiSelect = False
+        Me.dgvSearchList.Name = "dgvSearchList"
+        Me.dgvSearchList.ReadOnly = True
+        Me.dgvSearchList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvSearchList.RowHeadersVisible = False
+        Me.dgvSearchList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSearchList.Size = New System.Drawing.Size(479, 332)
+        Me.dgvSearchList.TabIndex = 37
+        '
         'frmTransactionManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(501, 497)
+        Me.ClientSize = New System.Drawing.Size(926, 427)
+        Me.Controls.Add(Me.dgvSearchList)
+        Me.Controls.Add(Me.lblResultCount)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.txtSearchname)
         Me.Controls.Add(Me.btnExistingCustomer)
         Me.Controls.Add(Me.btnNewCustomer)
         Me.Controls.Add(Me.gbTransDetails)
@@ -391,8 +392,7 @@ Partial Class frmTransactionManager
         Me.TopMost = True
         Me.gbTransDetails.ResumeLayout(False)
         Me.gbTransDetails.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        CType(Me.dgvSearchList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -402,11 +402,6 @@ Partial Class frmTransactionManager
     Friend WithEvents txtCustFirstname As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtRemarks As WindowsFormsControlLibrary1.BunifuCustomTextbox
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents cboNails As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents cboBody As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents cboHair As MaterialSkin.Controls.MaterialCheckBox
-    Friend WithEvents Label5 As Label
     Friend WithEvents cboEmployeeAssigned As MetroFramework.Controls.MetroComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnCancelTransaction As MaterialSkin.Controls.MaterialFlatButton
@@ -420,7 +415,10 @@ Partial Class frmTransactionManager
     Friend WithEvents Label4 As Label
     Friend WithEvents btnNewCustomer As Bunifu.Framework.UI.BunifuThinButton2
     Friend WithEvents btnExistingCustomer As Bunifu.Framework.UI.BunifuThinButton2
-    Friend WithEvents cboFace As MaterialSkin.Controls.MaterialCheckBox
     Friend WithEvents txtCustomerNumber As TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents lblResultCount As Label
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtSearchname As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents dgvSearchList As Bunifu.Framework.UI.BunifuCustomDataGrid
 End Class

@@ -55,7 +55,7 @@ Public Class frmInventory
         dgvItemList.DataSource = ItemList
         dgvItemList.DataMember = "tblInventory"
 
-        strSQL = "select COUNT(itemID) from tblInventory where ItemQuantity = '0'"
+        strSQL = "select COUNT(itemID) from tblInventory where Quantity = '0'"
         Console.WriteLine()
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()
@@ -67,7 +67,7 @@ Public Class frmInventory
         Loop
         reader.Close()
 
-        strSQL = "select COUNT(itemID) from tblInventory where ItemQuantity <> '0'"
+        strSQL = "select COUNT(itemID) from tblInventory where Quantity <> '0'"
         Console.WriteLine()
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()

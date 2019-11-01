@@ -93,7 +93,6 @@ Public Class frmAccounts
     End Sub
 
     Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellClick, dgvUserList.CellContentClick
-        Console.WriteLine(e.RowIndex)
         If (dgvUserList.Rows.Count > 0) Then
             Try
                 selectedRow = e.RowIndex

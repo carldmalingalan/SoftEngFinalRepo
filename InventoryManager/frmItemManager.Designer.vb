@@ -34,9 +34,9 @@ Partial Class frmItemManager
         Me.txtItemName = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.btnSaveItem = New MaterialSkin.Controls.MaterialFlatButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.dtpExpirationDate = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.checkboxExpirationNA = New System.Windows.Forms.CheckBox()
+        Me.dtpExpirationDate = New MetroFramework.Controls.MetroDateTime()
         Me.groupBoxRole.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -193,21 +193,11 @@ Partial Class frmItemManager
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'dtpExpirationDate
-        '
-        Me.dtpExpirationDate.CustomFormat = "MM/dd/yyyy"
-        Me.dtpExpirationDate.Font = New System.Drawing.Font("Century Gothic", 10.0!)
-        Me.dtpExpirationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpExpirationDate.Location = New System.Drawing.Point(45, 171)
-        Me.dtpExpirationDate.Name = "dtpExpirationDate"
-        Me.dtpExpirationDate.Size = New System.Drawing.Size(106, 24)
-        Me.dtpExpirationDate.TabIndex = 8
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(41, 148)
+        Me.Label1.Location = New System.Drawing.Point(14, 155)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(119, 20)
         Me.Label1.TabIndex = 9
@@ -218,21 +208,37 @@ Partial Class frmItemManager
         Me.checkboxExpirationNA.AutoSize = True
         Me.checkboxExpirationNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.checkboxExpirationNA.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.checkboxExpirationNA.Location = New System.Drawing.Point(180, 171)
+        Me.checkboxExpirationNA.Location = New System.Drawing.Point(256, 154)
         Me.checkboxExpirationNA.Name = "checkboxExpirationNA"
-        Me.checkboxExpirationNA.Size = New System.Drawing.Size(113, 21)
+        Me.checkboxExpirationNA.Size = New System.Drawing.Size(43, 21)
         Me.checkboxExpirationNA.TabIndex = 10
-        Me.checkboxExpirationNA.Text = "Not Available"
+        Me.checkboxExpirationNA.Text = "NA"
         Me.checkboxExpirationNA.UseVisualStyleBackColor = True
+        '
+        'dtpExpirationDate
+        '
+        Me.dtpExpirationDate.CalendarFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpExpirationDate.CustomFormat = "MM/dd/yyyy"
+        Me.dtpExpirationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpExpirationDate.Location = New System.Drawing.Point(139, 150)
+        Me.dtpExpirationDate.MinDate = New Date(2019, 8, 29, 0, 0, 0, 0)
+        Me.dtpExpirationDate.MinimumSize = New System.Drawing.Size(0, 29)
+        Me.dtpExpirationDate.Name = "dtpExpirationDate"
+        Me.dtpExpirationDate.Size = New System.Drawing.Size(111, 29)
+        Me.dtpExpirationDate.Style = MetroFramework.MetroColorStyle.Blue
+        Me.dtpExpirationDate.TabIndex = 18
+        Me.dtpExpirationDate.UseCustomBackColor = True
+        Me.dtpExpirationDate.UseCustomForeColor = True
+        Me.dtpExpirationDate.UseStyleColors = True
         '
         'frmItemManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(360, 381)
+        Me.Controls.Add(Me.dtpExpirationDate)
         Me.Controls.Add(Me.checkboxExpirationNA)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dtpExpirationDate)
         Me.Controls.Add(Me.btnSaveItem)
         Me.Controls.Add(Me.groupBoxRole)
         Me.Controls.Add(Me.txtDescription)
@@ -263,7 +269,7 @@ Partial Class frmItemManager
     Friend WithEvents btnSaveItem As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents Label1 As Label
-    Friend WithEvents dtpExpirationDate As DateTimePicker
     Friend WithEvents checkboxExpirationNA As CheckBox
     Friend WithEvents rdoFace As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents dtpExpirationDate As MetroFramework.Controls.MetroDateTime
 End Class
