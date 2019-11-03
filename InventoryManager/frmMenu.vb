@@ -1,5 +1,8 @@
 ﻿Public Class frmMenu
+
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        logInfo = "Accessed the Menu"
+        Call RecordLog(logInfo)
         Timer1.Enabled = True
         lblName.Text = login_name
         If (login_accesstype = "ADMINISTRATOR") Then
@@ -31,6 +34,8 @@
             btnExit.Enabled = True
         End If
         btnDashboard_Click(sender, e)
+        logInfo = "Accessed Dashboard Panel"
+        Call RecordLog(logInfo)
         Call btnAccounts_EnabledChanged()
     End Sub
 
@@ -55,7 +60,8 @@
         lblDashboard.ForeColor = Color.Black
         lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
-
+        logInfo = "Accessed Accounts Panel"
+        Call RecordLog(logInfo)
         OpenPanel(New frmAccounts)
     End Sub
 
@@ -72,7 +78,8 @@
         lblDashboard.ForeColor = Color.Black
         lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
-
+        logInfo = "Accessed Inventory Panel"
+        Call RecordLog(logInfo)
         OpenPanel(New frmInventory)
     End Sub
 
@@ -84,7 +91,8 @@
         lblDashboard.ForeColor = Color.Black
         lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
-
+        logInfo = "Accessed Transactions Panel"
+        Call RecordLog(logInfo)
         OpenPanel(New frmTransactions)
     End Sub
 
@@ -96,7 +104,8 @@
         lblDashboard.ForeColor = Color.Black
         lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
-
+        logInfo = "Accessed Employee List Panel"
+        Call RecordLog(logInfo)
         OpenPanel(New frmEmployeeManager)
     End Sub
 
@@ -108,7 +117,8 @@
         lblDashboard.ForeColor = Color.Red
         lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
-
+        logInfo = "Accessed Dashboard Panel"
+        Call RecordLog(logInfo)
         OpenPanel(New frmDashboard)
     End Sub
 
@@ -120,7 +130,8 @@
         lblDashboard.ForeColor = Color.Black
         lblSettings.ForeColor = Color.Red
         lblServices.ForeColor = Color.Black
-
+        logInfo = "Accessed Settings Panel"
+        Call RecordLog(logInfo)
     End Sub
 
     Private Sub btnServices_Click(sender As Object, e As EventArgs) Handles btnServices.Click
@@ -131,6 +142,8 @@
         lblDashboard.ForeColor = Color.Black
         lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Red
+        logInfo = "Accessed Services Panel"
+        Call RecordLog(logInfo)
         OpenPanel(New frmServices)
     End Sub
 

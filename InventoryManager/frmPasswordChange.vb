@@ -25,6 +25,8 @@
 
         Call PasswordChange(txtPassword1.Text, cboSecretQuestion.SelectedValue, txtAnswer.Text)
         MsgBox("Password has been successfully changed!", MsgBoxStyle.Information, Application.ProductName)
+        logInfo = "Changed password."
+        Call RecordLog(logInfo)
         frmMenu.Show()
         Me.Close()
     End Sub

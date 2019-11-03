@@ -2,7 +2,6 @@
 
 Public Class frmTransactionManager
     Private selectedRow As Integer
-
     Public Sub LoadiTems()
         Call ConnectTOSQLServer()
         strSQL = "select EmployeeID,Fullname from tblEmployeeList where EmployeeStatus = 'TRUE' order by EmployeeID"
@@ -118,5 +117,7 @@ Public Class frmTransactionManager
         End If
     End Sub
 
-
+    Private Sub btnCancelTransaction_Click(sender As Object, e As EventArgs) Handles btnCancelTransaction.Click
+        Me.Close()
+    End Sub
 End Class

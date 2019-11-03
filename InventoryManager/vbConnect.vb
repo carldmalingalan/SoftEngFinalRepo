@@ -39,6 +39,7 @@ Module vbConnect
     Public saveType2 As String 'transactions
 
     Public voidID As Int32
+    Public logInfo As String
     Function GetHash(theInput As String) As String
 
         Using hasher As SHA256 = SHA256.Create()    ' create hash object
@@ -204,12 +205,11 @@ Module vbConnect
     End Sub
 
 
-    Public Sub AddService(ServiceName As String, ServiceDetails As String, Status As String, Description As String, ServiceCategory As String)
+    Public Sub AddService(ServiceName As String, Status As String, Description As String, ServiceCategory As String)
         Call ConnectTOSQLServer()
-        strSQL = "INSERT INTO [dbo].[tblServices]([Name],[Details],[Service Category],[Status],[Description])VALUES(@ServiceName,@ServiceDetails,@ServiceCategory,@ServiceStatus,@Description)"
+        strSQL = "INSERT INTO [dbo].[tblServices]([Name],[Service Category],[Status],[Description])VALUES(@ServiceName,@ServiceCategory,@ServiceStatus,@Description)"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@ServiceName", SqlDbType.VarChar).Value = ServiceName
-        cmd.Parameters.AddWithValue("@ServiceDetails", SqlDbType.VarChar).Value = ServiceDetails
         cmd.Parameters.AddWithValue("@ServiceCategory", SqlDbType.VarChar).Value = ServiceCategory
         cmd.Parameters.AddWithValue("@ServiceStatus", SqlDbType.VarChar).Value = Status
         cmd.Parameters.AddWithValue("@Description", SqlDbType.VarChar).Value = Description
@@ -219,12 +219,11 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub UpdateService(ServiceName As String, ServiceDetails As String, Status As String, ServiceID As Int32, Description As String, ServiceCategory As String)
+    Public Sub UpdateService(ServiceName As String, Status As String, ServiceID As Int32, Description As String, ServiceCategory As String)
         Call ConnectTOSQLServer()
-        strSQL = "update tblServices set Name = @ServiceName, Details = @ServiceDetails, [Service Category] = @ServiceCategory ,Status = @ServiceStatus, Description = @Description where ServiceID = @ServiceID"
+        strSQL = "update tblServices set Name = @ServiceName, [Service Category] = @ServiceCategory ,Status = @ServiceStatus, Description = @Description where ServiceID = @ServiceID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@ServiceName", SqlDbType.VarChar).Value = ServiceName
-        cmd.Parameters.AddWithValue("@ServiceDetails", SqlDbType.VarChar).Value = ServiceDetails
         cmd.Parameters.AddWithValue("@ServiceCategory", SqlDbType.VarChar).Value = ServiceCategory
         cmd.Parameters.AddWithValue("@ServiceStatus", SqlDbType.VarChar).Value = Status
         cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = ServiceID
@@ -290,4 +289,14 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
+    Public Sub RecordLog(Details As String)
+        Call ConnectTOSQLServer()
+        strSQL = "insert into tblAppLogs(LoginID, [Datetime],Details) values (@LoginID,GETDATE(),@Details)"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@LoginID", SqlDbType.Int).Value = login_id
+        cmd.Parameters.AddWithValue("@Details", SqlDbType.VarChar).Value = Details
+        cmd.ExecuteNonQuery()
+        Console.WriteLine(strSQL)
+        Call DisConnectSQLServer()
+    End Sub
 End Module

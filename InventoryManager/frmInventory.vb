@@ -11,7 +11,8 @@ Public Class frmInventory
 
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
         saveType1 = 1
-        frmItemManager.Show()
+        Dim ab As New frmItemManager
+        ab.Show()
         frmMenu.Enabled = False
     End Sub
 
@@ -28,7 +29,8 @@ Public Class frmInventory
             frmItemManager.rdoNails.Checked = True
         End If
         itemID = dgvItemList.Rows(selectedRow).Cells(0).Value()
-        frmItemManager.Show()
+        Dim ab As New frmItemManager
+        ab.Show()
         frmMenu.Enabled = False
     End Sub
     Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellClick

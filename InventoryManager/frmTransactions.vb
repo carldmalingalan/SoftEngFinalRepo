@@ -1,6 +1,8 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms
 
 Public Class frmTransactions
+    Private fForm As frmTransactionManager = New frmTransactionManager()
 
     Private str1 As String
     Private HairBool, BodyBool, NailBool As String
@@ -13,12 +15,12 @@ Public Class frmTransactions
     End Sub
 
     Private Sub btnAddTransactions_Click(sender As Object, e As EventArgs) Handles btnAddTransactions.Click
-        frmTransactionManager.ShowDialog()
+        Dim ab As New frmTransactionManager
+        ab.Show()
     End Sub
 
-    Private Sub dgvTransactionsList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvTransactionsList.CellContentClick
 
-    End Sub
+
 
     Private Sub viewTransactions()
         Call ConnectTOSQLServer()

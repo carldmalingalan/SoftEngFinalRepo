@@ -23,9 +23,9 @@ Partial Class frmTransactionManager
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTransactionManager))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gbTransDetails = New System.Windows.Forms.GroupBox()
         Me.txtCustomerNumber = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -303,7 +303,7 @@ Partial Class frmTransactionManager
         Me.btnSearch.FlatAppearance.BorderSize = 0
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Image = Global.InventoryManager.My.Resources.Resources.magnifying_glass_1_
-        Me.btnSearch.Location = New System.Drawing.Point(883, 47)
+        Me.btnSearch.Location = New System.Drawing.Point(870, 46)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(33, 33)
         Me.btnSearch.TabIndex = 34
@@ -321,7 +321,7 @@ Partial Class frmTransactionManager
         Me.txtSearchname.LineIdleColor = System.Drawing.Color.Gray
         Me.txtSearchname.LineMouseHoverColor = System.Drawing.Color.Teal
         Me.txtSearchname.LineThickness = 3
-        Me.txtSearchname.Location = New System.Drawing.Point(716, 47)
+        Me.txtSearchname.Location = New System.Drawing.Point(703, 46)
         Me.txtSearchname.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSearchname.Name = "txtSearchname"
         Me.txtSearchname.Size = New System.Drawing.Size(160, 33)
@@ -333,43 +333,43 @@ Partial Class frmTransactionManager
         Me.dgvSearchList.AllowUserToAddRows = False
         Me.dgvSearchList.AllowUserToDeleteRows = False
         Me.dgvSearchList.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvSearchList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvSearchList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvSearchList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvSearchList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvSearchList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvSearchList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvSearchList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvSearchList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvSearchList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvSearchList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvSearchList.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvSearchList.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvSearchList.DoubleBuffered = True
         Me.dgvSearchList.EnableHeadersVisualStyles = False
         Me.dgvSearchList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
         Me.dgvSearchList.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvSearchList.Location = New System.Drawing.Point(493, 85)
+        Me.dgvSearchList.Location = New System.Drawing.Point(497, 85)
         Me.dgvSearchList.MultiSelect = False
         Me.dgvSearchList.Name = "dgvSearchList"
         Me.dgvSearchList.ReadOnly = True
         Me.dgvSearchList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvSearchList.RowHeadersVisible = False
         Me.dgvSearchList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvSearchList.Size = New System.Drawing.Size(479, 332)
+        Me.dgvSearchList.Size = New System.Drawing.Size(406, 332)
         Me.dgvSearchList.TabIndex = 37
         '
         'frmTransactionManager
@@ -384,6 +384,7 @@ Partial Class frmTransactionManager
         Me.Controls.Add(Me.btnExistingCustomer)
         Me.Controls.Add(Me.btnNewCustomer)
         Me.Controls.Add(Me.gbTransDetails)
+        Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmTransactionManager"

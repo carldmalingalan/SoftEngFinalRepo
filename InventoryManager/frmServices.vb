@@ -1,12 +1,12 @@
-﻿Imports System.Data.SqlClient
-
+﻿
+Imports System.Data.SqlClient
 Public Class frmServices
 
-    Private saveClass As String
+    Private saveClass, category As String
     Private selectedRow As Integer
     Dim flag1, flag2, flag3, flag4 As Boolean
-    Dim serviceID As Int32
-    Dim Service_Category, category As String
+    Private serviceID As Int32
+    Dim Service_Category As Integer
 
     Private Sub frmServices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call viewServices()
@@ -25,13 +25,12 @@ Public Class frmServices
         btnCreateService.Enabled = False
         btnUpdateService.Enabled = False
         btnExportServices.Enabled = False
-        saveClass = 1
+        saveClass = CType(1, String)
     End Sub
 
     Private Sub clearfields()
-        txtServiceDetails.Text = ""
         txtServiceName.Text = ""
-        txtServiceDetails.Text = ""
+        txtRemarks.Text = ""
         rdoBody.Checked = False
         rdoFace.Checked = False
         rdoHair.Checked = False
@@ -49,7 +48,7 @@ Public Class frmServices
         If (serviceID > 0) Then
             gbServiceDetails.Enabled = True
             dgvServiceList.Enabled = False
-            saveClass = 2
+            saveClass = CType(2, String)
         Else
             MsgBox("Please add a service first.", MsgBoxStyle.Information, Application.ProductName)
         End If
@@ -60,32 +59,40 @@ Public Class frmServices
             Try
                 selectedRow = e.RowIndex
                 serviceID = dgvServiceList.Rows(selectedRow).Cells(0).Value()
-                Call ConnectTOSQLServer()
-                strSQL = "select * from tblServices where ServiceID = " & serviceID
-                Console.WriteLine()
-                cmd = New SqlCommand(strSQL, Connection)
-                reader = cmd.ExecuteReader()
-                Do While reader.Read()
-                    txtServiceName.Text = reader.GetString(1)
-                    txtServiceDetails.Text = reader.GetString(2)
-                    switchServiceStatus.Value = reader.GetString(3)
-                    txtRemarks.Text = reader.GetString(8)
-                    tets.Text = reader.GetString(9)
-                    If tets.Text = "FACE" Then
-                        rdoFace.Checked = True
-                    ElseIf tets.Text = "BODY" Then
-                        rdoBody.Checked = True
-                    ElseIf tets.Text = "NAILS" Then
-                        rdoNails.Checked = True
-                    ElseIf tets.Text = "HAIR" Then
-                        rdoHair.Checked = True
-                    End If
-                Loop
-                reader.Close()
-                Call DisConnectSQLServer()
+                GatherServiceData()
             Catch ex As Exception
             End Try
         End If
+    End Sub
+
+    Private Sub GatherServiceData()
+        Call ConnectTOSQLServer()
+        strSQL = "select Name,Details,Status,Description,[Service Category] from tblServices where ServiceID = " & serviceID
+        Console.WriteLine(strSQL)
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader()
+        While reader.HasRows
+            txtServiceName.Text = reader.GetString(0)
+            switchServiceStatus.Value = reader.GetString(1)
+            txtRemarks.Text = reader.GetString(2)
+            category = reader.GetString(3)
+
+            Console.WriteLine(category)
+            If CInt(category) = 1 Then
+                rdoBody.Checked = True
+            ElseIf CInt(category) = 2 Then
+                rdoFace.Checked = True
+            ElseIf CInt(category) = 3 Then
+                rdoHair.Checked = True
+            ElseIf CInt(category) = 4 Then
+                rdoNails.Checked = True
+            End If
+        End While
+        reader.Close()
+        Call DisConnectSQLServer()
+    End Sub
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
     End Sub
 
     Private Sub viewServices()
@@ -117,22 +124,22 @@ Public Class frmServices
         If (flag1 = False Or flag2 = False Or flag3 = False) Then
             Exit Sub
         End If
-        Dim ask = MsgBox("Do you want to save this service?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+        Dim ask = MsgBox("Do you want to save this service?", CType(MsgBoxStyle.Information + vbYesNo, MsgBoxStyle), Application.ProductName)
         If ask = vbYes Then
             If (rdoBody.Checked = True) Then
-                Service_Category = rdoBody.Text
+                Service_Category = 1
             ElseIf (rdoFace.Checked = True) Then
-                Service_Category = rdoFace.Text
+                Service_Category = 2
             ElseIf (rdoHair.Checked = True) Then
-                Service_Category = rdoHair.Text
+                Service_Category = 3
             ElseIf (rdoNails.Checked = True) Then
-                Service_Category = rdoNails.Text
+                Service_Category = 4
             End If
-            If (saveClass = 1) Then ' add
-                Call AddService(txtServiceName.Text, txtServiceDetails.Text, switchServiceStatus.Value, txtRemarks.Text, Service_Category)
+            If (CInt(saveClass) = 1) Then ' add
+                Call AddService(txtServiceName.Text, CType(switchServiceStatus.Value, String), txtRemarks.Text, CType(Service_Category, String))
                 MsgBox("Service has been successfully added into the list.", MsgBoxStyle.Information, Application.ProductName)
-            ElseIf (saveClass = 2) Then 'update
-                Call UpdateService(txtServiceName.Text, txtServiceDetails.Text, switchServiceStatus.Value, serviceID, txtRemarks.Text, Service_Category)
+            ElseIf (CInt(saveClass) = 2) Then 'update
+                Call UpdateService(txtServiceName.Text, CType(switchServiceStatus.Value, String), serviceID, txtRemarks.Text, CType(Service_Category, String))
                 MsgBox("Service has been successfully update into the list.", MsgBoxStyle.Information, Application.ProductName)
             End If
             Call clearfields()

@@ -7,11 +7,7 @@ Public Class frmAccounts
     Private cond As String
 
     Private Sub frmAccounts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'JandA2DataSet1.tblLogins' table. You can move, or remove it, as needed.
-
-
         Call viewUserlist_reload()
-
     End Sub
 
 
@@ -19,6 +15,8 @@ Public Class frmAccounts
     Private Sub btnCreateAccount_Click(sender As Object, e As EventArgs) Handles btnCreateAccount.Click
         saveType = 1
         frmCreateAccount.Show()
+        logInfo = "Accessed Account Creation Form"
+        Call RecordLog(logInfo)
         frmMenu.Enabled = False
     End Sub
 
@@ -75,6 +73,8 @@ Public Class frmAccounts
 
     Private Sub btnUpdateAccount_Click(sender As Object, e As EventArgs) Handles btnUpdateAccount.Click
         saveType = 2
+        logInfo = "Tried Updating AccountID# " & dgvUserList.Rows(selectedRow).Cells(0).Value() & "."
+        Call RecordLog(logInfo)
         frmCreateAccount.Show()
         frmCreateAccount.txtFirstname.Text = dgvUserList.Rows(selectedRow).Cells(2).Value()
         frmCreateAccount.txtLastname.Text = dgvUserList.Rows(selectedRow).Cells(1).Value()
@@ -113,6 +113,8 @@ Public Class frmAccounts
             Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If ask = vbYes Then
                 accountID = dgvUserList.Rows(selectedRow).Cells(0).Value()
+                logInfo = "Reset AccountID# " & dgvUserList.Rows(selectedRow).Cells(0).Value() & "."
+                Call RecordLog(logInfo)
                 Call ResetAccount(accountID)
                 MsgBox("Password has been reset to default. Please use admin12345.", MsgBoxStyle.Information, Application.ProductName)
             End If
@@ -124,7 +126,7 @@ Public Class frmAccounts
     End Sub
 
     Private Sub btnDeactivateAccount_Click(sender As Object, e As EventArgs) Handles btnDeactivateAccount.Click
-        If (selectedRow < 1) Then
+        If (selectedRow < 0) Then
             MsgBox("Please select an account first.", MsgBoxStyle.Information, Application.ProductName)
         Else
             Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
@@ -133,10 +135,14 @@ Public Class frmAccounts
                 Dim Status = dgvUserList.Rows(selectedRow).Cells(6).Value()
                 If Status = "ACTIVE" Then
                     Call DeactivateAccount(accountID)
+                    logInfo = "Deactivated AccountID# " & dgvUserList.Rows(selectedRow).Cells(0).Value() & "'s access."
+                    Call RecordLog(logInfo)
                     MsgBox("Account has been deactivated.", MsgBoxStyle.Information, Application.ProductName)
 
                 ElseIf Status = "INACTIVE" Then
                     Call ActivateAccount(accountID)
+                    logInfo = "Activated AccountID# " & dgvUserList.Rows(selectedRow).Cells(0).Value() & "'s access."
+                    Call RecordLog(logInfo)
                     MsgBox("Account has been reactivated.", MsgBoxStyle.Information, Application.ProductName)
                 End If
                 Call viewUserlist_reload()

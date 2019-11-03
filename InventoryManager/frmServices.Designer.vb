@@ -42,13 +42,10 @@ Partial Class frmServices
         Me.Label11 = New System.Windows.Forms.Label()
         Me.btnCancel = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnSave = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.txtServiceDetails = New Bunifu.Framework.UI.BunifuMetroTextbox()
         Me.txtServiceName = New Bunifu.Framework.UI.BunifuMetroTextbox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.tets = New System.Windows.Forms.TextBox()
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbServiceDetails.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -206,7 +203,6 @@ Partial Class frmServices
         Me.gbServiceDetails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbServiceDetails.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.gbServiceDetails.Controls.Add(Me.tets)
         Me.gbServiceDetails.Controls.Add(Me.rdoNails)
         Me.gbServiceDetails.Controls.Add(Me.rdoHair)
         Me.gbServiceDetails.Controls.Add(Me.rdoBody)
@@ -217,9 +213,7 @@ Partial Class frmServices
         Me.gbServiceDetails.Controls.Add(Me.Label11)
         Me.gbServiceDetails.Controls.Add(Me.btnCancel)
         Me.gbServiceDetails.Controls.Add(Me.btnSave)
-        Me.gbServiceDetails.Controls.Add(Me.txtServiceDetails)
         Me.gbServiceDetails.Controls.Add(Me.txtServiceName)
-        Me.gbServiceDetails.Controls.Add(Me.Label9)
         Me.gbServiceDetails.Controls.Add(Me.Label5)
         Me.gbServiceDetails.Controls.Add(Me.Label3)
         Me.gbServiceDetails.Enabled = False
@@ -270,7 +264,7 @@ Partial Class frmServices
         Me.rdoBody.AutoSize = True
         Me.rdoBody.Depth = 0
         Me.rdoBody.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoBody.Location = New System.Drawing.Point(197, 65)
+        Me.rdoBody.Location = New System.Drawing.Point(135, 65)
         Me.rdoBody.Margin = New System.Windows.Forms.Padding(0)
         Me.rdoBody.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdoBody.MouseState = MaterialSkin.MouseState.HOVER
@@ -287,7 +281,7 @@ Partial Class frmServices
         Me.rdoFace.AutoSize = True
         Me.rdoFace.Depth = 0
         Me.rdoFace.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoFace.Location = New System.Drawing.Point(135, 65)
+        Me.rdoFace.Location = New System.Drawing.Point(199, 65)
         Me.rdoFace.Margin = New System.Windows.Forms.Padding(0)
         Me.rdoFace.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdoFace.MouseState = MaterialSkin.MouseState.HOVER
@@ -302,7 +296,7 @@ Partial Class frmServices
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(15, 173)
+        Me.Label4.Location = New System.Drawing.Point(15, 128)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(85, 16)
         Me.Label4.TabIndex = 56
@@ -313,7 +307,7 @@ Partial Class frmServices
         Me.txtRemarks.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtRemarks.BorderColor = System.Drawing.Color.SeaGreen
-        Me.txtRemarks.Location = New System.Drawing.Point(135, 170)
+        Me.txtRemarks.Location = New System.Drawing.Point(139, 125)
         Me.txtRemarks.Multiline = True
         Me.txtRemarks.Name = "txtRemarks"
         Me.txtRemarks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
@@ -326,7 +320,7 @@ Partial Class frmServices
         Me.switchServiceStatus.BorderRadius = 0
         Me.switchServiceStatus.Cursor = System.Windows.Forms.Cursors.Hand
         Me.switchServiceStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.switchServiceStatus.Location = New System.Drawing.Point(137, 144)
+        Me.switchServiceStatus.Location = New System.Drawing.Point(139, 99)
         Me.switchServiceStatus.Margin = New System.Windows.Forms.Padding(4)
         Me.switchServiceStatus.Name = "switchServiceStatus"
         Me.switchServiceStatus.Oncolor = System.Drawing.Color.SeaGreen
@@ -339,7 +333,7 @@ Partial Class frmServices
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(15, 146)
+        Me.Label11.Location = New System.Drawing.Point(15, 102)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(50, 16)
         Me.Label11.TabIndex = 39
@@ -379,25 +373,6 @@ Partial Class frmServices
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = True
         '
-        'txtServiceDetails
-        '
-        Me.txtServiceDetails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtServiceDetails.BorderColorFocused = System.Drawing.Color.HotPink
-        Me.txtServiceDetails.BorderColorIdle = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtServiceDetails.BorderColorMouseHover = System.Drawing.Color.HotPink
-        Me.txtServiceDetails.BorderThickness = 3
-        Me.txtServiceDetails.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtServiceDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtServiceDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtServiceDetails.isPassword = False
-        Me.txtServiceDetails.Location = New System.Drawing.Point(135, 101)
-        Me.txtServiceDetails.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtServiceDetails.Name = "txtServiceDetails"
-        Me.txtServiceDetails.Size = New System.Drawing.Size(276, 31)
-        Me.txtServiceDetails.TabIndex = 30
-        Me.txtServiceDetails.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
         'txtServiceName
         '
         Me.txtServiceName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -416,15 +391,6 @@ Partial Class frmServices
         Me.txtServiceName.Size = New System.Drawing.Size(276, 31)
         Me.txtServiceName.TabIndex = 28
         Me.txtServiceName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(15, 109)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(103, 16)
-        Me.Label9.TabIndex = 4
-        Me.Label9.Text = "Service Details"
         '
         'Label5
         '
@@ -447,13 +413,6 @@ Partial Class frmServices
         'ErrorProvider1
         '
         Me.ErrorProvider1.ContainerControl = Me
-        '
-        'tets
-        '
-        Me.tets.Location = New System.Drawing.Point(18, 216)
-        Me.tets.Name = "tets"
-        Me.tets.Size = New System.Drawing.Size(100, 23)
-        Me.tets.TabIndex = 57
         '
         'frmServices
         '
@@ -486,9 +445,7 @@ Partial Class frmServices
     Friend WithEvents Label11 As Label
     Friend WithEvents btnCancel As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnSave As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents txtServiceDetails As Bunifu.Framework.UI.BunifuMetroTextbox
     Friend WithEvents txtServiceName As Bunifu.Framework.UI.BunifuMetroTextbox
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents ErrorProvider1 As ErrorProvider
@@ -498,5 +455,4 @@ Partial Class frmServices
     Friend WithEvents rdoHair As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents rdoBody As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents rdoFace As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents tets As TextBox
 End Class
