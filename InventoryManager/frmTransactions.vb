@@ -68,7 +68,10 @@ Public Class frmTransactions
         If (login_accesstype = "ADMINISTRATOR") Then
 
         Else
-            frmAdminPrompt.ShowDialog()
+            Dim ask = MsgBox("Administrator Authorization Required! Please request for admin credential authorization.", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            If (ask = vbYes) Then
+                frmAdminPrompt.ShowDialog()
+            End If
         End If
     End Sub
 

@@ -32,10 +32,6 @@ Partial Class frmServices
         Me.btnUpdateService = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnCreateService = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.gbServiceDetails = New System.Windows.Forms.GroupBox()
-        Me.rdoNails = New MaterialSkin.Controls.MaterialRadioButton()
-        Me.rdoHair = New MaterialSkin.Controls.MaterialRadioButton()
-        Me.rdoBody = New MaterialSkin.Controls.MaterialRadioButton()
-        Me.rdoFace = New MaterialSkin.Controls.MaterialRadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtRemarks = New WindowsFormsControlLibrary1.BunifuCustomTextbox()
         Me.switchServiceStatus = New Bunifu.Framework.UI.BunifuSwitch()
@@ -46,6 +42,10 @@ Partial Class frmServices
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.rdoBody = New System.Windows.Forms.RadioButton()
+        Me.rdoFace = New System.Windows.Forms.RadioButton()
+        Me.rdoHair = New System.Windows.Forms.RadioButton()
+        Me.rdoNails = New System.Windows.Forms.RadioButton()
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbServiceDetails.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -204,9 +204,9 @@ Partial Class frmServices
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbServiceDetails.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.gbServiceDetails.Controls.Add(Me.rdoNails)
+        Me.gbServiceDetails.Controls.Add(Me.rdoFace)
         Me.gbServiceDetails.Controls.Add(Me.rdoHair)
         Me.gbServiceDetails.Controls.Add(Me.rdoBody)
-        Me.gbServiceDetails.Controls.Add(Me.rdoFace)
         Me.gbServiceDetails.Controls.Add(Me.Label4)
         Me.gbServiceDetails.Controls.Add(Me.txtRemarks)
         Me.gbServiceDetails.Controls.Add(Me.switchServiceStatus)
@@ -224,74 +224,6 @@ Partial Class frmServices
         Me.gbServiceDetails.TabIndex = 29
         Me.gbServiceDetails.TabStop = False
         Me.gbServiceDetails.Text = "Service Details"
-        '
-        'rdoNails
-        '
-        Me.rdoNails.AutoSize = True
-        Me.rdoNails.Depth = 0
-        Me.rdoNails.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoNails.Location = New System.Drawing.Point(321, 65)
-        Me.rdoNails.Margin = New System.Windows.Forms.Padding(0)
-        Me.rdoNails.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.rdoNails.MouseState = MaterialSkin.MouseState.HOVER
-        Me.rdoNails.Name = "rdoNails"
-        Me.rdoNails.Ripple = True
-        Me.rdoNails.Size = New System.Drawing.Size(67, 30)
-        Me.rdoNails.TabIndex = 30
-        Me.rdoNails.TabStop = True
-        Me.rdoNails.Text = "NAILS"
-        Me.rdoNails.UseVisualStyleBackColor = True
-        '
-        'rdoHair
-        '
-        Me.rdoHair.AutoSize = True
-        Me.rdoHair.Depth = 0
-        Me.rdoHair.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoHair.Location = New System.Drawing.Point(261, 65)
-        Me.rdoHair.Margin = New System.Windows.Forms.Padding(0)
-        Me.rdoHair.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.rdoHair.MouseState = MaterialSkin.MouseState.HOVER
-        Me.rdoHair.Name = "rdoHair"
-        Me.rdoHair.Ripple = True
-        Me.rdoHair.Size = New System.Drawing.Size(60, 30)
-        Me.rdoHair.TabIndex = 30
-        Me.rdoHair.TabStop = True
-        Me.rdoHair.Text = "HAIR"
-        Me.rdoHair.UseVisualStyleBackColor = True
-        '
-        'rdoBody
-        '
-        Me.rdoBody.AutoSize = True
-        Me.rdoBody.Depth = 0
-        Me.rdoBody.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoBody.Location = New System.Drawing.Point(135, 65)
-        Me.rdoBody.Margin = New System.Windows.Forms.Padding(0)
-        Me.rdoBody.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.rdoBody.MouseState = MaterialSkin.MouseState.HOVER
-        Me.rdoBody.Name = "rdoBody"
-        Me.rdoBody.Ripple = True
-        Me.rdoBody.Size = New System.Drawing.Size(64, 30)
-        Me.rdoBody.TabIndex = 30
-        Me.rdoBody.TabStop = True
-        Me.rdoBody.Text = "BODY"
-        Me.rdoBody.UseVisualStyleBackColor = True
-        '
-        'rdoFace
-        '
-        Me.rdoFace.AutoSize = True
-        Me.rdoFace.Depth = 0
-        Me.rdoFace.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoFace.Location = New System.Drawing.Point(199, 65)
-        Me.rdoFace.Margin = New System.Windows.Forms.Padding(0)
-        Me.rdoFace.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.rdoFace.MouseState = MaterialSkin.MouseState.HOVER
-        Me.rdoFace.Name = "rdoFace"
-        Me.rdoFace.Ripple = True
-        Me.rdoFace.Size = New System.Drawing.Size(62, 30)
-        Me.rdoFace.TabIndex = 30
-        Me.rdoFace.TabStop = True
-        Me.rdoFace.Text = "FACE"
-        Me.rdoFace.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -414,6 +346,50 @@ Partial Class frmServices
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'rdoBody
+        '
+        Me.rdoBody.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoBody.AutoSize = True
+        Me.rdoBody.Location = New System.Drawing.Point(139, 66)
+        Me.rdoBody.Name = "rdoBody"
+        Me.rdoBody.Size = New System.Drawing.Size(51, 26)
+        Me.rdoBody.TabIndex = 57
+        Me.rdoBody.Text = "Body"
+        Me.rdoBody.UseVisualStyleBackColor = True
+        '
+        'rdoFace
+        '
+        Me.rdoFace.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoFace.AutoSize = True
+        Me.rdoFace.Location = New System.Drawing.Point(196, 66)
+        Me.rdoFace.Name = "rdoFace"
+        Me.rdoFace.Size = New System.Drawing.Size(49, 26)
+        Me.rdoFace.TabIndex = 58
+        Me.rdoFace.Text = "Face"
+        Me.rdoFace.UseVisualStyleBackColor = True
+        '
+        'rdoHair
+        '
+        Me.rdoHair.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoHair.AutoSize = True
+        Me.rdoHair.Location = New System.Drawing.Point(251, 66)
+        Me.rdoHair.Name = "rdoHair"
+        Me.rdoHair.Size = New System.Drawing.Size(45, 26)
+        Me.rdoHair.TabIndex = 57
+        Me.rdoHair.Text = "Hair"
+        Me.rdoHair.UseVisualStyleBackColor = True
+        '
+        'rdoNails
+        '
+        Me.rdoNails.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoNails.AutoSize = True
+        Me.rdoNails.Location = New System.Drawing.Point(302, 66)
+        Me.rdoNails.Name = "rdoNails"
+        Me.rdoNails.Size = New System.Drawing.Size(51, 26)
+        Me.rdoNails.TabIndex = 58
+        Me.rdoNails.Text = "Nails"
+        Me.rdoNails.UseVisualStyleBackColor = True
+        '
         'frmServices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -428,7 +404,7 @@ Partial Class frmServices
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmServices"
-        Me.Text = "frmServices"
+        Me.Text = "Hair"
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbServiceDetails.ResumeLayout(False)
         Me.gbServiceDetails.PerformLayout()
@@ -451,8 +427,8 @@ Partial Class frmServices
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents Label4 As Label
     Friend WithEvents txtRemarks As WindowsFormsControlLibrary1.BunifuCustomTextbox
-    Friend WithEvents rdoNails As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents rdoHair As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents rdoBody As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents rdoFace As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents rdoNails As RadioButton
+    Friend WithEvents rdoFace As RadioButton
+    Friend WithEvents rdoHair As RadioButton
+    Friend WithEvents rdoBody As RadioButton
 End Class

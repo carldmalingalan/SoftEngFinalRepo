@@ -1,33 +1,42 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class frmTransactionManager
-    Private selectedRow As Integer
-    Public Sub LoadiTems()
+    Private selectedRow, choicetype As Integer
+
+    Private Sub frmTransactionManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Width = 497
+        LoadiTems2()
+        clearfields()
+    End Sub
+
+
+    Private Sub LoadiTems2()
         Call ConnectTOSQLServer()
-        strSQL = "select EmployeeID,Fullname from tblEmployeeList where EmployeeStatus = 'TRUE' order by EmployeeID"
-        Console.WriteLine(strSQL)
-        cmd = New SqlCommand(strSQL, Connection)
-        reader = cmd.ExecuteReader()
-        Do While reader.HasRows
-            Do While reader.Read()
-                cboEmployeeAssigned.Items.Add(reader.GetString(1))
-            Loop
-            reader.NextResult()
-        Loop
-        reader.Close()
+        strSQL = "select ServiceID, Name from tblServices where Status = '1' order by ServiceId"
+        Dim da As New SqlDataAdapter(strSQL, Connection)
+        Dim table As New DataTable()
+        da.Fill(table)
+        cboServiceAvailed.DataSource = New BindingSource(table, Nothing)
+        cboServiceAvailed.DisplayMember = "Name"
+        'write the column name which will be diplayed
+        'you can even use  valueMember property, 
+        'Names - DisplayMember - this is was you see in comboBox
+        'IDs - ValueMember can be used as additional value of Person
+        cboServiceAvailed.ValueMember = "ServiceID"
+        'column name for value 
 
-        strSQL = "select ServiceID,Name from tblServices"
-        Console.WriteLine(strSQL)
-        cmd = New SqlCommand(strSQL, Connection)
-        reader = cmd.ExecuteReader()
-        Do While reader.HasRows
-            Do While reader.Read()
-                cboServiceAvailed.Items.Add(reader.GetString(1))
-            Loop
-            reader.NextResult()
-        Loop
-        reader.Close()
-
+        strSQL = "select EmployeeID,Fullname from tblEmployeeList where EmployeeStatus = '1' order by EmployeeID"
+        Dim da2 As New SqlDataAdapter(strSQL, Connection)
+        Dim table2 As New DataTable()
+        da2.Fill(table2)
+        cboEmployeeAssigned.DataSource = New BindingSource(table2, Nothing)
+        cboEmployeeAssigned.DisplayMember = "Fullname"
+        'write the column name which will be diplayed
+        'you can even use  valueMember property, 
+        'Names - DisplayMember - this is was you see in comboBox
+        'IDs - ValueMember can be used as additional value of Person
+        cboEmployeeAssigned.ValueMember = "EmployeeID"
+        'column name for value 
         Call DisConnectSQLServer()
     End Sub
 
@@ -50,6 +59,8 @@ Public Class frmTransactionManager
         txtCustMiddlename.Text = ""
         txtCustomerNumber.Text = ""
         txtRemarks.Text = ""
+        cboServiceAvailed.SelectedIndex = -1
+        cboEmployeeAssigned.SelectedIndex = -1
         gbTransDetails.Enabled = False
     End Sub
 
@@ -59,6 +70,8 @@ Public Class frmTransactionManager
     End Sub
 
     Private Sub btnExistingCustomer_Click(sender As Object, e As EventArgs) Handles btnExistingCustomer.Click
+        gbTransDetails.Enabled = False
+        clearfields()
         Me.Width = 926
     End Sub
 
@@ -71,10 +84,6 @@ Public Class frmTransactionManager
         End If
     End Sub
 
-    Private Sub frmTransactionManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Width = 497
-        LoadiTems()
-    End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Call viewrecords()
