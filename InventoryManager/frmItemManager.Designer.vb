@@ -37,6 +37,7 @@ Partial Class frmItemManager
         Me.Label1 = New System.Windows.Forms.Label()
         Me.checkboxExpirationNA = New System.Windows.Forms.CheckBox()
         Me.dtpExpirationDate = New MetroFramework.Controls.MetroDateTime()
+        Me.MaterialSingleLineTextField1 = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.groupBoxRole.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -152,7 +153,7 @@ Partial Class frmItemManager
         Me.txtItemQuantity.SelectedText = ""
         Me.txtItemQuantity.SelectionLength = 0
         Me.txtItemQuantity.SelectionStart = 0
-        Me.txtItemQuantity.Size = New System.Drawing.Size(305, 23)
+        Me.txtItemQuantity.Size = New System.Drawing.Size(145, 23)
         Me.txtItemQuantity.TabIndex = 4
         Me.txtItemQuantity.TabStop = False
         Me.txtItemQuantity.UseSystemPasswordChar = False
@@ -231,11 +232,28 @@ Partial Class frmItemManager
         Me.dtpExpirationDate.UseCustomForeColor = True
         Me.dtpExpirationDate.UseStyleColors = True
         '
+        'MaterialSingleLineTextField1
+        '
+        Me.MaterialSingleLineTextField1.Depth = 0
+        Me.MaterialSingleLineTextField1.Hint = "Critical Point"
+        Me.MaterialSingleLineTextField1.Location = New System.Drawing.Point(169, 92)
+        Me.MaterialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialSingleLineTextField1.Name = "MaterialSingleLineTextField1"
+        Me.MaterialSingleLineTextField1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.MaterialSingleLineTextField1.SelectedText = ""
+        Me.MaterialSingleLineTextField1.SelectionLength = 0
+        Me.MaterialSingleLineTextField1.SelectionStart = 0
+        Me.MaterialSingleLineTextField1.Size = New System.Drawing.Size(154, 23)
+        Me.MaterialSingleLineTextField1.TabIndex = 19
+        Me.MaterialSingleLineTextField1.TabStop = False
+        Me.MaterialSingleLineTextField1.UseSystemPasswordChar = False
+        '
         'frmItemManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(360, 381)
+        Me.ClientSize = New System.Drawing.Size(342, 381)
+        Me.Controls.Add(Me.MaterialSingleLineTextField1)
         Me.Controls.Add(Me.dtpExpirationDate)
         Me.Controls.Add(Me.checkboxExpirationNA)
         Me.Controls.Add(Me.Label1)
@@ -272,4 +290,5 @@ Partial Class frmItemManager
     Friend WithEvents checkboxExpirationNA As CheckBox
     Friend WithEvents rdoFace As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents dtpExpirationDate As MetroFramework.Controls.MetroDateTime
+    Friend WithEvents MaterialSingleLineTextField1 As MaterialSkin.Controls.MaterialSingleLineTextField
 End Class

@@ -6,7 +6,7 @@ Public Class frmServices
     Private selectedRow As Integer
     Dim flag1, flag2, flag3, flag4 As Boolean
     Private serviceID As Int32
-    Dim Service_Category As Integer
+    Dim Service_Category As String
 
     Private Sub frmServices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call viewServices()
@@ -77,13 +77,13 @@ Public Class frmServices
                 txtRemarks.Text = reader.GetString(1)
                 switchServiceStatus.Value = reader.GetBoolean(2)
                 category = reader.GetString(3)
-                If category = 1 Then
+                If category = "Body" Then
                     rdoBody.Checked = 1
-                ElseIf category = 2 Then
+                ElseIf category = "Face" Then
                     rdoFace.Checked = 1
-                ElseIf category = 3 Then
+                ElseIf category = "Hair" Then
                     rdoHair.Checked = 1
-                ElseIf category = 4 Then
+                ElseIf category = "Nails" Then
                     rdoNails.Checked = 1
                 End If
             Loop
@@ -127,13 +127,13 @@ Public Class frmServices
         Dim ask = MsgBox("Do you want to save this service?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If ask = Global.Microsoft.VisualBasic.Constants.vbYes Then
             If (rdoBody.Checked = True) Then
-                Service_Category = 1
+                Service_Category = "Body"
             ElseIf (rdoFace.Checked = True) Then
-                Service_Category = 2
+                Service_Category = "Face"
             ElseIf (rdoHair.Checked = True) Then
-                Service_Category = 3
+                Service_Category = "Hair"
             ElseIf (rdoNails.Checked = True) Then
-                Service_Category = 4
+                Service_Category = "Nails"
             End If
             If saveClass = 1 Then ' add
                 Call AddService(txtServiceName.Text, switchServiceStatus.Value, txtRemarks.Text, Service_Category)

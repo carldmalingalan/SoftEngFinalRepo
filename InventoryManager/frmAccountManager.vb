@@ -10,7 +10,6 @@ Public Class frmCreateAccount
 
     Dim role As String
     Private Sub InitializeFlags()
-
         flag1 = True
         flag2 = True
         flag3 = True
@@ -19,7 +18,6 @@ Public Class frmCreateAccount
         flag6 = True
         flag7 = True
         flag8 = True
-
     End Sub
 
     Private Sub RoleValidation()

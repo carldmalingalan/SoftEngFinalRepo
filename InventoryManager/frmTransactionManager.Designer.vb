@@ -22,6 +22,7 @@ Partial Class frmTransactionManager
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTransactionManager))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -49,8 +50,10 @@ Partial Class frmTransactionManager
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearchname = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.dgvSearchList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.gbTransDetails.SuspendLayout()
         CType(Me.dgvSearchList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbTransDetails
@@ -76,7 +79,7 @@ Partial Class frmTransactionManager
         Me.gbTransDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTransDetails.Location = New System.Drawing.Point(8, 77)
         Me.gbTransDetails.Name = "gbTransDetails"
-        Me.gbTransDetails.Size = New System.Drawing.Size(479, 340)
+        Me.gbTransDetails.Size = New System.Drawing.Size(479, 352)
         Me.gbTransDetails.TabIndex = 31
         Me.gbTransDetails.TabStop = False
         Me.gbTransDetails.Text = "Transaction Details"
@@ -106,23 +109,23 @@ Partial Class frmTransactionManager
         Me.txtCustLastname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList
         Me.txtCustLastname.Location = New System.Drawing.Point(159, 66)
         Me.txtCustLastname.Name = "txtCustLastname"
-        Me.txtCustLastname.Size = New System.Drawing.Size(305, 23)
+        Me.txtCustLastname.Size = New System.Drawing.Size(285, 23)
         Me.txtCustLastname.TabIndex = 59
         '
         'txtCustMiddlename
         '
         Me.txtCustMiddlename.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtCustMiddlename.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList
-        Me.txtCustMiddlename.Location = New System.Drawing.Point(413, 100)
+        Me.txtCustMiddlename.Location = New System.Drawing.Point(415, 100)
         Me.txtCustMiddlename.MaxLength = 1
         Me.txtCustMiddlename.Name = "txtCustMiddlename"
-        Me.txtCustMiddlename.Size = New System.Drawing.Size(51, 23)
+        Me.txtCustMiddlename.Size = New System.Drawing.Size(29, 23)
         Me.txtCustMiddlename.TabIndex = 58
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(371, 103)
+        Me.Label6.Location = New System.Drawing.Point(381, 103)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(36, 16)
         Me.Label6.TabIndex = 57
@@ -143,7 +146,7 @@ Partial Class frmTransactionManager
         Me.txtCustFirstname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList
         Me.txtCustFirstname.Location = New System.Drawing.Point(159, 100)
         Me.txtCustFirstname.Name = "txtCustFirstname"
-        Me.txtCustFirstname.Size = New System.Drawing.Size(206, 23)
+        Me.txtCustFirstname.Size = New System.Drawing.Size(165, 23)
         Me.txtCustFirstname.TabIndex = 55
         '
         'Label2
@@ -161,7 +164,7 @@ Partial Class frmTransactionManager
         Me.txtRemarks.Location = New System.Drawing.Point(159, 199)
         Me.txtRemarks.Multiline = True
         Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(305, 71)
+        Me.txtRemarks.Size = New System.Drawing.Size(285, 71)
         Me.txtRemarks.TabIndex = 53
         '
         'cboEmployeeAssigned
@@ -169,7 +172,7 @@ Partial Class frmTransactionManager
         Me.cboEmployeeAssigned.ItemHeight = 23
         Me.cboEmployeeAssigned.Location = New System.Drawing.Point(159, 164)
         Me.cboEmployeeAssigned.Name = "cboEmployeeAssigned"
-        Me.cboEmployeeAssigned.Size = New System.Drawing.Size(305, 29)
+        Me.cboEmployeeAssigned.Size = New System.Drawing.Size(285, 29)
         Me.cboEmployeeAssigned.TabIndex = 47
         Me.cboEmployeeAssigned.UseSelectable = True
         '
@@ -187,7 +190,7 @@ Partial Class frmTransactionManager
         Me.btnCancelTransaction.AutoSize = True
         Me.btnCancelTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCancelTransaction.Depth = 0
-        Me.btnCancelTransaction.Location = New System.Drawing.Point(238, 279)
+        Me.btnCancelTransaction.Location = New System.Drawing.Point(238, 291)
         Me.btnCancelTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnCancelTransaction.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCancelTransaction.Name = "btnCancelTransaction"
@@ -202,7 +205,7 @@ Partial Class frmTransactionManager
         Me.btnSaveTransaction.AutoSize = True
         Me.btnSaveTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSaveTransaction.Depth = 0
-        Me.btnSaveTransaction.Location = New System.Drawing.Point(184, 279)
+        Me.btnSaveTransaction.Location = New System.Drawing.Point(184, 291)
         Me.btnSaveTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnSaveTransaction.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSaveTransaction.Name = "btnSaveTransaction"
@@ -217,7 +220,7 @@ Partial Class frmTransactionManager
         Me.cboServiceAvailed.ItemHeight = 23
         Me.cboServiceAvailed.Location = New System.Drawing.Point(159, 129)
         Me.cboServiceAvailed.Name = "cboServiceAvailed"
-        Me.cboServiceAvailed.Size = New System.Drawing.Size(305, 29)
+        Me.cboServiceAvailed.Size = New System.Drawing.Size(285, 29)
         Me.cboServiceAvailed.TabIndex = 43
         Me.cboServiceAvailed.UseSelectable = True
         '
@@ -372,6 +375,10 @@ Partial Class frmTransactionManager
         Me.dgvSearchList.Size = New System.Drawing.Size(406, 332)
         Me.dgvSearchList.TabIndex = 37
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'frmTransactionManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -390,10 +397,10 @@ Partial Class frmTransactionManager
         Me.Name = "frmTransactionManager"
         Me.Resizable = False
         Me.Style = MetroFramework.MetroColorStyle.Pink
-        Me.TopMost = True
         Me.gbTransDetails.ResumeLayout(False)
         Me.gbTransDetails.PerformLayout()
         CType(Me.dgvSearchList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -422,4 +429,5 @@ Partial Class frmTransactionManager
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtSearchname As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents dgvSearchList As Bunifu.Framework.UI.BunifuCustomDataGrid
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

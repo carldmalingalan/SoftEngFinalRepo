@@ -7,26 +7,30 @@ Public Class frmDashboard
     End Sub
 
     Private Sub LoadCharts()
-        strSQL = "select COUNT(Category) as CategoryCount, Category from vw_transaction group by Category"
+        Call ConnectTOSQLServer()
+        strSQL = "select count(TransactionID) as CategoryCount, [Service Category] from vw_ServiceDashboardCount group by [Service Category]"
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim ds As New DataSet
-        chartCategories.DataSource = ds.Tables("vw_transaction")
+        Dim oCmd1 As New SqlCommand(strSQL, Connection)
+        dataadapter.Fill(ds, "vw_ServiceDashboardCount")
+        chartCategories.DataSource = ds.Tables("vw_ServiceDashboardCount")
         Dim Series1 As Series = chartCategories.Series("Series1")
         Series1.Name = "Service Type"
-        chartCategories.Series(Series1.Name).XValueMember = "Category"
+        chartCategories.Series(Series1.Name).XValueMember = "Service Category"
         chartCategories.Series(Series1.Name).YValueMembers = "CategoryCount"
-
-        strSQL = "select COUNT([Assigned To]) as [Employee Name Count], [Assigned To]  from vw_transaction group by [Assigned To]"
+        Console.WriteLine(strSQL)
+        strSQL = "select count(TransactionID) as CountofTransactions, Fullname from vw_EmployeeServiceCountDashboard group by Fullname"
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim ds1 As New DataSet
-        chartEmployeeTransactions.DataSource = ds.Tables("vw_transaction")
+        Dim oCmd As New SqlCommand(strSQL, Connection)
+        dataadapter.Fill(ds1, "vw_EmployeeServiceCountDashboard")
+        Console.WriteLine(strSQL)
+        chartEmployeeTransactions.DataSource = ds1.Tables("vw_EmployeeServiceCountDashboard")
         Dim Series2 As Series = chartEmployeeTransactions.Series("Series2")
         Series2.Name = "Employee Transactions"
-        chartEmployeeTransactions.Series(Series2.Name).XValueMember = "Assigned To"
-        chartEmployeeTransactions.Series(Series2.Name).YValueMembers = "Employee Name Count"
+        chartEmployeeTransactions.Series(Series2.Name).XValueMember = "Fullname"
+        chartEmployeeTransactions.Series(Series2.Name).YValueMembers = "CountofTransactions"
+        Call DisConnectSQLServer()
     End Sub
 
-    Private Sub chartEmployeeTransactions_Click(sender As Object, e As EventArgs) Handles chartEmployeeTransactions.Click
-
-    End Sub
 End Class

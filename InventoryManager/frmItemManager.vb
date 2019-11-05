@@ -8,13 +8,19 @@
     End Sub
 
     Private Sub checkboxExpirationNA_CheckedChanged(sender As Object, e As EventArgs) Handles checkboxExpirationNA.CheckedChanged
-        If (checkboxExpirationNA.CheckState = True) Then
+        If (checkboxExpirationNA.Checked = True) Then
             dtpExpirationDate.CustomFormat = " "  'An empty SPACE
             dtpExpirationDate.Format = DateTimePickerFormat.Custom
+            dtpExpirationDate.Enabled = False
         Else
             dtpExpirationDate.CustomFormat = "MM/dd/yyyy"  'An empty SPACE
             dtpExpirationDate.Format = DateTimePickerFormat.Custom
+            dtpExpirationDate.Enabled = True
         End If
+    End Sub
+
+    Private Sub frmItemManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 
     Dim itemclass As String

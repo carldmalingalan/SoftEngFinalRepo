@@ -3,12 +3,10 @@ Imports System.Windows.Forms
 
 Public Class frmTransactions
     Private fForm As frmTransactionManager = New frmTransactionManager()
-
+    Dim cond As String
     Private str1 As String
-    Private HairBool, BodyBool, NailBool As String
     Private selectedRow As Integer
     Private transID As Integer
-    Dim MySource As New AutoCompleteStringCollection()
 
     Private Sub frmTransactions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call viewTransactions()
@@ -16,21 +14,19 @@ Public Class frmTransactions
 
     Private Sub btnAddTransactions_Click(sender As Object, e As EventArgs) Handles btnAddTransactions.Click
         Dim ab As New frmTransactionManager
-        ab.Show()
+        ab.ShowDialog()
     End Sub
-
-
 
 
     Private Sub viewTransactions()
         Call ConnectTOSQLServer()
-        strSQL = "SELECT [TransactionID] ,[Date] ,[Customer Name],[Service Name]   ,[Assigned To]     ,[Created By] FROM [dbo].[vw_Transaction]"
+        strSQL = "SELECT * FROM [dbo].[vw_Transactions] where Date = '" & dtpTransactionDate.Value.ToString("MM/dd/yyyy") & "'"
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim TransactionList As New DataSet()
-        dataadapter.Fill(TransactionList, "[vw_transaction]")
+        dataadapter.Fill(TransactionList, "[vw_transactions]")
         dgvTransactionsList.DataSource = TransactionList
-        dgvTransactionsList.DataMember = "[vw_transaction]"
+        dgvTransactionsList.DataMember = "[vw_transactions]"
         Call DisConnectSQLServer()
     End Sub
 
@@ -65,9 +61,7 @@ Public Class frmTransactions
     'End Sub
 
     Private Sub btnVoidTransaction_Click(sender As Object, e As EventArgs) Handles btnVoidTransaction.Click
-        If (login_accesstype = "ADMINISTRATOR") Then
-
-        Else
+        If (login_accesstype <> "ADMINISTRATOR") Then
             Dim ask = MsgBox("Administrator Authorization Required! Please request for admin credential authorization.", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If (ask = vbYes) Then
                 frmAdminPrompt.ShowDialog()
@@ -75,4 +69,11 @@ Public Class frmTransactions
         End If
     End Sub
 
+    Private Sub dtpTransactionDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpTransactionDate.ValueChanged
+        Call viewTransactions()
+    End Sub
+
+    Private Sub btnUpdateTransactions_Click(sender As Object, e As EventArgs) Handles btnUpdateTransactions.Click
+
+    End Sub
 End Class

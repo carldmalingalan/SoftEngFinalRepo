@@ -2,6 +2,7 @@
 
 Public Class frmTransactionManager
     Private selectedRow, choicetype As Integer
+    Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
 
     Private Sub frmTransactionManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Width = 497
@@ -62,14 +63,20 @@ Public Class frmTransactionManager
         cboServiceAvailed.SelectedIndex = -1
         cboEmployeeAssigned.SelectedIndex = -1
         gbTransDetails.Enabled = False
+        txtCustMiddlename.Enabled = True
+        txtCustLastname.Enabled = True
+        txtCustFirstname.Enabled = True
     End Sub
 
     Private Sub btnNewCustomer_Click(sender As Object, e As EventArgs) Handles btnNewCustomer.Click
+        choicetype = 1
+        clearfields()
         gbTransDetails.Enabled = True
         Me.Width = 497
     End Sub
 
     Private Sub btnExistingCustomer_Click(sender As Object, e As EventArgs) Handles btnExistingCustomer.Click
+        choicetype = 2
         gbTransDetails.Enabled = False
         clearfields()
         Me.Width = 926
@@ -84,7 +91,6 @@ Public Class frmTransactionManager
         End If
     End Sub
 
-
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Call viewrecords()
         Dim count = dgvSearchList.RowCount.ToString
@@ -93,8 +99,14 @@ Public Class frmTransactionManager
 
     Private Sub viewrecords()
         Call ConnectTOSQLServer()
-        strSQL = "select CustomerID, Lastname, Firstname, [Middle Initial] from tblCustomer where Lastname like '%@searchtext%' or Firstname like '%@searchtext%'"
+        If (txtSearchname.Text.Trim <> "") Then
+            strSQL = "select CustomerID, Lastname, Firstname, [Middle Initial] from tblCustomer where Lastname like '%@searchtext%' or Firstname like '%@searchtext%'"
+        Else
+            strSQL = "select CustomerID, Lastname, Firstname, [Middle Initial] from tblCustomer"
+        End If
+
         cmd.Parameters.AddWithValue("@searchtext", SqlDbType.VarChar).Value = txtSearchname.Text
+        Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim SearchList As New DataSet()
         dataadapter.Fill(SearchList, "tblCustomer")
@@ -117,13 +129,111 @@ Public Class frmTransactionManager
         If (dgvSearchList.Rows.Count > 0) Then
             Dim ask = MsgBox("Are you sure you want to use this customer?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If (ask = vbYes) Then
-                txtCustomerNumber.Text = dgvSearchList.Rows(selectedRow).Cells(1).Value()
-                txtCustLastname.Text = dgvSearchList.Rows(selectedRow).Cells(2).Value()
-                txtCustFirstname.Text = dgvSearchList.Rows(selectedRow).Cells(3).Value()
-                txtCustMiddlename.Text = dgvSearchList.Rows(selectedRow).Cells(4).Value()
+                txtCustomerNumber.Text = dgvSearchList.Rows(selectedRow).Cells(0).Value()
+                txtCustLastname.Text = dgvSearchList.Rows(selectedRow).Cells(1).Value()
+                txtCustFirstname.Text = dgvSearchList.Rows(selectedRow).Cells(2).Value()
+                txtCustMiddlename.Text = dgvSearchList.Rows(selectedRow).Cells(3).Value()
                 Me.Width = 497
+                gbTransDetails.Enabled = True
+                txtCustFirstname.Enabled = False
+                txtCustLastname.Enabled = False
+                txtCustMiddlename.Enabled = False
             End If
         End If
+    End Sub
+
+    Private Sub btnSaveTransaction_Click_1(sender As Object, e As EventArgs) Handles btnSaveTransaction.Click
+        Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+        If (ask = vbYes) Then
+            InitializeFlags()
+            FirstNameValidation()
+            LastNameValidation()
+            ComboboxValidation()
+            If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
+                MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
+                Exit Sub
+            End If
+
+            If (choicetype = 1) Then
+                Call AddCustomer(txtCustLastname.Text, txtCustFirstname.Text, txtCustMiddlename.Text)
+                txtCustomerNumber.Text = lastIdentity
+                Call AddTransaction(cboServiceAvailed.SelectedValue, txtCustomerNumber.Text, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
+                MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
+                frmMenu.Enabled = True
+                Me.Close()
+            ElseIf (choicetype = 2) Then
+                Call AddTransaction(cboServiceAvailed.SelectedValue, txtCustomerNumber.Text, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
+                MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
+                frmMenu.Enabled = True
+                Me.Close()
+            End If
+
+        End If
+    End Sub
+
+    Private Sub InitializeFlags()
+        flag1 = True
+        flag2 = True
+        flag3 = True
+        flag4 = True
+        flag5 = True
+        flag6 = True
+        flag7 = True
+        flag8 = True
+    End Sub
+
+    Private Sub LastNameValidation()
+        If txtCustLastname.Text.Trim = "" Then
+            ErrorProvider1.SetError(txtCustLastname, "Blank field is not allowed.")
+            ErrorProvider1.SetIconPadding(txtCustLastname, 5)
+            flag2 = False
+        ElseIf txtCustLastname.Text.IndexOfAny(restrictedCharactersForName) > -1 Then
+            ErrorProvider1.SetError(txtCustLastname, "Special characters are not allowed in this field.")
+            ErrorProvider1.SetIconPadding(txtCustLastname, 5)
+            flag2 = False
+        ElseIf IsNumeric(txtCustLastname.Text) = True Or txtCustLastname.Text.IndexOfAny("1234567890") > -1 Then
+            ErrorProvider1.SetError(txtCustLastname, "Numeric characters are not characters allowed in this field.")
+            ErrorProvider1.SetIconPadding(txtCustLastname, 5)
+            flag2 = False
+        Else
+            ErrorProvider1.SetError(txtCustLastname, "")
+        End If
+    End Sub
+
+    Private Sub FirstNameValidation()
+        If txtCustFirstname.Text.Trim = "" Then
+            ErrorProvider1.SetError(txtCustFirstname, "Blank field is not allowed.")
+            ErrorProvider1.SetIconPadding(txtCustFirstname, 5)
+            flag1 = False
+        ElseIf txtCustFirstname.Text.IndexOfAny(restrictedCharactersForName) > -1 Then
+            ErrorProvider1.SetError(txtCustFirstname, "Special characters are not allowed in this field.")
+            ErrorProvider1.SetIconPadding(txtCustFirstname, 5)
+            flag1 = False
+        ElseIf IsNumeric(txtCustFirstname.Text) = True Or txtCustFirstname.Text.IndexOfAny("1234567890") > -1 Then
+            ErrorProvider1.SetError(txtCustFirstname, "Numeric characters are not characters allowed in this field.")
+            ErrorProvider1.SetIconPadding(txtCustFirstname, 5)
+            flag1 = False
+        Else
+            ErrorProvider1.SetError(txtCustFirstname, "")
+        End If
+    End Sub
+
+    Private Sub ComboboxValidation()
+        If cboEmployeeAssigned.SelectedIndex = -1 Then
+            ErrorProvider1.SetError(cboEmployeeAssigned, "Please assign an Employee.")
+            ErrorProvider1.SetIconPadding(cboEmployeeAssigned, 5)
+            flag3 = False
+        Else
+            ErrorProvider1.SetError(cboEmployeeAssigned, "")
+        End If
+        If cboServiceAvailed.SelectedIndex = -1 Then
+            ErrorProvider1.SetError(cboServiceAvailed, "Please select a Service.")
+            ErrorProvider1.SetIconPadding(cboServiceAvailed, 5)
+            flag4 = False
+        Else
+            ErrorProvider1.SetError(cboServiceAvailed, "")
+        End If
+
     End Sub
 
     Private Sub btnCancelTransaction_Click(sender As Object, e As EventArgs) Handles btnCancelTransaction.Click

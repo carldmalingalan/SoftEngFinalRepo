@@ -37,7 +37,7 @@ Module vbConnect
     Public saveType As String 'accounts
     Public saveType1 As String 'items
     Public saveType2 As String 'transactions
-
+    Public lastIdentity As Int32
     Public voidID As Int32
     Public logInfo As String
     Function GetHash(theInput As String) As String
@@ -234,18 +234,16 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub AddTransaction(customer As String, body As String, hair As String, nails As String, service As Int32, emp As Int32, remarks As String)
+    Public Sub AddTransaction(ServiceID As Int32, CustomerID As Int32, EmployeeID As Int32, Remarks As String)
         Call ConnectTOSQLServer()
-        strSQL = "insert into tblTransactions(CustomerName,Date,Body,Hair,Nails,ServiceAvailedID,EmployeeAssignedID,CreationDate,CreatedBy,DataStatus,Remarks) values (@Customer,getdate(),@Body,@Hair,@Nails,@Service,@Emp,getdate(),@creator,'ACTIVE',@Remarks)"
+        strSQL = "insert into tblTransactions(Date,ServiceID,EmployeeID,CustomerID,CreationDate,CreatedBy,DataStatus,ModdedBy,ModdedDate,Remarks)values(convert(varchar,getdate(),110),@ServiceID,@EmployeeID,@CustomerID,getdate(),@Creator,'ACTIVE',@Modder,getdate(),@Remarks)"
         cmd = New SqlCommand(strSQL, Connection)
-        cmd.Parameters.AddWithValue("@Customer", SqlDbType.VarChar).Value = customer
-        cmd.Parameters.AddWithValue("@Body", SqlDbType.VarChar).Value = body
-        cmd.Parameters.AddWithValue("@Hair", SqlDbType.VarChar).Value = hair
-        cmd.Parameters.AddWithValue("@Nails", SqlDbType.VarChar).Value = nails
-        cmd.Parameters.AddWithValue("@Service", SqlDbType.Int).Value = service
-        cmd.Parameters.AddWithValue("@Emp", SqlDbType.Int).Value = emp
-        cmd.Parameters.AddWithValue("@creator", SqlDbType.Int).Value = login_id
-        cmd.Parameters.AddWithValue("@Remarks", SqlDbType.VarChar).Value = remarks
+        cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = ServiceID
+        cmd.Parameters.AddWithValue("@EmployeeID", SqlDbType.Int).Value = EmployeeID
+        cmd.Parameters.AddWithValue("@CustomerID", SqlDbType.Int).Value = CustomerID
+        cmd.Parameters.AddWithValue("@Remarks", SqlDbType.VarChar).Value = Remarks
+        cmd.Parameters.AddWithValue("@Creator", SqlDbType.Int).Value = login_id
+        cmd.Parameters.AddWithValue("@Modder", SqlDbType.Int).Value = login_id
         Console.WriteLine(strSQL)
         cmd.ExecuteNonQuery()
         Call DisConnectSQLServer()
@@ -297,6 +295,28 @@ Module vbConnect
         cmd.Parameters.AddWithValue("@Details", SqlDbType.VarChar).Value = Details
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)
+        Call DisConnectSQLServer()
+    End Sub
+
+    Public Sub AddCustomer(Lastname As String, Firstname As String, Middle As String)
+        Call ConnectTOSQLServer()
+        strSQL = "insert into tblCustomer(Lastname, Firstname, [Middle Initial],CreatedBy,CreationDate)values(@Lastname,@Firstname,@Middle,@Author,getdate())"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@Lastname", SqlDbType.VarChar).Value = Lastname
+        cmd.Parameters.AddWithValue("@Firstname", SqlDbType.VarChar).Value = Firstname
+        cmd.Parameters.AddWithValue("@Middle", SqlDbType.VarChar).Value = Middle
+        cmd.Parameters.AddWithValue("@Author", SqlDbType.Int).Value = login_id
+        cmd.ExecuteNonQuery()
+
+        Console.WriteLine(strSQL)
+        strSQL = "select CustomerID from tblCustomer where Createdby = @Login order by CreationDate DESC"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@Login", SqlDbType.Int).Value = login_id
+        reader = cmd.ExecuteReader()
+        Console.WriteLine(strSQL)
+        If reader.Read() = True Then
+            lastIdentity = reader.GetInt32(0)
+        End If
         Call DisConnectSQLServer()
     End Sub
 End Module

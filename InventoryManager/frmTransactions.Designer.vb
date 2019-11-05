@@ -92,11 +92,13 @@ Partial Class frmTransactions
         'dtpTransactionDate
         '
         Me.dtpTransactionDate.CalendarFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpTransactionDate.CustomFormat = "MM/dd/yyyy"
+        Me.dtpTransactionDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpTransactionDate.Location = New System.Drawing.Point(12, 16)
         Me.dtpTransactionDate.MinDate = New Date(2019, 8, 29, 0, 0, 0, 0)
         Me.dtpTransactionDate.MinimumSize = New System.Drawing.Size(0, 29)
         Me.dtpTransactionDate.Name = "dtpTransactionDate"
-        Me.dtpTransactionDate.Size = New System.Drawing.Size(252, 29)
+        Me.dtpTransactionDate.Size = New System.Drawing.Size(113, 29)
         Me.dtpTransactionDate.Style = MetroFramework.MetroColorStyle.Blue
         Me.dtpTransactionDate.TabIndex = 17
         Me.dtpTransactionDate.UseCustomBackColor = True
