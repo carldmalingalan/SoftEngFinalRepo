@@ -37,7 +37,8 @@ Partial Class frmItemManager
         Me.Label1 = New System.Windows.Forms.Label()
         Me.checkboxExpirationNA = New System.Windows.Forms.CheckBox()
         Me.dtpExpirationDate = New MetroFramework.Controls.MetroDateTime()
-        Me.MaterialSingleLineTextField1 = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.txtCriticalPoint = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.cbCritPointNA = New System.Windows.Forms.CheckBox()
         Me.groupBoxRole.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -49,9 +50,9 @@ Partial Class frmItemManager
         Me.groupBoxRole.Controls.Add(Me.rdoBody)
         Me.groupBoxRole.Controls.Add(Me.rdoHair)
         Me.groupBoxRole.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.groupBoxRole.Location = New System.Drawing.Point(67, 209)
+        Me.groupBoxRole.Location = New System.Drawing.Point(18, 185)
         Me.groupBoxRole.Name = "groupBoxRole"
-        Me.groupBoxRole.Size = New System.Drawing.Size(200, 92)
+        Me.groupBoxRole.Size = New System.Drawing.Size(305, 62)
         Me.groupBoxRole.TabIndex = 5
         Me.groupBoxRole.TabStop = False
         Me.groupBoxRole.Text = "Item Label"
@@ -61,16 +62,16 @@ Partial Class frmItemManager
         Me.rdoFace.AutoSize = True
         Me.rdoFace.Depth = 0
         Me.rdoFace.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoFace.Location = New System.Drawing.Point(19, 51)
+        Me.rdoFace.Location = New System.Drawing.Point(97, 21)
         Me.rdoFace.Margin = New System.Windows.Forms.Padding(0)
         Me.rdoFace.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdoFace.MouseState = MaterialSkin.MouseState.HOVER
         Me.rdoFace.Name = "rdoFace"
         Me.rdoFace.Ripple = True
-        Me.rdoFace.Size = New System.Drawing.Size(62, 30)
+        Me.rdoFace.Size = New System.Drawing.Size(58, 30)
         Me.rdoFace.TabIndex = 5
         Me.rdoFace.TabStop = True
-        Me.rdoFace.Text = "FACE"
+        Me.rdoFace.Text = "Face"
         Me.rdoFace.UseVisualStyleBackColor = True
         '
         'rdoNails
@@ -78,16 +79,16 @@ Partial Class frmItemManager
         Me.rdoNails.AutoSize = True
         Me.rdoNails.Depth = 0
         Me.rdoNails.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoNails.Location = New System.Drawing.Point(102, 51)
+        Me.rdoNails.Location = New System.Drawing.Point(215, 21)
         Me.rdoNails.Margin = New System.Windows.Forms.Padding(0)
         Me.rdoNails.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdoNails.MouseState = MaterialSkin.MouseState.HOVER
         Me.rdoNails.Name = "rdoNails"
         Me.rdoNails.Ripple = True
-        Me.rdoNails.Size = New System.Drawing.Size(67, 30)
+        Me.rdoNails.Size = New System.Drawing.Size(60, 30)
         Me.rdoNails.TabIndex = 4
         Me.rdoNails.TabStop = True
-        Me.rdoNails.Text = "NAILS"
+        Me.rdoNails.Text = "Nails"
         Me.rdoNails.UseVisualStyleBackColor = True
         '
         'rdoBody
@@ -96,16 +97,16 @@ Partial Class frmItemManager
         Me.rdoBody.Depth = 0
         Me.rdoBody.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.rdoBody.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoBody.Location = New System.Drawing.Point(102, 21)
+        Me.rdoBody.Location = New System.Drawing.Point(37, 21)
         Me.rdoBody.Margin = New System.Windows.Forms.Padding(0)
         Me.rdoBody.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdoBody.MouseState = MaterialSkin.MouseState.HOVER
         Me.rdoBody.Name = "rdoBody"
         Me.rdoBody.Ripple = True
-        Me.rdoBody.Size = New System.Drawing.Size(64, 30)
+        Me.rdoBody.Size = New System.Drawing.Size(60, 30)
         Me.rdoBody.TabIndex = 3
         Me.rdoBody.TabStop = True
-        Me.rdoBody.Text = "BODY"
+        Me.rdoBody.Text = "Body"
         Me.rdoBody.UseCompatibleTextRendering = True
         Me.rdoBody.UseVisualStyleBackColor = True
         '
@@ -114,21 +115,22 @@ Partial Class frmItemManager
         Me.rdoHair.AutoSize = True
         Me.rdoHair.Depth = 0
         Me.rdoHair.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdoHair.Location = New System.Drawing.Point(19, 21)
+        Me.rdoHair.Location = New System.Drawing.Point(161, 21)
         Me.rdoHair.Margin = New System.Windows.Forms.Padding(0)
         Me.rdoHair.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdoHair.MouseState = MaterialSkin.MouseState.HOVER
         Me.rdoHair.Name = "rdoHair"
         Me.rdoHair.Ripple = True
-        Me.rdoHair.Size = New System.Drawing.Size(60, 30)
+        Me.rdoHair.Size = New System.Drawing.Size(54, 30)
         Me.rdoHair.TabIndex = 1
         Me.rdoHair.TabStop = True
-        Me.rdoHair.Text = "HAIR"
+        Me.rdoHair.Text = "Hair"
         Me.rdoHair.UseVisualStyleBackColor = True
         '
         'txtDescription
         '
         Me.txtDescription.Depth = 0
+        Me.txtDescription.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.txtDescription.Hint = "Item Description"
         Me.txtDescription.Location = New System.Drawing.Point(18, 121)
         Me.txtDescription.MouseState = MaterialSkin.MouseState.HOVER
@@ -145,6 +147,7 @@ Partial Class frmItemManager
         'txtItemQuantity
         '
         Me.txtItemQuantity.Depth = 0
+        Me.txtItemQuantity.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.txtItemQuantity.Hint = "Item Quantity"
         Me.txtItemQuantity.Location = New System.Drawing.Point(18, 92)
         Me.txtItemQuantity.MouseState = MaterialSkin.MouseState.HOVER
@@ -161,6 +164,7 @@ Partial Class frmItemManager
         'txtItemName
         '
         Me.txtItemName.Depth = 0
+        Me.txtItemName.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.txtItemName.Hint = "Item Name"
         Me.txtItemName.Location = New System.Drawing.Point(18, 63)
         Me.txtItemName.MouseState = MaterialSkin.MouseState.HOVER
@@ -179,7 +183,7 @@ Partial Class frmItemManager
         Me.btnSaveItem.AutoSize = True
         Me.btnSaveItem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSaveItem.Depth = 0
-        Me.btnSaveItem.Location = New System.Drawing.Point(150, 321)
+        Me.btnSaveItem.Location = New System.Drawing.Point(152, 256)
         Me.btnSaveItem.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnSaveItem.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSaveItem.Name = "btnSaveItem"
@@ -232,28 +236,42 @@ Partial Class frmItemManager
         Me.dtpExpirationDate.UseCustomForeColor = True
         Me.dtpExpirationDate.UseStyleColors = True
         '
-        'MaterialSingleLineTextField1
+        'txtCriticalPoint
         '
-        Me.MaterialSingleLineTextField1.Depth = 0
-        Me.MaterialSingleLineTextField1.Hint = "Critical Point"
-        Me.MaterialSingleLineTextField1.Location = New System.Drawing.Point(169, 92)
-        Me.MaterialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField1.Name = "MaterialSingleLineTextField1"
-        Me.MaterialSingleLineTextField1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField1.SelectedText = ""
-        Me.MaterialSingleLineTextField1.SelectionLength = 0
-        Me.MaterialSingleLineTextField1.SelectionStart = 0
-        Me.MaterialSingleLineTextField1.Size = New System.Drawing.Size(154, 23)
-        Me.MaterialSingleLineTextField1.TabIndex = 19
-        Me.MaterialSingleLineTextField1.TabStop = False
-        Me.MaterialSingleLineTextField1.UseSystemPasswordChar = False
+        Me.txtCriticalPoint.Depth = 0
+        Me.txtCriticalPoint.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtCriticalPoint.Hint = "Critical Point"
+        Me.txtCriticalPoint.Location = New System.Drawing.Point(169, 92)
+        Me.txtCriticalPoint.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txtCriticalPoint.Name = "txtCriticalPoint"
+        Me.txtCriticalPoint.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtCriticalPoint.SelectedText = ""
+        Me.txtCriticalPoint.SelectionLength = 0
+        Me.txtCriticalPoint.SelectionStart = 0
+        Me.txtCriticalPoint.Size = New System.Drawing.Size(105, 23)
+        Me.txtCriticalPoint.TabIndex = 19
+        Me.txtCriticalPoint.TabStop = False
+        Me.txtCriticalPoint.UseSystemPasswordChar = False
+        '
+        'cbCritPointNA
+        '
+        Me.cbCritPointNA.AutoSize = True
+        Me.cbCritPointNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cbCritPointNA.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCritPointNA.Location = New System.Drawing.Point(280, 92)
+        Me.cbCritPointNA.Name = "cbCritPointNA"
+        Me.cbCritPointNA.Size = New System.Drawing.Size(43, 21)
+        Me.cbCritPointNA.TabIndex = 20
+        Me.cbCritPointNA.Text = "NA"
+        Me.cbCritPointNA.UseVisualStyleBackColor = True
         '
         'frmItemManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(342, 381)
-        Me.Controls.Add(Me.MaterialSingleLineTextField1)
+        Me.ClientSize = New System.Drawing.Size(359, 312)
+        Me.Controls.Add(Me.cbCritPointNA)
+        Me.Controls.Add(Me.txtCriticalPoint)
         Me.Controls.Add(Me.dtpExpirationDate)
         Me.Controls.Add(Me.checkboxExpirationNA)
         Me.Controls.Add(Me.Label1)
@@ -290,5 +308,6 @@ Partial Class frmItemManager
     Friend WithEvents checkboxExpirationNA As CheckBox
     Friend WithEvents rdoFace As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents dtpExpirationDate As MetroFramework.Controls.MetroDateTime
-    Friend WithEvents MaterialSingleLineTextField1 As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents txtCriticalPoint As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents cbCritPointNA As CheckBox
 End Class

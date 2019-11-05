@@ -27,7 +27,7 @@ Partial Class frmInventory
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInventory))
         Me.BunifuCards2 = New Bunifu.Framework.UI.BunifuCards()
-        Me.lblInactiveCount = New System.Windows.Forms.Label()
+        Me.lblCritCount = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BunifuCards1 = New Bunifu.Framework.UI.BunifuCards()
         Me.lblActiveCount = New System.Windows.Forms.Label()
@@ -37,7 +37,7 @@ Partial Class frmInventory
         Me.btnUpdateItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuCards3 = New Bunifu.Framework.UI.BunifuCards()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblInactiveCount = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -54,7 +54,7 @@ Partial Class frmInventory
         Me.BunifuCards2.BorderRadius = 5
         Me.BunifuCards2.BottomSahddow = True
         Me.BunifuCards2.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards2.Controls.Add(Me.lblInactiveCount)
+        Me.BunifuCards2.Controls.Add(Me.lblCritCount)
         Me.BunifuCards2.Controls.Add(Me.Label2)
         Me.BunifuCards2.LeftSahddow = False
         Me.BunifuCards2.Location = New System.Drawing.Point(193, 14)
@@ -64,15 +64,15 @@ Partial Class frmInventory
         Me.BunifuCards2.Size = New System.Drawing.Size(175, 101)
         Me.BunifuCards2.TabIndex = 13
         '
-        'lblInactiveCount
+        'lblCritCount
         '
-        Me.lblInactiveCount.AutoSize = True
-        Me.lblInactiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInactiveCount.Location = New System.Drawing.Point(53, 17)
-        Me.lblInactiveCount.Name = "lblInactiveCount"
-        Me.lblInactiveCount.Size = New System.Drawing.Size(71, 39)
-        Me.lblInactiveCount.TabIndex = 7
-        Me.lblInactiveCount.Text = "999"
+        Me.lblCritCount.AutoSize = True
+        Me.lblCritCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCritCount.Location = New System.Drawing.Point(53, 17)
+        Me.lblCritCount.Name = "lblCritCount"
+        Me.lblCritCount.Size = New System.Drawing.Size(71, 39)
+        Me.lblCritCount.TabIndex = 7
+        Me.lblCritCount.Text = "999"
         '
         'Label2
         '
@@ -275,7 +275,7 @@ Partial Class frmInventory
         Me.BunifuCards3.BorderRadius = 5
         Me.BunifuCards3.BottomSahddow = True
         Me.BunifuCards3.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards3.Controls.Add(Me.Label3)
+        Me.BunifuCards3.Controls.Add(Me.lblInactiveCount)
         Me.BunifuCards3.Controls.Add(Me.Label4)
         Me.BunifuCards3.LeftSahddow = False
         Me.BunifuCards3.Location = New System.Drawing.Point(374, 14)
@@ -285,15 +285,15 @@ Partial Class frmInventory
         Me.BunifuCards3.Size = New System.Drawing.Size(175, 101)
         Me.BunifuCards3.TabIndex = 14
         '
-        'Label3
+        'lblInactiveCount
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(53, 17)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 39)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "999"
+        Me.lblInactiveCount.AutoSize = True
+        Me.lblInactiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInactiveCount.Location = New System.Drawing.Point(53, 17)
+        Me.lblInactiveCount.Name = "lblInactiveCount"
+        Me.lblInactiveCount.Size = New System.Drawing.Size(71, 39)
+        Me.lblInactiveCount.TabIndex = 7
+        Me.lblInactiveCount.Text = "999"
         '
         'Label4
         '
@@ -378,7 +378,7 @@ Partial Class frmInventory
 
     Friend WithEvents btnExportItemList As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents BunifuCards2 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents lblInactiveCount As Label
+    Friend WithEvents lblCritCount As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents BunifuCards1 As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents lblActiveCount As Label
@@ -387,7 +387,7 @@ Partial Class frmInventory
     Friend WithEvents btnAddItem As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dgvItemList As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents BunifuCards3 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblInactiveCount As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnSearch As Button

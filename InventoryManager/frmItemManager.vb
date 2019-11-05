@@ -2,6 +2,8 @@
 
 
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
+    Private critPoint As String
+    Private ExpiDate As Object
 
     Private Sub frmItemManager_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmMenu.Enabled = True
@@ -16,14 +18,27 @@
             dtpExpirationDate.CustomFormat = "MM/dd/yyyy"  'An empty SPACE
             dtpExpirationDate.Format = DateTimePickerFormat.Custom
             dtpExpirationDate.Enabled = True
+            dtpExpirationDate.MinDate = Date.Today.AddDays(1)
+
+        End If
+    End Sub
+
+
+    Dim itemclass As String
+
+    Private Sub cbCritPointNA_CheckedChanged(sender As Object, e As EventArgs) Handles cbCritPointNA.CheckedChanged
+        If (cbCritPointNA.Checked = True) Then
+            txtCriticalPoint.Enabled = False
+        Else
+            txtCriticalPoint.Enabled = True
         End If
     End Sub
 
     Private Sub frmItemManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtpExpirationDate.MinDate = Date.Today.AddDays(1)
 
     End Sub
 
-    Dim itemclass As String
     Private Sub InitializeFlags()
 
         flag1 = True
@@ -76,7 +91,6 @@
     End Sub
 
     Private Sub ItemQuantityValidation()
-
         If txtItemQuantity.Text.Trim = "" Then
             ErrorProvider1.SetError(txtItemQuantity, "Blank field is not allowed.")
             ErrorProvider1.SetIconPadding(txtItemQuantity, 5)
@@ -92,10 +106,27 @@
         Else
             ErrorProvider1.SetError(txtItemQuantity, "")
         End If
+        If (cbCritPointNA.Checked = False) Then
+            If txtCriticalPoint.Text.Trim = "" Then
+                ErrorProvider1.SetError(cbCritPointNA, "Blank field is not allowed.")
+                ErrorProvider1.SetIconPadding(cbCritPointNA, 5)
+                flag3 = False
+            ElseIf txtCriticalPoint.Text.IndexOfAny(restrictedCharactersForName) > -1 Then
+                ErrorProvider1.SetError(cbCritPointNA, "Special characters are not allowed in this field.")
+                ErrorProvider1.SetIconPadding(cbCritPointNA, 5)
+                flag3 = False
+            ElseIf IsNumeric(txtCriticalPoint.Text) = False Then
+                ErrorProvider1.SetError(cbCritPointNA, "Numeric characters only are the characters allowed in this field.")
+                ErrorProvider1.SetIconPadding(cbCritPointNA, 5)
+                flag3 = False
+            Else
+                ErrorProvider1.SetError(cbCritPointNA, "")
+            End If
+        End If
     End Sub
 
-    Private Sub ItemDescriptionValidation()
 
+    Private Sub ItemDescriptionValidation()
         If txtDescription.Text.Trim = "" Then
             ErrorProvider1.SetError(txtDescription, "Blank field is not allowed.")
             ErrorProvider1.SetIconPadding(txtDescription, 3)
@@ -104,6 +135,12 @@
             ErrorProvider1.SetError(txtDescription, "")
         End If
     End Sub
+
+    Private Function GetGroupBoxCheckedButton(grpb As GroupBox) As RadioButton
+        Dim rButton As RadioButton = grpb.Controls.OfType(Of RadioButton).Where(Function(r) r.Checked = True).FirstOrDefault()
+        Return rButton
+    End Function
+
     Private Sub btnSaveItem_Click(sender As Object, e As EventArgs) Handles btnSaveItem.Click
 
         InitializeFlags()
@@ -118,16 +155,25 @@
             End If
         Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If (ask = vbYes) Then
-
+            If (checkboxExpirationNA.Checked = False) Then
+                ExpiDate = dtpExpirationDate.Value.ToString("MM/dd/yyyy")
+            Else
+                ExpiDate = DBNull.Value
+            End If
+            If (cbCritPointNA.Checked = false) Then
+                critPoint = txtCriticalPoint.Text.Trim
+            Else
+                critPoint = ""
+            End If
             If (saveType1 = 1) Then
-                Call AddItem(txtItemName.Text, txtItemQuantity.Text, txtDescription.Text, itemclass)
+                Call AddItem(txtItemName.Text.Trim, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate)
                 MsgBox("Successfully added item.", MsgBoxStyle.Information, Application.ProductName)
-            ElseIf (saveType1 = 2) Then
-                Call UpdateItem(txtItemName.Text, txtItemQuantity.Text, txtDescription.Text, itemclass, itemID)
+                ElseIf (saveType1 = 2) Then
+                Call UpdateItem(txtItemName.Text, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate, itemID)
                 MsgBox("Successfully update item.", MsgBoxStyle.Information, Application.ProductName)
             End If
-            frmMenu.Enabled = True
-            Me.Close()
-        End If
+                frmMenu.Enabled = True
+                Me.Close()
+            End If
     End Sub
 End Class

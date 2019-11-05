@@ -178,28 +178,34 @@ Module vbConnect
     End Sub
 
 
-    Public Sub AddItem(Itemname As String, ItemQuantity As String, ItemDescription As String, ItemClass As String)
+    Public Sub AddItem(Itemname As String, ItemQuantity As String, ItemDescription As String, ItemClass As String, Crit As String, Expi As Object)
         Call ConnectTOSQLServer()
-        strSQL = "insert into tblInventory(ItemName,ItemQuantity,ItemDescription,ItemClassification) values (@ItemName,@ItemQuantity,@ItemDescription,@ItemClassification)"
+        strSQL = "insert into tblInventory(Name,Quantity,[Description],Classification,Expiration,[Critical Point],CreatedBy,CreationDate) values (@Name,@Quantity,@Desc,@Class,@Expi,@Crit,@Creator,getdate())"
         cmd = New SqlCommand(strSQL, Connection)
-        cmd.Parameters.AddWithValue("@ItemName", SqlDbType.VarChar).Value = Itemname
-        cmd.Parameters.AddWithValue("@ItemQuantity", SqlDbType.VarChar).Value = ItemQuantity
-        cmd.Parameters.AddWithValue("@ItemDescription", SqlDbType.VarChar).Value = ItemDescription
-        cmd.Parameters.AddWithValue("@ItemClassification", SqlDbType.VarChar).Value = ItemClass
+        cmd.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = Itemname
+        cmd.Parameters.AddWithValue("@Quantity", SqlDbType.VarChar).Value = ItemQuantity
+        cmd.Parameters.AddWithValue("@Desc", SqlDbType.VarChar).Value = ItemDescription
+        cmd.Parameters.AddWithValue("@Class", SqlDbType.VarChar).Value = ItemClass
+        cmd.Parameters.AddWithValue("@Expi", SqlDbType.Date).Value = Expi
+        cmd.Parameters.AddWithValue("@Crit", SqlDbType.VarChar).Value = Crit
+        cmd.Parameters.AddWithValue("@Creator", SqlDbType.VarChar).Value = login_id
+
         cmd.ExecuteNonQuery()
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub UpdateItem(Itemname As String, ItemQuantity As String, ItemDescription As String, ItemClass As String, ItemID As Int32)
+    Public Sub UpdateItem(Itemname As String, ItemQuantity As String, ItemDescription As String, ItemClass As String, Crit As String, Expi As Object, ItemID As Int32)
         Call ConnectTOSQLServer()
-        strSQL = "update tblInventory set ItemName = @ItemName, ItemQuantity = @ItemQuantity, ItemDescription = @ItemDescription, ItemClassification = @ItemClassification where ItemID = @ItemID"
+        strSQL = "update tblInventory Set Name = @Name, Quantity = @Quantity, [Description] = @Desc, Classification = @Class, Expiration=@Expi, [Critical Point] = @crit where ItemID = @ItemID"
         cmd = New SqlCommand(strSQL, Connection)
-        cmd.Parameters.AddWithValue("@ItemName", SqlDbType.VarChar).Value = Itemname
-        cmd.Parameters.AddWithValue("@ItemQuantity", SqlDbType.VarChar).Value = ItemQuantity
-        cmd.Parameters.AddWithValue("@ItemDescription", SqlDbType.VarChar).Value = ItemDescription
-        cmd.Parameters.AddWithValue("@ItemClassification", SqlDbType.VarChar).Value = ItemClass
+        cmd.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = Itemname
+        cmd.Parameters.AddWithValue("@Quantity", SqlDbType.VarChar).Value = ItemQuantity
+        cmd.Parameters.AddWithValue("@Desc", SqlDbType.VarChar).Value = ItemDescription
+        cmd.Parameters.AddWithValue("@Class", SqlDbType.VarChar).Value = ItemClass
+        cmd.Parameters.AddWithValue("@Expi", SqlDbType.Date).Value = Expi
+        cmd.Parameters.AddWithValue("@Crit", SqlDbType.VarChar).Value = Crit
         cmd.Parameters.AddWithValue("@ItemID", SqlDbType.Int).Value = ItemID
-
+        Console.WriteLine(strSQL)
         cmd.ExecuteNonQuery()
         Call DisConnectSQLServer()
     End Sub
@@ -221,7 +227,7 @@ Module vbConnect
 
     Public Sub UpdateService(ServiceName As String, Status As String, ServiceID As Int32, Description As String, ServiceCategory As String)
         Call ConnectTOSQLServer()
-        strSQL = "update tblServices set Name = @ServiceName, [Service Category] = @ServiceCategory ,Status = @ServiceStatus, Description = @Description where ServiceID = @ServiceID"
+        strSQL = "update tblServices Set Name = @ServiceName, [Service Category] = @ServiceCategory ,Status = @ServiceStatus, Description = @Description where ServiceID = @ServiceID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@ServiceName", SqlDbType.VarChar).Value = ServiceName
         cmd.Parameters.AddWithValue("@ServiceCategory", SqlDbType.VarChar).Value = ServiceCategory
