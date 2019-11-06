@@ -40,6 +40,7 @@ Module vbConnect
     Public lastIdentity As Int32
     Public voidID As Int32
     Public logInfo As String
+    Public customerNumber As Integer
     Function GetHash(theInput As String) As String
 
         Using hasher As SHA256 = SHA256.Create()    ' create hash object

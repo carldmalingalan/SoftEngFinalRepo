@@ -1,30 +1,46 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System
+Imports System.Data.SqlClient
 
 Public Class frmTransactionManager
     Private selectedRow, choicetype As Integer
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
+    Dim indexChecked As String
+    Dim headline As String
+
 
     Private Sub frmTransactionManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Width = 497
         LoadiTems2()
         clearfields()
+        clbServices.MultiColumn = False
+        clbServices.MultiColumn = True
     End Sub
 
 
     Private Sub LoadiTems2()
         Call ConnectTOSQLServer()
-        strSQL = "select ServiceID, Name from tblServices where Status = '1' order by ServiceId"
-        Dim da As New SqlDataAdapter(strSQL, Connection)
-        Dim table As New DataTable()
-        da.Fill(table)
-        cboServiceAvailed.DataSource = New BindingSource(table, Nothing)
-        cboServiceAvailed.DisplayMember = "Name"
-        'write the column name which will be diplayed
-        'you can even use  valueMember property, 
-        'Names - DisplayMember - this is was you see in comboBox
-        'IDs - ValueMember can be used as additional value of Person
-        cboServiceAvailed.ValueMember = "ServiceID"
-        'column name for value 
+        'strSQL = "select ServiceID, Name from tblServices where Status = '1' order by ServiceId"
+        'Dim da As New SqlDataAdapter(strSQL, Connection)
+        'Dim table As New DataTable()
+        'da.Fill(table)
+        'cboServiceAvailed.DataSource = New BindingSource(table, Nothing)
+        'cboServiceAvailed.DisplayMember = "Name"
+        ''write the column name which will be diplayed
+        ''you can even use  valueMember property, 
+        ''Names - DisplayMember - this is was you see in comboBox
+        ''IDs - ValueMember can be used as additional value of Person
+        'cboServiceAvailed.ValueMember = "ServiceID"
+        ''column name for value 
+
+        strSQL = "select * from tblServices where Status = 1 "
+        'Fill the DataTable with records from Table.
+        Dim da21 As New SqlDataAdapter(strSQL, Connection)
+        Dim dt As DataTable = New DataTable()
+        da21.Fill(dt)
+        'Assign DataTable as DataSource.
+        clbServices.DataSource = dt
+        clbServices.DisplayMember = "Name"
+        clbServices.ValueMember = "ServiceID"
 
         strSQL = "select EmployeeID,Fullname from tblEmployeeList where EmployeeStatus = '1' order by EmployeeID"
         Dim da2 As New SqlDataAdapter(strSQL, Connection)
@@ -41,17 +57,30 @@ Public Class frmTransactionManager
         Call DisConnectSQLServer()
     End Sub
 
-    Private Sub btnSaveTransaction_Click(sender As Object, e As EventArgs)
-        If (txtCustFirstname.Text <> "" And txtCustLastname.Text <> "" And txtCustMiddlename.Text <> "" And cboEmployeeAssigned.SelectedIndex = -1 And cboServiceAvailed.SelectedIndex = -1) Then
-            Dim ask = MsgBox("Do you want to continue saving this transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
-            If ask = vbYes Then
-                '  Call AddTransaction(txtCustomer.Text, cboBody.CheckState, cboHair.CheckState, cboNails.CheckState, cboServiceAvailed.SelectedValue, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
-                MsgBox("Successfully added transaction.", MsgBoxStyle.Information, Application.ProductName)
-                Call clearfields()
-            End If
-        Else
-            MsgBox("Invalid entry. Please complete details.", MsgBoxStyle.Critical, Application.ProductName)
+    'Private Sub btnSaveTransaction_Click(sender As Object, e As EventArgs)
+    '    If (txtCustFirstname.Text <> "" And txtCustLastname.Text <> "" And txtCustMiddlename.Text <> "" And cboEmployeeAssigned.SelectedIndex = -1 And cboServiceAvailed.SelectedIndex = -1) Then
+    '        Dim ask = MsgBox("Do you want to continue saving this transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+    '        If ask = vbYes Then
+    '            '  Call AddTransaction(txtCustomer.Text, cboBody.CheckState, cboHair.CheckState, cboNails.CheckState, cboServiceAvailed.SelectedValue, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
+    '            MsgBox("Successfully added transaction.", MsgBoxStyle.Information, Application.ProductName)
+    '            Call clearfields()
+    '        End If
+    '    Else
+    '        MsgBox("Invalid entry. Please complete details.", MsgBoxStyle.Critical, Application.ProductName)
+    '    End If
+    'End Sub
+
+    Private Sub OpenPanel(ByVal Childform As Object)
+        If Panel1.Controls.Count > 0 Then
+            Panel1.Controls.RemoveAt(0)
         End If
+        Dim fh1 As Form = TryCast(Childform, Form)
+        fh1.TopLevel = False
+        fh1.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        fh1.Dock = DockStyle.Fill
+        Panel1.Controls.Add(fh1)
+        Panel1.Tag = fh1
+        fh1.Show()
     End Sub
 
     Private Sub clearfields()
@@ -60,7 +89,6 @@ Public Class frmTransactionManager
         txtCustMiddlename.Text = ""
         txtCustomerNumber.Text = ""
         txtRemarks.Text = ""
-        cboServiceAvailed.SelectedIndex = -1
         cboEmployeeAssigned.SelectedIndex = -1
         gbTransDetails.Enabled = False
         txtCustMiddlename.Enabled = True
@@ -80,6 +108,7 @@ Public Class frmTransactionManager
         gbTransDetails.Enabled = False
         clearfields()
         Me.Width = 926
+        OpenPanel(New frmSearchCustomer)
     End Sub
 
     Private Sub txtCustMiddlename_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCustMiddlename.KeyPress
@@ -91,56 +120,21 @@ Public Class frmTransactionManager
         End If
     End Sub
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        Call viewrecords()
-        Dim count = dgvSearchList.RowCount.ToString
-        lblResultCount.Text = "Found " + count + " results."
-    End Sub
-
-    Private Sub viewrecords()
-        Call ConnectTOSQLServer()
-        If (txtSearchname.Text.Trim <> "") Then
-            strSQL = "select CustomerID, Lastname, Firstname, [Middle Initial] from tblCustomer where Lastname like '%@searchtext%' or Firstname like '%@searchtext%'"
-        Else
-            strSQL = "select CustomerID, Lastname, Firstname, [Middle Initial] from tblCustomer"
+    Private Sub btnChecklistBox_Click(sender As Object, e As EventArgs) Handles btnChecklistBox.Click
+        If (clbServices.Visible = False) Then
+            clbServices.Visible = True
+            clbServices.Left = 159
+            clbServices.Top = 154
+        ElseIf (clbServices.Visible = True) Then
+            clbServices.Visible = False
+            clbServices.Left = 159
+            clbServices.Top = 154
         End If
 
-        cmd.Parameters.AddWithValue("@searchtext", SqlDbType.VarChar).Value = txtSearchname.Text
-        Console.WriteLine(strSQL)
-        dataadapter = New SqlDataAdapter(strSQL, Connection)
-        Dim SearchList As New DataSet()
-        dataadapter.Fill(SearchList, "tblCustomer")
-        dgvSearchList.DataSource = SearchList
-        dgvSearchList.DataMember = "tblCustomer"
-        ' dgvSearchList.Rows(4).Visible = False
-        Call DisConnectSQLServer()
     End Sub
 
-    Private Sub dgvSearchList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchList.CellContentClick, dgvSearchList.CellClick
-        If (dgvSearchList.Rows.Count > 0) Then
-            Try
-                selectedRow = e.RowIndex
-            Catch ex As Exception
-            End Try
-        End If
-    End Sub
 
-    Private Sub dgvSearchList_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchList.CellContentDoubleClick, dgvSearchList.CellDoubleClick
-        If (dgvSearchList.Rows.Count > 0) Then
-            Dim ask = MsgBox("Are you sure you want to use this customer?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
-            If (ask = vbYes) Then
-                txtCustomerNumber.Text = dgvSearchList.Rows(selectedRow).Cells(0).Value()
-                txtCustLastname.Text = dgvSearchList.Rows(selectedRow).Cells(1).Value()
-                txtCustFirstname.Text = dgvSearchList.Rows(selectedRow).Cells(2).Value()
-                txtCustMiddlename.Text = dgvSearchList.Rows(selectedRow).Cells(3).Value()
-                Me.Width = 497
-                gbTransDetails.Enabled = True
-                txtCustFirstname.Enabled = False
-                txtCustLastname.Enabled = False
-                txtCustMiddlename.Enabled = False
-            End If
-        End If
-    End Sub
+
 
     Private Sub btnSaveTransaction_Click_1(sender As Object, e As EventArgs) Handles btnSaveTransaction.Click
         Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
@@ -157,18 +151,53 @@ Public Class frmTransactionManager
             If (choicetype = 1) Then
                 Call AddCustomer(txtCustLastname.Text, txtCustFirstname.Text, txtCustMiddlename.Text)
                 txtCustomerNumber.Text = lastIdentity
-                Call AddTransaction(cboServiceAvailed.SelectedValue, txtCustomerNumber.Text, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
-                MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
-                frmMenu.Enabled = True
-                Me.Close()
-            ElseIf (choicetype = 2) Then
-                Call AddTransaction(cboServiceAvailed.SelectedValue, txtCustomerNumber.Text, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
-                MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
-                frmMenu.Enabled = True
-                Me.Close()
-            End If
+                Call ConnectTOSQLServer()
 
-        End If
+                For i As Integer = 0 To clbServices.Items.Count - 1
+                    If (clbServices.GetItemChecked(i)) Then
+                        Dim dtrv As DataRowView = CType(clbServices.Items(i), DataRowView)
+                        Dim dtr As DataRow = dtrv.Row
+                        Dim dtrValueMember As String = dtr(clbServices.ValueMember).ToString()
+                        strSQL = "insert into tblTransactions(Date,ServiceID,EmployeeID,CustomerID,CreationDate,CreatedBy,DataStatus,ModdedBy,ModdedDate,Remarks)values(convert(varchar,getdate(),110),@ServiceID,@EmployeeID,@CustomerID,getdate(),@Creator,'ACTIVE',@Modder,getdate(),@Remarks)"
+                        cmd = New SqlCommand(strSQL, Connection)
+                        cmd.Parameters.AddWithValue("@EmployeeID", SqlDbType.Int).Value = cboEmployeeAssigned.SelectedValue
+                        cmd.Parameters.AddWithValue("@CustomerID", SqlDbType.Int).Value = lastIdentity
+                        cmd.Parameters.AddWithValue("@Remarks", SqlDbType.VarChar).Value = txtRemarks.Text
+                        cmd.Parameters.AddWithValue("@Creator", SqlDbType.Int).Value = login_id
+                        cmd.Parameters.AddWithValue("@Modder", SqlDbType.Int).Value = login_id
+                        cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = dtrValueMember
+                        cmd.ExecuteNonQuery()
+                    End If
+                Next
+
+                Call DisConnectSQLServer()
+                    MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
+                frmTransactions.Enabled = True
+                Me.Close()
+                ElseIf (choicetype = 2) Then
+                '          Call AddTransaction(cboServiceAvailed.SelectedValue, txtCustomerNumber.Text, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
+                For i As Integer = 0 To clbServices.Items.Count - 1
+                    If (clbServices.GetItemChecked(i)) Then
+                        Dim dtrv As DataRowView = CType(clbServices.Items(i), DataRowView)
+                        Dim dtr As DataRow = dtrv.Row
+                        Dim dtrValueMember As String = dtr(clbServices.ValueMember).ToString()
+                        strSQL = "insert into tblTransactions(Date,ServiceID,EmployeeID,CustomerID,CreationDate,CreatedBy,DataStatus,ModdedBy,ModdedDate,Remarks)values(convert(varchar,getdate(),110),@ServiceID,@EmployeeID,@CustomerID,getdate(),@Creator,'ACTIVE',@Modder,getdate(),@Remarks)"
+                        cmd = New SqlCommand(strSQL, Connection)
+                        cmd.Parameters.AddWithValue("@EmployeeID", SqlDbType.Int).Value = cboEmployeeAssigned.SelectedValue
+                        cmd.Parameters.AddWithValue("@CustomerID", SqlDbType.Int).Value = txtCustomerNumber.Text
+                        cmd.Parameters.AddWithValue("@Remarks", SqlDbType.VarChar).Value = txtRemarks.Text
+                        cmd.Parameters.AddWithValue("@Creator", SqlDbType.Int).Value = login_id
+                        cmd.Parameters.AddWithValue("@Modder", SqlDbType.Int).Value = login_id
+                        cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = dtrValueMember
+                        cmd.ExecuteNonQuery()
+                    End If
+                Next
+                MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
+                frmTransactions.Enabled = True
+                Me.Close()
+                End If
+
+            End If
     End Sub
 
     Private Sub InitializeFlags()
@@ -226,14 +255,6 @@ Public Class frmTransactionManager
         Else
             ErrorProvider1.SetError(cboEmployeeAssigned, "")
         End If
-        If cboServiceAvailed.SelectedIndex = -1 Then
-            ErrorProvider1.SetError(cboServiceAvailed, "Please select a Service.")
-            ErrorProvider1.SetIconPadding(cboServiceAvailed, 5)
-            flag4 = False
-        Else
-            ErrorProvider1.SetError(cboServiceAvailed, "")
-        End If
-
     End Sub
 
     Private Sub btnCancelTransaction_Click(sender As Object, e As EventArgs) Handles btnCancelTransaction.Click

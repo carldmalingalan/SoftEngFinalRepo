@@ -89,7 +89,7 @@ Public Class frmInventory
         reader.Close()
 
         lblActiveCount.Text = instocks
-        lblInactiveCount.Text = outstock
+        Label3.Text = outstock
         lblCritCount.Text = critstock
         Call DisConnectSQLServer()
     End Sub

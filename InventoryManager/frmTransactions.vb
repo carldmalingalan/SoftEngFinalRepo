@@ -76,4 +76,8 @@ Public Class frmTransactions
     Private Sub btnUpdateTransactions_Click(sender As Object, e As EventArgs) Handles btnUpdateTransactions.Click
 
     End Sub
+
+    Private Sub frmTransactions_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
+        Call viewTransactions()
+    End Sub
 End Class

@@ -47,6 +47,16 @@ InventoryManager
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InventoryManager.My.Resources.Resources.drop_down_arrow">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.drop_down_arrow_1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventoryManager.My.Resources.Resources.employees">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

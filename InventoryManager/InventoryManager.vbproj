@@ -165,6 +165,12 @@
     <Compile Include="frmInventory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmItemCheckout.Designer.vb">
+      <DependentUpon>frmItemCheckout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItemCheckout.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmItemManager.Designer.vb">
       <DependentUpon>frmItemManager.vb</DependentUpon>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemCheckout.resx">
+      <DependentUpon>frmItemCheckout.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmItemManager.resx">
       <DependentUpon>frmItemManager.vb</DependentUpon>
@@ -447,6 +456,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon salon_0`.ico" />
+    <None Include="Resources\drop-down-arrow%281%29.png" />
+    <None Include="Resources\drop-down-arrow.png" />
     <None Include="Resources\magnifying-glass%281%29.png" />
     <None Include="Resources\magnifying-glass.png" />
     <None Include="Resources\locked.png" />

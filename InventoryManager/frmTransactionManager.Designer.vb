@@ -24,10 +24,10 @@ Partial Class frmTransactionManager
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTransactionManager))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gbTransDetails = New System.Windows.Forms.GroupBox()
+        Me.txtServices = New System.Windows.Forms.TextBox()
+        Me.btnChecklistBox = New System.Windows.Forms.Button()
+        Me.clbServices = New System.Windows.Forms.CheckedListBox()
         Me.txtCustomerNumber = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtCustLastname = New System.Windows.Forms.TextBox()
@@ -41,24 +41,22 @@ Partial Class frmTransactionManager
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnCancelTransaction = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnSaveTransaction = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.cboServiceAvailed = New MetroFramework.Controls.MetroComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnExistingCustomer = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.btnNewCustomer = New Bunifu.Framework.UI.BunifuThinButton2()
-        Me.lblResultCount = New System.Windows.Forms.Label()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.txtSearchname = New Bunifu.Framework.UI.BunifuMaterialTextbox()
-        Me.dgvSearchList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.gbTransDetails.SuspendLayout()
-        CType(Me.dgvSearchList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbTransDetails
         '
         Me.gbTransDetails.AutoSize = True
+        Me.gbTransDetails.Controls.Add(Me.txtServices)
+        Me.gbTransDetails.Controls.Add(Me.btnChecklistBox)
+        Me.gbTransDetails.Controls.Add(Me.clbServices)
         Me.gbTransDetails.Controls.Add(Me.txtCustomerNumber)
         Me.gbTransDetails.Controls.Add(Me.Label7)
         Me.gbTransDetails.Controls.Add(Me.txtCustLastname)
@@ -72,17 +70,46 @@ Partial Class frmTransactionManager
         Me.gbTransDetails.Controls.Add(Me.Label1)
         Me.gbTransDetails.Controls.Add(Me.btnCancelTransaction)
         Me.gbTransDetails.Controls.Add(Me.btnSaveTransaction)
-        Me.gbTransDetails.Controls.Add(Me.cboServiceAvailed)
         Me.gbTransDetails.Controls.Add(Me.Label9)
         Me.gbTransDetails.Controls.Add(Me.Label3)
         Me.gbTransDetails.Enabled = False
         Me.gbTransDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTransDetails.Location = New System.Drawing.Point(8, 77)
         Me.gbTransDetails.Name = "gbTransDetails"
-        Me.gbTransDetails.Size = New System.Drawing.Size(479, 352)
+        Me.gbTransDetails.Size = New System.Drawing.Size(470, 340)
         Me.gbTransDetails.TabIndex = 31
         Me.gbTransDetails.TabStop = False
         Me.gbTransDetails.Text = "Transaction Details"
+        '
+        'txtServices
+        '
+        Me.txtServices.Location = New System.Drawing.Point(159, 132)
+        Me.txtServices.Name = "txtServices"
+        Me.txtServices.ReadOnly = True
+        Me.txtServices.Size = New System.Drawing.Size(258, 23)
+        Me.txtServices.TabIndex = 64
+        Me.txtServices.Text = "Services"
+        '
+        'btnChecklistBox
+        '
+        Me.btnChecklistBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnChecklistBox.Image = Global.InventoryManager.My.Resources.Resources.drop_down_arrow_1_
+        Me.btnChecklistBox.Location = New System.Drawing.Point(417, 132)
+        Me.btnChecklistBox.Name = "btnChecklistBox"
+        Me.btnChecklistBox.Size = New System.Drawing.Size(27, 23)
+        Me.btnChecklistBox.TabIndex = 63
+        Me.btnChecklistBox.UseVisualStyleBackColor = True
+        '
+        'clbServices
+        '
+        Me.clbServices.CheckOnClick = True
+        Me.clbServices.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clbServices.FormattingEnabled = True
+        Me.clbServices.Location = New System.Drawing.Point(161, 150)
+        Me.clbServices.Name = "clbServices"
+        Me.clbServices.Size = New System.Drawing.Size(258, 94)
+        Me.clbServices.TabIndex = 38
+        Me.clbServices.Visible = False
         '
         'txtCustomerNumber
         '
@@ -190,7 +217,7 @@ Partial Class frmTransactionManager
         Me.btnCancelTransaction.AutoSize = True
         Me.btnCancelTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnCancelTransaction.Depth = 0
-        Me.btnCancelTransaction.Location = New System.Drawing.Point(238, 291)
+        Me.btnCancelTransaction.Location = New System.Drawing.Point(250, 279)
         Me.btnCancelTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnCancelTransaction.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCancelTransaction.Name = "btnCancelTransaction"
@@ -205,7 +232,7 @@ Partial Class frmTransactionManager
         Me.btnSaveTransaction.AutoSize = True
         Me.btnSaveTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSaveTransaction.Depth = 0
-        Me.btnSaveTransaction.Location = New System.Drawing.Point(184, 291)
+        Me.btnSaveTransaction.Location = New System.Drawing.Point(196, 279)
         Me.btnSaveTransaction.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnSaveTransaction.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSaveTransaction.Name = "btnSaveTransaction"
@@ -214,15 +241,6 @@ Partial Class frmTransactionManager
         Me.btnSaveTransaction.TabIndex = 45
         Me.btnSaveTransaction.Text = "Save"
         Me.btnSaveTransaction.UseVisualStyleBackColor = True
-        '
-        'cboServiceAvailed
-        '
-        Me.cboServiceAvailed.ItemHeight = 23
-        Me.cboServiceAvailed.Location = New System.Drawing.Point(159, 129)
-        Me.cboServiceAvailed.Name = "cboServiceAvailed"
-        Me.cboServiceAvailed.Size = New System.Drawing.Size(285, 29)
-        Me.cboServiceAvailed.TabIndex = 43
-        Me.cboServiceAvailed.UseSelectable = True
         '
         'Label9
         '
@@ -241,6 +259,17 @@ Partial Class frmTransactionManager
         Me.Label3.Size = New System.Drawing.Size(74, 16)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Firstname:"
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(484, 29)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(438, 388)
+        Me.Panel1.TabIndex = 38
         '
         'btnExistingCustomer
         '
@@ -292,102 +321,12 @@ Partial Class frmTransactionManager
         Me.btnNewCustomer.TabIndex = 32
         Me.btnNewCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblResultCount
-        '
-        Me.lblResultCount.AutoSize = True
-        Me.lblResultCount.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResultCount.Location = New System.Drawing.Point(494, 65)
-        Me.lblResultCount.Name = "lblResultCount"
-        Me.lblResultCount.Size = New System.Drawing.Size(0, 17)
-        Me.lblResultCount.TabIndex = 36
-        '
-        'btnSearch
-        '
-        Me.btnSearch.FlatAppearance.BorderSize = 0
-        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Image = Global.InventoryManager.My.Resources.Resources.magnifying_glass_1_
-        Me.btnSearch.Location = New System.Drawing.Point(870, 46)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(33, 33)
-        Me.btnSearch.TabIndex = 34
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'txtSearchname
-        '
-        Me.txtSearchname.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtSearchname.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtSearchname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtSearchname.HintForeColor = System.Drawing.Color.DarkGray
-        Me.txtSearchname.HintText = "Search Name"
-        Me.txtSearchname.isPassword = False
-        Me.txtSearchname.LineFocusedColor = System.Drawing.Color.Teal
-        Me.txtSearchname.LineIdleColor = System.Drawing.Color.Gray
-        Me.txtSearchname.LineMouseHoverColor = System.Drawing.Color.Teal
-        Me.txtSearchname.LineThickness = 3
-        Me.txtSearchname.Location = New System.Drawing.Point(703, 46)
-        Me.txtSearchname.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtSearchname.Name = "txtSearchname"
-        Me.txtSearchname.Size = New System.Drawing.Size(160, 33)
-        Me.txtSearchname.TabIndex = 33
-        Me.txtSearchname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'dgvSearchList
-        '
-        Me.dgvSearchList.AllowUserToAddRows = False
-        Me.dgvSearchList.AllowUserToDeleteRows = False
-        Me.dgvSearchList.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvSearchList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvSearchList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvSearchList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvSearchList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.dgvSearchList.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgvSearchList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvSearchList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvSearchList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvSearchList.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvSearchList.DoubleBuffered = True
-        Me.dgvSearchList.EnableHeadersVisualStyles = False
-        Me.dgvSearchList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
-        Me.dgvSearchList.HeaderForeColor = System.Drawing.Color.Snow
-        Me.dgvSearchList.Location = New System.Drawing.Point(497, 85)
-        Me.dgvSearchList.MultiSelect = False
-        Me.dgvSearchList.Name = "dgvSearchList"
-        Me.dgvSearchList.ReadOnly = True
-        Me.dgvSearchList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgvSearchList.RowHeadersVisible = False
-        Me.dgvSearchList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvSearchList.Size = New System.Drawing.Size(406, 332)
-        Me.dgvSearchList.TabIndex = 37
-        '
-        'ErrorProvider1
-        '
-        Me.ErrorProvider1.ContainerControl = Me
-        '
         'frmTransactionManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(926, 427)
-        Me.Controls.Add(Me.dgvSearchList)
-        Me.Controls.Add(Me.lblResultCount)
-        Me.Controls.Add(Me.btnSearch)
-        Me.Controls.Add(Me.txtSearchname)
+        Me.ClientSize = New System.Drawing.Size(926, 423)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnExistingCustomer)
         Me.Controls.Add(Me.btnNewCustomer)
         Me.Controls.Add(Me.gbTransDetails)
@@ -399,7 +338,6 @@ Partial Class frmTransactionManager
         Me.Style = MetroFramework.MetroColorStyle.Pink
         Me.gbTransDetails.ResumeLayout(False)
         Me.gbTransDetails.PerformLayout()
-        CType(Me.dgvSearchList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -414,7 +352,6 @@ Partial Class frmTransactionManager
     Friend WithEvents Label1 As Label
     Friend WithEvents btnCancelTransaction As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnSaveTransaction As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents cboServiceAvailed As MetroFramework.Controls.MetroComboBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents txtCustLastname As TextBox
@@ -425,9 +362,9 @@ Partial Class frmTransactionManager
     Friend WithEvents btnExistingCustomer As Bunifu.Framework.UI.BunifuThinButton2
     Friend WithEvents txtCustomerNumber As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents lblResultCount As Label
-    Friend WithEvents btnSearch As Button
-    Friend WithEvents txtSearchname As Bunifu.Framework.UI.BunifuMaterialTextbox
-    Friend WithEvents dgvSearchList As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents clbServices As CheckedListBox
+    Friend WithEvents txtServices As TextBox
+    Friend WithEvents btnChecklistBox As Button
+    Friend WithEvents Panel1 As Panel
 End Class

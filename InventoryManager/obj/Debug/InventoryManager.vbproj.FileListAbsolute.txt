@@ -94,3 +94,4 @@ C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\D
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.xml
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.pdb
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.vbprojResolveAssemblyReference.cache
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmItemCheckout.resources
