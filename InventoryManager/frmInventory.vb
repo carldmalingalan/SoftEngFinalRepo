@@ -17,18 +17,8 @@ Public Class frmInventory
     End Sub
 
     Private Sub btnUpdateItem_Click(sender As Object, e As EventArgs) Handles btnUpdateItem.Click
-        If (selectedRow > 0) Then
+        If (selectedRow >= 0) Then
             saveType1 = 2
-            frmItemManager.txtItemName.Text = dgvItemList.Rows(selectedRow).Cells(1).Value()
-            frmItemManager.txtItemQuantity.Text = dgvItemList.Rows(selectedRow).Cells(2).Value()
-            frmItemManager.txtDescription.Text = dgvItemList.Rows(selectedRow).Cells(3).Value()
-            If (dgvItemList.Rows(selectedRow).Cells(4).Value() = "HAIR") Then
-                frmItemManager.rdoHair.Checked = True
-            ElseIf (dgvItemList.Rows(selectedRow).Cells(4).Value() = "BODY") Then
-                frmItemManager.rdoBody.Checked = True
-            ElseIf (dgvItemList.Rows(selectedRow).Cells(4).Value() = "NAILS") Then
-                frmItemManager.rdoNails.Checked = True
-            End If
             itemID = dgvItemList.Rows(selectedRow).Cells(0).Value()
             Dim ab As New frmItemManager
             ab.Show()

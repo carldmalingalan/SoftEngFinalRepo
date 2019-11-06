@@ -1,9 +1,12 @@
-﻿Public Class frmItemManager
+﻿Imports System.Data.SqlClient
+
+Public Class frmItemManager
 
 
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
     Private critPoint As String
     Private ExpiDate As Object
+    Private ExpiDateforUpdate, CritPointForUpdate As Object
 
     Private Sub frmItemManager_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmMenu.Enabled = True
@@ -36,7 +39,56 @@
 
     Private Sub frmItemManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpExpirationDate.MinDate = Date.Today.AddDays(1)
+        If (saveType1 = 2) Then
+            GatherDataForUpdate()
+        End If
+    End Sub
 
+    Private Sub GatherDataForUpdate()
+        Call ConnectTOSQLServer()
+        strSQL = "select * from vw_InventoryView where ItemID = '" & itemID & "'"
+        cmd = New SqlCommand(strSQL, Connection)
+        Console.WriteLine(itemID)
+        Console.WriteLine(strSQL)
+        reader = cmd.ExecuteReader()
+        While reader.Read()
+            txtItemName.Text = reader.GetString(1)
+            txtItemQuantity.Text = reader.GetString(2)
+            txtDescription.Text = reader.GetString(3)
+            If (reader.GetString(4) = "Body") Then
+                rdoBody.Checked = True
+            ElseIf (reader.GetString(4) = "Hair") Then
+                rdoHair.Checked = True
+            ElseIf (reader.GetString(4) = "Face") Then
+                rdoFace.Checked = True
+            ElseIf (reader.GetString(4) = "Nails") Then
+                rdoNails.Checked = True
+            End If
+            ExpiDateforUpdate = reader.GetDateTime(5)
+            If (IsDBNull(ExpiDateforUpdate)) Then
+                checkboxExpirationNA.Checked = True
+                dtpExpirationDate.CustomFormat = " "  'An empty SPACE
+                dtpExpirationDate.Format = DateTimePickerFormat.Custom
+                dtpExpirationDate.Enabled = False
+            Else
+                dtpExpirationDate.CustomFormat = "MM/dd/yyyy"  'An empty SPACE
+                dtpExpirationDate.Format = DateTimePickerFormat.Custom
+                dtpExpirationDate.Enabled = True
+                dtpExpirationDate.MinDate = Date.Today.AddDays(1)
+                dtpExpirationDate.Value = ExpiDateforUpdate
+            End If
+            CritPointForUpdate = reader.GetString(6)
+            If (IsDBNull(CritPointForUpdate)) Then
+                cbCritPointNA.Checked = True
+                txtCriticalPoint.Enabled = False
+            Else
+                cbCritPointNA.Checked = False
+                txtCriticalPoint.Enabled = True
+                txtCriticalPoint.Text = CritPointForUpdate
+            End If
+        End While
+        reader.Close()
+        Call DisConnectSQLServer()
     End Sub
 
     Private Sub InitializeFlags()
@@ -145,14 +197,14 @@
 
         InitializeFlags()
         ItemDescriptionValidation()
-            ItemNameValidation()
-            ItemQuantityValidation()
-            RoleValidation()
+        ItemNameValidation()
+        ItemQuantityValidation()
+        RoleValidation()
 
-            If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
-                MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
-                Exit Sub
-            End If
+        If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
+            MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
+            Exit Sub
+        End If
         Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If (ask = vbYes) Then
             If (checkboxExpirationNA.Checked = False) Then
@@ -160,7 +212,7 @@
             Else
                 ExpiDate = DBNull.Value
             End If
-            If (cbCritPointNA.Checked = false) Then
+            If (cbCritPointNA.Checked = False) Then
                 critPoint = txtCriticalPoint.Text.Trim
             Else
                 critPoint = ""
@@ -168,12 +220,12 @@
             If (saveType1 = 1) Then
                 Call AddItem(txtItemName.Text.Trim, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate)
                 MsgBox("Successfully added item.", MsgBoxStyle.Information, Application.ProductName)
-                ElseIf (saveType1 = 2) Then
+            ElseIf (saveType1 = 2) Then
                 Call UpdateItem(txtItemName.Text, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate, itemID)
                 MsgBox("Successfully update item.", MsgBoxStyle.Information, Application.ProductName)
             End If
-                frmMenu.Enabled = True
-                Me.Close()
-            End If
+            frmMenu.Enabled = True
+            Me.Close()
+        End If
     End Sub
 End Class
