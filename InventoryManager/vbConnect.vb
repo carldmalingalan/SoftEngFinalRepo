@@ -197,7 +197,7 @@ Module vbConnect
 
     Public Sub UpdateItem(Itemname As String, ItemQuantity As String, ItemDescription As String, ItemClass As String, Crit As String, Expi As Object, ItemID As Int32)
         Call ConnectTOSQLServer()
-        strSQL = "update tblInventory Set Name = @Name, Quantity = @Quantity, [Description] = @Desc, Classification = @Class, Expiration=@Expi, [Critical Point] = @crit where ItemID = @ItemID"
+        strSQL = "update tblInventory Set Name = @Name, Quantity = (Quantity + @Quantity), [Description] = @Desc, Classification = @Class, Expiration=@Expi, [Critical Point] = @crit where ItemID = @ItemID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = Itemname
         cmd.Parameters.AddWithValue("@Quantity", SqlDbType.VarChar).Value = ItemQuantity

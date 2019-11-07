@@ -6,7 +6,7 @@ Public Class frmTransactionManager
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
     Dim indexChecked As String
     Dim headline As String
-
+    Private cfName, cLName, cMName As String
 
     Private Sub frmTransactionManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Width = 497
@@ -19,18 +19,6 @@ Public Class frmTransactionManager
 
     Private Sub LoadiTems2()
         Call ConnectTOSQLServer()
-        'strSQL = "select ServiceID, Name from tblServices where Status = '1' order by ServiceId"
-        'Dim da As New SqlDataAdapter(strSQL, Connection)
-        'Dim table As New DataTable()
-        'da.Fill(table)
-        'cboServiceAvailed.DataSource = New BindingSource(table, Nothing)
-        'cboServiceAvailed.DisplayMember = "Name"
-        ''write the column name which will be diplayed
-        ''you can even use  valueMember property, 
-        ''Names - DisplayMember - this is was you see in comboBox
-        ''IDs - ValueMember can be used as additional value of Person
-        'cboServiceAvailed.ValueMember = "ServiceID"
-        ''column name for value 
 
         strSQL = "select * from tblServices where Status = 1 "
         'Fill the DataTable with records from Table.
@@ -48,12 +36,7 @@ Public Class frmTransactionManager
         da2.Fill(table2)
         cboEmployeeAssigned.DataSource = New BindingSource(table2, Nothing)
         cboEmployeeAssigned.DisplayMember = "Fullname"
-        'write the column name which will be diplayed
-        'you can even use  valueMember property, 
-        'Names - DisplayMember - this is was you see in comboBox
-        'IDs - ValueMember can be used as additional value of Person
         cboEmployeeAssigned.ValueMember = "EmployeeID"
-        'column name for value 
         Call DisConnectSQLServer()
     End Sub
 
@@ -69,6 +52,22 @@ Public Class frmTransactionManager
     '        MsgBox("Invalid entry. Please complete details.", MsgBoxStyle.Critical, Application.ProductName)
     '    End If
     'End Sub
+
+    Private Sub getcustomerdata()
+        Call ConnectTOSQLServer()
+        strSQL = "SELECT CustomerID, Lastname, Firstname, [Middle Initial] FROM dbo.tblCustomer where CustomerID = '" & customerNumber & "'"
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader()
+        Do While reader.Read()
+            txtCustomerNumber.Text = customerNumber
+            txtCustLastname.Text = reader.GetString(1)
+            txtCustFirstname.Text = reader.GetString(2)
+            txtCustMiddlename.Text = reader.GetString(3)
+        Loop
+        reader.NextResult()
+        gbTransDetails.Enabled = True
+        Call DisConnectSQLServer()
+    End Sub
 
     Private Sub OpenPanel(ByVal Childform As Object)
         If Panel1.Controls.Count > 0 Then
@@ -96,6 +95,12 @@ Public Class frmTransactionManager
         txtCustFirstname.Enabled = True
     End Sub
 
+    Private Sub frmTransactionManager_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
+        If (Me.Width = 497 And choicetype = 2) Then
+            Call getcustomerdata()
+        End If
+    End Sub
+
     Private Sub btnNewCustomer_Click(sender As Object, e As EventArgs) Handles btnNewCustomer.Click
         choicetype = 1
         clearfields()
@@ -110,6 +115,7 @@ Public Class frmTransactionManager
         Me.Width = 926
         OpenPanel(New frmSearchCustomer)
     End Sub
+
 
     Private Sub txtCustMiddlename_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCustMiddlename.KeyPress
         If Not (Asc(e.KeyChar) = 8) Then
@@ -171,10 +177,10 @@ Public Class frmTransactionManager
                 Next
 
                 Call DisConnectSQLServer()
-                    MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
+                MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
                 frmTransactions.Enabled = True
-                Me.Close()
-                ElseIf (choicetype = 2) Then
+            ElseIf (choicetype = 2) Then '
+                Call ConnectTOSQLServer()
                 '          Call AddTransaction(cboServiceAvailed.SelectedValue, txtCustomerNumber.Text, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
                 For i As Integer = 0 To clbServices.Items.Count - 1
                     If (clbServices.GetItemChecked(i)) Then
@@ -194,10 +200,18 @@ Public Class frmTransactionManager
                 Next
                 MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
                 frmTransactions.Enabled = True
-                Me.Close()
-                End If
-
+                Call DisConnectSQLServer()
             End If
+
+            Dim ask2 = MsgBox("Are there item/s checked out?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            If ask2 = vbYes Then
+                OpenPanel(New frmItemCheckout)
+                Me.Width = 926
+            Else
+                Me.Close()
+            End If
+
+        End If
     End Sub
 
     Private Sub InitializeFlags()

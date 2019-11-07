@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmItemCheckout
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmItemCheckout
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -29,10 +29,6 @@ Partial Class frmItemCheckout
         Me.txtSearchname = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.dgvSearchItem = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.btnSearch = New System.Windows.Forms.Button()
-        Me.ItemID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemsForCheckOut = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvSearchItem, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,7 +73,6 @@ Partial Class frmItemCheckout
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvSearchItem.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvSearchItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSearchItem.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemID, Me.ItemName, Me.Quantity, Me.ItemsForCheckOut})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -111,30 +106,6 @@ Partial Class frmItemCheckout
         Me.btnSearch.TabIndex = 42
         Me.btnSearch.UseVisualStyleBackColor = True
         '
-        'ItemID
-        '
-        Me.ItemID.HeaderText = "Item ID"
-        Me.ItemID.Name = "ItemID"
-        Me.ItemID.ReadOnly = True
-        '
-        'ItemName
-        '
-        Me.ItemName.HeaderText = "Item Name"
-        Me.ItemName.Name = "ItemName"
-        Me.ItemName.ReadOnly = True
-        '
-        'Quantity
-        '
-        Me.Quantity.HeaderText = "Quantity"
-        Me.Quantity.Name = "Quantity"
-        Me.Quantity.ReadOnly = True
-        '
-        'ItemsForCheckOut
-        '
-        Me.ItemsForCheckOut.HeaderText = "Items Checkout"
-        Me.ItemsForCheckOut.Name = "ItemsForCheckOut"
-        Me.ItemsForCheckOut.ReadOnly = True
-        '
         'frmItemCheckout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -156,8 +127,4 @@ Partial Class frmItemCheckout
     Friend WithEvents txtSearchname As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents dgvSearchItem As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents btnSearch As Button
-    Friend WithEvents ItemID As DataGridViewTextBoxColumn
-    Friend WithEvents ItemName As DataGridViewTextBoxColumn
-    Friend WithEvents Quantity As DataGridViewTextBoxColumn
-    Friend WithEvents ItemsForCheckOut As DataGridViewTextBoxColumn
 End Class

@@ -26,15 +26,15 @@ Partial Class frmInventory
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInventory))
-        Me.BunifuCards2 = New Bunifu.Framework.UI.BunifuCards()
+        Me.cardCritStock = New Bunifu.Framework.UI.BunifuCards()
         Me.lblCritCount = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.BunifuCards1 = New Bunifu.Framework.UI.BunifuCards()
+        Me.cardInStock = New Bunifu.Framework.UI.BunifuCards()
         Me.lblActiveCount = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvItemList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.BunifuCards3 = New Bunifu.Framework.UI.BunifuCards()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cardOutofStock = New Bunifu.Framework.UI.BunifuCards()
+        Me.lblOutofstock = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
@@ -42,79 +42,83 @@ Partial Class frmInventory
         Me.btnExportItemList = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddItem = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.BunifuCards2.SuspendLayout()
-        Me.BunifuCards1.SuspendLayout()
+        Me.cardExpiringItem = New Bunifu.Framework.UI.BunifuCards()
+        Me.lblExpiring = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cardCritStock.SuspendLayout()
+        Me.cardInStock.SuspendLayout()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BunifuCards3.SuspendLayout()
+        Me.cardOutofStock.SuspendLayout()
+        Me.cardExpiringItem.SuspendLayout()
         Me.SuspendLayout()
         '
-        'BunifuCards2
+        'cardCritStock
         '
-        Me.BunifuCards2.BackColor = System.Drawing.Color.White
-        Me.BunifuCards2.BorderRadius = 5
-        Me.BunifuCards2.BottomSahddow = True
-        Me.BunifuCards2.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards2.Controls.Add(Me.lblCritCount)
-        Me.BunifuCards2.Controls.Add(Me.Label2)
-        Me.BunifuCards2.LeftSahddow = False
-        Me.BunifuCards2.Location = New System.Drawing.Point(193, 14)
-        Me.BunifuCards2.Name = "BunifuCards2"
-        Me.BunifuCards2.RightSahddow = True
-        Me.BunifuCards2.ShadowDepth = 20
-        Me.BunifuCards2.Size = New System.Drawing.Size(175, 101)
-        Me.BunifuCards2.TabIndex = 13
+        Me.cardCritStock.BackColor = System.Drawing.Color.White
+        Me.cardCritStock.BorderRadius = 5
+        Me.cardCritStock.BottomSahddow = True
+        Me.cardCritStock.color = System.Drawing.Color.Orange
+        Me.cardCritStock.Controls.Add(Me.lblCritCount)
+        Me.cardCritStock.Controls.Add(Me.Label2)
+        Me.cardCritStock.LeftSahddow = False
+        Me.cardCritStock.Location = New System.Drawing.Point(134, 16)
+        Me.cardCritStock.Name = "cardCritStock"
+        Me.cardCritStock.RightSahddow = True
+        Me.cardCritStock.ShadowDepth = 20
+        Me.cardCritStock.Size = New System.Drawing.Size(152, 76)
+        Me.cardCritStock.TabIndex = 13
         '
         'lblCritCount
         '
-        Me.lblCritCount.AutoSize = True
         Me.lblCritCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCritCount.Location = New System.Drawing.Point(53, 17)
+        Me.lblCritCount.Location = New System.Drawing.Point(6, 9)
         Me.lblCritCount.Name = "lblCritCount"
-        Me.lblCritCount.Size = New System.Drawing.Size(71, 39)
+        Me.lblCritCount.Size = New System.Drawing.Size(143, 39)
         Me.lblCritCount.TabIndex = 7
         Me.lblCritCount.Text = "999"
+        Me.lblCritCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(13, 76)
+        Me.Label2.Location = New System.Drawing.Point(3, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(149, 16)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "CRITICAL-POINT ITEMS"
         '
-        'BunifuCards1
+        'cardInStock
         '
-        Me.BunifuCards1.BackColor = System.Drawing.Color.White
-        Me.BunifuCards1.BorderRadius = 5
-        Me.BunifuCards1.BottomSahddow = True
-        Me.BunifuCards1.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards1.Controls.Add(Me.lblActiveCount)
-        Me.BunifuCards1.Controls.Add(Me.Label1)
-        Me.BunifuCards1.LeftSahddow = False
-        Me.BunifuCards1.Location = New System.Drawing.Point(12, 14)
-        Me.BunifuCards1.Name = "BunifuCards1"
-        Me.BunifuCards1.RightSahddow = True
-        Me.BunifuCards1.ShadowDepth = 20
-        Me.BunifuCards1.Size = New System.Drawing.Size(175, 101)
-        Me.BunifuCards1.TabIndex = 12
+        Me.cardInStock.BackColor = System.Drawing.Color.White
+        Me.cardInStock.BorderRadius = 5
+        Me.cardInStock.BottomSahddow = True
+        Me.cardInStock.color = System.Drawing.Color.Green
+        Me.cardInStock.Controls.Add(Me.lblActiveCount)
+        Me.cardInStock.Controls.Add(Me.Label1)
+        Me.cardInStock.LeftSahddow = False
+        Me.cardInStock.Location = New System.Drawing.Point(12, 16)
+        Me.cardInStock.Name = "cardInStock"
+        Me.cardInStock.RightSahddow = True
+        Me.cardInStock.ShadowDepth = 20
+        Me.cardInStock.Size = New System.Drawing.Size(116, 76)
+        Me.cardInStock.TabIndex = 12
         '
         'lblActiveCount
         '
-        Me.lblActiveCount.AutoSize = True
         Me.lblActiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActiveCount.Location = New System.Drawing.Point(47, 17)
+        Me.lblActiveCount.Location = New System.Drawing.Point(6, 9)
         Me.lblActiveCount.Name = "lblActiveCount"
-        Me.lblActiveCount.Size = New System.Drawing.Size(71, 39)
+        Me.lblActiveCount.Size = New System.Drawing.Size(105, 39)
         Me.lblActiveCount.TabIndex = 6
         Me.lblActiveCount.Text = "999"
+        Me.lblActiveCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(27, 76)
+        Me.Label1.Location = New System.Drawing.Point(3, 48)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 16)
         Me.Label1.TabIndex = 5
@@ -164,37 +168,37 @@ Partial Class frmInventory
         Me.dgvItemList.Size = New System.Drawing.Size(933, 372)
         Me.dgvItemList.TabIndex = 8
         '
-        'BunifuCards3
+        'cardOutofStock
         '
-        Me.BunifuCards3.BackColor = System.Drawing.Color.White
-        Me.BunifuCards3.BorderRadius = 5
-        Me.BunifuCards3.BottomSahddow = True
-        Me.BunifuCards3.color = System.Drawing.Color.SandyBrown
-        Me.BunifuCards3.Controls.Add(Me.Label3)
-        Me.BunifuCards3.Controls.Add(Me.Label4)
-        Me.BunifuCards3.LeftSahddow = False
-        Me.BunifuCards3.Location = New System.Drawing.Point(374, 14)
-        Me.BunifuCards3.Name = "BunifuCards3"
-        Me.BunifuCards3.RightSahddow = True
-        Me.BunifuCards3.ShadowDepth = 20
-        Me.BunifuCards3.Size = New System.Drawing.Size(175, 101)
-        Me.BunifuCards3.TabIndex = 14
+        Me.cardOutofStock.BackColor = System.Drawing.Color.White
+        Me.cardOutofStock.BorderRadius = 5
+        Me.cardOutofStock.BottomSahddow = True
+        Me.cardOutofStock.color = System.Drawing.Color.Red
+        Me.cardOutofStock.Controls.Add(Me.lblOutofstock)
+        Me.cardOutofStock.Controls.Add(Me.Label4)
+        Me.cardOutofStock.LeftSahddow = False
+        Me.cardOutofStock.Location = New System.Drawing.Point(292, 16)
+        Me.cardOutofStock.Name = "cardOutofStock"
+        Me.cardOutofStock.RightSahddow = True
+        Me.cardOutofStock.ShadowDepth = 20
+        Me.cardOutofStock.Size = New System.Drawing.Size(144, 76)
+        Me.cardOutofStock.TabIndex = 14
         '
-        'Label3
+        'lblOutofstock
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(53, 17)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 39)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "999"
+        Me.lblOutofstock.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOutofstock.Location = New System.Drawing.Point(6, 11)
+        Me.lblOutofstock.Name = "lblOutofstock"
+        Me.lblOutofstock.Size = New System.Drawing.Size(135, 39)
+        Me.lblOutofstock.TabIndex = 7
+        Me.lblOutofstock.Text = "999"
+        Me.lblOutofstock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(17, 76)
+        Me.Label4.Location = New System.Drawing.Point(3, 50)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(140, 16)
         Me.Label4.TabIndex = 5
@@ -346,50 +350,92 @@ Partial Class frmInventory
         Me.btnAddItem.Textcolor = System.Drawing.Color.White
         Me.btnAddItem.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
+        'cardExpiringItem
+        '
+        Me.cardExpiringItem.BackColor = System.Drawing.Color.White
+        Me.cardExpiringItem.BorderRadius = 5
+        Me.cardExpiringItem.BottomSahddow = True
+        Me.cardExpiringItem.color = System.Drawing.Color.Teal
+        Me.cardExpiringItem.Controls.Add(Me.lblExpiring)
+        Me.cardExpiringItem.Controls.Add(Me.Label6)
+        Me.cardExpiringItem.LeftSahddow = False
+        Me.cardExpiringItem.Location = New System.Drawing.Point(442, 16)
+        Me.cardExpiringItem.Name = "cardExpiringItem"
+        Me.cardExpiringItem.RightSahddow = True
+        Me.cardExpiringItem.ShadowDepth = 20
+        Me.cardExpiringItem.Size = New System.Drawing.Size(114, 76)
+        Me.cardExpiringItem.TabIndex = 15
+        '
+        'lblExpiring
+        '
+        Me.lblExpiring.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExpiring.Location = New System.Drawing.Point(3, 11)
+        Me.lblExpiring.Name = "lblExpiring"
+        Me.lblExpiring.Size = New System.Drawing.Size(108, 39)
+        Me.lblExpiring.TabIndex = 7
+        Me.lblExpiring.Text = "999"
+        Me.lblExpiring.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(3, 50)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(108, 16)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "EXPIRING ITEMS"
+        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.cardExpiringItem)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.BunifuCards3)
+        Me.Controls.Add(Me.cardOutofStock)
         Me.Controls.Add(Me.btnExportItemList)
-        Me.Controls.Add(Me.BunifuCards2)
-        Me.Controls.Add(Me.BunifuCards1)
+        Me.Controls.Add(Me.cardCritStock)
+        Me.Controls.Add(Me.cardInStock)
         Me.Controls.Add(Me.btnUpdateItem)
         Me.Controls.Add(Me.btnAddItem)
         Me.Controls.Add(Me.dgvItemList)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmInventory"
-        Me.BunifuCards2.ResumeLayout(False)
-        Me.BunifuCards2.PerformLayout()
-        Me.BunifuCards1.ResumeLayout(False)
-        Me.BunifuCards1.PerformLayout()
+        Me.cardCritStock.ResumeLayout(False)
+        Me.cardCritStock.PerformLayout()
+        Me.cardInStock.ResumeLayout(False)
+        Me.cardInStock.PerformLayout()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BunifuCards3.ResumeLayout(False)
-        Me.BunifuCards3.PerformLayout()
+        Me.cardOutofStock.ResumeLayout(False)
+        Me.cardOutofStock.PerformLayout()
+        Me.cardExpiringItem.ResumeLayout(False)
+        Me.cardExpiringItem.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents btnExportItemList As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents BunifuCards2 As Bunifu.Framework.UI.BunifuCards
+    Friend WithEvents cardCritStock As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents lblCritCount As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents BunifuCards1 As Bunifu.Framework.UI.BunifuCards
+    Friend WithEvents cardInStock As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents lblActiveCount As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btnUpdateItem As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnAddItem As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dgvItemList As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents BunifuCards3 As Bunifu.Framework.UI.BunifuCards
-    Friend WithEvents Label3 As Label
+    Friend WithEvents cardOutofStock As Bunifu.Framework.UI.BunifuCards
+    Friend WithEvents lblOutofstock As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents cardExpiringItem As Bunifu.Framework.UI.BunifuCards
+    Friend WithEvents lblExpiring As Label
+    Friend WithEvents Label6 As Label
 End Class

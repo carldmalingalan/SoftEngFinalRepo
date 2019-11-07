@@ -46,46 +46,49 @@ Public Class frmItemManager
 
     Private Sub GatherDataForUpdate()
         Call ConnectTOSQLServer()
-        strSQL = "select * from vw_InventoryView where ItemID = '" & itemID & "'"
+        strSQL = "select ItemID,Name,Quantity,[Critical Point], [Description],Classification, convert(varchar,Expiration,110) as [Expiration Date], [AccountName] as [Added By],CreationDate from vw_InventoryView where ItemID = '" & itemID & "'"
         cmd = New SqlCommand(strSQL, Connection)
         Console.WriteLine(itemID)
         Console.WriteLine(strSQL)
         reader = cmd.ExecuteReader()
         While reader.Read()
-            txtItemName.Text = reader.GetString(1)
-            txtItemQuantity.Text = reader.GetString(2)
-            txtDescription.Text = reader.GetString(3)
-            If (reader.GetString(4) = "Body") Then
-                rdoBody.Checked = True
-            ElseIf (reader.GetString(4) = "Hair") Then
-                rdoHair.Checked = True
-            ElseIf (reader.GetString(4) = "Face") Then
-                rdoFace.Checked = True
-            ElseIf (reader.GetString(4) = "Nails") Then
-                rdoNails.Checked = True
-            End If
-            ExpiDateforUpdate = reader.GetDateTime(5)
-            If (IsDBNull(ExpiDateforUpdate)) Then
-                checkboxExpirationNA.Checked = True
-                dtpExpirationDate.CustomFormat = " "  'An empty SPACE
-                dtpExpirationDate.Format = DateTimePickerFormat.Custom
-                dtpExpirationDate.Enabled = False
-            Else
-                dtpExpirationDate.CustomFormat = "MM/dd/yyyy"  'An empty SPACE
-                dtpExpirationDate.Format = DateTimePickerFormat.Custom
-                dtpExpirationDate.Enabled = True
-                dtpExpirationDate.MinDate = Date.Today.AddDays(1)
-                dtpExpirationDate.Value = ExpiDateforUpdate
-            End If
-            CritPointForUpdate = reader.GetString(6)
+            txtItemName.Text = reader.GetString(1).Trim
+            txtItemQuantity.Text = reader.GetString(2).Trim
+            CritPointForUpdate = reader.GetString(3).Trim
             If (IsDBNull(CritPointForUpdate)) Then
                 cbCritPointNA.Checked = True
                 txtCriticalPoint.Enabled = False
             Else
                 cbCritPointNA.Checked = False
                 txtCriticalPoint.Enabled = True
-                txtCriticalPoint.Text = CritPointForUpdate
+                txtCriticalPoint.Text = CritPointForUpdate.Trim
             End If
+            txtDescription.Text = reader.GetString(4).Trim
+            If (reader.GetString(5) = "Body") Then
+                rdoBody.Checked = True
+            ElseIf (reader.GetString(5) = "Hair") Then
+                rdoHair.Checked = True
+            ElseIf (reader.GetString(5) = "Face") Then
+                rdoFace.Checked = True
+            ElseIf (reader.GetString(5) = "Nails") Then
+                rdoNails.Checked = True
+            End If
+
+
+            If reader.IsDBNull(6) Then
+                checkboxExpirationNA.Checked = True
+                dtpExpirationDate.CustomFormat = " "  'An empty SPACE
+                dtpExpirationDate.Format = DateTimePickerFormat.Custom
+                dtpExpirationDate.Enabled = False
+            Else
+                ExpiDateforUpdate = reader.GetString(6)
+                dtpExpirationDate.CustomFormat = "MM/dd/yyyy"  'An empty SPACE
+                dtpExpirationDate.Format = DateTimePickerFormat.Custom
+                    dtpExpirationDate.Enabled = True
+                    dtpExpirationDate.Value = ExpiDateforUpdate
+
+            End If
+
         End While
         reader.Close()
         Call DisConnectSQLServer()
@@ -222,7 +225,7 @@ Public Class frmItemManager
                 MsgBox("Successfully added item.", MsgBoxStyle.Information, Application.ProductName)
             ElseIf (saveType1 = 2) Then
                 Call UpdateItem(txtItemName.Text, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate, itemID)
-                MsgBox("Successfully update item.", MsgBoxStyle.Information, Application.ProductName)
+                MsgBox("Successfully updated item.", MsgBoxStyle.Information, Application.ProductName)
             End If
             frmMenu.Enabled = True
             Me.Close()

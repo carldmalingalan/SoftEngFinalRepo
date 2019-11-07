@@ -34,23 +34,18 @@ Public Class frmSearchCustomer
         End If
     End Sub
 
-    Private Sub dgvSearchList_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchList.CellDoubleClick, dgvSearchList.CellDoubleClick
+    Private Sub dgvSearchList_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchList.CellDoubleClick, dgvSearchList.CellContentDoubleClick
         If (dgvSearchList.Rows.Count > 0) Then
             Dim ask = MsgBox("Are you sure you want to use this customer?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If (ask = vbYes) Then
                 customerNumber = dgvSearchList.Rows(selectedRow).Cells(0).Value()
-                'frmTransactionManager.txtCustomerNumber.Text = dgvSearchList.Rows(selectedRow).Cells(0).Value()
-                'frmTransactionManager.txtCustLastname.Text = dgvSearchList.Rows(selectedRow).Cells(1).Value()
-                'frmTransactionManager.txtCustFirstname.Text = dgvSearchList.Rows(selectedRow).Cells(2).Value()
-                'frmTransactionManager.txtCustMiddlename.Text = dgvSearchList.Rows(selectedRow).Cells(3).Value()
-                'frmTransactionManager.gbTransDetails.Enabled = True
-                'frmTransactionManager.txtCustFirstname.Enabled = False
-                'frmTransactionManager.txtCustLastname.Enabled = False
-                'frmTransactionManager.txtCustMiddlename.Enabled = False
-                frmTransactionManager.Width = 497
+                ParentForm.Width = 497
             End If
+            Console.WriteLine(customerNumber)
         End If
     End Sub
+
+
 
     Private Sub frmSearchCustomer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call viewrecords()

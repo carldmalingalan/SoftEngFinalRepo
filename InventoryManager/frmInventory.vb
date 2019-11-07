@@ -1,8 +1,9 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class frmInventory
-    Private outstock, instocks, critstock As String
+    Private outstock, instocks, critstock, expiring, cond As String
     Private selectedRow As Integer
+
 
     Private Sub frmInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'JandADataSet3.tblInventory' table. You can move, or remove it, as needed.
@@ -25,13 +26,35 @@ Public Class frmInventory
             frmMenu.Enabled = False
         End If
     End Sub
+
+    Private Sub cardCritStock_Click(sender As Object, e As EventArgs) Handles cardCritStock.Click, lblCritCount.Click
+        cond = "  where Quantity <= [Critical Point] "
+        Call viewItemList_reload()
+    End Sub
+
+    Private Sub cardOutofStock_Click(sender As Object, e As EventArgs) Handles cardOutofStock.Click, lblOutofstock.Click
+        cond = " where Quantity = '0'"
+        Call viewItemList_reload()
+    End Sub
+
+    Private Sub cardExpiringItem_Click(sender As Object, e As EventArgs) Handles cardExpiringItem.Click, lblExpiring.Click
+        cond = " where Expiration is not null and Expiration > getdate()"
+        Call viewItemList_reload()
+    End Sub
+
     Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellClick
-        If (dgvItemList.Rows.Count > 0) Then
+        If (dgvItemList.Rows.Count >= 0) Then
             Try
                 selectedRow = e.RowIndex
             Catch ex As Exception
             End Try
+            Console.WriteLine(selectedRow)
         End If
+    End Sub
+
+    Private Sub cardInStock_Paint(sender As Object, e As EventArgs) Handles cardInStock.Click, lblActiveCount.Click
+        cond = " where Quantity <> '0'"
+        Call viewItemList_reload()
     End Sub
 
     Private Sub frmInventory_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
@@ -40,7 +63,7 @@ Public Class frmInventory
 
     Private Sub viewItemList_reload()
         Call ConnectTOSQLServer()
-        strSQL = "select * from vw_InventoryView"
+        strSQL = "select * from vw_InventoryView " & cond
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim ItemList As New DataSet()
@@ -88,9 +111,22 @@ Public Class frmInventory
         Loop
         reader.Close()
 
+        strSQL = "select count(*) as CountExpi from vw_InventoryView where Expiration is not null and DATEADD(DAY, -30, Expiration) >   convert(varchar,getdate(),101)"
+        Console.WriteLine()
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader()
+        Do While reader.HasRows
+            Do While reader.Read()
+                expiring = reader.GetInt32(0)
+            Loop
+            reader.NextResult()
+        Loop
+        reader.Close()
+
         lblActiveCount.Text = instocks
-        Label3.Text = outstock
+        lblOutofstock.Text = outstock
         lblCritCount.Text = critstock
+        lblExpiring.Text = expiring
         Call DisConnectSQLServer()
     End Sub
 End Class

@@ -177,6 +177,12 @@
     <Compile Include="frmItemManager.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmItemQuantity.Designer.vb">
+      <DependentUpon>frmItemQuantity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItemQuantity.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmItemManager.resx">
       <DependentUpon>frmItemManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItemQuantity.resx">
+      <DependentUpon>frmItemQuantity.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>

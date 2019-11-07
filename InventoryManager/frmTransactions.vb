@@ -60,6 +60,7 @@ Public Class frmTransactions
     '    End If
     'End Sub
 
+
     Private Sub btnVoidTransaction_Click(sender As Object, e As EventArgs) Handles btnVoidTransaction.Click
         If (login_accesstype <> "ADMINISTRATOR") Then
             Dim ask = MsgBox("Administrator Authorization Required! Please request for admin credential authorization.", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
@@ -78,6 +79,6 @@ Public Class frmTransactions
     End Sub
 
     Private Sub frmTransactions_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
-        Call viewTransactions()
+        frmTransactions_Load(sender, e)
     End Sub
 End Class
