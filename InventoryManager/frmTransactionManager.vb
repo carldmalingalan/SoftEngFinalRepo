@@ -154,9 +154,12 @@ Public Class frmTransactionManager
                 Exit Sub
             End If
 
+
+
             If (choicetype = 1) Then
                 Call AddCustomer(txtCustLastname.Text, txtCustFirstname.Text, txtCustMiddlename.Text)
                 txtCustomerNumber.Text = lastIdentity
+                Call AddTransactionRef(txtCustomerNumber.Text)
                 Call ConnectTOSQLServer()
 
                 For i As Integer = 0 To clbServices.Items.Count - 1
@@ -164,7 +167,7 @@ Public Class frmTransactionManager
                         Dim dtrv As DataRowView = CType(clbServices.Items(i), DataRowView)
                         Dim dtr As DataRow = dtrv.Row
                         Dim dtrValueMember As String = dtr(clbServices.ValueMember).ToString()
-                        strSQL = "insert into tblTransactions(Date,ServiceID,EmployeeID,CustomerID,CreationDate,CreatedBy,DataStatus,ModdedBy,ModdedDate,Remarks)values(convert(varchar,getdate(),110),@ServiceID,@EmployeeID,@CustomerID,getdate(),@Creator,'ACTIVE',@Modder,getdate(),@Remarks)"
+                        strSQL = "insert into tblTransactions(Date,ServiceID,EmployeeID,CustomerID,CreationDate,CreatedBy,DataStatus,ModdedBy,ModdedDate,Remarks,TransactionRefID)values(convert(varchar,getdate(),110),@ServiceID,@EmployeeID,@CustomerID,getdate(),@Creator,'ACTIVE',@Modder,getdate(),@Remarks,@Transref)"
                         cmd = New SqlCommand(strSQL, Connection)
                         cmd.Parameters.AddWithValue("@EmployeeID", SqlDbType.Int).Value = cboEmployeeAssigned.SelectedValue
                         cmd.Parameters.AddWithValue("@CustomerID", SqlDbType.Int).Value = lastIdentity
@@ -172,14 +175,17 @@ Public Class frmTransactionManager
                         cmd.Parameters.AddWithValue("@Creator", SqlDbType.Int).Value = login_id
                         cmd.Parameters.AddWithValue("@Modder", SqlDbType.Int).Value = login_id
                         cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = dtrValueMember
+                        cmd.Parameters.AddWithValue("@Transref", SqlDbType.Int).Value = lastTransID
                         cmd.ExecuteNonQuery()
                     End If
+                    Console.WriteLine(strSQL)
                 Next
 
                 Call DisConnectSQLServer()
                 MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)
                 frmTransactions.Enabled = True
             ElseIf (choicetype = 2) Then '
+                Call AddTransactionRef(txtCustomerNumber.Text)
                 Call ConnectTOSQLServer()
                 '          Call AddTransaction(cboServiceAvailed.SelectedValue, txtCustomerNumber.Text, cboEmployeeAssigned.SelectedValue, txtRemarks.Text)
                 For i As Integer = 0 To clbServices.Items.Count - 1
@@ -187,7 +193,7 @@ Public Class frmTransactionManager
                         Dim dtrv As DataRowView = CType(clbServices.Items(i), DataRowView)
                         Dim dtr As DataRow = dtrv.Row
                         Dim dtrValueMember As String = dtr(clbServices.ValueMember).ToString()
-                        strSQL = "insert into tblTransactions(Date,ServiceID,EmployeeID,CustomerID,CreationDate,CreatedBy,DataStatus,ModdedBy,ModdedDate,Remarks)values(convert(varchar,getdate(),110),@ServiceID,@EmployeeID,@CustomerID,getdate(),@Creator,'ACTIVE',@Modder,getdate(),@Remarks)"
+                        strSQL = "insert into tblTransactions(Date,ServiceID,EmployeeID,CustomerID,CreationDate,CreatedBy,DataStatus,ModdedBy,ModdedDate,Remarks,TransactionRefID)values(convert(varchar,getdate(),110),@ServiceID,@EmployeeID,@CustomerID,getdate(),@Creator,'ACTIVE',@Modder,getdate(),@Remarks,@transref)"
                         cmd = New SqlCommand(strSQL, Connection)
                         cmd.Parameters.AddWithValue("@EmployeeID", SqlDbType.Int).Value = cboEmployeeAssigned.SelectedValue
                         cmd.Parameters.AddWithValue("@CustomerID", SqlDbType.Int).Value = txtCustomerNumber.Text
@@ -195,7 +201,9 @@ Public Class frmTransactionManager
                         cmd.Parameters.AddWithValue("@Creator", SqlDbType.Int).Value = login_id
                         cmd.Parameters.AddWithValue("@Modder", SqlDbType.Int).Value = login_id
                         cmd.Parameters.AddWithValue("@ServiceID", SqlDbType.Int).Value = dtrValueMember
+                        cmd.Parameters.AddWithValue("@transref", SqlDbType.Int).Value = lastTransID
                         cmd.ExecuteNonQuery()
+                        Console.WriteLine(strSQL)
                     End If
                 Next
                 MsgBox("Successfully created transaction.", MsgBoxStyle.Information, Application.ProductName)

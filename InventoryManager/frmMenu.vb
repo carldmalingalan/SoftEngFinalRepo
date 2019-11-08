@@ -1,9 +1,9 @@
 ﻿Public Class frmMenu
 
     Private Sub frmMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Timer1.Enabled = True
         logInfo = "Accessed the Menu"
         Call RecordLog(logInfo)
-        Timer1.Enabled = True
         lblName.Text = login_name
         If (login_accesstype = "ADMINISTRATOR") Then
             btnAccounts.Enabled = True
@@ -176,7 +176,7 @@
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        lblDate.Text = DateString
+        lblDate.Text = Now.ToLongDateString
         lblTime.Text = TimeString
     End Sub
 End Class

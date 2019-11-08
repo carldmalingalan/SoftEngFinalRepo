@@ -32,7 +32,6 @@ Partial Class frmTransactions
         Me.btnExportUsers = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnVoidTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.btnUpdateTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
         CType(Me.dgvTransactionsList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -127,7 +126,7 @@ Partial Class frmTransactions
         Me.btnExportUsers.IconVisible = True
         Me.btnExportUsers.IconZoom = 90.0R
         Me.btnExportUsers.IsTab = False
-        Me.btnExportUsers.Location = New System.Drawing.Point(951, 344)
+        Me.btnExportUsers.Location = New System.Drawing.Point(951, 290)
         Me.btnExportUsers.Name = "btnExportUsers"
         Me.btnExportUsers.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
         Me.btnExportUsers.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -162,7 +161,7 @@ Partial Class frmTransactions
         Me.btnVoidTransaction.IconVisible = True
         Me.btnVoidTransaction.IconZoom = 90.0R
         Me.btnVoidTransaction.IsTab = False
-        Me.btnVoidTransaction.Location = New System.Drawing.Point(951, 290)
+        Me.btnVoidTransaction.Location = New System.Drawing.Point(951, 236)
         Me.btnVoidTransaction.Name = "btnVoidTransaction"
         Me.btnVoidTransaction.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnVoidTransaction.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -210,41 +209,6 @@ Partial Class frmTransactions
         Me.btnAddTransactions.Textcolor = System.Drawing.Color.White
         Me.btnAddTransactions.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
-        'btnUpdateTransactions
-        '
-        Me.btnUpdateTransactions.Activecolor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.btnUpdateTransactions.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnUpdateTransactions.BackColor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.btnUpdateTransactions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnUpdateTransactions.BorderRadius = 7
-        Me.btnUpdateTransactions.ButtonText = "Update Transaction"
-        Me.btnUpdateTransactions.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnUpdateTransactions.DisabledColor = System.Drawing.Color.Gray
-        Me.btnUpdateTransactions.Iconcolor = System.Drawing.Color.Transparent
-        Me.btnUpdateTransactions.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_3_
-        Me.btnUpdateTransactions.Iconimage_right = Nothing
-        Me.btnUpdateTransactions.Iconimage_right_Selected = Nothing
-        Me.btnUpdateTransactions.Iconimage_Selected = Nothing
-        Me.btnUpdateTransactions.IconMarginLeft = 0
-        Me.btnUpdateTransactions.IconMarginRight = 0
-        Me.btnUpdateTransactions.IconRightVisible = True
-        Me.btnUpdateTransactions.IconRightZoom = 0R
-        Me.btnUpdateTransactions.IconVisible = True
-        Me.btnUpdateTransactions.IconZoom = 90.0R
-        Me.btnUpdateTransactions.IsTab = False
-        Me.btnUpdateTransactions.Location = New System.Drawing.Point(951, 236)
-        Me.btnUpdateTransactions.Name = "btnUpdateTransactions"
-        Me.btnUpdateTransactions.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.btnUpdateTransactions.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.btnUpdateTransactions.OnHoverTextColor = System.Drawing.Color.White
-        Me.btnUpdateTransactions.selected = False
-        Me.btnUpdateTransactions.Size = New System.Drawing.Size(191, 48)
-        Me.btnUpdateTransactions.TabIndex = 13
-        Me.btnUpdateTransactions.Text = "Update Transaction"
-        Me.btnUpdateTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUpdateTransactions.Textcolor = System.Drawing.Color.White
-        Me.btnUpdateTransactions.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        '
         'frmTransactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -255,7 +219,6 @@ Partial Class frmTransactions
         Me.Controls.Add(Me.btnExportUsers)
         Me.Controls.Add(Me.btnVoidTransaction)
         Me.Controls.Add(Me.btnAddTransactions)
-        Me.Controls.Add(Me.btnUpdateTransactions)
         Me.Controls.Add(Me.dgvTransactionsList)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -269,7 +232,6 @@ Partial Class frmTransactions
 
     Friend WithEvents btnExportUsers As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnAddTransactions As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents btnUpdateTransactions As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dgvTransactionsList As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnVoidTransaction As Bunifu.Framework.UI.BunifuFlatButton

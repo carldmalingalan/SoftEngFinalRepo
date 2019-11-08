@@ -37,10 +37,10 @@ Module vbConnect
     Public saveType As String 'accounts
     Public saveType1 As String 'items
     Public saveType2 As String 'transactions
-    Public lastIdentity As Int32
+    Public lastIdentity, lastTransID As Int32
     Public voidID As Int32
     Public logInfo As String
-    Public customerNumber As Integer
+    Public customerNumber, itemNumber As Integer
     Function GetHash(theInput As String) As String
 
         Using hasher As SHA256 = SHA256.Create()    ' create hash object
@@ -323,6 +323,27 @@ Module vbConnect
         Console.WriteLine(strSQL)
         If reader.Read() = True Then
             lastIdentity = reader.GetInt32(0)
+        End If
+        Call DisConnectSQLServer()
+    End Sub
+
+
+    Public Sub AddTransactionRef(custID As Int32)
+        Call ConnectTOSQLServer()
+        strSQL = "insert into tblTransactionList(CustomerID,AuthorID,TransactionDate) values (@custID,@authID,getdate())"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@custID", SqlDbType.VarChar).Value = custID
+        cmd.Parameters.AddWithValue("@authID", SqlDbType.VarChar).Value = login_id
+        cmd.ExecuteNonQuery()
+        Console.WriteLine(strSQL)
+
+        strSQL = "select TransactionNumber from tblTransactionList where AuthorID = @Login order by TransactionDate DESC"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@Login", SqlDbType.Int).Value = login_id
+        reader = cmd.ExecuteReader()
+        Console.WriteLine(strSQL)
+        If reader.Read() = True Then
+            lastTransID = reader.GetInt32(0)
         End If
         Call DisConnectSQLServer()
     End Sub

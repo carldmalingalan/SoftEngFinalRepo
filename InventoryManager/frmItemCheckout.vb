@@ -30,12 +30,17 @@ Public Class frmItemCheckout
 
     Private Sub dgvSearchItem_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchItem.CellContentDoubleClick
         If (dgvSearchItem.Rows.Count > 0) Then
-            Dim ask = MsgBox("Are you sure you want to use this customer?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            Dim ask = MsgBox("Are you sure this item has been used?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If (ask = vbYes) Then
-                customerNumber = dgvSearchItem.Rows(selectedRow).Cells(0).Value()
-                ParentForm.Width = 497
+                itemNumber = dgvSearchItem.Rows(selectedRow).Cells(0).Value()
+                Dim ab As New frmItemQuantity
+                ab.ShowDialog()
             End If
-            Console.WriteLine(customerNumber)
+            Console.WriteLine(itemNumber)
         End If
+    End Sub
+
+    Private Sub frmItemCheckout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadItemList()
     End Sub
 End Class
