@@ -1,8 +1,12 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class frmItemQuantity
+    Dim flag1 As Boolean
     Private Sub frmItemQuantity_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadItemlIst()
+    End Sub
+    Private Sub Initializeflag()
+        flag1 = True
     End Sub
 
     Private Sub loadItemlIst()
@@ -18,13 +22,36 @@ Public Class frmItemQuantity
             lblCrit.Text = reader.GetString(3)
             lblDesc.Text = reader.GetString(4)
             lblCateg.Text = reader.GetString(5)
-
         Loop
         reader.NextResult()
         Call DisConnectSQLServer()
     End Sub
 
+    Private Sub Validation()
+        If txtQuantityOut.Text.Trim > lblQty.Text Then
+            ErrorProvider1.SetError(txtQuantityOut, "Quantity must be lower than stored value.")
+            ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
+            flag1 = False
+        ElseIf (txtQuantityOut.Text.Trim = "") Then
+            ErrorProvider1.SetError(txtQuantityOut, "Blank field is not allowed.")
+            ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
+            flag1 = False
+        ElseIf (Not IsNumeric(txtQuantityOut.Text.Trim)) Or txtQuantityOut.Text.IndexOfAny("1234567890") > -1 Then
+            ErrorProvider1.SetError(txtQuantityOut, "Only numberic characters are allowed.")
+            ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
+            flag1 = False
+        Else
+            ErrorProvider1.SetError(txtQuantityOut, "")
+        End If
+    End Sub
+
     Private Sub btnSaveItem_Click(sender As Object, e As EventArgs) Handles btnSaveItem.Click
+        Initializeflag()
+        Validation()
+        If (flag1 = False) Then
+            Exit Sub
+        End If
+
 
     End Sub
 End Class

@@ -22,6 +22,7 @@ Partial Class frmItemQuantity
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmItemQuantity))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnSaveItem = New MaterialSkin.Controls.MaterialFlatButton()
@@ -38,6 +39,8 @@ Partial Class frmItemQuantity
         Me.lblCateg = New System.Windows.Forms.Label()
         Me.txtQuantityOut = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -55,7 +58,7 @@ Partial Class frmItemQuantity
         Me.btnSaveItem.AutoSize = True
         Me.btnSaveItem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnSaveItem.Depth = 0
-        Me.btnSaveItem.Location = New System.Drawing.Point(249, 224)
+        Me.btnSaveItem.Location = New System.Drawing.Point(249, 215)
         Me.btnSaveItem.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnSaveItem.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnSaveItem.Name = "btnSaveItem"
@@ -202,6 +205,11 @@ Partial Class frmItemQuantity
         Me.Label13.TabIndex = 39
         Me.Label13.Text = "Quantity Used"
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'frmItemQuantity
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -230,6 +238,7 @@ Partial Class frmItemQuantity
         Me.Style = MetroFramework.MetroColorStyle.Pink
         Me.Text = "Item Checkout"
         Me.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -250,4 +259,5 @@ Partial Class frmItemQuantity
     Friend WithEvents lblCateg As Label
     Friend WithEvents txtQuantityOut As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents Label13 As Label
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

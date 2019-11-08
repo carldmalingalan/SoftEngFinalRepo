@@ -28,7 +28,7 @@ Public Class frmItemCheckout
         End If
     End Sub
 
-    Private Sub dgvSearchItem_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchItem.CellContentDoubleClick
+    Private Sub dgvSearchItem_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchItem.CellContentDoubleClick, dgvSearchItem.CellDoubleClick
         If (dgvSearchItem.Rows.Count > 0) Then
             Dim ask = MsgBox("Are you sure this item has been used?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If (ask = vbYes) Then
@@ -43,4 +43,5 @@ Public Class frmItemCheckout
     Private Sub frmItemCheckout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadItemList()
     End Sub
+
 End Class

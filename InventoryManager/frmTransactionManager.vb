@@ -101,6 +101,12 @@ Public Class frmTransactionManager
         End If
     End Sub
 
+    Private Sub gbTransDetails_Enter(sender As Object, e As EventArgs) Handles gbTransDetails.Enter
+        clbServices.Visible = False
+        clbServices.Left = 159
+        clbServices.Top = 154
+    End Sub
+
     Private Sub btnNewCustomer_Click(sender As Object, e As EventArgs) Handles btnNewCustomer.Click
         choicetype = 1
         clearfields()

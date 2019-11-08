@@ -53,9 +53,9 @@ Public Class frmItemManager
         reader = cmd.ExecuteReader()
         While reader.Read()
             txtItemName.Text = reader.GetString(1).Trim
-            txtItemQuantity.Text = reader.GetString(2).Trim
+            txtItemQuantity.Text = reader.GetValue(2)
             CritPointForUpdate = reader.GetString(3).Trim
-            If (IsDBNull(CritPointForUpdate)) Then
+            If (IsDBNull(CritPointForUpdate) Or CritPointForUpdate = "") Then
                 cbCritPointNA.Checked = True
                 txtCriticalPoint.Enabled = False
             Else

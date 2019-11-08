@@ -347,4 +347,8 @@ Module vbConnect
         End If
         Call DisConnectSQLServer()
     End Sub
+
+    Public Sub AddCheckOut()
+
+    End Sub
 End Module
