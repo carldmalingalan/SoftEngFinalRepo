@@ -48,7 +48,4 @@ Public Class frmSearchItemCheckout
         frmItemCheckout_Load(sender, e)
     End Sub
 
-    Private Sub btnShowItemCheckedOut_Click(sender As Object, e As EventArgs) Handles btnShowItemCheckedOut.Click
-
-    End Sub
 End Class

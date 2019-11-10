@@ -198,6 +198,8 @@ Public Class frmEmployeeManager
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Call ViewEmployeeList()
+        logInfo = "Searched " & txtSearch.Text.Trim.Replace("-", "") & " in the Employee List."
+        Call RecordLog(logInfo)
     End Sub
 
 

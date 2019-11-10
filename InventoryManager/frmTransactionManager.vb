@@ -242,9 +242,7 @@ Public Class frmTransactionManager
 
             Dim ask2 = MsgBox("Are there item/s checked out?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If ask2 = vbYes Then
-                OpenPanel(New frmSearchItemCheckout)
-                Me.Width = 926
-            Else
+                frmShowCheckoutlist.ShowDialog()
                 Me.Close()
             End If
 

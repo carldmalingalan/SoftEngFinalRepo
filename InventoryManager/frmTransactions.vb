@@ -40,7 +40,10 @@ Public Class frmTransactions
                 frmAdminPrompt.ShowDialog()
             End If
         Else
-
+            Dim ask = MsgBox("Are you sure you want to void this transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            If ask = vbYes Then
+                Call VoidTransaction()
+            End If
         End If
     End Sub
 

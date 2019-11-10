@@ -33,14 +33,17 @@ Module vbConnect
     Public sqlConnectionString = "Server=MONKEYPC\MARCODATABASE;Database=JandA2;Trusted_Connection=True;"
 
     Public accountID As Int32
-    Public itemID As Int32
+    Public itemID, itemIDCheckout As Int32
     Public saveType As String 'accounts
     Public saveType1 As String 'items
     Public saveType2 As String 'transactions
     Public lastIdentity, lastTransID As Int32
     Public voidID As Int32
     Public logInfo As String
+    Public checkoutqty As String
     Public customerNumber, itemNumber As Integer
+    Public checkoutiD, quantitycheckout As Integer
+    Public btnType As String
     Function GetHash(theInput As String) As String
 
         Using hasher As SHA256 = SHA256.Create()    ' create hash object
@@ -369,6 +372,20 @@ Module vbConnect
         cmd.ExecuteNonQuery()
 
         Console.WriteLine(strSQL)
+
+        Call DisConnectSQLServer()
+    End Sub
+
+    Public Sub RemoveItemCheckout()
+        Call ConnectTOSQLServer()
+        strSQL = "update tblInventory set Quantity = Quantity + @Quantity where ItemID = @itemID"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@itemID", SqlDbType.VarChar).Value = itemIDCheckout
+        cmd.Parameters.AddWithValue("@Quantity", SqlDbType.VarChar).Value = quantitycheckout
+        cmd.ExecuteNonQuery()
+        strSQL = "update tblCheckOutTable set DataStatus = 'DELETED' where CheckoutID = " & checkoutiD
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.ExecuteNonQuery()
 
         Call DisConnectSQLServer()
     End Sub

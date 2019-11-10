@@ -4,6 +4,9 @@ Public Class frmItemQuantity
     Dim flag1 As Boolean
     Private Sub frmItemQuantity_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadItemlIst()
+        If (btnType = "EDIT") Then
+            txtQuantityOut.Text = quantitycheckout
+        End If
     End Sub
     Private Sub Initializeflag()
         flag1 = True
@@ -12,22 +15,26 @@ Public Class frmItemQuantity
     Private Sub loadItemlIst()
         lblTxn.Text = "Trans#" & lastTransID
         Call ConnectTOSQLServer()
-        strSQL = "select * from vw_InventoryView where ItemID = '" & itemNumber & "'"
+        strSQL = "select * from vw_InventoryView where ItemID = " & itemNumber
         Console.WriteLine(strSQL)
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()
         Do While reader.Read()
             lblName.Text = reader.GetString(1)
-            lblQty.Text = CStr(reader.GetDecimal(2))
-            lblDesc.Text = reader.GetString(4)
+            If (btnType = "EDIT") Then
+                lblQty.Text = checkoutqty
+            Else
+                lblQty.Text = CStr(reader.GetDecimal(2))
+            End If
             lblCateg.Text = reader.GetString(5)
+            lblDesc.Text = reader.GetString(4)
         Loop
         reader.NextResult()
         Call DisConnectSQLServer()
     End Sub
 
     Private Sub Validation()
-        If txtQuantityOut.Text.Trim > lblQty.Text Then
+        If CDec(txtQuantityOut.Text.Trim) > CDec(lblQty.Text) Then
             ErrorProvider1.SetError(txtQuantityOut, "Quantity must be lower than stored value.")
             ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
             flag1 = False
@@ -37,6 +44,10 @@ Public Class frmItemQuantity
             flag1 = False
         ElseIf (Not IsNumeric(txtQuantityOut.Text.Trim)) Then
             ErrorProvider1.SetError(txtQuantityOut, "Only numberic characters are allowed.")
+            ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
+            flag1 = False
+        ElseIf (CDec(txtQuantityOut.Text.Trim) < 1) Then
+            ErrorProvider1.SetError(txtQuantityOut, "Quantity must be atleast 1.")
             ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
             flag1 = False
         Else
@@ -51,10 +62,15 @@ Public Class frmItemQuantity
             Exit Sub
         End If
         Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
-        If (ask = vbYes) Then
-            Call AddCheckOut(txtQuantityOut.Text.Trim)
-            Call UpdateItemThruTransaction(txtQuantityOut.Text.Trim)
-            Close()
+        If ask = vbYes Then
+            checkoutqty = txtQuantityOut.Text.Trim
+            Call AddCheckOut(checkoutqty)
+            Call UpdateItemThruTransaction(checkoutqty)
+            Me.Close()
         End If
+    End Sub
+
+    Private Sub frmItemQuantity_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frmShowCheckoutlist.Enabled = True
     End Sub
 End Class

@@ -208,7 +208,6 @@ Partial Class frmItemQuantity
         Me.Controls.Add(Me.btnSaveItem)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Movable = False
         Me.Name = "frmItemQuantity"
         Me.Resizable = False
         Me.Style = MetroFramework.MetroColorStyle.Pink

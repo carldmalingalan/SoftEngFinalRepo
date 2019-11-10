@@ -8,7 +8,7 @@
             Call Login(txtUsername.Text, txtPassword.Text)
             If (login_name <> "") Then
                 If (login_accountstatus <> "INACTIVE") Then
-                    logInfo = "Login but inactive."
+                    logInfo = "Login successfully."
                     Call RecordLog(logInfo)
                     If (txtPassword.Text = "admin12345") Then
                         Dim ask = MsgBox("Your account is in default state. Please provide a new password.", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
@@ -21,6 +21,8 @@
                         Me.Close()
                     End If
                 Else
+                    logInfo = "Login but inactive."
+                    Call RecordLog(logInfo)
                     MsgBox("Your account is inactive. Please contact an administrator.", MsgBoxStyle.Information, Application.ProductName)
                 End If
             Else

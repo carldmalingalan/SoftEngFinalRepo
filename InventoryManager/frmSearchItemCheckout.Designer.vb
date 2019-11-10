@@ -99,8 +99,8 @@ Partial Class frmSearchItemCheckout
         '
         'btnShowItemCheckedOut
         '
-        Me.btnShowItemCheckedOut.BackColor = System.Drawing.Color.RosyBrown
-        Me.btnShowItemCheckedOut.Image = Global.InventoryManager.My.Resources.Resources.medical_notes_symbol_of_a_list_paper_on_a_clipboard_2_
+        Me.btnShowItemCheckedOut.BackColor = System.Drawing.Color.Transparent
+        Me.btnShowItemCheckedOut.Image = Global.InventoryManager.My.Resources.Resources.medical_notes_symbol_of_a_list_paper_on_a_clipboard
         Me.btnShowItemCheckedOut.ImageActive = Nothing
         Me.btnShowItemCheckedOut.Location = New System.Drawing.Point(12, 10)
         Me.btnShowItemCheckedOut.Name = "btnShowItemCheckedOut"

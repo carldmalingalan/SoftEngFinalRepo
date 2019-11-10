@@ -221,16 +221,21 @@ Public Class frmItemManager
             If (cbCritPointNA.Checked = False) Then
                 critPoint = CDec(txtCriticalPoint.Text.Trim)
             Else
-                critPoint = ""
+                critPoint = Nothing
             End If
             If (saveType1 = 1) Then
                 Call AddItem(txtItemName.Text.Trim, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate)
                 MsgBox("Successfully added item.", MsgBoxStyle.Information, Application.ProductName)
+                logInfo = "Added a new item successfully."
+                Call RecordLog(logInfo)
             ElseIf (saveType1 = 2) Then
                 Call UpdateItem(txtItemName.Text, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate, itemID)
+                logInfo = "Updated an item successfully."
+                Call RecordLog(logInfo)
                 MsgBox("Successfully updated item.", MsgBoxStyle.Information, Application.ProductName)
             End If
             frmMenu.Enabled = True
+
             Me.Close()
         End If
     End Sub

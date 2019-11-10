@@ -57,6 +57,26 @@ InventoryManager
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InventoryManager.My.Resources.Resources.edit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.edit__2_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.edit_1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.edit1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventoryManager.My.Resources.Resources.employees">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -97,6 +117,21 @@ InventoryManager
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InventoryManager.My.Resources.Resources.medical_notes_symbol_of_a_list_paper_on_a_clipboard">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.medical_notes_symbol_of_a_list_paper_on_a_clipboard_1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.medical_notes_symbol_of_a_list_paper_on_a_clipboard_2_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventoryManager.My.Resources.Resources.New_Project_1_">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -132,6 +167,11 @@ InventoryManager
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InventoryManager.My.Resources.Resources.save">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventoryManager.My.Resources.Resources.settings">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -143,6 +183,11 @@ InventoryManager
 </summary>
 </member>
 <member name="P:InventoryManager.My.Resources.Resources.transactionsIcon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.Trash">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
