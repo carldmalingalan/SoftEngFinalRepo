@@ -123,6 +123,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EmpName.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmAccountLogs.Designer.vb">
+      <DependentUpon>frmAccountLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccountLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAccounts.Designer.vb">
       <DependentUpon>frmAccounts.vb</DependentUpon>
     </Compile>
@@ -302,6 +308,9 @@
     <Compile Include="vbConnect.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAccountLogs.resx">
+      <DependentUpon>frmAccountLogs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAccounts.resx">
       <DependentUpon>frmAccounts.vb</DependentUpon>
     </EmbeddedResource>

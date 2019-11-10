@@ -98,3 +98,4 @@ C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\D
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmSearchItemCheckout.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmShowCheckoutlist.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmShowDetailsTransaction.resources
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmAccountLogs.resources

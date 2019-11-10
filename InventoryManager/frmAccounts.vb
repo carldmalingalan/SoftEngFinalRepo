@@ -5,7 +5,6 @@ Public Class frmAccounts
     Private Property selectedRow As Integer
     Private ActiveCount, InactiveCount As Int32
     Private cond As String
-
     Private Sub frmAccounts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call viewUserlist_reload()
     End Sub
@@ -131,6 +130,19 @@ Public Class frmAccounts
     Private Sub BunifuCards1_Click(sender As Object, e As EventArgs) Handles lblActiveCount.Click, Label1.Click, BunifuCards1.Click
         cond = " where AccountType = 'ACTIVE'"
         viewUserlist_reload()
+    End Sub
+
+    Private Sub dgvUserList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellDoubleClick
+        If (dgvUserList.Rows.Count > 0) Then
+            Try
+                selectedRow = e.RowIndex
+                accID = dgvUserList.Rows(selectedRow).Cells(0).Value()
+                accname = dgvUserList.Rows(selectedRow).Cells(1).Value()
+                Dim ab As New frmAccountLogs
+                ab.ShowDialog()
+            Catch ex As Exception
+            End Try
+        End If
     End Sub
 
     Private Sub btnDeactivateAccount_Click(sender As Object, e As EventArgs) Handles btnDeactivateAccount.Click

@@ -39,10 +39,10 @@ Module vbConnect
     Public saveType2 As String 'transactions
     Public lastIdentity, lastTransID As Int32
     Public voidID As Int32
-    Public logInfo As String
+    Public logInfo, accname As String
     Public checkoutqty As String
     Public customerNumber, itemNumber As Integer
-    Public checkoutiD, quantitycheckout, transactionCheck As Integer
+    Public checkoutiD, quantitycheckout, transactionCheck, accID As Integer
     Public btnType As String
     Function GetHash(theInput As String) As String
 
