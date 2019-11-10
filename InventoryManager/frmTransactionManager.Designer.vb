@@ -79,7 +79,7 @@ Partial Class frmTransactionManager
         Me.gbTransDetails.Size = New System.Drawing.Size(470, 340)
         Me.gbTransDetails.TabIndex = 31
         Me.gbTransDetails.TabStop = False
-        Me.gbTransDetails.Text = "Transaction Details"
+        Me.gbTransDetails.Text = "Details"
         '
         'txtServices
         '
@@ -132,8 +132,6 @@ Partial Class frmTransactionManager
         '
         'txtCustLastname
         '
-        Me.txtCustLastname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.txtCustLastname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList
         Me.txtCustLastname.Location = New System.Drawing.Point(159, 66)
         Me.txtCustLastname.Name = "txtCustLastname"
         Me.txtCustLastname.Size = New System.Drawing.Size(285, 23)
@@ -141,8 +139,6 @@ Partial Class frmTransactionManager
         '
         'txtCustMiddlename
         '
-        Me.txtCustMiddlename.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.txtCustMiddlename.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList
         Me.txtCustMiddlename.Location = New System.Drawing.Point(415, 100)
         Me.txtCustMiddlename.MaxLength = 1
         Me.txtCustMiddlename.Name = "txtCustMiddlename"
@@ -169,8 +165,6 @@ Partial Class frmTransactionManager
         '
         'txtCustFirstname
         '
-        Me.txtCustFirstname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.txtCustFirstname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList
         Me.txtCustFirstname.Location = New System.Drawing.Point(159, 100)
         Me.txtCustFirstname.Name = "txtCustFirstname"
         Me.txtCustFirstname.Size = New System.Drawing.Size(165, 23)
@@ -262,6 +256,7 @@ Partial Class frmTransactionManager
         '
         'ErrorProvider1
         '
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider1.ContainerControl = Me
         '
         'Panel1

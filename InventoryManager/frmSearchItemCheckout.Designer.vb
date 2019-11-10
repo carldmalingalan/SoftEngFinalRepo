@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmItemCheckout
+Partial Class frmSearchItemCheckout
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,11 +25,13 @@ Partial Class frmItemCheckout
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmItemCheckout))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSearchItemCheckout))
         Me.txtSearchname = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.dgvSearchItem = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.btnShowItemCheckedOut = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btnSearch = New System.Windows.Forms.Button()
         CType(Me.dgvSearchItem, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnShowItemCheckedOut, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtSearchname
@@ -95,6 +97,19 @@ Partial Class frmItemCheckout
         Me.dgvSearchItem.Size = New System.Drawing.Size(414, 453)
         Me.dgvSearchItem.TabIndex = 43
         '
+        'btnShowItemCheckedOut
+        '
+        Me.btnShowItemCheckedOut.BackColor = System.Drawing.Color.RosyBrown
+        Me.btnShowItemCheckedOut.Image = Global.InventoryManager.My.Resources.Resources.medical_notes_symbol_of_a_list_paper_on_a_clipboard_2_
+        Me.btnShowItemCheckedOut.ImageActive = Nothing
+        Me.btnShowItemCheckedOut.Location = New System.Drawing.Point(12, 10)
+        Me.btnShowItemCheckedOut.Name = "btnShowItemCheckedOut"
+        Me.btnShowItemCheckedOut.Size = New System.Drawing.Size(39, 41)
+        Me.btnShowItemCheckedOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.btnShowItemCheckedOut.TabIndex = 44
+        Me.btnShowItemCheckedOut.TabStop = False
+        Me.btnShowItemCheckedOut.Zoom = 10
+        '
         'btnSearch
         '
         Me.btnSearch.FlatAppearance.BorderSize = 0
@@ -106,20 +121,22 @@ Partial Class frmItemCheckout
         Me.btnSearch.TabIndex = 42
         Me.btnSearch.UseVisualStyleBackColor = True
         '
-        'frmItemCheckout
+        'frmSearchItemCheckout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(438, 526)
+        Me.Controls.Add(Me.btnShowItemCheckedOut)
         Me.Controls.Add(Me.txtSearchname)
         Me.Controls.Add(Me.dgvSearchItem)
         Me.Controls.Add(Me.btnSearch)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "frmItemCheckout"
+        Me.Name = "frmSearchItemCheckout"
         Me.Text = "frmItemCheckout"
         CType(Me.dgvSearchItem, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnShowItemCheckedOut, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -127,4 +144,5 @@ Partial Class frmItemCheckout
     Friend WithEvents txtSearchname As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents dgvSearchItem As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents btnSearch As Button
+    Friend WithEvents btnShowItemCheckedOut As Bunifu.Framework.UI.BunifuImageButton
 End Class

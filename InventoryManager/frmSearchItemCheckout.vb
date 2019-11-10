@@ -1,10 +1,10 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class frmItemCheckout
+Public Class frmSearchItemCheckout
     Private cond As String
     Private selectedRow As Integer
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        cond = " and Name like '" & txtSearchname.Text.Trim.Replace("-", "") & "'"
+        cond = " and Name like '%" & txtSearchname.Text.Trim.Replace("-", "") & "%'"
         loadItemList()
     End Sub
 
@@ -44,4 +44,11 @@ Public Class frmItemCheckout
         loadItemList()
     End Sub
 
+    Private Sub frmSearchItemCheckout_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
+        frmItemCheckout_Load(sender, e)
+    End Sub
+
+    Private Sub btnShowItemCheckedOut_Click(sender As Object, e As EventArgs) Handles btnShowItemCheckedOut.Click
+
+    End Sub
 End Class

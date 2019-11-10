@@ -92,9 +92,9 @@ Partial Class frmLogin
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbLogo.BackColor = System.Drawing.Color.Transparent
         Me.pbLogo.Image = Global.InventoryManager.My.Resources.Resources.J_A_LOGO_SALON
-        Me.pbLogo.Location = New System.Drawing.Point(133, 63)
+        Me.pbLogo.Location = New System.Drawing.Point(51, 33)
         Me.pbLogo.Name = "pbLogo"
-        Me.pbLogo.Size = New System.Drawing.Size(152, 148)
+        Me.pbLogo.Size = New System.Drawing.Size(226, 187)
         Me.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbLogo.TabIndex = 3
         Me.pbLogo.TabStop = False
@@ -106,7 +106,7 @@ Partial Class frmLogin
         Me.Panel1.Controls.Add(Me.txtUsername)
         Me.Panel1.Controls.Add(Me.btnLogin)
         Me.Panel1.Controls.Add(Me.txtPassword)
-        Me.Panel1.Location = New System.Drawing.Point(96, 230)
+        Me.Panel1.Location = New System.Drawing.Point(56, 230)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(221, 156)
         Me.Panel1.TabIndex = 7
@@ -126,7 +126,7 @@ Partial Class frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(426, 424)
+        Me.ClientSize = New System.Drawing.Size(346, 424)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pbLogo)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

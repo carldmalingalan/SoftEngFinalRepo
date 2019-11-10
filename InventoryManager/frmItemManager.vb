@@ -21,8 +21,6 @@ Public Class frmItemManager
             dtpExpirationDate.CustomFormat = "MM/dd/yyyy"  'An empty SPACE
             dtpExpirationDate.Format = DateTimePickerFormat.Custom
             dtpExpirationDate.Enabled = True
-            dtpExpirationDate.MinDate = Date.Today.AddDays(1)
-
         End If
     End Sub
 
@@ -38,7 +36,6 @@ Public Class frmItemManager
     End Sub
 
     Private Sub frmItemManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dtpExpirationDate.MinDate = Date.Today.AddDays(1)
         If (saveType1 = 2) Then
             GatherDataForUpdate()
         End If
@@ -54,14 +51,13 @@ Public Class frmItemManager
         While reader.Read()
             txtItemName.Text = reader.GetString(1).Trim
             txtItemQuantity.Text = reader.GetValue(2)
-            CritPointForUpdate = reader.GetString(3).Trim
-            If (IsDBNull(CritPointForUpdate) Or CritPointForUpdate = "") Then
+            If reader.IsDBNull(3) Then
                 cbCritPointNA.Checked = True
                 txtCriticalPoint.Enabled = False
             Else
                 cbCritPointNA.Checked = False
                 txtCriticalPoint.Enabled = True
-                txtCriticalPoint.Text = CritPointForUpdate.Trim
+                txtCriticalPoint.Text = reader.GetValue(3)
             End If
             txtDescription.Text = reader.GetString(4).Trim
             If (reader.GetString(5) = "Body") Then
@@ -84,9 +80,8 @@ Public Class frmItemManager
                 ExpiDateforUpdate = reader.GetString(6)
                 dtpExpirationDate.CustomFormat = "MM/dd/yyyy"  'An empty SPACE
                 dtpExpirationDate.Format = DateTimePickerFormat.Custom
-                    dtpExpirationDate.Enabled = True
-                    dtpExpirationDate.Value = ExpiDateforUpdate
-
+                dtpExpirationDate.Enabled = True
+                dtpExpirationDate.Value = ExpiDateforUpdate
             End If
 
         End While
@@ -180,7 +175,15 @@ Public Class frmItemManager
         End If
     End Sub
 
-
+    Private Sub DateValidation()
+        If dtpExpirationDate.Value.ToString("MM/dd/yyyy") < Date.Today.AddDays(1) And saveType1 = 1 Then
+            ErrorProvider1.SetError(checkboxExpirationNA, "Expiration Date must not be backdated.")
+            ErrorProvider1.SetIconPadding(checkboxExpirationNA, 5)
+            flag7 = False
+        Else
+            ErrorProvider1.SetError(checkboxExpirationNA, "")
+        End If
+    End Sub
     Private Sub ItemDescriptionValidation()
         If txtDescription.Text.Trim = "" Then
             ErrorProvider1.SetError(txtDescription, "Blank field is not allowed.")
@@ -197,12 +200,12 @@ Public Class frmItemManager
     End Function
 
     Private Sub btnSaveItem_Click(sender As Object, e As EventArgs) Handles btnSaveItem.Click
-
         InitializeFlags()
         ItemDescriptionValidation()
         ItemNameValidation()
         ItemQuantityValidation()
         RoleValidation()
+        DateValidation()
 
         If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
             MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
@@ -216,7 +219,7 @@ Public Class frmItemManager
                 ExpiDate = DBNull.Value
             End If
             If (cbCritPointNA.Checked = False) Then
-                critPoint = txtCriticalPoint.Text.Trim
+                critPoint = CDec(txtCriticalPoint.Text.Trim)
             Else
                 critPoint = ""
             End If

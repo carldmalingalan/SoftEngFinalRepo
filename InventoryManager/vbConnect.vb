@@ -195,16 +195,16 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub UpdateItem(Itemname As String, ItemQuantity As String, ItemDescription As String, ItemClass As String, Crit As String, Expi As Object, ItemID As Int32)
+    Public Sub UpdateItem(Itemname As String, ItemQuantity As Decimal, ItemDescription As String, ItemClass As String, Crit As Decimal, Expi As Object, ItemID As Int32)
         Call ConnectTOSQLServer()
         strSQL = "update tblInventory Set Name = @Name, Quantity = (Quantity + @Quantity), [Description] = @Desc, Classification = @Class, Expiration=@Expi, [Critical Point] = @crit where ItemID = @ItemID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = Itemname
-        cmd.Parameters.AddWithValue("@Quantity", SqlDbType.VarChar).Value = ItemQuantity
+        cmd.Parameters.AddWithValue("@Quantity", SqlDbType.Decimal).Value = ItemQuantity
         cmd.Parameters.AddWithValue("@Desc", SqlDbType.VarChar).Value = ItemDescription
         cmd.Parameters.AddWithValue("@Class", SqlDbType.VarChar).Value = ItemClass
         cmd.Parameters.AddWithValue("@Expi", SqlDbType.Date).Value = Expi
-        cmd.Parameters.AddWithValue("@Crit", SqlDbType.VarChar).Value = Crit
+        cmd.Parameters.AddWithValue("@Crit", SqlDbType.Decimal).Value = Crit
         cmd.Parameters.AddWithValue("@ItemID", SqlDbType.Int).Value = ItemID
         Console.WriteLine(strSQL)
         cmd.ExecuteNonQuery()
@@ -330,7 +330,7 @@ Module vbConnect
 
     Public Sub AddTransactionRef(custID As Int32)
         Call ConnectTOSQLServer()
-        strSQL = "insert into tblTransactionList(CustomerID,AuthorID,TransactionDate) values (@custID,@authID,getdate())"
+        strSQL = "insert into tblTransactionList    (CustomerID,AuthorID,TransactionDate,DataStatus ) values (@custID,@authID,getdate(),'ACTIVE')"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@custID", SqlDbType.VarChar).Value = custID
         cmd.Parameters.AddWithValue("@authID", SqlDbType.VarChar).Value = login_id
@@ -348,7 +348,35 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub AddCheckOut()
+    Public Sub AddCheckOut(Quantity As String)
+        Call ConnectTOSQLServer()
+        strSQL = "insert tblCheckOutTable(TransactionID,ItemID,Quantity,DataStatus)values(@transID,@itemID,@quantity,'ACTIVE')"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@transID", SqlDbType.VarChar).Value = lastTransID
+        cmd.Parameters.AddWithValue("@itemID", SqlDbType.VarChar).Value = itemNumber
+        cmd.Parameters.AddWithValue("@quantity", SqlDbType.Decimal).Value = Quantity
+        cmd.ExecuteNonQuery()
+        Console.WriteLine(strSQL & lastTransID & " " & itemNumber & " " & Quantity)
+        Call DisConnectSQLServer()
+    End Sub
 
+    Public Sub UpdateItemThruTransaction(Quantity As Decimal)
+        Call ConnectTOSQLServer()
+        strSQL = "update tblInventory set Quantity = Quantity - @Quantity where ItemID = @ItemID"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@itemID", SqlDbType.VarChar).Value = itemNumber
+        cmd.Parameters.AddWithValue("@quantity", SqlDbType.Decimal).Value = Quantity
+        cmd.ExecuteNonQuery()
+
+        Console.WriteLine(strSQL)
+
+        Call DisConnectSQLServer()
+    End Sub
+
+    Public Sub VoidTransaction()
+        Call ConnectTOSQLServer()
+        strSQL = ""
+
+        Call DisConnectSQLServer()
     End Sub
 End Module

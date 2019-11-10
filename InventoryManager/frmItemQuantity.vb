@@ -18,8 +18,7 @@ Public Class frmItemQuantity
         reader = cmd.ExecuteReader()
         Do While reader.Read()
             lblName.Text = reader.GetString(1)
-            lblQty.Text = reader.GetDecimal(2)
-            lblCrit.Text = reader.GetString(3)
+            lblQty.Text = CStr(reader.GetDecimal(2))
             lblDesc.Text = reader.GetString(4)
             lblCateg.Text = reader.GetString(5)
         Loop
@@ -36,7 +35,7 @@ Public Class frmItemQuantity
             ErrorProvider1.SetError(txtQuantityOut, "Blank field is not allowed.")
             ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
             flag1 = False
-        ElseIf (Not IsNumeric(txtQuantityOut.Text.Trim)) Or txtQuantityOut.Text.IndexOfAny("1234567890") > -1 Then
+        ElseIf (Not IsNumeric(txtQuantityOut.Text.Trim)) Then
             ErrorProvider1.SetError(txtQuantityOut, "Only numberic characters are allowed.")
             ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
             flag1 = False
@@ -51,7 +50,11 @@ Public Class frmItemQuantity
         If (flag1 = False) Then
             Exit Sub
         End If
-
-
+        Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+        If (ask = vbYes) Then
+            Call AddCheckOut(txtQuantityOut.Text.Trim)
+            Call UpdateItemThruTransaction(txtQuantityOut.Text.Trim)
+            Close()
+        End If
     End Sub
 End Class

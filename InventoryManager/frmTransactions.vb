@@ -35,10 +35,12 @@ Public Class frmTransactions
 
     Private Sub btnVoidTransaction_Click(sender As Object, e As EventArgs) Handles btnVoidTransaction.Click
         If (login_accesstype <> "ADMINISTRATOR") Then
-            Dim ask = MsgBox("Administrator Authorization Required! Please request for admin credential authorization.", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
-            If (ask = vbYes) Then
+            Dim ask = MsgBox("Administrator Authorization Required! Please request for admin credential authorization.", MsgBoxStyle.Information + vbOKCancel, Application.ProductName)
+            If (ask = vbOK) Then
                 frmAdminPrompt.ShowDialog()
             End If
+        Else
+
         End If
     End Sub
 

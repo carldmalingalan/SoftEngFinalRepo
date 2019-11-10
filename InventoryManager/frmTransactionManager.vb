@@ -1,5 +1,6 @@
 ﻿Imports System
 Imports System.Data.SqlClient
+Imports System.Web.UI.WebControls
 
 Public Class frmTransactionManager
     Private selectedRow, choicetype As Integer
@@ -7,6 +8,7 @@ Public Class frmTransactionManager
     Dim indexChecked As String
     Dim headline As String
     Private cfName, cLName, cMName As String
+    Private i As Integer
 
     Private Sub frmTransactionManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Width = 497
@@ -146,7 +148,25 @@ Public Class frmTransactionManager
     End Sub
 
 
+    Private Sub ServiceValidation()
+        If clbServices.CheckedItems.Count < 1 Then
+            ErrorProvider1.SetError(btnChecklistBox, "Please select atleast one service.")
+            ErrorProvider1.SetIconPadding(btnChecklistBox, 5)
+            flag7 = False
+        Else
+            ErrorProvider1.SetError(btnChecklistBox, "")
+        End If
+    End Sub
 
+    Private Sub EmployeeValidation()
+        If (cboEmployeeAssigned.SelectedIndex = -1) Then
+            ErrorProvider1.SetError(cboEmployeeAssigned, "Please select an employee.")
+            ErrorProvider1.SetIconPadding(cboEmployeeAssigned, 5)
+            flag8 = False
+        Else
+            ErrorProvider1.SetError(cboEmployeeAssigned, "")
+        End If
+    End Sub
 
     Private Sub btnSaveTransaction_Click_1(sender As Object, e As EventArgs) Handles btnSaveTransaction.Click
         Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
@@ -155,6 +175,9 @@ Public Class frmTransactionManager
             FirstNameValidation()
             LastNameValidation()
             ComboboxValidation()
+            ServiceValidation()
+            EmployeeValidation()
+
             If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
                 MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
                 Exit Sub
@@ -219,7 +242,7 @@ Public Class frmTransactionManager
 
             Dim ask2 = MsgBox("Are there item/s checked out?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If ask2 = vbYes Then
-                OpenPanel(New frmItemCheckout)
+                OpenPanel(New frmSearchItemCheckout)
                 Me.Width = 926
             Else
                 Me.Close()
@@ -276,13 +299,7 @@ Public Class frmTransactionManager
     End Sub
 
     Private Sub ComboboxValidation()
-        If cboEmployeeAssigned.SelectedIndex = -1 Then
-            ErrorProvider1.SetError(cboEmployeeAssigned, "Please assign an Employee.")
-            ErrorProvider1.SetIconPadding(cboEmployeeAssigned, 5)
-            flag3 = False
-        Else
-            ErrorProvider1.SetError(cboEmployeeAssigned, "")
-        End If
+
     End Sub
 
     Private Sub btnCancelTransaction_Click(sender As Object, e As EventArgs) Handles btnCancelTransaction.Click

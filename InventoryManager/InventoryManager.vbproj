@@ -14,6 +14,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>false</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,7 +31,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -165,10 +165,10 @@
     <Compile Include="frmInventory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmItemCheckout.Designer.vb">
-      <DependentUpon>frmItemCheckout.vb</DependentUpon>
+    <Compile Include="frmSearchItemCheckout.Designer.vb">
+      <DependentUpon>frmSearchItemCheckout.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmItemCheckout.vb">
+    <Compile Include="frmSearchItemCheckout.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmItemManager.Designer.vb">
@@ -212,6 +212,12 @@
       <DependentUpon>frmServices.vb</DependentUpon>
     </Compile>
     <Compile Include="frmServices.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowCheckoutlist.Designer.vb">
+      <DependentUpon>frmShowCheckoutlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowCheckoutlist.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTransactionManager.Designer.vb">
@@ -311,8 +317,8 @@
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmItemCheckout.resx">
-      <DependentUpon>frmItemCheckout.vb</DependentUpon>
+    <EmbeddedResource Include="frmSearchItemCheckout.resx">
+      <DependentUpon>frmSearchItemCheckout.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmItemManager.resx">
       <DependentUpon>frmItemManager.vb</DependentUpon>
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmServices.resx">
       <DependentUpon>frmServices.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowCheckoutlist.resx">
+      <DependentUpon>frmShowCheckoutlist.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTransactionManager.resx">
       <DependentUpon>frmTransactionManager.vb</DependentUpon>
@@ -465,6 +474,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon salon_0`.ico" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\Trash.png" />
+    <None Include="Resources\edit %282%29.png" />
+    <None Include="Resources\edit1.png" />
+    <None Include="Resources\edit%281%29.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\medical-notes-symbol-of-a-list-paper-on-a-clipboard%282%29.png" />
+    <None Include="Resources\medical-notes-symbol-of-a-list-paper-on-a-clipboard%281%29.png" />
+    <None Include="Resources\medical-notes-symbol-of-a-list-paper-on-a-clipboard.png" />
     <None Include="Resources\drop-down-arrow%281%29.png" />
     <None Include="Resources\drop-down-arrow.png" />
     <None Include="Resources\magnifying-glass%281%29.png" />

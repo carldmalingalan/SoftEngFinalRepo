@@ -10,7 +10,9 @@ Public Class frmAccounts
         Call viewUserlist_reload()
     End Sub
 
-
+    Private Sub frmAccounts_EnabledChanged(sender As Object, e As EventArgs) Handles Me.EnabledChanged
+        frmAccounts_Load(sender, e)
+    End Sub
 
     Private Sub btnCreateAccount_Click(sender As Object, e As EventArgs) Handles btnCreateAccount.Click
         saveType = 1
@@ -67,9 +69,7 @@ Public Class frmAccounts
         Call DisConnectSQLServer()
     End Sub
 
-    Private Sub frmAccounts_EnabledChanged(sender As Object, e As EventArgs) Handles Me.EnabledChanged
-        frmAccounts_Load(sender, e)
-    End Sub
+
 
     Private Sub btnUpdateAccount_Click(sender As Object, e As EventArgs) Handles btnUpdateAccount.Click
         saveType = 2
