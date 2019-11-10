@@ -42,7 +42,7 @@ Module vbConnect
     Public logInfo As String
     Public checkoutqty As String
     Public customerNumber, itemNumber As Integer
-    Public checkoutiD, quantitycheckout As Integer
+    Public checkoutiD, quantitycheckout, transactionCheck As Integer
     Public btnType As String
     Function GetHash(theInput As String) As String
 
@@ -390,10 +390,20 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub VoidTransaction()
+    Public Sub VoidTransaction(TransNumber As Int32)
         Call ConnectTOSQLServer()
-        strSQL = ""
-
+        strSQL = "Update tblTransactionList set DataStatus = 'DELETED', Voidedby = " & login_id & " where TransactionNumber = " & TransNumber
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.ExecuteNonQuery()
+        strSQL = "update tblTransactions set DataStatus = 'DELETED',ModdedBy = " & login_id & ",ModdedDate = getdate() where TransactionRefID = " & TransNumber
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.ExecuteNonQuery()
+        strSQL = "update tblCheckOutTable set DataStatus = 'DELETED' where TransactionID = " & TransNumber
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.ExecuteNonQuery()
+        strSQL = "UPDATE tblInventory SET Quantity = A.Quantity + B.total FROM dbo.tblInventory AS A INNER JOIN dbo.vw_summarizedTransaction AS B ON A.ItemID = B.ItemID INNER JOIN dbo.tblTransactionList AS C ON C.TransactionNumber = B.TransactionID where B.TransactionID = " & TransNumber
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.ExecuteNonQuery()
         Call DisConnectSQLServer()
     End Sub
 End Module

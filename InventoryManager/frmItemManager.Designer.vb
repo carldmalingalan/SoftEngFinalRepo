@@ -212,10 +212,13 @@ Partial Class frmItemManager
         Me.Label1.Size = New System.Drawing.Size(107, 17)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Expiration Date"
+        Me.Label1.Visible = False
         '
         'checkboxExpirationNA
         '
         Me.checkboxExpirationNA.AutoSize = True
+        Me.checkboxExpirationNA.Checked = True
+        Me.checkboxExpirationNA.CheckState = System.Windows.Forms.CheckState.Checked
         Me.checkboxExpirationNA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.checkboxExpirationNA.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.checkboxExpirationNA.Location = New System.Drawing.Point(230, 183)
@@ -224,6 +227,7 @@ Partial Class frmItemManager
         Me.checkboxExpirationNA.TabIndex = 10
         Me.checkboxExpirationNA.Text = "NA"
         Me.checkboxExpirationNA.UseVisualStyleBackColor = True
+        Me.checkboxExpirationNA.Visible = False
         '
         'dtpExpirationDate
         '
@@ -240,6 +244,7 @@ Partial Class frmItemManager
         Me.dtpExpirationDate.UseCustomBackColor = True
         Me.dtpExpirationDate.UseCustomForeColor = True
         Me.dtpExpirationDate.UseStyleColors = True
+        Me.dtpExpirationDate.Visible = False
         '
         'txtCriticalPoint
         '

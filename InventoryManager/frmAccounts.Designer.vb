@@ -119,9 +119,9 @@ Partial Class frmAccounts
         'lblActiveCount
         '
         Me.lblActiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActiveCount.Location = New System.Drawing.Point(25, 21)
+        Me.lblActiveCount.Location = New System.Drawing.Point(3, 21)
         Me.lblActiveCount.Name = "lblActiveCount"
-        Me.lblActiveCount.Size = New System.Drawing.Size(92, 39)
+        Me.lblActiveCount.Size = New System.Drawing.Size(139, 39)
         Me.lblActiveCount.TabIndex = 6
         Me.lblActiveCount.Text = "999"
         Me.lblActiveCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -155,9 +155,9 @@ Partial Class frmAccounts
         'lblInactiveCount
         '
         Me.lblInactiveCount.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInactiveCount.Location = New System.Drawing.Point(20, 21)
+        Me.lblInactiveCount.Location = New System.Drawing.Point(3, 21)
         Me.lblInactiveCount.Name = "lblInactiveCount"
-        Me.lblInactiveCount.Size = New System.Drawing.Size(106, 39)
+        Me.lblInactiveCount.Size = New System.Drawing.Size(145, 39)
         Me.lblInactiveCount.TabIndex = 7
         Me.lblInactiveCount.Text = "999"
         Me.lblInactiveCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter

@@ -24,12 +24,7 @@ Public Class frmAccounts
 
     Private Sub viewUserlist_reload()
         Call ConnectTOSQLServer()
-        If (txtSearch.Text <> "") Then
-            cond = "where Username like '%" & txtSearch.Text.Trim.Replace("-", "") & "%' or AccessType = '" & txtSearch.Text.Trim.Replace("-", "") & "' or  Lastname = '" & txtSearch.Text.Trim.Replace("-", "") & "' or Firstname = '" & txtSearch.Text.Trim.Replace("-", "") & "'"
 
-        Else
-            cond = ""
-        End If
         strSQL = "Select AccountID, Lastname, Firstname, AccountName As [FullName], Username, AccessType As [AccessType], AccountType As [Status] FROM dbo.tblLogins " & cond
 
         Console.WriteLine(strSQL)
@@ -122,7 +117,20 @@ Public Class frmAccounts
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        cond = "where Username like '%" & txtSearch.Text.Trim.Replace("-", "") & "%' or AccessType = '" & txtSearch.Text.Trim.Replace("-", "") & "' or  Lastname = '" & txtSearch.Text.Trim.Replace("-", "") & "' or Firstname = '" & txtSearch.Text.Trim.Replace("-", "") & "'"
         Call viewUserlist_reload()
+    End Sub
+
+
+
+    Private Sub lblInactiveCount_Click_1(sender As Object, e As EventArgs) Handles lblInactiveCount.Click, Label2.Click, BunifuCards2.Click
+        cond = " where AccountType = 'INACTIVE'"
+        viewUserlist_reload()
+    End Sub
+
+    Private Sub BunifuCards1_Click(sender As Object, e As EventArgs) Handles lblActiveCount.Click, Label1.Click, BunifuCards1.Click
+        cond = " where AccountType = 'ACTIVE'"
+        viewUserlist_reload()
     End Sub
 
     Private Sub btnDeactivateAccount_Click(sender As Object, e As EventArgs) Handles btnDeactivateAccount.Click

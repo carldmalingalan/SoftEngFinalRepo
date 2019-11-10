@@ -44,15 +44,17 @@ Public Class frmForgotPassword
                     End If
 
                     strSQL = "update tblLogins set Password = @Default where AccountID = @AccountID"
-                        cmd = New SqlCommand(strSQL, Connection)
-                        cmd.Parameters.AddWithValue("@Default", SqlDbType.VarChar).Value = defaultPassword
-                        cmd.Parameters.AddWithValue("@AccountID", SqlDbType.Int).Value = login_id
-                        cmd.ExecuteNonQuery()
-                        Console.WriteLine(strSQL)
-                        MsgBox("Successfully reset password to default.", MsgBoxStyle.Information, Application.ProductName)
-                        Me.Close()
-                    Else
-                        MsgBox("No records founds.", MsgBoxStyle.Information, Application.ProductName)
+                    cmd = New SqlCommand(strSQL, Connection)
+                    cmd.Parameters.AddWithValue("@Default", SqlDbType.VarChar).Value = defaultPassword
+                    cmd.Parameters.AddWithValue("@AccountID", SqlDbType.Int).Value = login_id
+                    cmd.ExecuteNonQuery()
+                    Console.WriteLine(strSQL)
+                    logInfo = "Password has been reset."
+                    Call RecordLog(logInfo)
+                    MsgBox("Successfully reset password to default.", MsgBoxStyle.Information, Application.ProductName)
+                    Me.Close()
+                Else
+                    MsgBox("No records founds.", MsgBoxStyle.Information, Application.ProductName)
                 End If
             Finally
                 reader.Close()

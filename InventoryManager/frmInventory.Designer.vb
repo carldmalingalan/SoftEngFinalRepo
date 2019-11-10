@@ -365,6 +365,7 @@ Partial Class frmInventory
         Me.cardExpiringItem.ShadowDepth = 20
         Me.cardExpiringItem.Size = New System.Drawing.Size(114, 76)
         Me.cardExpiringItem.TabIndex = 15
+        Me.cardExpiringItem.Visible = False
         '
         'lblExpiring
         '

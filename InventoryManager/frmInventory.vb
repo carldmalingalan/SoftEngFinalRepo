@@ -37,11 +37,6 @@ Public Class frmInventory
         Call viewItemList_reload()
     End Sub
 
-    Private Sub cardExpiringItem_Click(sender As Object, e As EventArgs) Handles cardExpiringItem.Click, lblExpiring.Click
-        cond = " where Expiration is not null and Expiration > getdate()"
-        Call viewItemList_reload()
-    End Sub
-
     Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellClick
         If (dgvItemList.Rows.Count >= 0) Then
             Try
@@ -111,22 +106,10 @@ Public Class frmInventory
         Loop
         reader.Close()
 
-        strSQL = "select count(*) as CountExpi from vw_InventoryView where Expiration is not null and DATEADD(DAY, -30, Expiration) >   convert(varchar,getdate(),101)"
-        Console.WriteLine()
-        cmd = New SqlCommand(strSQL, Connection)
-        reader = cmd.ExecuteReader()
-        Do While reader.HasRows
-            Do While reader.Read()
-                expiring = reader.GetInt32(0)
-            Loop
-            reader.NextResult()
-        Loop
-        reader.Close()
 
         lblActiveCount.Text = instocks
         lblOutofstock.Text = outstock
         lblCritCount.Text = critstock
-        lblExpiring.Text = expiring
         Call DisConnectSQLServer()
     End Sub
 End Class

@@ -220,6 +220,12 @@
     <Compile Include="frmShowCheckoutlist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmShowDetailsTransaction.Designer.vb">
+      <DependentUpon>frmShowDetailsTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowDetailsTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmTransactionManager.Designer.vb">
       <DependentUpon>frmTransactionManager.vb</DependentUpon>
     </Compile>
@@ -343,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmShowCheckoutlist.resx">
       <DependentUpon>frmShowCheckoutlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowDetailsTransaction.resx">
+      <DependentUpon>frmShowDetailsTransaction.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTransactionManager.resx">
       <DependentUpon>frmTransactionManager.vb</DependentUpon>
