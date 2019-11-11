@@ -134,13 +134,14 @@ Module vbConnect
 
     Public Sub UpdateAccount(Username As String, Lastname As String, Firstname As String, Role As String, AccountID As Int32)
         Call ConnectTOSQLServer()
-        strSQL = "update tblLogins set Lastname = @Lastname, Firstname = @Firstname, Username = @Username, LastModified = @Modifier, LastModifiedDate = getdate() where AccountID = @AccountID"
+        strSQL = "update tblLogins set Lastname = @Lastname,AccessType = @Role, Firstname = @Firstname, Username = @Username, LastModified = @Modifier, LastModifiedDate = getdate() where AccountID = @AccountID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@Lastname", SqlDbType.VarChar).Value = Lastname
         cmd.Parameters.AddWithValue("@Firstname", SqlDbType.VarChar).Value = Firstname
         cmd.Parameters.AddWithValue("@Username", SqlDbType.VarChar).Value = Username
         cmd.Parameters.AddWithValue("@AccessType", SqlDbType.VarChar).Value = Role
         cmd.Parameters.AddWithValue("@Modifier", SqlDbType.VarChar).Value = login_id
+        cmd.Parameters.AddWithValue("@Role", SqlDbType.VarChar).Value = Role
         cmd.Parameters.AddWithValue("@AccountID", SqlDbType.Int).Value = AccountID
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL)

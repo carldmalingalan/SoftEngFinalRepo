@@ -1,6 +1,7 @@
-﻿Imports System.Data.SqlClient
+﻿
+Imports System.Data.SqlClient
 
-Public Class frmCreateAccount
+Public Class frmAccountNew
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
 
     Private Sub frmCreateAccount_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
@@ -33,26 +34,31 @@ Public Class frmCreateAccount
             flag8 = False
         End If
     End Sub
-    Private Sub btnCreateAccount_Click(sender As Object, e As EventArgs) Handles btnCreateAccount.Click
+    Private Sub btnCreateAccount_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If (ask = vbYes) Then
             InitializeFlags()
             FirstNameValidation()
             LastNameValidation()
-            UsernameValidation()
             RoleValidation()
-
-            If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
-
-                MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
-                Exit Sub
-            End If
             If (saveType = 1) Then
+                UsernameValidation()
+
+                If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
+
+                    MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
+                    Exit Sub
+                End If
                 Call CreateAccount(txtUsername.Text, txtLastname.Text, txtFirstname.Text, role)
                 MsgBox("Account has been successfully created with default password, admin12345.", MsgBoxStyle.Information, Application.ProductName)
                 frmMenu.Enabled = True
                 Me.Close()
             ElseIf (saveType = 2) Then
+                If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
+
+                    MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
+                    Exit Sub
+                End If
                 Call UpdateAccount(txtUsername.Text, txtLastname.Text, txtFirstname.Text, role, accountID)
                 MsgBox("Account has been successfully update.", MsgBoxStyle.Information, Application.ProductName)
                 frmMenu.Enabled = True
@@ -156,4 +162,5 @@ Public Class frmCreateAccount
             End If
         End If
     End Sub
+
 End Class

@@ -15,7 +15,7 @@ Public Class frmAccounts
 
     Private Sub btnCreateAccount_Click(sender As Object, e As EventArgs) Handles btnCreateAccount.Click
         saveType = 1
-        frmCreateAccount.Show()
+        frmAccountNew.Show()
         logInfo = "Accessed Account Creation Form"
         Call RecordLog(logInfo)
         frmMenu.Enabled = False
@@ -69,21 +69,20 @@ Public Class frmAccounts
         saveType = 2
         logInfo = "Tried Updating AccountID# " & dgvUserList.Rows(selectedRow).Cells(0).Value() & "."
         Call RecordLog(logInfo)
-        frmCreateAccount.Show()
-        frmCreateAccount.txtFirstname.Text = dgvUserList.Rows(selectedRow).Cells(2).Value()
-        frmCreateAccount.txtLastname.Text = dgvUserList.Rows(selectedRow).Cells(1).Value()
-        frmCreateAccount.txtUsername.Text = dgvUserList.Rows(selectedRow).Cells(4).Value()
+        frmAccountNew.Show()
+        frmAccountNew.txtFirstname.Text = dgvUserList.Rows(selectedRow).Cells(2).Value()
+        frmAccountNew.txtLastname.Text = dgvUserList.Rows(selectedRow).Cells(1).Value()
+        frmAccountNew.txtUsername.Text = dgvUserList.Rows(selectedRow).Cells(4).Value()
         accountID = dgvUserList.Rows(selectedRow).Cells(0).Value()
         Dim role = dgvUserList.Rows(selectedRow).Cells(5).Value()
         If (role = "ADMINISTRATOR") Then
-            frmCreateAccount.rdoAdministrator.Checked = True
+            frmAccountNew.rdoAdministrator.Checked = True
         ElseIf (role = "INVENTORY") Then
-            frmCreateAccount.rdoInventory.Checked = True
+            frmAccountNew.rdoInventory.Checked = True
         ElseIf (role = "TRANSACTIONS") Then
-            frmCreateAccount.rdoTransactions.Checked = True
+            frmAccountNew.rdoTransactions.Checked = True
         End If
         frmMenu.Enabled = False
-
     End Sub
 
     Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUserList.CellClick, dgvUserList.CellContentClick

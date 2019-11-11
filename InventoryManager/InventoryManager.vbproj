@@ -132,6 +132,12 @@
     <Compile Include="frmAccountLogs.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAccountNew.Designer.vb">
+      <DependentUpon>frmAccountNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccountNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAccounts.Designer.vb">
       <DependentUpon>frmAccounts.vb</DependentUpon>
     </Compile>
@@ -142,12 +148,6 @@
       <DependentUpon>frmAdminPrompt.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAdminPrompt.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCreateAccount.Designer.vb">
-      <DependentUpon>frmAccountManager.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmAccountManager.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDashboard.Designer.vb">
@@ -314,17 +314,14 @@
     <EmbeddedResource Include="frmAccountLogs.resx">
       <DependentUpon>frmAccountLogs.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAccountManager.resx">
-      <DependentUpon>frmAccountManager.vb</DependentUpon>
+    <EmbeddedResource Include="frmAccountNew.resx">
+      <DependentUpon>frmAccountNew.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAccounts.resx">
       <DependentUpon>frmAccounts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminPrompt.resx">
       <DependentUpon>frmAdminPrompt.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCreateAccount.resx">
-      <DependentUpon>frmAccountManager.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
