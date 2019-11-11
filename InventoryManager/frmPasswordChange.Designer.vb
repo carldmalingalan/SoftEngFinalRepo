@@ -34,23 +34,21 @@ Partial Class frmPasswordChange
         Me.lblName = New System.Windows.Forms.Label()
         Me.btnUpdatePassword = New MaterialSkin.Controls.MaterialFlatButton()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.txtAnswer = New Bunifu.Framework.UI.BunifuMetroTextbox()
-        Me.cboSecretQuestion = New MetroFramework.Controls.MetroComboBox()
         Me.TblSecretQuestionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JandA2DataSet = New InventoryManager.JandA2DataSet()
-        Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtPassword1 = New Bunifu.Framework.UI.BunifuMetroTextbox()
         Me.txtPassword2 = New Bunifu.Framework.UI.BunifuMetroTextbox()
         Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuCustomLabel4 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.TblSecretQuestionTableAdapter = New InventoryManager.JandA2DataSetTableAdapters.tblSecretQuestionTableAdapter()
+        Me.cboSecretQuestion = New MetroFramework.Controls.MetroComboBox()
+        Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.txtAnswer = New Bunifu.Framework.UI.BunifuMetroTextbox()
+        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblSecretQuestionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JandA2DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pbLogo
@@ -148,11 +146,11 @@ Partial Class frmPasswordChange
         '
         'btnUpdatePassword
         '
-        Me.btnUpdatePassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnUpdatePassword.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnUpdatePassword.AutoSize = True
         Me.btnUpdatePassword.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnUpdatePassword.Depth = 0
-        Me.btnUpdatePassword.Location = New System.Drawing.Point(187, 426)
+        Me.btnUpdatePassword.Location = New System.Drawing.Point(200, 389)
         Me.btnUpdatePassword.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnUpdatePassword.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnUpdatePassword.Name = "btnUpdatePassword"
@@ -164,38 +162,8 @@ Partial Class frmPasswordChange
         '
         'ErrorProvider1
         '
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorProvider1.ContainerControl = Me
-        '
-        'txtAnswer
-        '
-        Me.txtAnswer.BorderColorFocused = System.Drawing.Color.HotPink
-        Me.txtAnswer.BorderColorIdle = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtAnswer.BorderColorMouseHover = System.Drawing.Color.HotPink
-        Me.txtAnswer.BorderThickness = 3
-        Me.txtAnswer.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtAnswer.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.txtAnswer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtAnswer.isPassword = False
-        Me.txtAnswer.Location = New System.Drawing.Point(122, 55)
-        Me.txtAnswer.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtAnswer.Name = "txtAnswer"
-        Me.txtAnswer.Size = New System.Drawing.Size(303, 33)
-        Me.txtAnswer.TabIndex = 17
-        Me.txtAnswer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'cboSecretQuestion
-        '
-        Me.cboSecretQuestion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TblSecretQuestionBindingSource, "QuestionID", True))
-        Me.cboSecretQuestion.DataSource = Me.TblSecretQuestionBindingSource
-        Me.cboSecretQuestion.DisplayMember = "Question"
-        Me.cboSecretQuestion.FormattingEnabled = True
-        Me.cboSecretQuestion.ItemHeight = 23
-        Me.cboSecretQuestion.Location = New System.Drawing.Point(122, 19)
-        Me.cboSecretQuestion.Name = "cboSecretQuestion"
-        Me.cboSecretQuestion.Size = New System.Drawing.Size(303, 29)
-        Me.cboSecretQuestion.TabIndex = 16
-        Me.cboSecretQuestion.UseSelectable = True
-        Me.cboSecretQuestion.ValueMember = "QuestionID"
         '
         'TblSecretQuestionBindingSource
         '
@@ -206,37 +174,6 @@ Partial Class frmPasswordChange
         '
         Me.JandA2DataSet.DataSetName = "JandA2DataSet"
         Me.JandA2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BunifuCustomLabel2
-        '
-        Me.BunifuCustomLabel2.AutoSize = True
-        Me.BunifuCustomLabel2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BunifuCustomLabel2.Location = New System.Drawing.Point(6, 65)
-        Me.BunifuCustomLabel2.Name = "BunifuCustomLabel2"
-        Me.BunifuCustomLabel2.Size = New System.Drawing.Size(50, 17)
-        Me.BunifuCustomLabel2.TabIndex = 15
-        Me.BunifuCustomLabel2.Text = "Answer"
-        '
-        'BunifuCustomLabel1
-        '
-        Me.BunifuCustomLabel1.AutoSize = True
-        Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(6, 27)
-        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
-        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(100, 17)
-        Me.BunifuCustomLabel1.TabIndex = 14
-        Me.BunifuCustomLabel1.Text = "Secret Question"
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.BunifuCustomLabel1)
-        Me.Panel1.Controls.Add(Me.txtAnswer)
-        Me.Panel1.Controls.Add(Me.BunifuCustomLabel2)
-        Me.Panel1.Controls.Add(Me.cboSecretQuestion)
-        Me.Panel1.Location = New System.Drawing.Point(0, 304)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(438, 100)
-        Me.Panel1.TabIndex = 18
         '
         'txtPassword1
         '
@@ -296,16 +233,70 @@ Partial Class frmPasswordChange
         '
         Me.TblSecretQuestionTableAdapter.ClearBeforeFill = True
         '
+        'cboSecretQuestion
+        '
+        Me.cboSecretQuestion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TblSecretQuestionBindingSource, "QuestionID", True))
+        Me.cboSecretQuestion.DataSource = Me.TblSecretQuestionBindingSource
+        Me.cboSecretQuestion.DisplayMember = "Question"
+        Me.cboSecretQuestion.FormattingEnabled = True
+        Me.cboSecretQuestion.ItemHeight = 23
+        Me.cboSecretQuestion.Location = New System.Drawing.Point(122, 304)
+        Me.cboSecretQuestion.Name = "cboSecretQuestion"
+        Me.cboSecretQuestion.Size = New System.Drawing.Size(303, 29)
+        Me.cboSecretQuestion.TabIndex = 16
+        Me.cboSecretQuestion.UseSelectable = True
+        Me.cboSecretQuestion.ValueMember = "QuestionID"
+        '
+        'BunifuCustomLabel2
+        '
+        Me.BunifuCustomLabel2.AutoSize = True
+        Me.BunifuCustomLabel2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel2.Location = New System.Drawing.Point(6, 350)
+        Me.BunifuCustomLabel2.Name = "BunifuCustomLabel2"
+        Me.BunifuCustomLabel2.Size = New System.Drawing.Size(50, 17)
+        Me.BunifuCustomLabel2.TabIndex = 15
+        Me.BunifuCustomLabel2.Text = "Answer"
+        '
+        'txtAnswer
+        '
+        Me.txtAnswer.BorderColorFocused = System.Drawing.Color.HotPink
+        Me.txtAnswer.BorderColorIdle = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtAnswer.BorderColorMouseHover = System.Drawing.Color.HotPink
+        Me.txtAnswer.BorderThickness = 3
+        Me.txtAnswer.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtAnswer.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtAnswer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtAnswer.isPassword = False
+        Me.txtAnswer.Location = New System.Drawing.Point(122, 340)
+        Me.txtAnswer.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtAnswer.Name = "txtAnswer"
+        Me.txtAnswer.Size = New System.Drawing.Size(303, 33)
+        Me.txtAnswer.TabIndex = 17
+        Me.txtAnswer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(6, 312)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(100, 17)
+        Me.BunifuCustomLabel1.TabIndex = 14
+        Me.BunifuCustomLabel1.Text = "Secret Question"
+        '
         'frmPasswordChange
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(455, 488)
+        Me.ClientSize = New System.Drawing.Size(455, 451)
+        Me.Controls.Add(Me.BunifuCustomLabel1)
         Me.Controls.Add(Me.BunifuCustomLabel4)
+        Me.Controls.Add(Me.txtAnswer)
         Me.Controls.Add(Me.BunifuCustomLabel3)
+        Me.Controls.Add(Me.BunifuCustomLabel2)
         Me.Controls.Add(Me.txtPassword2)
+        Me.Controls.Add(Me.cboSecretQuestion)
         Me.Controls.Add(Me.txtPassword1)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnUpdatePassword)
         Me.Controls.Add(Me.lblUsername)
         Me.Controls.Add(Me.lblAccountID)
@@ -326,8 +317,6 @@ Partial Class frmPasswordChange
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblSecretQuestionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JandA2DataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -343,11 +332,6 @@ Partial Class frmPasswordChange
     Friend WithEvents lblName As Label
     Friend WithEvents btnUpdatePassword As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents ErrorProvider1 As ErrorProvider
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents txtAnswer As Bunifu.Framework.UI.BunifuMetroTextbox
-    Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents cboSecretQuestion As MetroFramework.Controls.MetroComboBox
     Friend WithEvents BunifuCustomLabel4 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuCustomLabel3 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents txtPassword2 As Bunifu.Framework.UI.BunifuMetroTextbox
@@ -355,4 +339,8 @@ Partial Class frmPasswordChange
     Friend WithEvents JandA2DataSet As JandA2DataSet
     Friend WithEvents TblSecretQuestionBindingSource As BindingSource
     Friend WithEvents TblSecretQuestionTableAdapter As JandA2DataSetTableAdapters.tblSecretQuestionTableAdapter
+    Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents txtAnswer As Bunifu.Framework.UI.BunifuMetroTextbox
+    Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents cboSecretQuestion As MetroFramework.Controls.MetroComboBox
 End Class

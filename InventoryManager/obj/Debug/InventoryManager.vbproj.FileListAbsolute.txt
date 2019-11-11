@@ -49,10 +49,6 @@ C:\Users\Marco\Documents\Visual Studio 2015\Projects\SoftEngFinalRepo\SoftEngFin
 C:\Users\Marco\Documents\Visual Studio 2015\Projects\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmServices.resources
 C:\Users\Marco\Documents\Visual Studio 2015\Projects\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmAdminPrompt.resources
 C:\Users\Marco\Documents\Visual Studio 2015\Projects\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmForgotPassword.resources
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\InventoryManager.exe.config
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\InventoryManager.exe
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\InventoryManager.pdb
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\InventoryManager.xml
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\CrystalDecisions.ReportSource.dll
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\CrystalDecisions.Shared.dll
@@ -72,7 +68,6 @@ C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\D
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\stdole.dll
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.vbproj.InventoryManager.exe.config
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmAccounts.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmAdminPrompt.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmCreateAccount.resources
@@ -90,12 +85,17 @@ C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\D
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmTransactions.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.Resources.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.vbproj.GenerateResource.Cache
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.exe
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.xml
-C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.pdb
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.vbprojResolveAssemblyReference.cache
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmItemQuantity.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmSearchItemCheckout.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmShowCheckoutlist.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmShowDetailsTransaction.resources
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.frmAccountLogs.resources
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\J&A Inventory Manager.exe.config
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\J&A Inventory Manager.exe
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\J&A Inventory Manager.pdb
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\bin\Debug\J&A Inventory Manager.xml
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.vbproj.J&A Inventory Manager.exe.config
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\J&A Inventory Manager.exe
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\J&A Inventory Manager.xml
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\J&A Inventory Manager.pdb

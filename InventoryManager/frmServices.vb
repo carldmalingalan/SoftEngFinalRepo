@@ -108,6 +108,9 @@ Public Class frmServices
         Call DisConnectSQLServer()
     End Sub
 
+    Private Sub btnExportServices_Click(sender As Object, e As EventArgs) Handles btnExportServices.Click
+        ExportExcel(dgvServiceList)
+    End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Call clearfields()

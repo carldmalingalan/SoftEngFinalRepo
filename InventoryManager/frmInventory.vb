@@ -37,6 +37,10 @@ Public Class frmInventory
         Call viewItemList_reload()
     End Sub
 
+    Private Sub btnExportItemList_Click(sender As Object, e As EventArgs) Handles btnExportItemList.Click
+        ExportExcel(dgvItemList)
+    End Sub
+
     Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellClick
         If (dgvItemList.Rows.Count >= 0) Then
             Try

@@ -30,18 +30,14 @@ Partial Class frmDashboard
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDashboard))
         Me.chartEmployeeTransactions = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.chartCategories = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.MetroDateTime1 = New MetroFramework.Controls.MetroDateTime()
-        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.MetroDateTime2 = New MetroFramework.Controls.MetroDateTime()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.chartEmployeeTransactions, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chartCategories, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'chartEmployeeTransactions
@@ -53,12 +49,14 @@ Partial Class frmDashboard
         Me.chartEmployeeTransactions.Location = New System.Drawing.Point(12, 47)
         Me.chartEmployeeTransactions.Name = "chartEmployeeTransactions"
         Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Funnel
         Series1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series1.IsValueShownAsLabel = True
         Series1.IsXValueIndexed = True
         Series1.Legend = "Legend1"
+        Series1.LegendText = "Employee Name"
         Series1.Name = "Series2"
         Series1.ShadowColor = System.Drawing.Color.Silver
+        Series1.YValuesPerPoint = 2
         Me.chartEmployeeTransactions.Series.Add(Series1)
         Me.chartEmployeeTransactions.Size = New System.Drawing.Size(573, 297)
         Me.chartEmployeeTransactions.TabIndex = 0
@@ -83,7 +81,7 @@ Partial Class frmDashboard
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
         Me.chartCategories.Series.Add(Series2)
-        Me.chartCategories.Size = New System.Drawing.Size(551, 297)
+        Me.chartCategories.Size = New System.Drawing.Size(539, 297)
         Me.chartCategories.TabIndex = 2
         Me.chartCategories.Text = "Chart2"
         Title2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -97,31 +95,26 @@ Partial Class frmDashboard
         Me.MetroDateTime1.Location = New System.Drawing.Point(12, 12)
         Me.MetroDateTime1.MinimumSize = New System.Drawing.Size(0, 29)
         Me.MetroDateTime1.Name = "MetroDateTime1"
-        Me.MetroDateTime1.Size = New System.Drawing.Size(200, 29)
+        Me.MetroDateTime1.Size = New System.Drawing.Size(215, 29)
         Me.MetroDateTime1.TabIndex = 3
         '
-        'Chart1
+        'MetroDateTime2
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend3)
-        Me.Chart1.Location = New System.Drawing.Point(12, 350)
-        Me.Chart1.Name = "Chart1"
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
-        Series3.IsValueShownAsLabel = True
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.Chart1.Series.Add(Series3)
-        Me.Chart1.Size = New System.Drawing.Size(551, 297)
-        Me.Chart1.TabIndex = 4
-        Me.Chart1.Text = "Chart2"
-        Title3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title3.Name = "Service Category"
-        Title3.Text = "Service Category"
-        Title3.ToolTip = "Service Category"
-        Me.Chart1.Titles.Add(Title3)
+        Me.MetroDateTime2.Location = New System.Drawing.Point(253, 12)
+        Me.MetroDateTime2.MinimumSize = New System.Drawing.Size(0, 29)
+        Me.MetroDateTime2.Name = "MetroDateTime2"
+        Me.MetroDateTime2.Size = New System.Drawing.Size(215, 29)
+        Me.MetroDateTime2.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(233, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(14, 18)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "-"
         '
         'frmDashboard
         '
@@ -130,7 +123,8 @@ Partial Class frmDashboard
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
-        Me.Controls.Add(Me.Chart1)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.MetroDateTime2)
         Me.Controls.Add(Me.MetroDateTime1)
         Me.Controls.Add(Me.chartCategories)
         Me.Controls.Add(Me.chartEmployeeTransactions)
@@ -140,13 +134,14 @@ Partial Class frmDashboard
         Me.Text = "frmDashboard"
         CType(Me.chartEmployeeTransactions, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chartCategories, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents chartEmployeeTransactions As DataVisualization.Charting.Chart
     Friend WithEvents chartCategories As DataVisualization.Charting.Chart
     Friend WithEvents MetroDateTime1 As MetroFramework.Controls.MetroDateTime
-    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents MetroDateTime2 As MetroFramework.Controls.MetroDateTime
+    Friend WithEvents Label1 As Label
 End Class

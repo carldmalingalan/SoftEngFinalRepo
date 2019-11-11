@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-
+Imports Microsoft.Office.Interop
 Public Class frmAccounts
 
     Private Property selectedRow As Integer
@@ -102,15 +102,15 @@ Public Class frmAccounts
 
     Private Sub btnResetAccount_Click(sender As Object, e As EventArgs) Handles btnAddEmployee.Click
         If (selectedRow < 0) Then
-            MsgBox("Please select an account first.", MsgBoxStyle.Information, Application.ProductName)
+            MsgBox("Please select an account first.", MsgBoxStyle.Information)
         Else
-            Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, "J&A Inventory Manager")
             If ask = vbYes Then
                 accountID = dgvUserList.Rows(selectedRow).Cells(0).Value()
                 logInfo = "Reset AccountID# " & dgvUserList.Rows(selectedRow).Cells(0).Value() & "."
                 Call RecordLog(logInfo)
                 Call ResetAccount(accountID)
-                MsgBox("Password has been reset to default. Please use admin12345.", MsgBoxStyle.Information, Application.ProductName)
+                MsgBox("Password has been reset to default. Please use admin12345.", MsgBoxStyle.Information, "J&A Inventory Manager")
             End If
         End If
     End Sub
@@ -145,11 +145,17 @@ Public Class frmAccounts
         End If
     End Sub
 
+    Private Sub btnExportUsers_Click(sender As Object, e As EventArgs) Handles btnExportUsers.Click
+        ExportExcel(dgvUserList)
+    End Sub
+
+
+
     Private Sub btnDeactivateAccount_Click(sender As Object, e As EventArgs) Handles btnDeactivateAccount.Click
         If (selectedRow < 0) Then
-            MsgBox("Please select an account first.", MsgBoxStyle.Information, Application.ProductName)
+            MsgBox("Please select an account first.", MsgBoxStyle.Information, "J&A Inventory Manager")
         Else
-            Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+            Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, "J&A Inventory Manager")
             If ask = vbYes Then
                 accountID = dgvUserList.Rows(selectedRow).Cells(0).Value()
                 Dim Status = dgvUserList.Rows(selectedRow).Cells(6).Value()
@@ -157,13 +163,13 @@ Public Class frmAccounts
                     Call DeactivateAccount(accountID)
                     logInfo = "Deactivated AccountID# " & dgvUserList.Rows(selectedRow).Cells(0).Value() & "'s access."
                     Call RecordLog(logInfo)
-                    MsgBox("Account has been deactivated.", MsgBoxStyle.Information, Application.ProductName)
+                    MsgBox("Account has been deactivated.", MsgBoxStyle.Information, "J&A Inventory Manager")
 
                 ElseIf Status = "INACTIVE" Then
                     Call ActivateAccount(accountID)
                     logInfo = "Activated AccountID# " & dgvUserList.Rows(selectedRow).Cells(0).Value() & "'s access."
                     Call RecordLog(logInfo)
-                    MsgBox("Account has been reactivated.", MsgBoxStyle.Information, Application.ProductName)
+                    MsgBox("Account has been reactivated.", MsgBoxStyle.Information, "J&A Inventory Manager")
                 End If
                 Call viewUserlist_reload()
             End If

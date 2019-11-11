@@ -32,6 +32,10 @@ Partial Class frmServices
         Me.btnUpdateService = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnCreateService = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.gbServiceDetails = New System.Windows.Forms.GroupBox()
+        Me.rdoNails = New System.Windows.Forms.RadioButton()
+        Me.rdoFace = New System.Windows.Forms.RadioButton()
+        Me.rdoHair = New System.Windows.Forms.RadioButton()
+        Me.rdoBody = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtRemarks = New WindowsFormsControlLibrary1.BunifuCustomTextbox()
         Me.switchServiceStatus = New Bunifu.Framework.UI.BunifuSwitch()
@@ -42,10 +46,6 @@ Partial Class frmServices
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.rdoBody = New System.Windows.Forms.RadioButton()
-        Me.rdoFace = New System.Windows.Forms.RadioButton()
-        Me.rdoHair = New System.Windows.Forms.RadioButton()
-        Me.rdoNails = New System.Windows.Forms.RadioButton()
         CType(Me.dgvServiceList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbServiceDetails.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -225,6 +225,50 @@ Partial Class frmServices
         Me.gbServiceDetails.TabStop = False
         Me.gbServiceDetails.Text = "Service Details"
         '
+        'rdoNails
+        '
+        Me.rdoNails.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoNails.AutoSize = True
+        Me.rdoNails.Location = New System.Drawing.Point(302, 66)
+        Me.rdoNails.Name = "rdoNails"
+        Me.rdoNails.Size = New System.Drawing.Size(51, 26)
+        Me.rdoNails.TabIndex = 58
+        Me.rdoNails.Text = "Nails"
+        Me.rdoNails.UseVisualStyleBackColor = True
+        '
+        'rdoFace
+        '
+        Me.rdoFace.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoFace.AutoSize = True
+        Me.rdoFace.Location = New System.Drawing.Point(196, 66)
+        Me.rdoFace.Name = "rdoFace"
+        Me.rdoFace.Size = New System.Drawing.Size(49, 26)
+        Me.rdoFace.TabIndex = 58
+        Me.rdoFace.Text = "Face"
+        Me.rdoFace.UseVisualStyleBackColor = True
+        '
+        'rdoHair
+        '
+        Me.rdoHair.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoHair.AutoSize = True
+        Me.rdoHair.Location = New System.Drawing.Point(251, 66)
+        Me.rdoHair.Name = "rdoHair"
+        Me.rdoHair.Size = New System.Drawing.Size(45, 26)
+        Me.rdoHair.TabIndex = 57
+        Me.rdoHair.Text = "Hair"
+        Me.rdoHair.UseVisualStyleBackColor = True
+        '
+        'rdoBody
+        '
+        Me.rdoBody.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rdoBody.AutoSize = True
+        Me.rdoBody.Location = New System.Drawing.Point(139, 66)
+        Me.rdoBody.Name = "rdoBody"
+        Me.rdoBody.Size = New System.Drawing.Size(51, 26)
+        Me.rdoBody.TabIndex = 57
+        Me.rdoBody.Text = "Body"
+        Me.rdoBody.UseVisualStyleBackColor = True
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -345,50 +389,6 @@ Partial Class frmServices
         'ErrorProvider1
         '
         Me.ErrorProvider1.ContainerControl = Me
-        '
-        'rdoBody
-        '
-        Me.rdoBody.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rdoBody.AutoSize = True
-        Me.rdoBody.Location = New System.Drawing.Point(139, 66)
-        Me.rdoBody.Name = "rdoBody"
-        Me.rdoBody.Size = New System.Drawing.Size(51, 26)
-        Me.rdoBody.TabIndex = 57
-        Me.rdoBody.Text = "Body"
-        Me.rdoBody.UseVisualStyleBackColor = True
-        '
-        'rdoFace
-        '
-        Me.rdoFace.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rdoFace.AutoSize = True
-        Me.rdoFace.Location = New System.Drawing.Point(196, 66)
-        Me.rdoFace.Name = "rdoFace"
-        Me.rdoFace.Size = New System.Drawing.Size(49, 26)
-        Me.rdoFace.TabIndex = 58
-        Me.rdoFace.Text = "Face"
-        Me.rdoFace.UseVisualStyleBackColor = True
-        '
-        'rdoHair
-        '
-        Me.rdoHair.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rdoHair.AutoSize = True
-        Me.rdoHair.Location = New System.Drawing.Point(251, 66)
-        Me.rdoHair.Name = "rdoHair"
-        Me.rdoHair.Size = New System.Drawing.Size(45, 26)
-        Me.rdoHair.TabIndex = 57
-        Me.rdoHair.Text = "Hair"
-        Me.rdoHair.UseVisualStyleBackColor = True
-        '
-        'rdoNails
-        '
-        Me.rdoNails.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rdoNails.AutoSize = True
-        Me.rdoNails.Location = New System.Drawing.Point(302, 66)
-        Me.rdoNails.Name = "rdoNails"
-        Me.rdoNails.Size = New System.Drawing.Size(51, 26)
-        Me.rdoNails.TabIndex = 58
-        Me.rdoNails.Text = "Nails"
-        Me.rdoNails.UseVisualStyleBackColor = True
         '
         'frmServices
         '

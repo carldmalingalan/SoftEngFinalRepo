@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>InventoryManager.My.MyApplication</StartupObject>
     <RootNamespace>InventoryManager</RootNamespace>
-    <AssemblyName>InventoryManager</AssemblyName>
+    <AssemblyName>J&amp;A Inventory Manager</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -39,7 +39,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>InventoryManager.xml</DocumentationFile>
+    <DocumentationFile>J&amp;A Inventory Manager.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>InventoryManager.xml</DocumentationFile>
+    <DocumentationFile>J&amp;A Inventory Manager.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -89,6 +89,9 @@
     </Reference>
     <Reference Include="MetroFramework.Design">
       <HintPath>..\..\..\..\..\Downloads\LostHours\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -310,6 +313,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAccountLogs.resx">
       <DependentUpon>frmAccountLogs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAccountManager.resx">
+      <DependentUpon>frmAccountManager.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAccounts.resx">
       <DependentUpon>frmAccounts.vb</DependentUpon>
