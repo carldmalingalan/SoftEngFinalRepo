@@ -63,7 +63,6 @@ Partial Class frmEmployeeManager
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.dgvExportList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.BunifuFlatButton1 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.BunifuCards2.SuspendLayout()
         Me.BunifuCards3.SuspendLayout()
@@ -630,41 +629,6 @@ Partial Class frmEmployeeManager
         Me.dgvExportList.Size = New System.Drawing.Size(429, 54)
         Me.dgvExportList.TabIndex = 31
         '
-        'BunifuFlatButton1
-        '
-        Me.BunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.BunifuFlatButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.BunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton1.BorderRadius = 7
-        Me.BunifuFlatButton1.ButtonText = "Export List"
-        Me.BunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton1.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_5_
-        Me.BunifuFlatButton1.Iconimage_right = Nothing
-        Me.BunifuFlatButton1.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton1.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton1.IconMarginLeft = 0
-        Me.BunifuFlatButton1.IconMarginRight = 0
-        Me.BunifuFlatButton1.IconRightVisible = True
-        Me.BunifuFlatButton1.IconRightZoom = 0R
-        Me.BunifuFlatButton1.IconVisible = True
-        Me.BunifuFlatButton1.IconZoom = 90.0R
-        Me.BunifuFlatButton1.IsTab = False
-        Me.BunifuFlatButton1.Location = New System.Drawing.Point(968, 413)
-        Me.BunifuFlatButton1.Name = "BunifuFlatButton1"
-        Me.BunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.BunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.BunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White
-        Me.BunifuFlatButton1.selected = False
-        Me.BunifuFlatButton1.Size = New System.Drawing.Size(174, 48)
-        Me.BunifuFlatButton1.TabIndex = 26
-        Me.BunifuFlatButton1.Text = "Export List"
-        Me.BunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BunifuFlatButton1.Textcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton1.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        '
         'frmEmployeeManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -679,7 +643,6 @@ Partial Class frmEmployeeManager
         Me.Controls.Add(Me.BunifuCards3)
         Me.Controls.Add(Me.dgvEmployeeList)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.BunifuFlatButton1)
         Me.Controls.Add(Me.btnExportEmployeeList)
         Me.Controls.Add(Me.btnAddEmployee)
         Me.Controls.Add(Me.btnUpdateEmployee)
@@ -735,6 +698,5 @@ Partial Class frmEmployeeManager
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents dgvExportList As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents BunifuFlatButton1 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
 End Class

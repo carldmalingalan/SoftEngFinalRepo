@@ -6,7 +6,6 @@ Imports System.Configuration
 Imports System.Data.SqlClient
 
 
-
 Public Class frmEmployeeManager
 
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
@@ -181,12 +180,12 @@ Public Class frmEmployeeManager
     Private Sub btnExportEmployeeList_Click(sender As Object, e As EventArgs) Handles btnExportEmployeeList.Click
         ExportExcel(dgvExportList)
     End Sub
-    Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
+    Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs)
         SaveFileDialog1.FileName = ""
         If SaveFileDialog1.ShowDialog = DialogResult.OK Then
             ' declaration textbox2 to save file dialog name
             Dim txt As String = SaveFileDialog1.FileName
-            Call ExporttoPDF(txt)
+            '  Call ExporttoPDF(txt)
         End If
     End Sub
 

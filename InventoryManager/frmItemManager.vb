@@ -50,7 +50,6 @@ Public Class frmItemManager
         reader = cmd.ExecuteReader()
         While reader.Read()
             txtItemName.Text = reader.GetString(1).Trim
-            txtItemQuantity.Text = reader.GetValue(2)
             If reader.IsDBNull(3) Then
                 cbCritPointNA.Checked = True
                 txtCriticalPoint.Enabled = False
@@ -191,8 +190,6 @@ Public Class frmItemManager
         ItemNameValidation()
         ItemQuantityValidation()
         RoleValidation()
-        DateValidation()
-
         If flag1 = False Or flag2 = False Or flag3 = False Or flag4 = False Or flag5 = False Or flag6 = False Or flag7 = False Or flag8 = False Then
             MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
             Exit Sub
@@ -212,11 +209,13 @@ Public Class frmItemManager
             If (saveType1 = 1) Then
                 Call AddItem(txtItemName.Text.Trim, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate)
                 MsgBox("Successfully added item.", MsgBoxStyle.Information, Application.ProductName)
-                logInfo = "Added a new item successfully."
+                AddCheckIn(txtItemQuantity.Text.Trim.Replace("-", ""), lastIDforcheckin)
+                logInfo = "Added new item#" & lastIDforcheckin & " successfully."
                 Call RecordLog(logInfo)
             ElseIf (saveType1 = 2) Then
                 Call UpdateItem(txtItemName.Text, txtItemQuantity.Text.Trim, txtDescription.Text.Trim, GetGroupBoxCheckedButton(groupBoxRole).Text, critPoint, ExpiDate, itemID)
-                logInfo = "Updated an item successfully."
+                AddCheckIn(txtItemQuantity.Text.Trim.Replace("-", ""), itemID)
+                logInfo = "Updated item#" & itemID & " successfully."
                 Call RecordLog(logInfo)
                 MsgBox("Successfully updated item.", MsgBoxStyle.Information, Application.ProductName)
             End If

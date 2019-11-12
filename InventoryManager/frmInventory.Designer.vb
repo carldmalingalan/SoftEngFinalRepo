@@ -22,9 +22,9 @@ Partial Class frmInventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInventory))
         Me.cardCritStock = New Bunifu.Framework.UI.BunifuCards()
         Me.lblCritCount = New System.Windows.Forms.Label()
@@ -39,17 +39,21 @@ Partial Class frmInventory
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.btnSearch = New System.Windows.Forms.Button()
-        Me.btnExportItemList = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddItem = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.cardExpiringItem = New Bunifu.Framework.UI.BunifuCards()
         Me.lblExpiring = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.btnExportPdf = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btnExportExcel = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.cardCritStock.SuspendLayout()
         Me.cardInStock.SuspendLayout()
         CType(Me.dgvItemList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cardOutofStock.SuspendLayout()
         Me.cardExpiringItem.SuspendLayout()
+        CType(Me.btnExportPdf, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cardCritStock
@@ -129,31 +133,31 @@ Partial Class frmInventory
         Me.dgvItemList.AllowUserToAddRows = False
         Me.dgvItemList.AllowUserToDeleteRows = False
         Me.dgvItemList.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvItemList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvItemList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvItemList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvItemList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvItemList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvItemList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvItemList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvItemList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvItemList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgvItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvItemList.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvItemList.DefaultCellStyle = DataGridViewCellStyle6
         Me.dgvItemList.DoubleBuffered = True
         Me.dgvItemList.EnableHeadersVisualStyles = False
         Me.dgvItemList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
@@ -244,41 +248,6 @@ Partial Class frmInventory
         Me.btnSearch.Size = New System.Drawing.Size(33, 33)
         Me.btnSearch.TabIndex = 32
         Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'btnExportItemList
-        '
-        Me.btnExportItemList.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportItemList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExportItemList.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportItemList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnExportItemList.BorderRadius = 7
-        Me.btnExportItemList.ButtonText = "Export List"
-        Me.btnExportItemList.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExportItemList.DisabledColor = System.Drawing.Color.Gray
-        Me.btnExportItemList.Iconcolor = System.Drawing.Color.Transparent
-        Me.btnExportItemList.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_5_
-        Me.btnExportItemList.Iconimage_right = Nothing
-        Me.btnExportItemList.Iconimage_right_Selected = Nothing
-        Me.btnExportItemList.Iconimage_Selected = Nothing
-        Me.btnExportItemList.IconMarginLeft = 0
-        Me.btnExportItemList.IconMarginRight = 0
-        Me.btnExportItemList.IconRightVisible = True
-        Me.btnExportItemList.IconRightZoom = 0R
-        Me.btnExportItemList.IconVisible = True
-        Me.btnExportItemList.IconZoom = 90.0R
-        Me.btnExportItemList.IsTab = False
-        Me.btnExportItemList.Location = New System.Drawing.Point(951, 282)
-        Me.btnExportItemList.Name = "btnExportItemList"
-        Me.btnExportItemList.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportItemList.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportItemList.OnHoverTextColor = System.Drawing.Color.White
-        Me.btnExportItemList.selected = False
-        Me.btnExportItemList.Size = New System.Drawing.Size(191, 48)
-        Me.btnExportItemList.TabIndex = 14
-        Me.btnExportItemList.Text = "Export List"
-        Me.btnExportItemList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnExportItemList.Textcolor = System.Drawing.Color.White
-        Me.btnExportItemList.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
         'btnUpdateItem
         '
@@ -387,18 +356,47 @@ Partial Class frmInventory
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "EXPIRING ITEMS"
         '
+        'btnExportPdf
+        '
+        Me.btnExportPdf.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportPdf.BackColor = System.Drawing.Color.Transparent
+        Me.btnExportPdf.Image = Global.InventoryManager.My.Resources.Resources.pdf
+        Me.btnExportPdf.ImageActive = Nothing
+        Me.btnExportPdf.Location = New System.Drawing.Point(1052, 120)
+        Me.btnExportPdf.Name = "btnExportPdf"
+        Me.btnExportPdf.Size = New System.Drawing.Size(46, 48)
+        Me.btnExportPdf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnExportPdf.TabIndex = 34
+        Me.btnExportPdf.TabStop = False
+        Me.btnExportPdf.Zoom = 10
+        '
+        'btnExportExcel
+        '
+        Me.btnExportExcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportExcel.BackColor = System.Drawing.Color.Transparent
+        Me.btnExportExcel.Image = Global.InventoryManager.My.Resources.Resources.excel
+        Me.btnExportExcel.ImageActive = Nothing
+        Me.btnExportExcel.Location = New System.Drawing.Point(1000, 120)
+        Me.btnExportExcel.Name = "btnExportExcel"
+        Me.btnExportExcel.Size = New System.Drawing.Size(46, 48)
+        Me.btnExportExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnExportExcel.TabIndex = 33
+        Me.btnExportExcel.TabStop = False
+        Me.btnExportExcel.Zoom = 10
+        '
         'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.btnExportPdf)
+        Me.Controls.Add(Me.btnExportExcel)
         Me.Controls.Add(Me.cardExpiringItem)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.cardOutofStock)
-        Me.Controls.Add(Me.btnExportItemList)
         Me.Controls.Add(Me.cardCritStock)
         Me.Controls.Add(Me.cardInStock)
         Me.Controls.Add(Me.btnUpdateItem)
@@ -416,11 +414,11 @@ Partial Class frmInventory
         Me.cardOutofStock.PerformLayout()
         Me.cardExpiringItem.ResumeLayout(False)
         Me.cardExpiringItem.PerformLayout()
+        CType(Me.btnExportPdf, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents btnExportItemList As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents cardCritStock As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents lblCritCount As Label
     Friend WithEvents Label2 As Label
@@ -439,4 +437,7 @@ Partial Class frmInventory
     Friend WithEvents cardExpiringItem As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents lblExpiring As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents btnExportPdf As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents btnExportExcel As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 End Class

@@ -22,17 +22,21 @@ Partial Class frmTransactions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTransactions))
         Me.dgvTransactionsList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dtpTransactionDate = New MetroFramework.Controls.MetroDateTime()
-        Me.btnExportUsers = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnVoidTransaction = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnAddTransactions = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.btnExportPdf = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btnExportExcel = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         CType(Me.dgvTransactionsList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnExportPdf, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvTransactionsList
@@ -40,31 +44,31 @@ Partial Class frmTransactions
         Me.dgvTransactionsList.AllowUserToAddRows = False
         Me.dgvTransactionsList.AllowUserToDeleteRows = False
         Me.dgvTransactionsList.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvTransactionsList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvTransactionsList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvTransactionsList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvTransactionsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvTransactionsList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvTransactionsList.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvTransactionsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvTransactionsList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvTransactionsList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgvTransactionsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumBlue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvTransactionsList.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvTransactionsList.DefaultCellStyle = DataGridViewCellStyle6
         Me.dgvTransactionsList.DoubleBuffered = True
         Me.dgvTransactionsList.EnableHeadersVisualStyles = False
         Me.dgvTransactionsList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
@@ -103,41 +107,6 @@ Partial Class frmTransactions
         Me.dtpTransactionDate.UseCustomBackColor = True
         Me.dtpTransactionDate.UseCustomForeColor = True
         Me.dtpTransactionDate.UseStyleColors = True
-        '
-        'btnExportUsers
-        '
-        Me.btnExportUsers.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportUsers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExportUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnExportUsers.BorderRadius = 7
-        Me.btnExportUsers.ButtonText = "Export List"
-        Me.btnExportUsers.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExportUsers.DisabledColor = System.Drawing.Color.Gray
-        Me.btnExportUsers.Iconcolor = System.Drawing.Color.Transparent
-        Me.btnExportUsers.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_5_
-        Me.btnExportUsers.Iconimage_right = Nothing
-        Me.btnExportUsers.Iconimage_right_Selected = Nothing
-        Me.btnExportUsers.Iconimage_Selected = Nothing
-        Me.btnExportUsers.IconMarginLeft = 0
-        Me.btnExportUsers.IconMarginRight = 0
-        Me.btnExportUsers.IconRightVisible = True
-        Me.btnExportUsers.IconRightZoom = 0R
-        Me.btnExportUsers.IconVisible = True
-        Me.btnExportUsers.IconZoom = 90.0R
-        Me.btnExportUsers.IsTab = False
-        Me.btnExportUsers.Location = New System.Drawing.Point(951, 290)
-        Me.btnExportUsers.Name = "btnExportUsers"
-        Me.btnExportUsers.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportUsers.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportUsers.OnHoverTextColor = System.Drawing.Color.White
-        Me.btnExportUsers.selected = False
-        Me.btnExportUsers.Size = New System.Drawing.Size(191, 48)
-        Me.btnExportUsers.TabIndex = 16
-        Me.btnExportUsers.Text = "Export List"
-        Me.btnExportUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnExportUsers.Textcolor = System.Drawing.Color.White
-        Me.btnExportUsers.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
         'btnVoidTransaction
         '
@@ -209,14 +178,43 @@ Partial Class frmTransactions
         Me.btnAddTransactions.Textcolor = System.Drawing.Color.White
         Me.btnAddTransactions.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
+        'btnExportPdf
+        '
+        Me.btnExportPdf.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportPdf.BackColor = System.Drawing.Color.Transparent
+        Me.btnExportPdf.Image = Global.InventoryManager.My.Resources.Resources.pdf
+        Me.btnExportPdf.ImageActive = Nothing
+        Me.btnExportPdf.Location = New System.Drawing.Point(1047, 128)
+        Me.btnExportPdf.Name = "btnExportPdf"
+        Me.btnExportPdf.Size = New System.Drawing.Size(46, 48)
+        Me.btnExportPdf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnExportPdf.TabIndex = 19
+        Me.btnExportPdf.TabStop = False
+        Me.btnExportPdf.Zoom = 10
+        '
+        'btnExportExcel
+        '
+        Me.btnExportExcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportExcel.BackColor = System.Drawing.Color.Transparent
+        Me.btnExportExcel.Image = Global.InventoryManager.My.Resources.Resources.excel
+        Me.btnExportExcel.ImageActive = Nothing
+        Me.btnExportExcel.Location = New System.Drawing.Point(995, 128)
+        Me.btnExportExcel.Name = "btnExportExcel"
+        Me.btnExportExcel.Size = New System.Drawing.Size(46, 48)
+        Me.btnExportExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnExportExcel.TabIndex = 18
+        Me.btnExportExcel.TabStop = False
+        Me.btnExportExcel.Zoom = 10
+        '
         'frmTransactions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.btnExportPdf)
+        Me.Controls.Add(Me.btnExportExcel)
         Me.Controls.Add(Me.dtpTransactionDate)
-        Me.Controls.Add(Me.btnExportUsers)
         Me.Controls.Add(Me.btnVoidTransaction)
         Me.Controls.Add(Me.btnAddTransactions)
         Me.Controls.Add(Me.dgvTransactionsList)
@@ -226,14 +224,17 @@ Partial Class frmTransactions
         Me.Name = "frmTransactions"
         Me.Text = "frmTransactions"
         CType(Me.dgvTransactionsList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnExportPdf, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents btnExportUsers As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnAddTransactions As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dgvTransactionsList As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnVoidTransaction As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents dtpTransactionDate As MetroFramework.Controls.MetroDateTime
+    Friend WithEvents btnExportPdf As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents btnExportExcel As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 End Class

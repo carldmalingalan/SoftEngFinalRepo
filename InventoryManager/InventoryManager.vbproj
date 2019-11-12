@@ -518,6 +518,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon salon_0`.ico" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\excel.png" />
     <None Include="Resources\icons8-about-500.png" />
     <None Include="Resources\icons8-about-50.png" />
     <None Include="Resources\save.png" />

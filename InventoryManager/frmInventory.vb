@@ -37,8 +37,17 @@ Public Class frmInventory
         Call viewItemList_reload()
     End Sub
 
-    Private Sub btnExportItemList_Click(sender As Object, e As EventArgs) Handles btnExportItemList.Click
+    Private Sub btnExportItemList_Click(sender As Object, e As EventArgs) Handles btnExportExcel.Click
         ExportExcel(dgvItemList)
+    End Sub
+
+    Private Sub btnExportPdf_Click(sender As Object, e As EventArgs) Handles btnExportPdf.Click
+        SaveFileDialog1.FileName = ""
+        If SaveFileDialog1.ShowDialog = DialogResult.OK Then
+            ' declaration textbox2 to save file dialog name
+            Dim txt As String = SaveFileDialog1.FileName & ".pdf"
+            Call ExporttoPDF(txt, dgvItemList)
+        End If
     End Sub
 
     Private Sub dgvUserList_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellClick

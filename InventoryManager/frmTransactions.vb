@@ -20,7 +20,7 @@ Public Class frmTransactions
 
     Private Sub viewTransactions()
         Call ConnectTOSQLServer()
-        strSQL = "SELECT * FROM [dbo].[vw_TransactionListFinal] where Date = '" & dtpTransactionDate.Value.ToString("MM/dd/yyyy") & "'"
+        strSQL = "SELECT TransactionNumber,convert(varchar,TransactionDate,101) as [Date],RIGHT(CONVERT(VARCHAR, TransactionDate, 100),7) as [Time], [Customer Name], [Service/s Availed] = STUFF((SELECT DISTINCT ', ' + [Service] FROM vw_TransactionsListing b WHERE b.TransactionNumber = a.TransactionNumber FOR XML PATH('')), 1, 2, ''), [Employee Assigned] FROM vw_TransactionsListing a where convert(varchar,TransactionDate,101) = '" & dtpTransactionDate.Value.ToString("MM/dd/yyyy") & "' GROUP BY TransactionNumber,TransactionDate, [Customer Name], [Employee Assigned]"
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim TransactionList As New DataSet()
@@ -29,9 +29,6 @@ Public Class frmTransactions
         dgvTransactionsList.DataMember = "[vw_TransactionListFinal]"
         Call DisConnectSQLServer()
     End Sub
-
-
-
 
     Private Sub btnVoidTransaction_Click(sender As Object, e As EventArgs) Handles btnVoidTransaction.Click
         If (selectedRow >= 0) Then
@@ -84,6 +81,20 @@ Public Class frmTransactions
                 ab.Show()
             Catch ex As Exception
             End Try
+        End If
+    End Sub
+
+
+    Private Sub btnExportExcel_Click(sender As Object, e As EventArgs) Handles btnExportExcel.Click
+        ExportExcel(dgvTransactionsList)
+    End Sub
+
+    Private Sub btnExportPdf_Click(sender As Object, e As EventArgs) Handles btnExportPdf.Click
+        SaveFileDialog1.FileName = ""
+        If SaveFileDialog1.ShowDialog = DialogResult.OK Then
+            ' declaration textbox2 to save file dialog name
+            Dim txt As String = SaveFileDialog1.FileName & ".pdf"
+            Call ExporttoPDF(txt, dgvTransactionsList)
         End If
     End Sub
 End Class

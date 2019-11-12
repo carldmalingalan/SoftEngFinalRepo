@@ -1,5 +1,13 @@
 ﻿Imports System.Data.SqlClient
 Imports Microsoft.Office.Interop
+Imports iTextSharp
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports System.IO
+
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
+Imports System.Data
 Public Class frmAccounts
 
     Private Property selectedRow As Integer
@@ -144,9 +152,22 @@ Public Class frmAccounts
         End If
     End Sub
 
-    Private Sub btnExportUsers_Click(sender As Object, e As EventArgs) Handles btnExportUsers.Click
+    Private Sub btnExportUsers_Click(sender As Object, e As EventArgs) Handles btnExportExcel.Click
         ExportExcel(dgvUserList)
     End Sub
+
+
+
+
+    Private Sub btnExportPdf_Click(sender As Object, e As EventArgs) Handles btnExportPdf.Click
+        SaveFileDialog1.FileName = ""
+        If SaveFileDialog1.ShowDialog = DialogResult.OK Then
+            ' declaration textbox2 to save file dialog name
+            Dim txt As String = SaveFileDialog1.FileName & ".pdf"
+            Call ExporttoPDF(txt, dgvUserList)
+        End If
+    End Sub
+
 
 
 

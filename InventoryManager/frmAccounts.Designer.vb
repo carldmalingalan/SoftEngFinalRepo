@@ -35,15 +35,19 @@ Partial Class frmAccounts
         Me.lblInactiveCount = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.btnExportPdf = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btnExportExcel = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnAddEmployee = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.btnExportUsers = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnDeactivateAccount = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnUpdateAccount = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnCreateAccount = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         CType(Me.dgvUserList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuCards1.SuspendLayout()
         Me.BunifuCards2.SuspendLayout()
+        CType(Me.btnExportPdf, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -192,6 +196,34 @@ Partial Class frmAccounts
         Me.txtSearch.TabIndex = 9
         Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
+        'btnExportPdf
+        '
+        Me.btnExportPdf.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportPdf.BackColor = System.Drawing.Color.Transparent
+        Me.btnExportPdf.Image = Global.InventoryManager.My.Resources.Resources.pdf
+        Me.btnExportPdf.ImageActive = Nothing
+        Me.btnExportPdf.Location = New System.Drawing.Point(1051, 120)
+        Me.btnExportPdf.Name = "btnExportPdf"
+        Me.btnExportPdf.Size = New System.Drawing.Size(46, 48)
+        Me.btnExportPdf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnExportPdf.TabIndex = 12
+        Me.btnExportPdf.TabStop = False
+        Me.btnExportPdf.Zoom = 10
+        '
+        'btnExportExcel
+        '
+        Me.btnExportExcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExportExcel.BackColor = System.Drawing.Color.Transparent
+        Me.btnExportExcel.Image = Global.InventoryManager.My.Resources.Resources.excel
+        Me.btnExportExcel.ImageActive = Nothing
+        Me.btnExportExcel.Location = New System.Drawing.Point(999, 120)
+        Me.btnExportExcel.Name = "btnExportExcel"
+        Me.btnExportExcel.Size = New System.Drawing.Size(46, 48)
+        Me.btnExportExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnExportExcel.TabIndex = 11
+        Me.btnExportExcel.TabStop = False
+        Me.btnExportExcel.Zoom = 10
+        '
         'btnSearch
         '
         Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -238,41 +270,6 @@ Partial Class frmAccounts
         Me.btnAddEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAddEmployee.Textcolor = System.Drawing.Color.White
         Me.btnAddEmployee.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        '
-        'btnExportUsers
-        '
-        Me.btnExportUsers.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportUsers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExportUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnExportUsers.BorderRadius = 7
-        Me.btnExportUsers.ButtonText = "Export List"
-        Me.btnExportUsers.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExportUsers.DisabledColor = System.Drawing.Color.Gray
-        Me.btnExportUsers.Iconcolor = System.Drawing.Color.Transparent
-        Me.btnExportUsers.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_5_
-        Me.btnExportUsers.Iconimage_right = Nothing
-        Me.btnExportUsers.Iconimage_right_Selected = Nothing
-        Me.btnExportUsers.Iconimage_Selected = Nothing
-        Me.btnExportUsers.IconMarginLeft = 0
-        Me.btnExportUsers.IconMarginRight = 0
-        Me.btnExportUsers.IconRightVisible = True
-        Me.btnExportUsers.IconRightZoom = 0R
-        Me.btnExportUsers.IconVisible = True
-        Me.btnExportUsers.IconZoom = 90.0R
-        Me.btnExportUsers.IsTab = False
-        Me.btnExportUsers.Location = New System.Drawing.Point(951, 392)
-        Me.btnExportUsers.Name = "btnExportUsers"
-        Me.btnExportUsers.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportUsers.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.btnExportUsers.OnHoverTextColor = System.Drawing.Color.White
-        Me.btnExportUsers.selected = False
-        Me.btnExportUsers.Size = New System.Drawing.Size(191, 48)
-        Me.btnExportUsers.TabIndex = 7
-        Me.btnExportUsers.Text = "Export List"
-        Me.btnExportUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnExportUsers.Textcolor = System.Drawing.Color.White
-        Me.btnExportUsers.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
         'btnDeactivateAccount
         '
@@ -385,10 +382,11 @@ Partial Class frmAccounts
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.btnExportPdf)
+        Me.Controls.Add(Me.btnExportExcel)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.btnAddEmployee)
-        Me.Controls.Add(Me.btnExportUsers)
         Me.Controls.Add(Me.BunifuCards2)
         Me.Controls.Add(Me.BunifuCards1)
         Me.Controls.Add(Me.btnDeactivateAccount)
@@ -404,6 +402,8 @@ Partial Class frmAccounts
         Me.BunifuCards1.PerformLayout()
         Me.BunifuCards2.ResumeLayout(False)
         Me.BunifuCards2.PerformLayout()
+        CType(Me.btnExportPdf, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnExportExcel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -419,8 +419,10 @@ Partial Class frmAccounts
     Friend WithEvents BunifuCards2 As Bunifu.Framework.UI.BunifuCards
     Friend WithEvents lblInactiveCount As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnExportUsers As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents btnAddEmployee As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents btnSearch As Button
+    Friend WithEvents btnExportExcel As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents btnExportPdf As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 End Class

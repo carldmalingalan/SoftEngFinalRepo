@@ -48,7 +48,7 @@ Module vbConnect
     Public logInfo, accname As String
     Public checkoutqty As Integer
     Public customerNumber, itemNumber As Integer
-    Public checkoutiD, quantitycheckout, transactionCheck, accID As Integer
+    Public checkoutiD, quantitycheckout, transactionCheck, accID, lastIDforcheckin As Integer
     Public btnType As String
     Function GetHash(theInput As String) As String
 
@@ -200,8 +200,13 @@ Module vbConnect
         cmd.Parameters.AddWithValue("@Expi", SqlDbType.Date).Value = Expi
         cmd.Parameters.AddWithValue("@Crit", SqlDbType.VarChar).Value = Crit
         cmd.Parameters.AddWithValue("@Creator", SqlDbType.VarChar).Value = login_id
-
         cmd.ExecuteNonQuery()
+        strSQL = "select TOP 1 ItemID from tblInventory where CreatedBy = " & login_id & " order by CreationDate desc"
+        cmd = New SqlCommand(strSQL, Connection)
+            reader = cmd.ExecuteReader()
+            While reader.Read()
+                lastIDforcheckin = reader.GetInt32(0)
+            End While
         Call DisConnectSQLServer()
     End Sub
 
@@ -334,6 +339,8 @@ Module vbConnect
         If reader.Read() = True Then
             lastIdentity = reader.GetInt32(0)
         End If
+
+
         Call DisConnectSQLServer()
     End Sub
 
@@ -367,6 +374,28 @@ Module vbConnect
         cmd.Parameters.AddWithValue("@quantity", SqlDbType.Decimal).Value = (Quantity * -1)
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL & lastTransID & " " & itemNumber & " " & Quantity)
+        Call DisConnectSQLServer()
+    End Sub
+
+    Public Sub AddCheckIn(Quantity As Decimal, item_Id As Int32)
+        Call ConnectTOSQLServer()
+        strSQL = "insert into tblCheckinTable(ItemID,Date,QuantityAdded,Author,DataStatus)values(@ItemID,getdate(),@QuantityAdded,@Author,'ACTIVE')"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@ItemID", SqlDbType.Int).Value = item_Id
+        cmd.Parameters.AddWithValue("@QuantityAdded", SqlDbType.VarChar).Value = Quantity
+        cmd.Parameters.AddWithValue("@Author", SqlDbType.Decimal).Value = login_id
+        cmd.ExecuteNonQuery()
+        Call DisConnectSQLServer()
+    End Sub
+
+    Public Sub UpdateThruInventory(Quantity As Decimal)
+        Call ConnectTOSQLServer()
+        strSQL = "update tblInventory set Quantity = Quantity + @Quantity where ItemID = @ItemID"
+        cmd = New SqlCommand(strSQL, Connection)
+        cmd.Parameters.AddWithValue("@itemID", SqlDbType.VarChar).Value = itemNumber
+        cmd.Parameters.AddWithValue("@quantity", SqlDbType.Decimal).Value = Quantity
+        cmd.ExecuteNonQuery()
+        Console.WriteLine(strSQL)
         Call DisConnectSQLServer()
     End Sub
 
@@ -454,60 +483,50 @@ Module vbConnect
         End Try
     End Sub
 
-    Sub ExporttoPDF(txt As String)
+    Sub ExporttoPDF(txt As String, ByVal obj As Object)
         ' you must import itextsharp namespace into our form
         ' download links is available in the descriptions
         Dim Paragraph As New Paragraph ' declaration for new paragraph
-        Dim PdfFile As New Document(PageSize.A4, 40, 40, 40, 20) ' set pdf page size
-        PdfFile.AddTitle(txt) ' set our pdf title
+        Dim PdfFile As New Document(PageSize.LETTER, 40, 40, 40, 20) ' set pdf page size
+        PdfFile.AddTitle("Accounts List Report") ' set our pdf title
         Dim Write As PdfWriter = PdfWriter.GetInstance(PdfFile, New FileStream(txt, FileMode.Create))
         PdfFile.Open()
-
         ' declaration font type
         Dim pTitle As New Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK)
         Dim pTable As New Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)
-
         ' insert title into pdf file
-        Paragraph = New Paragraph(New Chunk(txt, pTitle))
+        Paragraph = New Paragraph(New Chunk("", pTitle))
+
         Paragraph.Alignment = Element.ALIGN_CENTER
         Paragraph.SpacingAfter = 5.0F
-
-        ' set and add page with current settings
+        ' set and add page with current settingsp
         PdfFile.Add(Paragraph)
-
         ' create data into table
-        Dim PdfTable As New PdfPTable(frmEmployeeManager.dgvExportList.Columns.Count)
+        Dim PdfTable As New PdfPTable(CInt(obj.Columns.Count))
         ' setting width of table
         PdfTable.TotalWidth = 500.0F
         PdfTable.LockedWidth = True
-
-        Dim widths(0 To frmEmployeeManager.dgvExportList.Columns.Count - 1) As Single
-        For i As Integer = 0 To frmEmployeeManager.dgvExportList.Columns.Count - 1
+        Dim widths(0 To obj.Columns.Count - 1) As Single
+        For i As Integer = 0 To obj.Columns.Count - 1
             widths(i) = 1.0F
         Next
-
         PdfTable.SetWidths(widths)
         PdfTable.HorizontalAlignment = 0
         PdfTable.SpacingBefore = 5.0F
-
         ' declaration pdf cells
         Dim pdfcell As PdfPCell = New PdfPCell
-
         ' create pdf header
-        For i As Integer = 0 To frmEmployeeManager.dgvExportList.Columns.Count - 1
-
-            pdfcell = New PdfPCell(New Phrase(New Chunk(frmEmployeeManager.dgvExportList.Columns(i).HeaderText, pTable)))
+        For i As Integer = 0 To obj.Columns.Count - 1
+            pdfcell = New PdfPCell(New Phrase(New Chunk(CStr(obj.Columns(i).HeaderText), pTable)))
             ' alignment header table
             pdfcell.HorizontalAlignment = PdfPCell.ALIGN_LEFT
             ' add cells into pdf table
             PdfTable.AddCell(pdfcell)
         Next
-
         ' add data into pdf table
-        For i As Integer = 0 To frmEmployeeManager.dgvExportList.Rows.Count - 2
-
-            For j As Integer = 0 To frmEmployeeManager.dgvExportList.Columns.Count - 1
-                pdfcell = New PdfPCell(New Phrase(frmEmployeeManager.dgvExportList(j, i).Value.ToString(), pTable))
+        For i As Integer = 0 To obj.Rows.Count - 1
+            For j As Integer = 0 To obj.Columns.Count - 1
+                pdfcell = New PdfPCell(New Phrase(obj(j, i).Value.ToString(), pTable))
                 PdfTable.HorizontalAlignment = PdfPCell.ALIGN_LEFT
                 PdfTable.AddCell(pdfcell)
             Next
@@ -515,11 +534,8 @@ Module vbConnect
         ' add pdf table into pdf document
         PdfFile.Add(PdfTable)
         PdfFile.Close() ' close all sessions
-
         ' show message if hasben exported
         MessageBox.Show("PDF format success exported !", "Informations", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
     End Sub
-
 
 End Module

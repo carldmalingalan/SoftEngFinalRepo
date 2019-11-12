@@ -54,9 +54,9 @@ Partial Class frmItemManager
         Me.groupBoxRole.Controls.Add(Me.rdoBody)
         Me.groupBoxRole.Controls.Add(Me.rdoHair)
         Me.groupBoxRole.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.groupBoxRole.Location = New System.Drawing.Point(18, 214)
+        Me.groupBoxRole.Location = New System.Drawing.Point(28, 214)
         Me.groupBoxRole.Name = "groupBoxRole"
-        Me.groupBoxRole.Size = New System.Drawing.Size(378, 62)
+        Me.groupBoxRole.Size = New System.Drawing.Size(330, 62)
         Me.groupBoxRole.TabIndex = 5
         Me.groupBoxRole.TabStop = False
         Me.groupBoxRole.Text = "Classification"

@@ -99,3 +99,4 @@ C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\D
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\J&A Inventory Manager.exe
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\J&A Inventory Manager.xml
 C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\J&A Inventory Manager.pdb
+C:\Users\Monkey\Desktop\SoftEngFinalRepo\SoftEngFinalRepo\InventoryManager\obj\Debug\InventoryManager.vbprojResolveAssemblyReference.cache
