@@ -2,16 +2,34 @@
 
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
 
-    Private Sub cboSecretQuestion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSecretQuestion.SelectedIndexChanged
-    End Sub
 
-    Private Sub txtPassword1_OnValueChanged(sender As Object, e As EventArgs) Handles txtPassword1.OnValueChanged
-
-    End Sub
 
     Private Sub txtPassword2_KeyDown(sender As Object, e As KeyEventArgs)
         If (e.KeyCode = Keys.Enter) Then
             Call btnUpdatePassword_Click(sender, e)
+        End If
+    End Sub
+
+
+    Private Sub textvalidation()
+        If txtAnswer.Text.Trim = "" Then
+            ErrorProvider1.SetError(txtAnswer, "Blank field is not allowed.")
+            ErrorProvider1.SetIconPadding(txtAnswer, 3)
+            flag5 = False
+        ElseIf txtAnswer.Text.IndexOfAny(restrictedCharactersForPassword) > -1 Then
+            ErrorProvider1.SetError(txtAnswer, "Special characters and spaces are not allowed.")
+            ErrorProvider1.SetIconPadding(txtAnswer, 3)
+            flag5 = False
+        Else
+            ErrorProvider1.SetError(txtAnswer, "")
+        End If
+
+        If cboSecretQuestion.SelectedIndex < 0 Then
+            ErrorProvider1.SetError(cboSecretQuestion, "Please select a question.")
+            ErrorProvider1.SetIconPadding(cboSecretQuestion, 3)
+            flag4 = False
+        Else
+            ErrorProvider1.SetError(cboSecretQuestion, "")
         End If
     End Sub
 
@@ -68,8 +86,6 @@
             ErrorProvider1.SetError(txtPassword1, "Password should not be the same as default password.")
             ErrorProvider1.SetIconPadding(txtPassword1, 3)
             flag6 = False
-
-
         Else
             ErrorProvider1.SetError(txtPassword1, "")
         End If

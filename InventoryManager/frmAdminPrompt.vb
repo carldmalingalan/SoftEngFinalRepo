@@ -1,11 +1,11 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class frmAdminPrompt
-    Private loginbool As Int32
+    Private loginbool As String
     Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
         If (txtUsername.Text <> "" And txtPassword.Text <> "") Then
             Call ConnectTOSQLServer()
-            loginbool = Nothing
+            loginbool = ""
             strSQL = "select * from tblLogins where Username = @Username and Password = @Password and AccessType = 'Administrator'"
             cmd = New SqlCommand(strSQL, Connection)
             cmd.Parameters.AddWithValue("@Username", SqlDbType.VarChar).Value = txtUsername.Text
@@ -13,14 +13,15 @@ Public Class frmAdminPrompt
             reader = cmd.ExecuteReader()
             Console.WriteLine(strSQL)
             While reader.Read()
-                loginbool = reader.GetInt32(0)
+                loginbool = CStr(reader.GetInt32(0))
             End While
-            If (loginbool <> Nothing) Then
-                strSQL = "update tblTransactions set DataStatus = 'INACTIVE' where TransactionID = " & voidID
+            If (loginbool <> "") Then
+                VoidTransaction(voidID)
             Else
                 MsgBox("Invalid credentials!", MsgBoxStyle.Exclamation, Application.ProductName)
             End If
             Call DisConnectSQLServer()
+            Me.Close()
         Else
                 MsgBox("Invalid credentials!", MsgBoxStyle.Exclamation, Application.ProductName)
         End If

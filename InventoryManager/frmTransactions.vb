@@ -32,22 +32,27 @@ Public Class frmTransactions
 
     Private Sub btnVoidTransaction_Click(sender As Object, e As EventArgs) Handles btnVoidTransaction.Click
         If (selectedRow >= 0) Then
-            If (login_accesstype <> "ADMINISTRATOR") Then
-                Dim ask = MsgBox("Administrator Authorization Required! Please request for admin credential authorization.", MsgBoxStyle.Information + vbOKCancel, Application.ProductName)
-                If (ask = vbOK) Then
-                    frmAdminPrompt.ShowDialog()
-                End If
-            Else
-                If (dtpTransactionDate.Value.ToShortDateString < Date.Today) Then
-                    MsgBox("Only transactions within the day can be voided.", MsgBoxStyle.Critical, Application.ProductName)
+            If (dgvTransactionsList.Rows(selectedRow).Cells(1).Value < Date.Today) Then
+                If (login_accesstype <> "ADMINISTRATOR") Then
+                    Dim ask = MsgBox("Administrator Authorization Required! Please request for admin credential authorization.", MsgBoxStyle.Information + vbOKCancel, Application.ProductName)
+                    If (ask = vbOK) Then
+                        voidID = dgvTransactionsList.Rows(selectedRow).Cells(0).Value()
+                        frmAdminPrompt.ShowDialog()
+                    End If
                 Else
-                    Dim ask = MsgBox("Are you sure you want to void this transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
-                    If ask = vbYes Then
-                        Call VoidTransaction(dgvTransactionsList.Rows(selectedRow).Cells(0).Value())
-                        MsgBox("Successfully voided transaction!", MsgBoxStyle.Information, Application.ProductName)
-                        viewTransactions()
+                    If (dtpTransactionDate.Value.ToShortDateString < Date.Today) Then
+                        MsgBox("Only transactions within the day can be voided.", MsgBoxStyle.Critical, Application.ProductName)
+                    Else
+                        Dim ask = MsgBox("Are you sure you want to void this transaction?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
+                        If ask = vbYes Then
+                            Call VoidTransaction(dgvTransactionsList.Rows(selectedRow).Cells(0).Value())
+                            MsgBox("Successfully voided transaction!", MsgBoxStyle.Information, Application.ProductName)
+                            viewTransactions()
+                        End If
                     End If
                 End If
+            Else
+                MsgBox("Void is only valid for the same date.", MsgBoxStyle.Information, Application.ProductName)
             End If
         Else
             MsgBox("Select a transaction first.", MsgBoxStyle.Information, Application.ProductName)
@@ -101,5 +106,9 @@ Public Class frmTransactions
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Call viewTransactions()
+    End Sub
+
+    Private Sub frmTransactions_Click(sender As Object, e As EventArgs) Handles MyBase.Click
+        viewTransactions()
     End Sub
 End Class

@@ -73,6 +73,7 @@ Public Class frmItemQuantity
             checkoutqty = txtQuantityOut.Text.Trim
             Call AddCheckOut(checkoutqty)
             Call UpdateItemThruTransaction(checkoutqty)
+            frmShowCheckoutlist.Enabled = True
             Me.Close()
         End If
     End Sub

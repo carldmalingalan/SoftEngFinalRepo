@@ -628,6 +628,7 @@ Partial Class frmEmployeeManager
         Me.dgvExportList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvExportList.Size = New System.Drawing.Size(429, 54)
         Me.dgvExportList.TabIndex = 31
+        Me.dgvExportList.Visible = False
         '
         'frmEmployeeManager
         '

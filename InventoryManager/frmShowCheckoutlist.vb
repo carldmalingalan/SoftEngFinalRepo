@@ -25,7 +25,7 @@ Public Class frmShowCheckoutlist
         Call DisConnectSQLServer()
     End Sub
 
-    Private Sub dgvSearchItem_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchItem.CellContentClick, dgvSearchItem.CellClick
+    Private Sub dgvSearchItem_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchItem.CellContentClick
         If (dgvSearchItem.Rows.Count > 0) Then
             Try
                 selectedRow = e.RowIndex
@@ -37,7 +37,7 @@ Public Class frmShowCheckoutlist
     End Sub
 
 
-    Private Sub dgvItemForCheckOut_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemForCheckOut.CellContentClick, dgvItemForCheckOut.CellClick
+    Private Sub dgvItemForCheckOut_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemForCheckOut.CellContentClick
         If (dgvItemForCheckOut.Rows.Count > 0) Then
             Try
                 selected_RowCheckOut = e.RowIndex
@@ -51,7 +51,6 @@ Public Class frmShowCheckoutlist
             Try
                 selectedRow = e.RowIndex
                 itemNumber = dgvSearchItem.Rows(selectedRow).Cells(0).Value()
-                Me.Enabled = False
                 Console.WriteLine(itemNumber)
                 Dim ab As New frmItemQuantity
                 ab.ShowDialog()
@@ -76,26 +75,22 @@ Public Class frmShowCheckoutlist
         loadItemHasbeenCheckout()
     End Sub
 
-    Private Sub btnEdit_Click(sender As Object, e As EventArgs)
-        If (selected_RowCheckOut >= 0) Then
-            Dim ask = MsgBox("Are you sure you want to edit the quantity in the checkout?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
-            If ask = vbYes Then
-                btnType = "EDIT"
-                itemIDCheckout = dgvItemForCheckOut.Rows(selected_RowCheckOut).Cells(2).Value()
-                quantitycheckout = dgvItemForCheckOut.Rows(selected_RowCheckOut).Cells(4).Value()
-                Me.Enabled = False
-                Console.WriteLine(itemIDCheckout)
-                Dim ab As New frmItemQuantity
-                ab.ShowDialog()
-            End If
-        End If
-    End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim ask = MsgBox("Are you sure you are done?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If ask = vbYes Then
             Me.Close()
         End If
+    End Sub
+
+    Private Sub Superman(sender As Object, e As EventArgs) Handles Button1.Click
+        loadItemList()
+        loadItemHasbeenCheckout()
+    End Sub
+
+    Private Sub dgvItemForCheckOut_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSearchItem.CellClick, dgvItemForCheckOut.CellClick
+        loadItemList()
+        loadItemHasbeenCheckout()
     End Sub
 
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click

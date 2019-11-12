@@ -13,8 +13,8 @@ Public Class frmDashboard
         Dim ds1 As New DataSet()
         da1.Fill(ds1, "x")
         chartCategories.ChartAreas(0).AxisX.Interval = 1
-        chartCategories.Series("Series1").XValueMember = "Employee Assigned"
-        chartCategories.Series("Series1").YValueMembers = "count"
+        chartCategories.Series("Series1").XValueMember = "Service Category"
+        chartCategories.Series("Series1").YValueMembers = "CategoryCount"
         chartCategories.BorderSkin.BackColor = Color.AliceBlue
         chartCategories.DataSource = ds1.Tables("x")
         chartCategories.DataBind()
@@ -38,7 +38,7 @@ Public Class frmDashboard
         cmd = New SqlCommand(strSQL, Connection)
         reader = cmd.ExecuteReader()
         While reader.Read()
-            lblTotalTransactions.Text = reader.GetString(0)
+            lblTotalTransactions.Text = CStr(reader.GetInt32(0))
         End While
 
 

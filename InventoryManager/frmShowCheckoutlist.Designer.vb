@@ -35,6 +35,7 @@ Partial Class frmShowCheckoutlist
         Me.txtSearchname = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.dgvSearchItem = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.btnSearch = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dgvItemForCheckOut, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvSearchItem, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -223,11 +224,22 @@ Partial Class frmShowCheckoutlist
         Me.btnSearch.TabIndex = 48
         Me.btnSearch.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(589, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(46, 38)
+        Me.Button1.TabIndex = 50
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
+        '
         'frmShowCheckoutlist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 537)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtSearchname)
         Me.Controls.Add(Me.dgvSearchItem)
         Me.Controls.Add(Me.btnSearch)
@@ -253,4 +265,5 @@ Partial Class frmShowCheckoutlist
     Friend WithEvents txtSearchname As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents dgvSearchItem As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents btnSearch As Button
+    Friend WithEvents Button1 As Button
 End Class
