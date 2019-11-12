@@ -160,11 +160,11 @@ Public Class frmTransactionManager
 
     Private Sub EmployeeValidation()
         If (cboEmployeeAssigned.SelectedIndex = -1) Then
-            ErrorProvider1.SetError(cboEmployeeAssigned, "Please select an employee.")
-            ErrorProvider1.SetIconPadding(cboEmployeeAssigned, 5)
+            ErrorProvider1.SetError(btnChecklistBox, "Please select an employee.")
+            ErrorProvider1.SetIconPadding(btnChecklistBox, 5)
             flag8 = False
         Else
-            ErrorProvider1.SetError(cboEmployeeAssigned, "")
+            ErrorProvider1.SetError(btnChecklistBox, "")
         End If
     End Sub
 
@@ -242,7 +242,8 @@ Public Class frmTransactionManager
 
             Dim ask2 = MsgBox("Are there item/s checked out?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
             If ask2 = vbYes Then
-                frmShowCheckoutlist.ShowDialog()
+                Dim ab As New frmShowCheckoutlist
+                ab.ShowDialog()
                 Me.Close()
             End If
 

@@ -11,7 +11,6 @@
             btnEmployeeList.Enabled = True
             btnInventory.Enabled = True
             btnServices.Enabled = True
-            btnSettings.Enabled = True
             btnTransactions.Enabled = True
             btnExit.Enabled = True
         ElseIf (login_accesstype = "TRANSACTIONS") Then
@@ -20,7 +19,6 @@
             btnEmployeeList.Enabled = False
             btnInventory.Enabled = False
             btnServices.Enabled = False
-            btnSettings.Enabled = False
             btnTransactions.Enabled = True
             btnExit.Enabled = True
         ElseIf (login_accesstype = "INVENTORY") Then
@@ -29,7 +27,6 @@
             btnEmployeeList.Enabled = False
             btnInventory.Enabled = True
             btnServices.Enabled = False
-            btnSettings.Enabled = False
             btnTransactions.Enabled = False
             btnExit.Enabled = True
         End If
@@ -58,7 +55,6 @@
         lblTransactions.ForeColor = Color.Black
         lblEmployees.ForeColor = Color.Black
         lblDashboard.ForeColor = Color.Black
-        lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
         logInfo = "Accessed Accounts Panel"
         Call RecordLog(logInfo)
@@ -76,7 +72,6 @@
         lblTransactions.ForeColor = Color.Black
         lblEmployees.ForeColor = Color.Black
         lblDashboard.ForeColor = Color.Black
-        lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
         logInfo = "Accessed Inventory Panel"
         Call RecordLog(logInfo)
@@ -89,7 +84,6 @@
         lblTransactions.ForeColor = Color.Red
         lblEmployees.ForeColor = Color.Black
         lblDashboard.ForeColor = Color.Black
-        lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
         logInfo = "Accessed Transactions Panel"
         Call RecordLog(logInfo)
@@ -102,7 +96,6 @@
         lblTransactions.ForeColor = Color.Black
         lblEmployees.ForeColor = Color.Red
         lblDashboard.ForeColor = Color.Black
-        lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
         logInfo = "Accessed Employee List Panel"
         Call RecordLog(logInfo)
@@ -115,20 +108,18 @@
         lblTransactions.ForeColor = Color.Black
         lblEmployees.ForeColor = Color.Black
         lblDashboard.ForeColor = Color.Red
-        lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Black
         logInfo = "Accessed Dashboard Panel"
         Call RecordLog(logInfo)
         OpenPanel(New frmDashboard)
     End Sub
 
-    Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
+    Private Sub btnSettings_Click(sender As Object, e As EventArgs)
         lblAccounts.ForeColor = Color.Black
         lblInventory.ForeColor = Color.Black
         lblTransactions.ForeColor = Color.Black
         lblEmployees.ForeColor = Color.Black
         lblDashboard.ForeColor = Color.Black
-        lblSettings.ForeColor = Color.Red
         lblServices.ForeColor = Color.Black
         logInfo = "Accessed Settings Panel"
         Call RecordLog(logInfo)
@@ -140,7 +131,6 @@
         lblTransactions.ForeColor = Color.Black
         lblEmployees.ForeColor = Color.Black
         lblDashboard.ForeColor = Color.Black
-        lblSettings.ForeColor = Color.Black
         lblServices.ForeColor = Color.Red
         logInfo = "Accessed Services Panel"
         Call RecordLog(logInfo)
@@ -162,9 +152,6 @@
         End If
         If (btnServices.Enabled = False) Then
             btnServices.Image = btnServices.ErrorImage
-        End If
-        If (btnSettings.Enabled = False) Then
-            btnSettings.Image = btnSettings.ErrorImage
         End If
         If (btnTransactions.Enabled = False) Then
             btnTransactions.Image = btnTransactions.ErrorImage

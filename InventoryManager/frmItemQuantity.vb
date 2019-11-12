@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 
 Public Class frmItemQuantity
     Dim flag1 As Boolean
@@ -33,6 +34,15 @@ Public Class frmItemQuantity
         Call DisConnectSQLServer()
     End Sub
 
+    Function CheckForAlphaCharacters(ByVal StringToCheck As String)
+        For i = 0 To StringToCheck.Length - 1
+            If Char.IsLetter(StringToCheck.Chars(i)) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
     Private Sub Validation()
         If CDec(txtQuantityOut.Text.Trim) > CDec(lblQty.Text) Then
             ErrorProvider1.SetError(txtQuantityOut, "Quantity must be lower than stored value.")
@@ -40,10 +50,6 @@ Public Class frmItemQuantity
             flag1 = False
         ElseIf (txtQuantityOut.Text.Trim = "") Then
             ErrorProvider1.SetError(txtQuantityOut, "Blank field is not allowed.")
-            ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
-            flag1 = False
-        ElseIf (Not IsNumeric(txtQuantityOut.Text.Trim)) Then
-            ErrorProvider1.SetError(txtQuantityOut, "Only numberic characters are allowed.")
             ErrorProvider1.SetIconPadding(txtQuantityOut, 5)
             flag1 = False
         ElseIf (CDec(txtQuantityOut.Text.Trim) < 1) Then
@@ -56,13 +62,14 @@ Public Class frmItemQuantity
     End Sub
 
     Private Sub btnSaveItem_Click(sender As Object, e As EventArgs) Handles btnSaveItem.Click
-        Initializeflag()
-        Validation()
-        If (flag1 = False) Then
-            Exit Sub
-        End If
         Dim ask = MsgBox("Do you want to continue?", MsgBoxStyle.Information + vbYesNo, Application.ProductName)
         If ask = vbYes Then
+            Initializeflag()
+            Validation()
+            If (flag1 = False) Then
+                MsgBox("Please complete all the required fields and errors.", MsgBoxStyle.Critical, Application.ProductName)
+                Exit Sub
+            End If
             checkoutqty = txtQuantityOut.Text.Trim
             Call AddCheckOut(checkoutqty)
             Call UpdateItemThruTransaction(checkoutqty)
@@ -72,5 +79,15 @@ Public Class frmItemQuantity
 
     Private Sub frmItemQuantity_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmShowCheckoutlist.Enabled = True
+    End Sub
+
+
+
+    Private Sub txtQuantityOut_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtQuantityOut.KeyPress
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
     End Sub
 End Class

@@ -265,7 +265,6 @@ Partial Class frmShowDetailsTransaction
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvItemsCheckout.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgvItemsCheckout.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvItemsCheckout.ColumnHeadersVisible = False
         Me.dgvItemsCheckout.DoubleBuffered = True
         Me.dgvItemsCheckout.EnableHeadersVisualStyles = False
         Me.dgvItemsCheckout.HeaderBgColor = System.Drawing.Color.MediumOrchid
@@ -274,6 +273,7 @@ Partial Class frmShowDetailsTransaction
         Me.dgvItemsCheckout.Name = "dgvItemsCheckout"
         Me.dgvItemsCheckout.ReadOnly = True
         Me.dgvItemsCheckout.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvItemsCheckout.RowHeadersVisible = False
         DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgvItemsCheckout.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvItemsCheckout.Size = New System.Drawing.Size(379, 337)

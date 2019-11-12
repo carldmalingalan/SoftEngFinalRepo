@@ -209,7 +209,7 @@ Partial Class frmShowCheckoutlist
         Me.dgvSearchItem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvSearchItem.RowHeadersVisible = False
         Me.dgvSearchItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvSearchItem.Size = New System.Drawing.Size(435, 398)
+        Me.dgvSearchItem.Size = New System.Drawing.Size(435, 439)
         Me.dgvSearchItem.TabIndex = 49
         '
         'btnSearch

@@ -155,11 +155,15 @@ Public Class frmServices
             ErrorProvider1.SetError(txtServiceName, "Blank field is not allowed.")
             ErrorProvider1.SetIconPadding(txtServiceName, 5)
             flag1 = False
+        Else
+            ErrorProvider1.SetError(txtServiceName, "")
         End If
         If (rdoBody.Checked = False And rdoFace.Checked = False And rdoHair.Checked = False And rdoNails.Checked = False) Then
             ErrorProvider1.SetError(rdoNails, "Blank type is not allowed.")
             ErrorProvider1.SetIconPadding(rdoNails, 5)
             flag2 = False
+        Else
+            ErrorProvider1.SetError(rdoNails, "")
         End If
     End Sub
 

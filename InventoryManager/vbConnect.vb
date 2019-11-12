@@ -9,6 +9,10 @@ Imports System.Data.SqlTypes
 Imports System.Security.Cryptography
 Imports System.Text
 Imports Microsoft.Office.Interop
+Imports iTextSharp
+Imports iTextSharp.text.pdf
+Imports iTextSharp.text
+Imports System.Data.Odbc
 
 Module vbConnect
 
@@ -29,6 +33,7 @@ Module vbConnect
     Public restrictedCharactersForUsername As String = "!@#$%^&*()+=[]\{}|;':,./<>?€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’""•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ" & Chr(34) & " " 'Underscores and dash are only allowed
     Public restrictedCharactersForName As String = "!@#$%^&*()=_+[]\{}|;':,/<>?€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’""•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ" & Chr(34) 'Dot, dash and spaces are only allowed
     Public restrictedCharactersForPassword As String = "!-=[]\{}|;':,/<>€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’""•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ?" & Chr(34) 'Letters and numbers are only allowed
+    Public restrictedCharactersForQuantity As String = "!-=[]\{}|;':,/<>€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’""•–—˜™š›œžŸ¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" & Chr(34) ' numbers are only allowed
 
     Public defaultPassword As String = "41E5653FC7AEB894026D6BB7B2DB7F65902B454945FA8FD65A6327047B5277FB"
     Public sqlConnectionString = "Server=MONKEYPC\MARCODATABASE;Database=JandA2;Trusted_Connection=True;"
@@ -41,7 +46,7 @@ Module vbConnect
     Public lastIdentity, lastTransID As Int32
     Public voidID As Int32
     Public logInfo, accname As String
-    Public checkoutqty As String
+    Public checkoutqty As Integer
     Public customerNumber, itemNumber As Integer
     Public checkoutiD, quantitycheckout, transactionCheck, accID As Integer
     Public btnType As String
@@ -353,13 +358,13 @@ Module vbConnect
         Call DisConnectSQLServer()
     End Sub
 
-    Public Sub AddCheckOut(Quantity As String)
+    Public Sub AddCheckOut(Quantity As Decimal)
         Call ConnectTOSQLServer()
         strSQL = "insert tblCheckOutTable(TransactionID,ItemID,Quantity,DataStatus)values(@transID,@itemID,@quantity,'ACTIVE')"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@transID", SqlDbType.VarChar).Value = lastTransID
         cmd.Parameters.AddWithValue("@itemID", SqlDbType.VarChar).Value = itemNumber
-        cmd.Parameters.AddWithValue("@quantity", SqlDbType.Decimal).Value = Quantity
+        cmd.Parameters.AddWithValue("@quantity", SqlDbType.Decimal).Value = (Quantity * -1)
         cmd.ExecuteNonQuery()
         Console.WriteLine(strSQL & lastTransID & " " & itemNumber & " " & Quantity)
         Call DisConnectSQLServer()
@@ -380,7 +385,7 @@ Module vbConnect
 
     Public Sub RemoveItemCheckout()
         Call ConnectTOSQLServer()
-        strSQL = "update tblInventory set Quantity = Quantity + @Quantity where ItemID = @itemID"
+        strSQL = "update tblInventory set Quantity = Quantity - @Quantity where ItemID = @itemID"
         cmd = New SqlCommand(strSQL, Connection)
         cmd.Parameters.AddWithValue("@itemID", SqlDbType.VarChar).Value = itemIDCheckout
         cmd.Parameters.AddWithValue("@Quantity", SqlDbType.VarChar).Value = quantitycheckout
@@ -448,4 +453,73 @@ Module vbConnect
             xlApp = Nothing
         End Try
     End Sub
+
+    Sub ExporttoPDF(txt As String)
+        ' you must import itextsharp namespace into our form
+        ' download links is available in the descriptions
+        Dim Paragraph As New Paragraph ' declaration for new paragraph
+        Dim PdfFile As New Document(PageSize.A4, 40, 40, 40, 20) ' set pdf page size
+        PdfFile.AddTitle(txt) ' set our pdf title
+        Dim Write As PdfWriter = PdfWriter.GetInstance(PdfFile, New FileStream(txt, FileMode.Create))
+        PdfFile.Open()
+
+        ' declaration font type
+        Dim pTitle As New Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK)
+        Dim pTable As New Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)
+
+        ' insert title into pdf file
+        Paragraph = New Paragraph(New Chunk(txt, pTitle))
+        Paragraph.Alignment = Element.ALIGN_CENTER
+        Paragraph.SpacingAfter = 5.0F
+
+        ' set and add page with current settings
+        PdfFile.Add(Paragraph)
+
+        ' create data into table
+        Dim PdfTable As New PdfPTable(frmEmployeeManager.dgvExportList.Columns.Count)
+        ' setting width of table
+        PdfTable.TotalWidth = 500.0F
+        PdfTable.LockedWidth = True
+
+        Dim widths(0 To frmEmployeeManager.dgvExportList.Columns.Count - 1) As Single
+        For i As Integer = 0 To frmEmployeeManager.dgvExportList.Columns.Count - 1
+            widths(i) = 1.0F
+        Next
+
+        PdfTable.SetWidths(widths)
+        PdfTable.HorizontalAlignment = 0
+        PdfTable.SpacingBefore = 5.0F
+
+        ' declaration pdf cells
+        Dim pdfcell As PdfPCell = New PdfPCell
+
+        ' create pdf header
+        For i As Integer = 0 To frmEmployeeManager.dgvExportList.Columns.Count - 1
+
+            pdfcell = New PdfPCell(New Phrase(New Chunk(frmEmployeeManager.dgvExportList.Columns(i).HeaderText, pTable)))
+            ' alignment header table
+            pdfcell.HorizontalAlignment = PdfPCell.ALIGN_LEFT
+            ' add cells into pdf table
+            PdfTable.AddCell(pdfcell)
+        Next
+
+        ' add data into pdf table
+        For i As Integer = 0 To frmEmployeeManager.dgvExportList.Rows.Count - 2
+
+            For j As Integer = 0 To frmEmployeeManager.dgvExportList.Columns.Count - 1
+                pdfcell = New PdfPCell(New Phrase(frmEmployeeManager.dgvExportList(j, i).Value.ToString(), pTable))
+                PdfTable.HorizontalAlignment = PdfPCell.ALIGN_LEFT
+                PdfTable.AddCell(pdfcell)
+            Next
+        Next
+        ' add pdf table into pdf document
+        PdfFile.Add(PdfTable)
+        PdfFile.Close() ' close all sessions
+
+        ' show message if hasben exported
+        MessageBox.Show("PDF format success exported !", "Informations", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+    End Sub
+
+
 End Module

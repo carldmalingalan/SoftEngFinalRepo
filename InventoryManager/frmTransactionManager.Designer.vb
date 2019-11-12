@@ -105,9 +105,10 @@ Partial Class frmTransactionManager
         Me.clbServices.CheckOnClick = True
         Me.clbServices.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clbServices.FormattingEnabled = True
-        Me.clbServices.Location = New System.Drawing.Point(161, 150)
+        Me.clbServices.Location = New System.Drawing.Point(159, 155)
+        Me.clbServices.MultiColumn = True
         Me.clbServices.Name = "clbServices"
-        Me.clbServices.Size = New System.Drawing.Size(258, 94)
+        Me.clbServices.Size = New System.Drawing.Size(258, 148)
         Me.clbServices.TabIndex = 38
         Me.clbServices.Visible = False
         '

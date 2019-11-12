@@ -6,6 +6,7 @@ Imports System.Configuration
 Imports System.Data.SqlClient
 
 
+
 Public Class frmEmployeeManager
 
     Dim flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8 As Boolean
@@ -69,7 +70,7 @@ Public Class frmEmployeeManager
                     fileSavePath = ""
                 End Try
                 Call ConnectTOSQLServer()
-                strSQL = "insert into tblEmployeeList(Firstname,Lastname,MiddleInitial,Email,ContactNumber,CreatedBy,CreationDate,LastModifiedBy,LastModifiedDate,Image,EmployeeStatus) values (@Firstname,@Lastname,@Middlename,@Email,@ContactNumber,@CreatedBy,getdate(),@Lastmod,getdate(),@Image,'TRUE')"
+                strSQL = "insert into tblEmployeeList(Firstname,Lastname,MiddleInitial,Email,ContactNumber,CreatedBy,CreationDate,LastModifiedBy,LastModifiedDate,Image,EmployeeStatus) values (@Firstname,@Lastname,@Middlename,@Email,@ContactNumber,@CreatedBy,getdate(),@Lastmod,getdate(),@Image,'1')"
                 cmd = New SqlCommand(strSQL, Connection)
                 cmd.Parameters.AddWithValue("@Firstname", SqlDbType.VarChar).Value = txtFirstname.Text
                 cmd.Parameters.AddWithValue("@Lastname", SqlDbType.VarChar).Value = txtLastname.Text
@@ -157,8 +158,38 @@ Public Class frmEmployeeManager
     End Sub
 
     Private Sub frmEmployeeManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cond = ""
         Call ViewEmployeeList()
     End Sub
+
+    Private Sub BunifuCards2_Click(sender As Object, e As EventArgs) Handles lblActive.Click, Label2.Click, BunifuCards2.Click
+        cond = " where EmployeeStatus = '1'"
+        Call ViewEmployeeList()
+    End Sub
+
+    Private Sub BunifuCards2_Paint(sender As Object, e As PaintEventArgs) Handles BunifuCards2.Paint
+
+    End Sub
+
+
+
+    Private Sub lblInactive_Click_1(sender As Object, e As EventArgs) Handles lblInactive.Click, Label4.Click, BunifuCards3.Click
+        cond = " where EmployeeStatus = '0'"
+        Call ViewEmployeeList()
+    End Sub
+
+    Private Sub btnExportEmployeeList_Click(sender As Object, e As EventArgs) Handles btnExportEmployeeList.Click
+        ExportExcel(dgvExportList)
+    End Sub
+    Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
+        SaveFileDialog1.FileName = ""
+        If SaveFileDialog1.ShowDialog = DialogResult.OK Then
+            ' declaration textbox2 to save file dialog name
+            Dim txt As String = SaveFileDialog1.FileName
+            Call ExporttoPDF(txt)
+        End If
+    End Sub
+
 
     Private Sub btnUpdateEmployee_Click(sender As Object, e As EventArgs) Handles btnUpdateEmployee.Click
         dgvEmployeeList.Enabled = False
@@ -184,7 +215,7 @@ Public Class frmEmployeeManager
                 txtContactNumber.Text = reader.GetString(5)
                 switchEmployeeStatus.Value = reader.GetString(6)
                 Try
-                    pbEmployeePic.BackgroundImage = Image.FromFile("" & reader.GetString(7) & "")
+                    pbEmployeePic.BackgroundImage = Image.fromFile("" & reader.GetString(7) & "")
                     Imageloc = reader.GetString(7)
                 Catch ex As Exception
                     pbEmployeePic.BackgroundImage = pbEmployeePic.ErrorImage
@@ -197,6 +228,7 @@ Public Class frmEmployeeManager
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        cond = " where Lastname = '" & txtSearch.Text.Trim.Replace("-", "") & "' or Firstname = '" & txtSearch.Text.Trim.Replace("-", "") & "'"
         Call ViewEmployeeList()
         logInfo = "Searched " & txtSearch.Text.Trim.Replace("-", "") & " in the Employee List."
         Call RecordLog(logInfo)
@@ -299,11 +331,6 @@ Public Class frmEmployeeManager
 
     Private Sub ViewEmployeeList()
         Call ConnectTOSQLServer()
-        If (txtSearch.Text <> "") Then
-            cond = " where Lastname = '" & txtSearch.Text.Trim.Replace("-", "") & "' or Firstname = '" & txtSearch.Text.Trim.Replace("-", "") & "'"
-        Else
-            cond = ""
-        End If
         strSQL = "Select EmployeeID, Concat(Lastname,', ',Firstname,' ',MiddleInitial,'.') as [Employee Name] from tblEmployeeList" & cond
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
@@ -312,6 +339,16 @@ Public Class frmEmployeeManager
         dataadapter.Fill(EmployeeList, "tblEmployeeList")
         dgvEmployeeList.DataSource = EmployeeList
         dgvEmployeeList.DataMember = "tblEmployeeList"
+
+        strSQL = "select EmployeeID,Firstname,Lastname,MiddleInitial,Email,ContactNumber,case when EmployeeStatus = 1 then 'ACTIVE' else 'INACTIVE' end As [EmployeeStatus] from tblEmployeeList " & cond
+        Console.WriteLine(strSQL)
+        dataadapter = New SqlDataAdapter(strSQL, Connection)
+        Dim Employeelistexport As New DataSet()
+
+        dataadapter.Fill(Employeelistexport, "tblEmployeeList")
+        dgvExportList.DataSource = Employeelistexport
+        dgvExportList.DataMember = "tblEmployeeList"
+
 
         strSQL = "Select COUNT(EmployeeID) from tblEmployeeList where EmployeeStatus = '1'"
         Console.WriteLine()

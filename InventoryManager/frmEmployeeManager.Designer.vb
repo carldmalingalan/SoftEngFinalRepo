@@ -26,6 +26,9 @@ Partial Class frmEmployeeManager
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEmployeeManager))
         Me.lblActive = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -59,12 +62,16 @@ Partial Class frmEmployeeManager
         Me.btnUpdateEmployee = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.dgvExportList = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.BunifuFlatButton1 = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.BunifuCards2.SuspendLayout()
         Me.BunifuCards3.SuspendLayout()
         CType(Me.dgvEmployeeList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbEmployeeDetails.SuspendLayout()
         CType(Me.pbEmployeePic, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvExportList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblActive
@@ -578,12 +585,93 @@ Partial Class frmEmployeeManager
         Me.txtSearch.TabIndex = 29
         Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
+        'dgvExportList
+        '
+        Me.dgvExportList.AllowUserToAddRows = False
+        Me.dgvExportList.AllowUserToDeleteRows = False
+        Me.dgvExportList.AllowUserToResizeRows = False
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvExportList.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvExportList.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvExportList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvExportList.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.dgvExportList.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvExportList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvExportList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgvExportList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumBlue
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvExportList.DefaultCellStyle = DataGridViewCellStyle6
+        Me.dgvExportList.DoubleBuffered = True
+        Me.dgvExportList.EnableHeadersVisualStyles = False
+        Me.dgvExportList.HeaderBgColor = System.Drawing.Color.LightSeaGreen
+        Me.dgvExportList.HeaderForeColor = System.Drawing.Color.Snow
+        Me.dgvExportList.Location = New System.Drawing.Point(694, 63)
+        Me.dgvExportList.MultiSelect = False
+        Me.dgvExportList.Name = "dgvExportList"
+        Me.dgvExportList.ReadOnly = True
+        Me.dgvExportList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvExportList.RowHeadersVisible = False
+        Me.dgvExportList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvExportList.Size = New System.Drawing.Size(429, 54)
+        Me.dgvExportList.TabIndex = 31
+        '
+        'BunifuFlatButton1
+        '
+        Me.BunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.BunifuFlatButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.BunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuFlatButton1.BorderRadius = 7
+        Me.BunifuFlatButton1.ButtonText = "Export List"
+        Me.BunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray
+        Me.BunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton1.Iconimage = Global.InventoryManager.My.Resources.Resources.New_Project_5_
+        Me.BunifuFlatButton1.Iconimage_right = Nothing
+        Me.BunifuFlatButton1.Iconimage_right_Selected = Nothing
+        Me.BunifuFlatButton1.Iconimage_Selected = Nothing
+        Me.BunifuFlatButton1.IconMarginLeft = 0
+        Me.BunifuFlatButton1.IconMarginRight = 0
+        Me.BunifuFlatButton1.IconRightVisible = True
+        Me.BunifuFlatButton1.IconRightZoom = 0R
+        Me.BunifuFlatButton1.IconVisible = True
+        Me.BunifuFlatButton1.IconZoom = 90.0R
+        Me.BunifuFlatButton1.IsTab = False
+        Me.BunifuFlatButton1.Location = New System.Drawing.Point(968, 413)
+        Me.BunifuFlatButton1.Name = "BunifuFlatButton1"
+        Me.BunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.BunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.BunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White
+        Me.BunifuFlatButton1.selected = False
+        Me.BunifuFlatButton1.Size = New System.Drawing.Size(174, 48)
+        Me.BunifuFlatButton1.TabIndex = 26
+        Me.BunifuFlatButton1.Text = "Export List"
+        Me.BunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BunifuFlatButton1.Textcolor = System.Drawing.Color.White
+        Me.BunifuFlatButton1.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        '
         'frmEmployeeManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.HighlightText
         Me.ClientSize = New System.Drawing.Size(1154, 507)
+        Me.Controls.Add(Me.dgvExportList)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.gbEmployeeDetails)
@@ -591,6 +679,7 @@ Partial Class frmEmployeeManager
         Me.Controls.Add(Me.BunifuCards3)
         Me.Controls.Add(Me.dgvEmployeeList)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.BunifuFlatButton1)
         Me.Controls.Add(Me.btnExportEmployeeList)
         Me.Controls.Add(Me.btnAddEmployee)
         Me.Controls.Add(Me.btnUpdateEmployee)
@@ -608,6 +697,7 @@ Partial Class frmEmployeeManager
         Me.gbEmployeeDetails.PerformLayout()
         CType(Me.pbEmployeePic, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvExportList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -644,4 +734,7 @@ Partial Class frmEmployeeManager
     Friend WithEvents switchEmployeeStatus As Bunifu.Framework.UI.BunifuSwitch
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtSearch As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents dgvExportList As Bunifu.Framework.UI.BunifuCustomDataGrid
+    Friend WithEvents BunifuFlatButton1 As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 End Class

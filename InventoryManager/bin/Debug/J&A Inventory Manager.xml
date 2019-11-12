@@ -82,6 +82,16 @@ J&A Inventory Manager
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InventoryManager.My.Resources.Resources.icons8_about_50">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventoryManager.My.Resources.Resources.icons8_about_500">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventoryManager.My.Resources.Resources.image_not_available_male">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

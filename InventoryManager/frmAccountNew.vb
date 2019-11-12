@@ -8,6 +8,9 @@ Public Class frmAccountNew
         frmMenu.Enabled = True
     End Sub
 
+    Private Sub frmAccountNew_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 
     Dim role As String
     Private Sub InitializeFlags()
