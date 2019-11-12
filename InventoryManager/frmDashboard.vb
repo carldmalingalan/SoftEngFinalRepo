@@ -8,29 +8,53 @@ Public Class frmDashboard
 
     Private Sub LoadCharts()
         Call ConnectTOSQLServer()
-        strSQL = "select count(TransactionID) as CategoryCount, [Service Category] from vw_ServiceDashboardCount group by [Service Category]"
-        dataadapter = New SqlDataAdapter(strSQL, Connection)
-        Dim ds As New DataSet
-        Dim oCmd1 As New SqlCommand(strSQL, Connection)
-        dataadapter.Fill(ds, "vw_ServiceDashboardCount")
-        chartCategories.DataSource = ds.Tables("vw_ServiceDashboardCount")
-        Dim Series1 As Series = chartCategories.Series("Series1")
-        Series1.Name = "Service Type"
-        chartCategories.Series(Series1.Name).XValueMember = "Service Category"
-        chartCategories.Series(Series1.Name).YValueMembers = "CategoryCount"
-        Console.WriteLine(strSQL)
-        strSQL = "select count(TransactionID) as CountofTransactions, Fullname from vw_EmployeeServiceCountDashboard group by Fullname"
-        dataadapter = New SqlDataAdapter(strSQL, Connection)
-        Dim ds1 As New DataSet
-        Dim oCmd As New SqlCommand(strSQL, Connection)
-        dataadapter.Fill(ds1, "vw_EmployeeServiceCountDashboard")
-        Console.WriteLine(strSQL)
-        chartEmployeeTransactions.DataSource = ds1.Tables("vw_EmployeeServiceCountDashboard")
-        Dim Series2 As Series = chartEmployeeTransactions.Series("Series2")
-        Series2.Name = "Employee Transactions"
-        chartEmployeeTransactions.Series(Series2.Name).XValueMember = "Fullname"
-        chartEmployeeTransactions.Series(Series2.Name).YValueMembers = "CountofTransactions"
+        strSQL = "select count(TransactionID) as CategoryCount, [Service Category] from vw_ServiceDashboardCount where Date between '" & dtpDateFrom.Value.ToString("yyyy-MM-dd") & "' and '" & dtpDateTO.Value.ToString("yyyy-MM-dd") & "' group by [Service Category]"
+        Dim da1 As New SqlDataAdapter(strSQL, Connection)
+        Dim ds1 As New DataSet()
+        da1.Fill(ds1, "x")
+        chartCategories.ChartAreas(0).AxisX.Interval = 1
+        chartCategories.Series("Series1").XValueMember = "Employee Assigned"
+        chartCategories.Series("Series1").YValueMembers = "count"
+        chartCategories.BorderSkin.BackColor = Color.AliceBlue
+        chartCategories.DataSource = ds1.Tables("x")
+        chartCategories.DataBind()
+
+
+
+        strSQL = "select Count(transactionNumber) as count, [Employee Assigned] from (select * from (SELECT TransactionNumber,cast(TransactionDate as date) as Date,RIGHT(CONVERT(VARCHAR, TransactionDate, 100),7) as [Time], [Customer Name], [Service/s Availed] = STUFF((SELECT DISTINCT ', ' + [Service] FROM vw_TransactionsListing b WHERE b.TransactionNumber = a.TransactionNumber FOR XML PATH('')), 1, 2, ''), [Employee Assigned] FROM vw_TransactionsListing a GROUP BY TransactionNumber,TransactionDate, [Customer Name], [Employee Assigned]) c ) x where Date between '" & dtpDateFrom.Value.ToString("yyyy-MM-dd") & "' and '" & dtpDateTO.Value.ToString("yyyy-MM-dd") & "' group by [Employee Assigned]"
+        Dim da As New SqlDataAdapter(strSQL, Connection)
+        Dim ds As New DataSet()
+        da.Fill(ds, "x")
+
+
+        chartEmployeeTransactions.ChartAreas(0).AxisX.Interval = 1
+        chartEmployeeTransactions.Series("Series1").XValueMember = "Employee Assigned"
+        chartEmployeeTransactions.Series("Series1").YValueMembers = "count"
+        chartEmployeeTransactions.BorderSkin.BackColor = Color.AliceBlue
+        chartEmployeeTransactions.DataSource = ds.Tables("x")
+        chartEmployeeTransactions.DataBind()
+
+        strSQL = "select count(*) from (select * from (SELECT TransactionNumber,cast(TransactionDate as date) as Date,RIGHT(CONVERT(VARCHAR, TransactionDate, 100),7) as [Time], [Customer Name], [Service/s Availed] = STUFF((SELECT DISTINCT ', ' + [Service] FROM vw_TransactionsListing b WHERE b.TransactionNumber = a.TransactionNumber FOR XML PATH('')), 1, 2, ''), [Employee Assigned] FROM vw_TransactionsListing a GROUP BY TransactionNumber,TransactionDate, [Customer Name], [Employee Assigned]) c ) x where Date between '" & dtpDateFrom.Value.ToString("yyyy-MM-dd") & "' and '" & dtpDateTO.Value.ToString("yyyy-MM-dd") & "' group by [Employee Assigned]"
+        cmd = New SqlCommand(strSQL, Connection)
+        reader = cmd.ExecuteReader()
+        While reader.Read()
+            lblTotalTransactions.Text = reader.GetString(0)
+        End While
+
+
+
         Call DisConnectSQLServer()
     End Sub
 
+    Private Sub chartEmployeeTransactions_Click(sender As Object, e As EventArgs) Handles chartEmployeeTransactions.Click
+
+    End Sub
+
+    Private Sub dtpDateFrom_ValueChanged(sender As Object, e As EventArgs) Handles dtpDateFrom.ValueChanged
+        dtpDateTO.MinDate = dtpDateFrom.Value
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Call LoadCharts()
+    End Sub
 End Class

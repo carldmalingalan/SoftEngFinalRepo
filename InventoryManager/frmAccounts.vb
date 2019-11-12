@@ -156,9 +156,6 @@ Public Class frmAccounts
         ExportExcel(dgvUserList)
     End Sub
 
-
-
-
     Private Sub btnExportPdf_Click(sender As Object, e As EventArgs) Handles btnExportPdf.Click
         SaveFileDialog1.FileName = ""
         If SaveFileDialog1.ShowDialog = DialogResult.OK Then

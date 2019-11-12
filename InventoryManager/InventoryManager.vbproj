@@ -194,6 +194,12 @@
     <Compile Include="frmInventory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmInventoryItemLogs.Designer.vb">
+      <DependentUpon>frmInventoryItemLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventoryItemLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSearchItemCheckout.Designer.vb">
       <DependentUpon>frmSearchItemCheckout.vb</DependentUpon>
     </Compile>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventoryItemLogs.resx">
+      <DependentUpon>frmInventoryItemLogs.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearchItemCheckout.resx">
       <DependentUpon>frmSearchItemCheckout.vb</DependentUpon>
@@ -518,6 +527,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon salon_0`.ico" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\pdf.png" />
     <None Include="Resources\excel.png" />
     <None Include="Resources\icons8-about-500.png" />

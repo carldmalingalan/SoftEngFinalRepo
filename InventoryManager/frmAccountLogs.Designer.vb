@@ -70,7 +70,7 @@ Partial Class frmAccountLogs
         Me.dtpDate.Location = New System.Drawing.Point(23, 110)
         Me.dtpDate.MinimumSize = New System.Drawing.Size(0, 29)
         Me.dtpDate.Name = "dtpDate"
-        Me.dtpDate.Size = New System.Drawing.Size(216, 29)
+        Me.dtpDate.Size = New System.Drawing.Size(235, 29)
         Me.dtpDate.TabIndex = 1
         '
         'Label1

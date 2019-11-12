@@ -20,7 +20,7 @@ Public Class frmTransactions
 
     Private Sub viewTransactions()
         Call ConnectTOSQLServer()
-        strSQL = "SELECT TransactionNumber,convert(varchar,TransactionDate,101) as [Date],RIGHT(CONVERT(VARCHAR, TransactionDate, 100),7) as [Time], [Customer Name], [Service/s Availed] = STUFF((SELECT DISTINCT ', ' + [Service] FROM vw_TransactionsListing b WHERE b.TransactionNumber = a.TransactionNumber FOR XML PATH('')), 1, 2, ''), [Employee Assigned] FROM vw_TransactionsListing a where convert(varchar,TransactionDate,101) = '" & dtpTransactionDate.Value.ToString("MM/dd/yyyy") & "' GROUP BY TransactionNumber,TransactionDate, [Customer Name], [Employee Assigned]"
+        strSQL = "select * from (SELECT TransactionNumber,cast(TransactionDate as date) as Date,RIGHT(CONVERT(VARCHAR, TransactionDate, 100),7) as [Time], [Customer Name], [Service/s Availed] = STUFF((SELECT DISTINCT ', ' + [Service] FROM vw_TransactionsListing b WHERE b.TransactionNumber = a.TransactionNumber FOR XML PATH('')), 1, 2, ''), [Employee Assigned] FROM vw_TransactionsListing a GROUP BY TransactionNumber,TransactionDate, [Customer Name], [Employee Assigned]) c where Date between '" & dtpTransactionDate.Value.ToString("yyyy-MM-dd") & "' and '" & dtpDateTo.Value.ToString("yyyy-MM-dd") & "'"
         Console.WriteLine(strSQL)
         dataadapter = New SqlDataAdapter(strSQL, Connection)
         Dim TransactionList As New DataSet()
@@ -54,9 +54,6 @@ Public Class frmTransactions
         End If
     End Sub
 
-    Private Sub dtpTransactionDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpTransactionDate.ValueChanged
-        Call viewTransactions()
-    End Sub
 
     Private Sub frmTransactions_EnabledChanged(sender As Object, e As EventArgs) Handles MyBase.EnabledChanged
         frmTransactions_Load(sender, e)
@@ -96,5 +93,13 @@ Public Class frmTransactions
             Dim txt As String = SaveFileDialog1.FileName & ".pdf"
             Call ExporttoPDF(txt, dgvTransactionsList)
         End If
+    End Sub
+
+    Private Sub dtpTransactionDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpTransactionDate.ValueChanged
+        dtpDateTo.MinDate = dtpTransactionDate.Value
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Call viewTransactions()
     End Sub
 End Class

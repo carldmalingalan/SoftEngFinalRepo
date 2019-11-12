@@ -60,6 +60,10 @@ Public Class frmInventory
         End If
     End Sub
 
+    Private Sub dgvItemList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellContentClick
+
+    End Sub
+
     Private Sub cardInStock_Paint(sender As Object, e As EventArgs) Handles cardInStock.Click, lblActiveCount.Click
         cond = " where Quantity <> '0'"
         Call viewItemList_reload()
@@ -124,5 +128,18 @@ Public Class frmInventory
         lblOutofstock.Text = outstock
         lblCritCount.Text = critstock
         Call DisConnectSQLServer()
+    End Sub
+
+    Private Sub dgvItemList_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvItemList.CellDoubleClick
+        If (dgvItemList.Rows.Count >= 0) Then
+            Try
+                selectedRow = e.RowIndex
+                itemID = dgvItemList.Rows(selectedRow).Cells(0).Value()
+                Dim ab As New frmInventoryItemLogs
+                ab.lblQuantity.Text = dgvItemList.Rows(selectedRow).Cells(3).Value
+                ab.ShowDialog()
+            Catch ex As Exception
+            End Try
+        End If
     End Sub
 End Class
